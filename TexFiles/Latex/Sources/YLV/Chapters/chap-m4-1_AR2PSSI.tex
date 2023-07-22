@@ -1,0 +1,37 @@
+
+
+\section{Construction de la Politique de sécurité du système d'information}
+
+\subsection{Politique générale de sécurité}
+
+La politique de sécurité générale (PSG) est généralement basée sur l'architecture de l'ISO/EIC 27001, et donne le cadre général de conformité pour les projets, les organisations sous-jacentes (divisions, filiales), les produits ainsi que l'organisation des responsabilités.
+
+Cette PSG est déclinée en différentes politiques de sécurité par secteurs (souvent structurées par les chapitres de l'ISO/EIC 27001)
+
+\begin{itemize}
+	\item IAM
+	\item Filtrage et sécurité périmétrique
+	\item Détection et rémédiation
+	\item continuité d'activité
+\end{itemize}
+	
+
+\subsection{Comment passe t-on de l’analyse de risques à une PSSI ?}
+
+Inputs AR --> identification des biens à protéger \& à intégrer dans la politique de sécurité
+
+
+\subsection{Exemples de chapitres de PSSI}
+\begin{itemize}
+    \item Gestion de l’administration des équipements
+    \begin{itemize}
+        \item protocoles d’accès autorisés
+        Seuls les protocoles d'accès sécurisés type SSHv3 ou via une solution HTTPs avec certificats générés par l'IGC (Infrastructure de gestion de clés) de l'entreprise
+        L'accès aux machines via le protocole RDP (Remote Desktop Protocol de Microsoft) est soumis à conditions (accès Interne uniquement et via un réseau d'administration dédié)
+        Sont bannis les protocoles de type TELNET
+        \item protocole et méthode de supervision autorisés
+        Seuls sont autorisés les protocoles de supervision de type SNMPv3 respectant les configurations décrites dans la documentation dédiée (utilisation de certificats par exemple).
+    \end{itemize}
+    \item Politique de mot de passe
+    \item Gestion des fournisseurs
+\end{itemize}

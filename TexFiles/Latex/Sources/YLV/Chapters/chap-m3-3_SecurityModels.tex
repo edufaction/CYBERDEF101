@@ -1,0 +1,35 @@
+
+
+\section{Modèles de sécurité et technologies de sécurité protectrices}
+\subsection{Château fort (Firewall, Proxy, anti DDoS), cloisonnement, accès admin dédié}
+\subsubsection{Château fort}
+•	En s’appuyant sur un schéma global, notion de DMZ externe, DMZ interne, illustration des flux entrant et sortant, positionnement de composants clés : proxy, serveurs, middleware, sondes, etc.
+•	Cloisonnement
+•	Accès admin – réseau dédié
+•	Accès partenaires (VPN), flux vers Cloud, etc.
+\subsubsection{Firewall}
+Filtrage en entrée, flux autorisés sont ceux connus et validé dans la politique de sécurité implémentée sur le firewall
+o	Historiquement : stateless (ACL CISCO), puis statefull, puis next Gen (jusqu’à la couche applicative)
+o	Stateless : exemple d’une ACL CISCO, associée à du NAT, i.e. définition du NAT avec le besoin (visibilité extérieure, gestion des adresses IP, pénurie, etc.) \& le comment (Schéma)
+o	Statefull UDP/TCP mainly
+o	Next Gen (L7, déchiffrement, proxy, voire IDP, DLP, etc.)
+\subsubsection{Proxy et Reverse Proxy}
+Schéma Proxy (firewall applicatif), lié à de l’authentification, antivirus, URL Filtering
+Schéma ReverseProxy, rupture protocolaire, protection serveur, réécriture, LB , WAF
+\subsection{sondes de détection (IDS/IDP)}
+Schéma sondes, positionnement dans l’architecture
+Rôle : détection ou coupure, quid des flux chiffrés ?
+\subsection{IAM , ZeroTrust, Bastion, VPN SSL, NAC}
+\subsubsection{IAM}
+Déf IAM, process ET procédures
+\subsubsection{Zerotrust}
+: pkoi ? et comment ?
+\subsubsection{Bastion}
+: schema, fonctions
+\subsubsection{VPN SSL}
+: schema, functions 
+\subsubsection{NAC}
+: schema, fonctions
+\subsection{Multi Cloud - CASB}
+Schémas , mix cloud pub et cloud privé, positionnement du CASB (fonction/pkoi)
+

@@ -13,3 +13,4 @@
 % Cnam : {160,0,0} 
 
 \definecolor{uMainColor}{RGB}{255,121,0}
+\definecolor{uCoverColor}{RGB}{0,0,0}

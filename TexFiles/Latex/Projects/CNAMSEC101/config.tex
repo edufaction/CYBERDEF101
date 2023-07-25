@@ -9,11 +9,11 @@
 
 %----------------------------
 % Path
-\newcommand{\upath}{Latex}
-
-\newcommand{\utemplatepath}{Latex/Templates/Magic}
-\newcommand{\utemplatetheme}{cnam} % MAGIC TEMPLATE Var
-\newcommand{\uproject}{CNAMSEC101}
+\def\upath{Latex}
+\input{Latex/Templates/Magic/init.tex}
+\def\utemplatetheme{orange}
+\def\ubeamermodel{ufg}
+\def\uproject{CNAMSEC101}
 
 
 \newcommand{\upictureext}{pdf}
@@ -27,19 +27,11 @@
 
 \newcommand{\udescription}{La sécurité opérationnelle au coeur de la cyberdéfense d'entreprise}
 
-\newcommand{\uCnam}{Conservatoire National des Arts et Métiers}
-\newcommand{\uOCD}{Orange Campus Cyber}
-\newcommand{\uauthor}{Eric DUPUIS}
-\newcommand{\uauthorwriter}{edufaction}
-\newcommand{\uproa}{Enseignement sous la direction du Professeur Véronique Legrand, \uCnam, Paris, France}
-\newcommand{\uprob}{Directeur \uOCD}
-\newcommand{\umaila}{eric.dupuis@lecnam.net}
-\newcommand{\usitea}{http://www.cnam.fr}
-\newcommand{\usiteb}{http://www.orange.com}
-\newcommand{\umailb}{eric.dupuis@orange.com}
+\newcommand{\uUniversity}{Conservatoire National des Arts et Métiers}
+\newcommand{\uCompany}{Orange Campus Cyber}
  %\newcommand{\uJournalInfo}{CNAM Bretagne, Cybersécurité SEC101, eduf@ction}
 \newcommand{\uinstituteshort}{CNAM}
-\newcommand{\uinstitute}{\uCnam}
+\newcommand{\uinstitute}{\uUniversity}
 \newcommand{\uchaire}{Chaire de Cybersécurité}
 \newcommand{\uversion}{Cnam Bretagne}
 
@@ -69,7 +61,7 @@
 %%----------------------------
 %% Spécifique BOOK
 % %----------------------------
-\newcommand{\printer}{Publication limitée pour le \uCnam \xspace et Orange Campus Cyber}
+\newcommand{\printer}{Publication limitée pour le \uUniversity \xspace et Orange Campus Cyber}
 
 %%----------------------------
 % Attention : Use hard coded Pictures Path

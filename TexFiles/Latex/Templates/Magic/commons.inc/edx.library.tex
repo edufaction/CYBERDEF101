@@ -3,7 +3,14 @@
 %===========================
 
 
+\def\utemplatepath{*}
+\def\utemplatetheme{*} % orange ou cnam
+\def\uproject{*} % nom du projet
 
-% Dans la figure~\ref{étiquette} page~\pageref{étiquette}, …
 
+% Chargement des éléments de l'auteur
+\newcommand{\setauthor}[1]
+{
+\input{Latex/Sources/#1/Author/identity.tex}
+}
 

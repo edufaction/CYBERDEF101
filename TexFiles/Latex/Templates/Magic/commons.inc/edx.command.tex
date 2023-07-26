@@ -270,7 +270,7 @@ title=#2,#1}
 \framesubtitle{#2}
 %\begin{figure}[!h] %h
   \begin{center}
-	 \includegraphics[height=0.95\textheight, width=0.95\textwidth, keepaspectratio ]{#1.pdf}
+	 \includegraphics[height=#3\textheight, width=#3\textwidth, keepaspectratio ]{#1.pdf}
   \end{center}
 %  \end{figure}
 }
@@ -525,35 +525,12 @@ title=#2,#1}
 %														\utodo 
 %-----------------------------------------------------
 
-  \newcommand{\utodo}{\begin{center}{\noindent \textcolor{cyan}{\faGears~{chapitre en cours de rédaction, DRAFT non publiable} \faGears}}\end{center}}
+  \newcommand{\utodo}{\begin{center}{\noindent \textcolor{cyan}{\faGears~{En cours de rédaction, DRAFT non publiable} \faGears}}\end{center}}
   
-    \newcommand{\utocomplete}{\begin{center}{\noindent \textcolor{blue}{\faClipboard~{chapitre à compléter, les éléments ne donnent qu'une vue trop réduite ou parcellaire du sujet}}}\end{center}}
+    \newcommand{\utocomplete}{\begin{center}{\noindent \textcolor{blue}{\faClipboard~{à compléter, les éléments ne donnent qu'une vue trop réduite ou trop parcellaire du sujet}}}\end{center}}
   
 
-  %{\noindent \textcolor{cyan} {\faRefreshs~Chapitre en cours de rédaction, à compléter}}
  
- %-----------------------------------------------------
-%														\Pframe 
-% Beamer Frame
-%-----------------------------------------------------
-
-
-%\newenvironment{Pframe}[1]{\mode<all>{\begin{frame}<presentation>\frametitle{#1}}{\end{frame}}}
-%
-%\newenvironment{Tframe}[1]{{\begin{frame}<presentation>\frametitle{#1}}{\end{frame}}
-%
-%
-%\newenvironment{Aframe}{\begin{frame}}{\end{frame}}
-%
-
-%\newcommand{\Aframetitle}[1]
-%{
-%\mode<presentation>{\frametittle{#1}}
-%}
-%
-
-
-
 
 
 

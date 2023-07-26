@@ -13,3 +13,31 @@ DC : salles, controles d’accès, caméras, vigiles, etc.
 VPN, chiffrement
 
 
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Règles techniques de sécurisation} % titre de la diapo
+{Hardening} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+ \begin{itemize}
+     \item IAM : PKI, MFA, journalisation, contrôles
+     \item Systèmes d'exploitation
+         \begin{itemize}
+             \item Hardening UNIX/WINDOWS
+             \item ACL, réseau admin dédié, supervision et administration via réseau chiffré
+             \item Exclusion services inutiles
+             \item Journaux d'événements
+             \item 80 --> 443
+        \end{itemize}
+     \item Matériel et Locaux (Data Center)
+        \begin{itemize}
+            \item Chiffrement, zone hardware dédiée (mémoire, voire carte dédiée), 
+            \item DC : salles, controles d’accès, caméras, vigiles, etc.
+        \end{itemize}
+     \item Réseaux : VPN, chiffrement
+ \end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------

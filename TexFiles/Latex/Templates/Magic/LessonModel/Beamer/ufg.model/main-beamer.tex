@@ -92,11 +92,19 @@
 \mode<all>{\setLayout{titlepage}}
 %================================
 \begin{frame}[plain]
-
-           
                  \titlepage
 \end{frame}
 %================================
+
+\mode<all>{\setLayout{vertical}}
+%================================
+\begin{frame}
+	\frametitle{Abstract}
+	\begin{techworkin} [righthand width=.6\textwidth]{\faCogs~\small {Hashtags} : \ukeywords}\uabstract
+	\end{techworkin}
+	\end{frame}
+%================================
+   
 
 \mode<all>{\setLayout{horizontal}}
 %================================
@@ -123,11 +131,7 @@
 \begin{frame}
 \frametitle{des questions ?}
 \framesubtitle{contacter \umaila}
-     \begin{figure}
-      \centering
-           \includegraphics[width=0.2\textwidth]{\utemplatepath/commons.inc/CommonsPictures/\utemplatetheme.theme/mainlogo.pdf}\\
- \end{figure}
-     \centering \textit{Tous les documents publiés dans le cadre de ce cours sont perfectibles, \\ne pas hésiter à m'envoyer vos remarques !}
+
 \end{frame}
 
 \mode<all>{\setLayout{vertical}}
@@ -142,10 +146,10 @@
     \begin{figure}
            \centering
            \includegraphics[width=0.9\textwidth]{Latex/Sources/EDU/Contribs/contribute/ContribPictures/github.pdf}\\
-                \includegraphics[width=0.9\textwidth]{Latex/Sources/EDU/Contribs/contribute/ContribPictures/overleaf.pdf}
+                \includegraphics[width=0.9\textwidth]{Latex/Sources/EDU/Contribs/contribute/ContribPictures/overleaf.png}
  \end{figure}
 \end{column}
-\begin{column}{0.9\textwidth}
+\begin{column}{0.8\textwidth}
            \input{Latex/Sources/EDU/Contribs/contribute/contrib-gen.tex}
 \end{column}
 \end{columns}

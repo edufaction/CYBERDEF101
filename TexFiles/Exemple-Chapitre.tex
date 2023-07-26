@@ -27,7 +27,36 @@
 
 
 
-\mode<all>{\input{Latex/Projects/CYBERDEF101/YLV/include-Chapitre4}}
+\mode<all>{\input{EDIT-CYBERDEF101/Latex/Projects/CYBERDEF101/YLV/include-Chapitre4}}
 
 
 \end{document}
+
+
+%Begin FRAME----------------------------
+\mode<all>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Titre} % titre de la diapo
+{Soustitre} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+	Contenu du texte ce que l'on veut comme par exemple
+ \begin{itemize}
+    \item Item de base
+    \item un deuxieme item
+ \end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+
+%Begin PICFRAME------------------------
+\mode<all>{\picframe
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Latex/Sources/YLV/Pictures/img-crypto1}% PDF image sans extension
+{texte image} % texte sous l'image en article
+{0.5} % echelle
+{LabelImage} % label de référence
+}
+%End PICFRAME--------------------------

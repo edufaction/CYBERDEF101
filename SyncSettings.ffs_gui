@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FreeFileSync XmlType="GUI" XmlFormat="19">
+    <Notes/>
+    <Compare>
+        <Variant>TimeAndSize</Variant>
+        <Symlinks>Exclude</Symlinks>
+        <IgnoreTimeShift/>
+    </Compare>
+    <Synchronize>
+        <Variant>Update</Variant>
+        <DetectMovedFiles>true</DetectMovedFiles>
+        <DeletionPolicy>RecycleBin</DeletionPolicy>
+        <VersioningFolder Style="Replace"/>
+    </Synchronize>
+    <Filter>
+        <Include>
+            <Item>*</Item>
+        </Include>
+        <Exclude>
+            <Item>*/._*</Item>
+            <Item>*/.DocumentRevisions-V100/</Item>
+            <Item>*/.DS_Store</Item>
+            <Item>*/.fseventsd/</Item>
+            <Item>*/.Spotlight-V100/</Item>
+            <Item>*/.TemporaryItems/</Item>
+            <Item>*/.Trashes/</Item>
+            <Item>*.texpadtmp</Item>
+        </Exclude>
+        <SizeMin Unit="None">0</SizeMin>
+        <SizeMax Unit="None">0</SizeMax>
+        <TimeSpan Type="None">0</TimeSpan>
+    </Filter>
+    <FolderPairs>
+        <Pair>
+            <Left>/Users/fcdw3504/Documents/GitHub/WorkCDEF101Init/EDIT-CYBERDEF101</Left>
+            <Right>/Users/fcdw3504/Documents/GitHub/CYBERDEF101/TexFiles</Right>
+        </Pair>
+    </FolderPairs>
+    <Errors Ignore="false" Retry="0" Delay="5"/>
+    <PostSyncCommand Condition="Completion"/>
+    <LogFolder/>
+    <EmailNotification Condition="Always"/>
+    <GridViewType>Action</GridViewType>
+</FreeFileSync>

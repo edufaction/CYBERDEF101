@@ -1,4 +1,4 @@
-\documentclass[ignorenonframetext,allowframebreaks,aspectratio=169,t,8pt, xcolor=table]{beamer}
+\documentclass[ignorenonframetext,allowframebreaks,aspectratio=169,t,9pt, xcolor=table]{beamer}
 \usepackage[utf8]{inputenc}
 
 \usepackage{booktabs} 
@@ -38,7 +38,7 @@
 %  - again first a short version to be displayed at the bottom;
 %  - next the full list of authors, which may include contact information;
 
-\author[\uauthorwriter]{ \LARGE{\uauthor} \\ \medskip {\small \url{\umaila} \and \url{\umailb}\\ {\small \url{\usitea}}}}
+\author[\uauthorwriter]{ \large{\uauthor} \\ \medskip {\small \url{\umaila} \and \url{\umailb}\\ {\small \url{\usitea}}}}
 
 %-------------------------------------------------------
 % The institute:
@@ -73,7 +73,7 @@
 %----------------------- Primary Definitions -----------------%
 
 % This command set the default Color, is also possible to choose a custom color
-\setPrimaryColor{uMainColor} 
+\setPrimaryColor{uCoverColor} 
 
 % First one is logo in title slide (we recommend use a horizontal image), and second one is the logo used in the remaining slides (we recommend use a square image)
 \setLogos {\utemplatepath/LessonModel/Beamer/BeamerPictures/\utemplatetheme.theme/ufg/logos/infw.png} {\utemplatepath/LessonModel/Beamer/BeamerPictures/\utemplatetheme.theme/ufg/logos/infw2.png} 
@@ -145,12 +145,12 @@
 
     \begin{figure}
            \centering
-           \includegraphics[width=0.9\textwidth]{Latex/Sources/EDU/Contribs/contribute/ContribPictures/github.pdf}\\
-                \includegraphics[width=0.9\textwidth]{Latex/Sources/EDU/Contribs/contribute/ContribPictures/overleaf.png}
+           \includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/Contribs/contribute/ContribPictures/github.pdf}\\
+                \includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/Contribs/contribute/ContribPictures/overleaf.png}
  \end{figure}
 \end{column}
 \begin{column}{0.8\textwidth}
-           \input{Latex/Sources/EDU/Contribs/contribute/contrib-gen.tex}
+           \input{../Latex/Sources/EDU/Contribs/contribute/contrib-gen.tex}
 \end{column}
 \end{columns}
 \end{frame}

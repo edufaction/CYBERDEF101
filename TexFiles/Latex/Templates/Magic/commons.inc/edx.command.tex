@@ -37,7 +37,7 @@
 \newcommand\head[1]{\textbf{#1}}
 \newcommand\tb[1]{\textbf{#1}}
 \newcommand{\g}[1]{\og #1 \fg{}}
-\newcommand{\uload}[1] {\input{Latex/#1}}
+\newcommand{\uload}[1] {\input{../Latex/#1}}
 \newcommand{\ucurcolor}{black}
 
 \newcommand{\mak}[1]{\faicon{\aArrowCircleORight} #1}
@@ -81,7 +81,7 @@
 \newcommand{\upspicture}[3]
 {
 \renewcommand{\ucurcolor}{#3}
-\resizebox{#2\textwidth}{!}{\input{#1}}
+\resizebox{#2\textwidth}{!}{\input{../#1}}
 }
 
 
@@ -103,7 +103,7 @@
 
 \newcommand{\includer}[1]
 {
-\input{Latex/Sources/EDU/Chapters/#1}
+\input{../Latex/Sources/EDU/Chapters/#1}
 }
 
 %-----------------------------------------------------
@@ -194,11 +194,11 @@ title=#2,#1}
 
 \newcommand{\toolsbox}[2]
 {
-\input{Latex/Sources/EDU/SecComponents/#2.#1/datas.tex} 
+\input{../Latex/Sources/EDU/SecComponents/#2.#1/datas.tex} 
 \begin{toolsboxin}[sidebyside,righthand width=.7\textwidth]{#1}
-\includegraphics[width=0.9\textwidth]{Latex/Sources/EDU/SecComponents/#2.#1/icon.png} \\
+\includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/SecComponents/#2.#1/icon.png} \\
 \tcblower
-\input{Latex/Sources/EDU/SecComponents/#2.#1/description.tex}
+\input{../Latex/Sources/EDU/SecComponents/#2.#1/description.tex}
 \end{toolsboxin}
 \noindent \small {\faCogs~Classe : \uppercase{\textbf{#2}}, Site de référence : \textbf{\ulink{\toolurl}{#1}}}
 \newline
@@ -240,7 +240,7 @@ title=#2,#1}
 %											\uexpand
 %---------------------------------------------------
 \newcommand {\uexpand}[1]{
-\mode<all>\input{Latex/Sources/EDU/Chapters/#1}
+\mode<all>\input{../Latex/Sources/EDU/Chapters/#1}
 }
 
 
@@ -481,7 +481,7 @@ title=#2,#1}
 {
 \begin{wrapfigure}{R}{#3\textwidth}
   \begin{center}
-	 \resizebox{#3\textwidth}{!}{\input{#1.tkz.tex}}
+	 \resizebox{#3\textwidth}{!}{\input{../#1.tkz.tex}}
   \end{center}
 \caption{#2}
 \end{wrapfigure}

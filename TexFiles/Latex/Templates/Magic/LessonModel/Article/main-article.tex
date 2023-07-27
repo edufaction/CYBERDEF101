@@ -33,7 +33,7 @@
 %	BIBLIOGRAPHY
 %-------------------------------------------------
 
-\addbibresource{Latex/Sources/commons/bibliography.bib} % BibTeX bibliography file
+\addbibresource{../Latex/Sources/commons/bibliography.bib} % BibTeX bibliography file
 \defbibheading{bibempty}{}
 
 %-------------------------------------------------
@@ -58,7 +58,7 @@
 %	ARTICLE INFORMATION
 %-------------------------------------------------
 
-\Abstract {\uabstract\input{Latex/Projects/\uproject/Lessons/Commons/abstract-gen-lesson.tex} }
+\Abstract {\uabstract\input{../Latex/Projects/\uproject/Lessons/Commons/abstract-gen-lesson.tex} }
 \JournalInfo{\uJournalInfo} % Journal information
 \Archive{Notes de cours éditées le  \DTMnow} % Additional notes (e.g. copyright, DOI, review/research article)
 \PaperTitle{\utitle} % Article title
@@ -121,13 +121,5 @@
 \Ucontribute % Contribution TEXT
 %-------------------------------------------------
 
-
-%-------------------------------------------------
-	\newpage
-	\tableofcontents  % TOC
-	\iftotalfigures
-  			\listoffigures
-	\fi
-%-------------------------------------------------
 
 \end{document}

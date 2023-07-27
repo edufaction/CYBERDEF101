@@ -5,18 +5,25 @@
 %-----------------------------------------------
 
 % just used for quick access to samples on project editing tool
-%\input{Latex/Projects/CNAMSEC101/Lessons/Commons/edxsamples.tex}
+%\input{../Latex/Projects/CNAMSEC101/Lessons/Commons/edxsamples.tex}
 
 %----------------------------
 % Path
-\def\upath{Latex}
+\def\upath{../Latex}
 
  %----------------------------
  % TEMPLATE, THEME, & Beamer Model
-\input{Latex/Templates/Magic/init.tex}
+\input{../Latex/Templates/Magic/init.tex}
 \def\utemplatetheme{orange}
 \def\uproject{CYBERDEF101}
-\def\ubeamermodel{edx}
+\def\ubeamermodel{ufg}
+
+
+%-------------------------------
+% Parametres locaux des noms pour les fichiers de configs Courses, Book et Lessons
+\newcommand*{\localcoursename}{CYBERDEF101}
+\newcommand*{\localcourseinstitute}{Orange CyberSchool}
+\newcommand*{\localcoursetitle}{Eléments de cybersécurité d'entreprise}
 
 %\setbreakpage{}
 
@@ -27,26 +34,26 @@
  
  %\setcounter{cntx}{\year+1}
 \newcommand{\INFODistrib}{Eléments de cours}
-\newcommand{\uJournalInfo}{Orange CyberSchool, Direction Sécurité}
+\newcommand{\uJournalInfo}{\localcourseinstitute, Direction de la formation}
 
-\newcommand{\udescription}{Eléments de cybersécurité d'entreprise}
+\newcommand{\udescription}{}
 
 
 
  %\newcommand{\uJournalInfo}{CNAM Bretagne, Cybersécurité SEC101, eduf@ction}
 
-\newcommand{\uinstituteshort}{ECYBER}
-\newcommand{\uinstitute}{Ecole CYBER d'Orange}
+\newcommand{\uinstituteshort}{\localcourseinstitute}
+\newcommand{\uinstitute}{\localcourseinstitute}
 \newcommand{\uchaire}{Direction technique \& scientifique}
 \newcommand{\uversion}{COURS INTERNE}
 
 %----------------------------
 % All other variables are defined in
  % file : *.lesson.tex
-\newcommand{\ushorttitle}{CYBERDEF101}
-\newcommand{\uCoursetittle}{CYBERDEF101}
-\newcommand{\uMinilogo}{Cyberdef101 Orange}
-\newcommand{\uCourseLongName} {Eléments de cybersécurité d'entreprise}
+\newcommand{\ushorttitle}{\localcoursename}
+\newcommand{\uCoursetittle}{\localcoursename}
+\newcommand{\uMinilogo}{\localcoursename Orange}
+\newcommand{\uCourseLongName} {\localcoursetitle}
 %\newcommand{\utitle}{Cyberdéfense d'entreprise}
 
 %----------------------------
@@ -55,19 +62,19 @@
 % Use "e document' "e cours"
 \newcommand{\edoc}{e document\xspace}
 \newcommand{\ecours}{e cours\xspace} 
-\newcommand{\etitle}{Eléments de cybersécurité d'entreprise} 
+\newcommand{\etitle}{\localcoursetitle} 
 \newcommand{\fichetech}{une fiche TECHNO}
 
 
 %%----------------------------
 %% Spécifique BOOK
 % %----------------------------
-\newcommand{\printer}{Publication limitée pour  \uUniversity \xspace}
+\newcommand{\printer}{Publication limitée pour  \uinstitute \xspace}
 
 %%----------------------------
 % Attention : Use hard coded Pictures Path
 % (PicframeS)
-\newcommand{\picpath}{Latex/Sources/EDU/Pictures}
+\newcommand{\picpath}{../Latex/Sources/EDU/Pictures}
 %-------------------------------------------------------------
 
 %%----------------------------
@@ -77,7 +84,10 @@
 \newcommand {\parttitlecourse}{TITRE PARTIE (config)}
 \newcommand{\coursenumber}{1}
 
+\newcommand{\ucourseresume}{\normalsize Aborder la sécurité des systèmes d’information sous l’angle d'une sécurité dynamique est un axe qui depuis quelques années apporte de nouvelle manière d’aborder la protection, la défense, et la résilience des systèmes d’information. La transformation digitale de l'entreprise modifie et rend plus flous les périmètres des systèmes d’informations. Cela nécessite une approche élargie du risque numérique et des nouvelles architectures de systèmes d'information intégrant des technologies de cloud et de cyberdefense. Malgré la mise en place de mesures et de technologies de protection de plus en plus élaborées, l'impact d'une attaque ayant franchi ces frontières poreuses à considérablement augmenté.  Cette compilation des notes de cours élaborée dans le cadre d'un cours d'introduction à la cybersécurité et la cyberdéfense d'entreprise aborde les grands éléments fondamentaux permettant d'appréhender le domaine. Il permet d'en comprendre les enjeux, les codes, et acteurs. Protéger l'ensemble de l'entreprise alors qu'il est complexe de définir ses frontières est illusoire. Identifier les actifs essentiels ou vitaux et mettre en place les moyens adaptés à leur protection et leur défense est une démarche tactique qui permet de graduellement réduire ses cyber-risques tout en assurant un pilotage globale de la gouvernance de la sécurité sur ses volets de conformité.}
+
+
 \newcommand{\uGlossaryAcronyms}{
-\loadglsentries{Latex/Sources/commons/acronymes.tex}
-\loadglsentries{Latex/Sources/commons/glossaire.tex}
+\loadglsentries{..Latex/Sources/commons/acronymes.tex}
+\loadglsentries{..Latex/Sources/commons/glossaire.tex}
 }

@@ -1,35 +1,254 @@
-
-
 \section{Modèles de sécurité et technologies de sécurité protectrices}
 \subsection{Château fort (Firewall, Proxy, anti DDoS), cloisonnement, accès admin dédié}
 \subsubsection{Château fort}
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
+{Château fort} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+  
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+%Begin PICFRAME------------------------
+\mode<all>{\picframe
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{../Latex/Sources/YLV/Pictures/chateaufort}% PDF image sans extension
+{Château fort} % texte sous l'image en article
+{0.7} % echelle
+{LabelImage} % label de référence
+}
+%End PICFRAME--------------------------
 •	En s’appuyant sur un schéma global, notion de DMZ externe, DMZ interne, illustration des flux entrant et sortant, positionnement de composants clés : proxy, serveurs, middleware, sondes, etc.
 •	Cloisonnement
 •	Accès admin – réseau dédié
 •	Accès partenaires (VPN), flux vers Cloud, etc.
-\subsubsection{Firewall}
-Filtrage en entrée, flux autorisés sont ceux connus et validé dans la politique de sécurité implémentée sur le firewall
-o	Historiquement : stateless (ACL CISCO), puis statefull, puis next Gen (jusqu’à la couche applicative)
-o	Stateless : exemple d’une ACL CISCO, associée à du NAT, i.e. définition du NAT avec le besoin (visibilité extérieure, gestion des adresses IP, pénurie, etc.) \& le comment (Schéma)
-o	Statefull UDP/TCP mainly
-o	Next Gen (L7, déchiffrement, proxy, voire IDP, DLP, etc.)
+\subsubsection{pare-feu}
+Définition (source ANSSI) :
+Un pare-feu (firewall), est un outil permettant de protéger un ordinateur connecté à un réseau ou à l’internet. Il protège d’attaques externes (filtrage entrant) et souvent de connexions illégitimes à destination de l’extérieur (filtrage sortant) initialisées par des programmes ou des personnes.
+
+Le pare-feu apporte la notion de filtrage dans la sécurité des réseaux et est une pierre angulaire de l'architecture de la sécurité de l'entreprise.
+Il assure le cloisonnement et la segmentation entre les sous-réseaux (Local Area Network ou LAN).
+L'ensemble des flux, autorisés ou non, entre ces sous-réseaux et autres réseaux externes (INTERNET, VPN partenaires, etc.) sont inscrits dans la politique de sécurité du pare-feu.
+
+Historique : 
+\begin{itemize}
+    \item stateless
+    \item statefull
+    \item Next generation
+\end{itemize}
+
+stateless (ACL CISCO), puis statefull, puis next Gen (jusqu’à la couche applicative)
+Stateless : exemple d’une ACL CISCO, associée à du NAT, i.e. définition du NAT avec le besoin (visibilité extérieure, gestion des adresses IP, pénurie, etc.) \& le comment (Schéma)
+Statefull UDP/TCP mainly
+Next Gen (L7, déchiffrement, proxy, voire IDP, DLP, etc.)
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
+{Firewall} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item stateless (Access Control List : ACL)
+    \item statefull
+    \item Next generation
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
 \subsubsection{Proxy et Reverse Proxy}
 Schéma Proxy (firewall applicatif), lié à de l’authentification, antivirus, URL Filtering
+Les équipements de type proxy permettent de sécuriser l'accès aux applicatifs.
+Ils sont en général utilisés pour accéder à Internet depuis le réseau de l'entreprise et donc applique un filtrage en sortie.
+L'autorisation des flux devra être aussi implémentée sur le pare-feu, par exemple:
+
+A) règle accès au proxy
+Source : LAN bureautique
+Destination : Adresse IP du proxy sur le réseau local
+Protocoles : HTTP, HTTPs
+Décision : ACCEPT
+
+b) règle de sortie du proxy
+Source : Proxy
+Destination : ANY
+Protocoles : HTTP, HTTPs
+Décision : ACCEPT
+
+Seul le proxy sera donc autorisé à se connecter aux serveurs distants.
+Plusieurs briques de sécurité peuvent être ajoutées sur le proxy, comme l'authentification des utilisateurs (jusqu'à la gestion via un annuaire), le filtrage des URL demandées ou encore des protections contre les fuites de données (Data Leak Protection : DLP).
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
+{Proxy} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+%Insérer schéma
+Schéma Proxy
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
 Schéma ReverseProxy, rupture protocolaire, protection serveur, réécriture, LB , WAF
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
+{Reverse Proxy} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+%Insérer schéma
+Schéma Reverse Proxy
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
 \subsection{sondes de détection (IDS/IDP)}
 Schéma sondes, positionnement dans l’architecture
 Rôle : détection ou coupure, quid des flux chiffrés ?
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
+{sondes de détection (IDS/IDP)} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+%Insérer schéma
+Schéma sondes de détection (IDS/IDP)
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
 \subsection{IAM , ZeroTrust, Bastion, VPN SSL, NAC}
 \subsubsection{IAM}
 Déf IAM, process ET procédures
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Gestion des identités : IAM} % titre de la diapo
+{Identity Access Management} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item Définition
+    \begin{itemize}
+        \item IAM (identity and access management)
+        \item IAG (identity access governance)
+        \item DAG (data access governance)
+        \item PAM (privileged access management)
+    \end{itemize}
+    \item Process
+    Gestion des identités - cycle de vie
+    \item Procédures
+    Contrôle des habilitations
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
 \subsubsection{Zerotrust}
 : pkoi ? et comment ?
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Zerotrust} % titre de la diapo
+{Identity Access Management} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item Définition
+    \item Exemples
+    Schéma ?
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+
 \subsubsection{Bastion}
 : schema, fonctions
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Bastion} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+schéma
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
 \subsubsection{VPN SSL}
 : schema, functions 
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{VPN SSL} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+schéma
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
 \subsubsection{NAC}
 : schema, fonctions
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{NAC} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item Définition
+    \item Exemples
+    Schéma ?
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
 \subsection{Multi Cloud - CASB}
 Schémas , mix cloud pub et cloud privé, positionnement du CASB (fonction/pkoi)
 
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Multi Cloud - CASB} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item Définition
+    \item Exemples
+    Schéma ?
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------

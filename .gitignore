@@ -1,6 +1,7 @@
 
 ## EDU
-
+TexFiles/Work*/*.pdf
+TexFiles/Prod.*/*.pdf
 .vscode
 TexFiles/.vscode
 .DS_Store

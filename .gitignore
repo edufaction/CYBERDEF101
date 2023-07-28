@@ -1,8 +1,11 @@
 
 ## EDU
 
+.vscode
+TexFiles/.vscode
 .DS_Store
 TexFiles/*.pdf
+SyncSettings.*
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

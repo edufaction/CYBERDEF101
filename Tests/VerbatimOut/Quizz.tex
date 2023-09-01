@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\usepackage{moodle}
+
+%\usepackage{environ}
+
+\usepackage{environ}
+
+\usepackage[active,generate=\jobname.quizz.tex, copydocumentclass=false,header=false, handles=false, extract-env={quiz}]{extract}
+
+\usepackage{comment}
+
+%\excludecomment{TheQuizz}\let\endTheQuizz\relax
+
+\begin{document}
+
+ceci est un document
+
+\begin{quiz}{My first quiz}
+\begin{multi}[points=3]{A first derivative}
+What is the first derivative of qds? 
+\item qmmlqksdmlkqd
+\item *mlqskdmlqskdmqlkd
+\item qsmdlqmlsdk
+\end{multi}
+\end{quiz}
+
+
+
+fin de document
+
+\end{document}

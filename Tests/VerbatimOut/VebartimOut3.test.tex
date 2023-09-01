@@ -1,0 +1,45 @@
+\documentclass[ignorenonframetext]{beamer}
+\usepackage{environ}
+
+\setbeamertemplate{note page}{\pagecolor{red!5}\insertnote}
+
+\setbeameroption{show notes}
+
+\newwrite\audioexport
+
+%\makeatletter
+%\NewEnviron{audioslide}{%
+%\toks@=\expandafter{\BODY}%
+%\immediate\write\myexport{\the\toks@}}
+%\makeatother
+
+\def\myID{UNID}
+
+\newcommand\audionote[2]{%
+  \note{#2}
+  \immediate\write\audioexport{==AudioSlide=============}
+  \immediate\write\audioexport{#1}
+  \immediate\write\audioexport{\insertframenumber}
+  \immediate\write\audioexport{---------------------------------}
+  \immediate\write\audioexport{#2}
+  \immediate\write\audioexport{---------------------------------}
+}
+
+\begin{document}
+\mode<all>\immediate\openout\audioexport=\jobname.txt
+
+\begin{frame}
+	Introduction
+\audionote{\myID}{ceci est une note}
+\end{frame}
+
+\begin{frame}
+\audionote{\myID 2}{frame 2}
+\end{frame}
+
+\audionote{\myID Out}{en dehors de frame}
+
+Ceci est du texte hors champs frame
+
+\mode<all>\immediate\closeout\audioexport
+\end{document}

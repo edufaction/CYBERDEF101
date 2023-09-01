@@ -1,0 +1,101 @@
+%\usepackage{unicode-math}
+\usepackage{fontspec}
+
+\newif\ifFONT\FONTfalse
+\def\userfont{}
+\def\userboldfont{}
+\DeclareOptionBeamer{font}{
+   \usefonttheme{default}
+   %\setsansfont{#1}
+   \def\userfont{#1}
+   \FONTtrue
+}
+
+% choose a different font for bold (needed, if a font has no bold font defined, as Lato (bold is a different font, LatoBold
+\newif\ifBOLDFONT\BOLDFONTfalse
+\DeclareOptionBeamer{boldfont}{
+   \def\userboldfont{#1}
+   \BOLDFONTtrue
+}
+
+\def\userfontscale{1}
+\DeclareOptionBeamer{scale}{
+   \def\userfontscale{#1}
+}
+
+\DeclareOptionBeamer{serif}[true]{
+  \ifFONT\else
+    \usefonttheme{serif}
+  \fi
+}
+
+\DeclareOptionBeamer{monofont}{
+   \setmonofont{#1}
+}
+
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+%\usefonttheme{serif}
+
+\ifFONT
+% font already set via option
+% \setmonofont[Scale=.8]{Liberation Mono}
+    \ifBOLDFONT
+	\setsansfont[Scale=\userfontscale,BoldFont=\userboldfont]{\userfont}
+    \else
+	\setsansfont[Scale=\userfontscale]{\userfont}
+    \fi
+%\setmathfont[range=\mathup/{num}]{\userfont}
+
+\else
+ \setsansfont{Helvetica Neue}
+ % play with other sans serif fonts
+ %\setsansfont{Lato}
+ %\setsansfont{Liberation Sans}
+ %\setsansfont{Linux Biolinum O}
+ %\setsansfont{DejaVu Sans} % cyrillic, greek
+ %\setsansfont{Ubuntu} % cyrillic, greek
+ %\setsansfont[Numbers={OldStyle,Proportional}]{TeX Gyre Adventor}
+
+
+ % fonts used in nologo mode
+ \setmainfont[Numbers={OldStyle,Proportional}]{Helvetica Neue} % georgian, cyrillic, greek
+ %\setmainfont{UnifrakturCook-Light}
+ %\setmainfont[BoldFont={Opus-Bold},ItalicFont={Opus-RegularItalic}]{Opus-Regular}
+ %\setmainfont[BoldFont={#2},ItalicFont={#3}]{#1}
+ %\setmainfont[Numbers={OldStyle,Proportional}]{Junicode}
+ %\setmainfont[Numbers={OldStyle,Proportional}]{Adobe Garamond Pro}
+ %\setmainfont{Liberation Serif}
+ %\setmainfont{FreeSerif}
+
+ %\setmonofont[Scale=.9]{Courier New}
+ %\setmonofont[Scale=.8]{Liberation Mono}
+
+% \setmathfont[range=\mathup/{num}]{Liberation Sans}
+\fi
+
+% does not work ?
+%\addfontfeatures{Numbers={OldStyle,Proportional}}
+
+%\setmathfont%[range=\mathit/{greek,Greek,latin,Latin}]{Latin Modern Math}
+%\setmathfont[range=\mathup/{greek,Greek,latin,Latin}]{Latin Modern Math}
+
+\setbeamerfont{newtitle}{size={\fontsize{33}{34}}, series=\bfseries}
+\setbeamerfont{newsubtitle}{size={\fontsize{16}{18}}, series=\bfseries}
+\setbeamerfont{newauthor}{size=\normalsize, series=\bfseries}
+\setbeamerfont{newdate}{size=\normalsize, series=\bfseries}
+\setbeamerfont{newinstitute}{size=\normalsize, series=\bfseries}
+
+\setbeamerfont{newurl}{size=\footnotesize}% , series=\bfseries}
+
+\setbeamerfont{title}{size={\fontsize{22}{26}}, series=\bfseries}
+\setbeamerfont{subtitle}{size={\fontsize{16}{18}}}
+\setbeamerfont{author}{size=\normalsize}
+\setbeamerfont{institute}{size=\normalsize}
+
+\setbeamerfont{frametitle}{size={\fontsize{18}{24}}, series=\bfseries}
+
+
+

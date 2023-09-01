@@ -14,7 +14,8 @@
 \documentclass[ pagesize=a4,
                headinclude=on,footinclude=on,11pt]{book}
 
-
+\usepackage{environ}
+\newwrite\audioexport
 %\input{../Latex/Projects/\uproject/Books/config-book.tex}
 
 
@@ -38,6 +39,7 @@
 \usepackage{titletoc} % Required for manipulating the table of contents
 
 \input{\utemplatepath/commons.inc/CommonsPictures/\utemplatetheme.theme/colors.inc}
+
 
 \input{\utemplatepath/commons.inc/edx.packages.tex}
 \input{\utemplatepath/commons.inc/edx.command.tex}
@@ -74,6 +76,7 @@
 
 %-------------------------------------------------------
 \begin{document}
+\mode<all>\immediate\openout\audioexport=\jobname.txt
 
 \AddToShipoutPicture{%
 \AtPageCenter{%
@@ -150,7 +153,8 @@
  %\printglossary[type=\acronymtype]
 %\printglossaries
 
-\printnoidxglossary[sort=word]
+\printnoidxglossary[sort=word,type=\acronymtype,title=Acronyms]
+\printnoidxglossary[sort=word,title=Glossary]
 
 %-------------------------------------
 %	 REFERENCE BIBLIO
@@ -190,6 +194,7 @@
 
 \input{\utemplatepath/BookModel/coverback-book.tex}  
 
+\mode<all>\immediate\closeout\audioexport%
 \end{document}
 
 

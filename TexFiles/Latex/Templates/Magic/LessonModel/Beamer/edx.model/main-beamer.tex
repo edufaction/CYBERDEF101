@@ -12,6 +12,8 @@
 %-------------------------------------------------------------
 \documentclass[ignorenonframetext, 8pt, allowframebreaks]{beamer}
 
+\usepackage{environ}
+\newwrite\audioexport
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -28,7 +30,11 @@
 %-------------------------------------------------------
 \usepackage{\utemplatepath/LessonModel/Beamer/\ubeamermodel.model/edxbeamer}
 %-------------------------------------------------------
-
+\ifdefined\noteslide
+\setbeamertemplate{note page}{\pagecolor{red!5}\insertnote}
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen}
+\fi
 
 % a charger après hyperref, pour avoir les guillemets sous beamer
 \usepackage{ae}
@@ -81,7 +87,7 @@
 
 %++++++++++++++++++++++++++++++++
 \begin{document}
-
+\mode<all>{\immediate\openout\audioexport=\jobname.txt}
 
 
 %================================
@@ -160,12 +166,12 @@
 
  					\begin{figure}
   						  \centering
-   						 \includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/Contribs/contribute/ContribPictures/github.pdf}\\
-   						 	 \includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/Contribs/contribute/ContribPictures/overleaf.pdf}
+   						 \includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/SRC1/Contribs/contribute/ContribPictures/github.pdf}\\
+   						 	 \includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/SRC1/Contribs/contribute/ContribPictures/overleaf.pdf}
 				  \end{figure}
 		\end{column}
 		\begin{column}{0.9\textwidth}
-							\input{../Latex/Sources/EDU/Contribs/contribute/contrib-gen.tex}
+							\input{../Latex/Sources/EDU/SRC1/Contribs/contribute/contrib-gen.tex}
 		\end{column}
 \end{columns}
  \end{frame}
@@ -186,6 +192,9 @@
 {\safeqrcode[padding]{\GITfilename}}  
 \end{center} }
 \end{frame}
+
+
+\mode<all>{\immediate\closeout\audioexport}
 
 \end{document}
 

@@ -1,0 +1,210 @@
+
+\setbeamertemplate{items}[square] %met des jolis carrés devant les item
+\setbeamertemplate{blocks}[rounded][shadow=true]%donne le format des blocs
+
+\def\inserttitleindicator{}
+\def\insertauthorindicator{}
+\def\insertinstituteindicator{}
+\def\insertdateindicator{}
+
+\newif\iflogo\logotrue
+\DeclareOptionBeamer{nologo}[true]{\logofalse\orangeinnofalse}
+
+\newif\iforangeinno\orangeinnotrue
+\DeclareOptionBeamer{noinno}[true]{\orangeinnofalse}
+
+\ProcessOptionsBeamer
+
+% new Orange Innovation look and feel
+% http://sites.com.intraorange/teams/a12b/fr/Pages/Orange_Innovation.aspx
+
+\defbeamertemplate*{title page}{inmargin}
+{
+\iforangeinno
+\begin{tikzpicture}[scale=1]%remember picture, %overlay,
+
+  %\node[anchor=north east,inner sep=0mm] at ($(current page.north east)+(4mm,3mm)$) {
+  %   %\includegraphics[width=92mm]{Lannion_marches_eglise_Brelevennez3.png}
+  %};
+
+  %\filldraw [fill=yellow, draw=charteOrange, opacity=.51,
+  %           anchor=north east] ($(current page.north west)$) rectangle (160mm, -90mm);
+
+  %                                                            links unten            rechts oben
+  %\filldraw [fill=charteOrange, draw=charteOrange,
+  %           opacity=1] ($(current page.north west)+(5mm, -3mm)$) rectangle (.7mm, -.1mm);
+
+  \draw [draw=charteOrange, line width=1mm] ($(current page.north west)+(5mm, -3mm)$)
+  -- ($(current page.north west)+(5mm, -87mm)$);
+  \node[anchor=north west,inner sep=1.5mm,
+        align=left,
+        fill=white, draw=white] at ($(current page.north west)+(3mm,-7mm)$) {
+     \color{charteOrange}\usebeamerfont{newsubtitle}Orange\\
+     \color{black}\usebeamerfont{newsubtitle}CyberSchool
+  };
+
+
+ \node[anchor=north west,inner sep=0mm,
+        align=left,
+        fill=white] at ($(current page.north west)+(15mm,-30mm)$) {
+        \begin{minipage}{.91\textwidth}
+          \flushleft
+        \usebeamercolor[fg]{newsubtitle}\usebeamerfont{newtitle}\inserttitle
+        \end{minipage}
+ };
+
+ \node[anchor=north west,inner sep=0mm,
+        align=left,
+        fill=white] at ($(current page.north west)+(15mm,-60mm)$) {
+        \begin{minipage}{.99\textwidth}
+          \flushleft
+        \usebeamercolor[fg]{newsubtitle}\usebeamerfont{newsubtitle}\insertsubtitle
+        \end{minipage}
+ };
+
+
+ \node[anchor=north west, inner sep=0mm,
+        fill=white] at ($(current page.north west)+(15mm,-73mm)$)   {
+        \begin{minipage}{.91\textwidth}
+          \flushleft
+        \usebeamercolor[fg]{newsubtitle}\usebeamerfont{newauthor}\insertauthor%
+        \ifx\insertinstitute\@empty
+        \else
+           , \usebeamercolor[fg]{newinstitute}\usebeamerfont{newinstitute}\insertinstitute
+        \fi
+
+        \usebeamercolor[fg]{newdate}\usebeamerfont{newdate}\insertdate
+        \end{minipage}
+
+
+ };
+
+
+ \node[anchor=south east,inner sep=0mm,
+        fill=white] at ($(current page.north west)+(153mm,-85mm)$)   {
+          \includegraphics[width=10mm]{\localmodel/Orange_logo.pdf}
+ };
+\end{tikzpicture}
+
+\else
+\begin{tikzpicture}[remember picture, overlay]
+  \node[anchor=north east,inner sep=0mm] at ($(current page.north east)+(4mm,3mm)$) {
+    % \includegraphics[width=92mm]{Lannion_marches_eglise_Brelevennez3.png}
+  };
+\end{tikzpicture}
+
+  ~
+
+  \vfill \vfill \vfill 
+  %\begin{block}{\inserttitleindicator}
+    {
+      \usebeamercolor[fg]{title}\usebeamerfont{title}
+      \inserttitle
+
+    }\par
+    \vskip2ex
+    {\usebeamercolor[fg]{subtitle}\usebeamerfont{subtitle}
+     \ifx\insertsubtitle\@empty ~
+     \else
+      \insertsubtitle
+     \fi
+    }
+  %\end{block}
+  %\vfill
+
+
+  %\bigskip
+  \vfill
+  \ifx\insertauthor\@empty
+  \else
+  %\begin{block}{\insertauthorindicator}
+    \usebeamercolor[black]{author}\usebeamerfont{author}\insertauthor
+
+
+   % \let\aa=\insertshortinstitute
+   % \let\bb=\insertinstitute
+   % \expandafter\ifx\aa\expandafter\bb\else%
+%, z\insertshortinstitute{}z\insertinstitute{}z
+%    \fi
+    \par
+  %\end{block}
+  \fi
+
+%  \vskip10mm
+  \vfill
+  %\ifx\insertinstitute\@empty
+  %  \usebeamercolor[fg]{institute}\usebeamerfont{author} Orange Labs\par
+  %\else
+  %\begin{block}{\insertinstituteindicator}
+  \ifx\insertinstitute\@empty
+  \else
+    \usebeamercolor[fg]{institute}\usebeamerfont{institute}\insertinstitute
+    \par
+  %\end{block}
+  \fi
+
+
+  \vfill
+  \ifx\insertdate\@empty
+  \else
+  %\begin{block}{\insertdateindicator}
+    \usebeamercolor[black]{date}\usebeamerfont{date}\insertdate\par
+  %\end{block}
+  \fi
+
+  \iflogo
+%  \vskip5mm
+    \vfill
+    ~\hfill\includegraphics[width=8mm]{\localmodel/Orange_logo.pdf} 
+  \fi
+\fi
+}
+
+
+
+%\defbeamertemplate*{block begin}{inmargin}
+%{
+%  \par\vskip\medskipamount%
+%  \leavevmode%
+%  \beamer@putleft{\normalfont{\usebeamercolor[fg]{block title}\usebeamerfont*{block title}\insertblocktitle}}{2.5ex}%
+%  \beamer@putright\usebeamercolor[fg]{block body}%
+%}
+%\defbeamertemplate*{block end}{inmargin}
+%{\endbeamer@putright\vskip\smallskipamount}
+%
+%\defbeamertemplate*{block alerted begin}{inmargin}
+%{
+%  \par\vskip\medskipamount%
+%  \leavevmode%
+%  \beamer@putleft{\normalfont{\usebeamercolor[fg]{block title alerted}\usebeamerfont*{block title alerted}\insertblocktitle}}{2.5ex}%
+%  \beamer@putright\usebeamercolor[fg]{block body alerted}%
+%}
+%\defbeamertemplate*{block alerted end}{inmargin}
+%{\endbeamer@putright\vskip\smallskipamount}
+%
+%\defbeamertemplate*{block example begin}{inmargin}
+%{
+%  \par\vskip\medskipamount%
+%  \leavevmode%
+%  \beamer@putleft{\normalfont{\usebeamercolor[fg]{block title example}\usebeamerfont*{block title example}\insertblocktitle}}{2.5ex}%
+%  \beamer@putright\usebeamercolor[fg]{block body example}%
+%}
+%\defbeamertemplate*{block example end}{inmargin}
+%{\endbeamer@putright\vskip\smallskipamount}
+%
+\AtBeginDocument
+{
+%  \addtobeamertemplate{enumerate item}{\llap\bgroup}{\normalsize\kern1.5ex\egroup}
+%  \addtobeamertemplate{enumerate subitem}{\llap\bgroup}{\normalsize\kern1.5ex\kern\leftmarginii\egroup}
+%  \addtobeamertemplate{enumerate subsubitem}{\llap\bgroup}{\normalsize\kern1.5ex\kern\leftmarginii\kern\leftmarginiii\egroup}
+%  \addtobeamertemplate{itemize item}{\llap\bgroup}{\normalsize\kern1.5ex\egroup}
+%%  \addtobeamertemplate{itemize subitem}{\llap\bgroup}{\normalsize\kern1.125ex\kern\leftmarginii\egroup}
+  \setbeamertemplate{itemize subitem}{—}
+ % \setbeamercolor{itemize subitem}{black}
+%  \addtobeamertemplate{itemize subsubitem}{\llap\bgroup}{\small\kern0.75ex\kern\leftmarginii\kern\leftmarginiii\egroup}
+  \setbeamertemplate{itemize subsubitem}{—}
+}
+
+
+\mode
+<all>

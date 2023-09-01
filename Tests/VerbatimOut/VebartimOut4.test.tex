@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{comment}
+
+ \usepackage{tcolorbox}
+\usepackage[active,  generate=filename,  extract-env={test}]{extract}
+
+\newtcolorbox{myTestTCB}[1][title={default title}]{
+    #1
+}
+\newenvironment{test}{Début de zone test}{Fin de zone test}
+
+\excludecomment{myTestTCB}\let\endmyTestTCB\relax
+  
+
+\begin{document}
+
+Ceci est une document de test
+
+\section{blub}
+
+\begin{myTestTCB}
+abc % cde
+ghi
+\end{myTestTCB}
+
+\begin{test}
+abc % cde
+ghi
+\end{test}
+
+\end{document}
+

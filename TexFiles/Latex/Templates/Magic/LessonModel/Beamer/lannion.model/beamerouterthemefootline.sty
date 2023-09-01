@@ -1,0 +1,61 @@
+% Johannes Heinecke
+% some bits taken from sidebar 
+
+%\ProvidesPackageRCS  $Header: beamerouterthemefootline.sty $
+
+
+\mode<presentation>
+
+%\setbeamercolor*{author in head/foot}{parent=palette tertiary}
+%\setbeamercolor*{title in head/foot}{parent=palette secondary}
+%\setbeamercolor*{date in head/foot}{parent=palette primary}
+
+%\setbeamercolor*{section in head/foot}{parent=palette tertiary}
+%\setbeamercolor*{subsection in head/foot}{parent=palette primary}
+
+\setbeamertemplate{navigation symbols}{} %gets rid of navigation symbols
+
+\defbeamertemplate*{footline}{footline theme}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.079\paperwidth,ht=2.25ex,dp=1ex,left]{date in head/foot}%
+ \usebeamerfont{date in head/foot}\hspace*{2.5ex}     \insertframenumber{}/\inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.8\paperwidth,ht=2.25ex,dp=1ex,left]{title in head/foot}%
+   \usebeamerfont{author in head/foot}\hskip1em\insertshortauthor
+   \usebeamerfont{title in head/foot} — \insertshorttitle{} — 
+   \usebeamerfont{date in head/foot} \insertshortdate
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.12\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+   \usebeamerfont{date in head/foot} \insertslidenavigationsymbol \insertframenavigationsymbol
+% \insertsubsectionnavigationsymbol
+% \insertsectionnavigationsymbol 
+% \insertdocnavigationsymbol 
+% \insertbackfindforwardnavigationsymbol
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+
+
+
+%\defbeamertemplate*{headline}{infolines theme}
+%{
+%  \leavevmode%
+%  \hbox{%
+%  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,right]{section in head/foot}%
+%    \usebeamerfont{section in head/foot}\insertsectionhead\hspace*{2ex}
+%  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,left]{subsection in head/foot}%
+%    \usebeamerfont{subsection in head/foot}\hspace*{2ex}\insertsubsectionhead
+%  \end{beamercolorbox}}%
+%  \vskip0pt%
+%}
+
+\setbeamersize{text margin left=1em,text margin right=1em}
+
+
+
+\mode
+<all>

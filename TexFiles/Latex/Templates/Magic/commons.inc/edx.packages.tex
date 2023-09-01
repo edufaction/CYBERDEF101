@@ -6,10 +6,6 @@
 %                              2020 eduf@ction
 %-------------------------------------------------------------
 
-%\usepackage[hyphens,spaces,obeyspaces]{url}
-%\usepackage[hyphens,spaces,obeyspaces]{url}
-
-
 
 \PassOptionsToPackage{hyphens,spaces,obeyspaces}{url}
 
@@ -107,8 +103,8 @@ colorlinks=true,
 breaklinks=true,
 bookmarks=true,
 allcolors=uMainColor,
-pdfsubject = {\udescription},%
-pdfcreator = {MACTEX on TEXPAD},%
+pdfsubject = {CYBERSECURITY COURSES (FR)},%
+pdfcreator = {MACTEX on TEXifier},%
 bookmarksopen=true}
 %
 
@@ -135,15 +131,15 @@ bookmarksopen=true}
 \usepackage[useregional]{datetime2}
 
 %--------------------------------------------------------
-% Gestion des glossaires et Sources/EDU/acronymes
+% Gestion des glossaires et Sources/EDU/SRC1/acronymes
 % Un fichier acroymes.tex centralisé
 \usepackage[acronym]{glossaries}
 
 %\makeglossaries
 \makenoidxglossaries 
-
-\loadglsentries{../Latex/Sources/commons/acronymes.tex}
-\loadglsentries{../Latex/Sources/commons/glossaire.tex}
+\uGlossaryAcronyms
+%\loadglsentries{../Latex/Sources/commons/acronymes.tex}
+%\loadglsentries{../Latex/Sources/commons/glossaire.tex}
 
 
 %\renewcommand{\bibname}{R\'ef\'erences}
@@ -158,34 +154,9 @@ bookmarksopen=true}
 \usepackage{eso-pic}
 
 %--------------------------------------------------------
-% for \gappto{\UrlBreaks}{\UrlOrds}
-% rather than 
-%\makeatletter
-% \g@addto@macro{\UrlBreaks}{\UrlOrds}
-% \makeatother
-
 \usepackage{etoolbox}
 
 \usepackage{breakurl}
 
 
-\newcommand{\ucite}[1]{\cite{#1}}
-%\newcommand{\ucite}[1]{REF BIB #1}
-\newcommand{\ugls}[1]{\gls{#1}}
-%\newcommand{\ugls}[1]{GLOSSAIRE (#1)}
-%\usepackage[Rejne]{fncychap}
 
-%\usepackage{pythontex} % need shell escape
-
-%
-%\makeatletter
-%\DeclareRobustCommand{\afilename}[1]{%
-% \begingroup
-%  % \lstname seems to change hyphens into \textendash
-%  \def\textendash{-}%
-%  \afilename@parse{#1}%
-%  \edef\afilename@base{\detokenize\expandafter{\afilename@base}}%
-%  \texttt{\afilename@base.\afilename@ext}%
-% \endgroup
-%}
-%\makeatother

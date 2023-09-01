@@ -1,4 +1,13 @@
-\documentclass[ignorenonframetext,allowframebreaks,aspectratio=169,t,9pt, xcolor=table]{beamer}
+\documentclass[ignorenonframetext,allowframebreaks,aspectratio=169,t,9pt, xcolor=table,center]{beamer}
+
+
+\setbeamercovered{%
+  still covered={\opaqueness<1->{10}},  
+  again covered={\opaqueness<1->{10}}}
+
+\usepackage{environ}
+\newwrite\audioexport
+
 \usepackage[utf8]{inputenc}
 
 \usepackage{booktabs} 
@@ -10,6 +19,7 @@
 \usepackage{lmodern}
 \usepackage{multicol}
 
+
 \input{\utemplatepath/commons.inc/CommonsPictures/\utemplatetheme.theme/colors.inc} % set uMainColor
 
 \input{\utemplatepath/commons.inc/edx.packages.tex}
@@ -17,6 +27,14 @@
 
 %-------------------------------------------------------
 \usepackage{\utemplatepath/LessonModel/Beamer/\ubeamermodel.model/beamerthemeUfg}
+
+\ifdefined\noteslide
+\setbeamertemplate{note page}{\pagecolor{uCoverColor!5}\insertnote}
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen}
+\fi
+
+
 %-------------------------------------------------------
 
 % a charger après hyperref, pour avoir les guillemets sous beamer
@@ -39,7 +57,9 @@
 %  - again first a short version to be displayed at the bottom;
 %  - next the full list of authors, which may include contact information;
 
-\author[\uauthorwriter]{ \large{\uauthor} \\ \medskip {\small \url{\umaila} \and \url{\umailb}\\ {\small \url{\usitea}}}}
+\author{\uauthor}
+
+%\author[\uauthorwriter]{ \large{\uauthor} \\ \medskip {\small \url{\umaila} \and \url{\umailb}\\ {\small \url{\usitea}}}}
 
 %-------------------------------------------------------
 % The institute:
@@ -89,6 +109,8 @@
 % }
 
 \begin{document}
+\mode<all>{\immediate\openout\audioexport=\jobname.txt}
+%edx.command.tex AudioNote export
 
 \mode<all>{\setLayout{titlepage}}
 %================================
@@ -101,18 +123,20 @@
 %================================
 \begin{frame}
 	\frametitle{Abstract}
-	\begin{techworkin} [righthand width=.6\textwidth]{\faCogs~\small {Hashtags} : \ukeywords}\uabstract
+	\begin{techworkin} [righthand width=.6\textwidth]{\faCogs~\small {Hashtags} : \ukeywords}\large\uabstract
 	\end{techworkin}
 	\end{frame}
 %================================
    
-
 \mode<all>{\setLayout{horizontal}}
 %================================
 \begin{frame}
 \frametitle{Sommaire}
 \begin{multicols}{2}
-\tableofcontents[hideallsubsections]
+%\tableofcontents[hideallsubsections]
+\tableofcontents
+%\tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide,subsubsectionstyle=show/show/shaded/shaded]
+
 \end{multicols}
 \end{frame}
 %================================
@@ -146,12 +170,12 @@
 
     \begin{figure}
            \centering
-           \includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/Contribs/contribute/ContribPictures/github.pdf}\\
-                \includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/Contribs/contribute/ContribPictures/overleaf.png}
+           \includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/SRC1/Contribs/contribute/ContribPictures/github.pdf}\\
+                \includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/SRC1/Contribs/contribute/ContribPictures/overleaf.png}
  \end{figure}
 \end{column}
 \begin{column}{0.8\textwidth}
-           \input{../Latex/Sources/EDU/Contribs/contribute/contrib-gen.tex}
+           \input{../Latex/Sources/EDU/SRC1/Contribs/contribute/contrib-gen.tex}
 \end{column}
 \end{columns}
 \end{frame}
@@ -175,6 +199,8 @@
 \end{center} }
 \end{frame}
 
+
+\mode<all>{\immediate\closeout\audioexport} % edx.command.tex AudiNote export
 \end{document}
 
 

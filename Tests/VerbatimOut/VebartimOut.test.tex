@@ -1,0 +1,42 @@
+% Test Verbatim Out spécifique
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{moreverb}
+
+\def\myID{This a ID}
+
+\makeatletter
+\def\verbatimappend{% inspired by moreverb.sty (verbatimwrite)
+  \@bsphack
+  \let\do\@makeother\dospecials
+  \catcode`\^^M\active \catcode`\^^I=12
+  \def\verbatim@processline{%
+    \immediate\write\verbatimFile%
+      {\the\verbatim@line}}%
+  \verbatim@start}
+\def\endverbatimappend{%
+  \@esphack%
+}
+\makeatother
+
+\begin{document}
+
+\newwrite\verbatimFile
+\immediate\openout\verbatimFile=verbatimFile.txt\relax%
+
+\begin{verbatimappend}
+%% Slide: Introduction
+Bonjour à toutes et à tous. Bienvenue sur cette lesson introduction du chapitre 1: contexte et enjeux de la cybersécurité
+\end{verbatimappend}
+
+This is a text
+
+\begin{verbatimappend}
+Bye, world!
+\end{verbatimappend}
+
+\immediate\closeout\verbatimFile
+
+\end{document}

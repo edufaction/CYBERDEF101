@@ -6,6 +6,35 @@
 %                              2020 eduf@ction
 %-------------------------------------------------------------
 
+
+
+
+\newcommand{\ucite}[1]{\cite{#1}}
+%\newcommand{\ucite}[1]{REF BIB #1}
+\newcommand{\ugls}[1]{\gls{#1}}
+%\newcommand{\ugls}[1]{GLOSSAIRE (#1)}
+\newcommand{\uac}[1]{\acrshort{#1}}
+
+%---------------------------------------------------
+%										 	AUDIO NOTE 
+%---------------------------------------------------
+
+\newcommand\audionote[2]{%
+  \note{#2}
+  \immediate\write\audioexport{==AudioSlide=============}
+  \immediate\write\audioexport{#1}
+  \immediate\write\audioexport{\insertframenumber}
+  \immediate\write\audioexport{---------------------------------}
+  \immediate\write\audioexport{#2}
+  \immediate\write\audioexport{---------------------------------}
+}%
+
+%---------------------------------------------------
+%										 	TEXT STYLE SHORTCUT 
+%---------------------------------------------------
+
+\newcommand{\tcb}[1]{\textbf{\textcolor{uMainColor}{#1}}}
+
 \newcommand{\graphicxextension}{pdf}
 
 \newcommand\myemptypage{
@@ -103,7 +132,7 @@
 
 \newcommand{\includer}[1]
 {
-\input{../Latex/Sources/EDU/Chapters/#1}
+\input{../Latex/Sources/EDU/SRC1/Chapters/#1}
 }
 
 %-----------------------------------------------------
@@ -194,11 +223,11 @@ title=#2,#1}
 
 \newcommand{\toolsbox}[2]
 {
-\input{../Latex/Sources/EDU/SecComponents/#2.#1/datas.tex} 
+\input{../Latex/Sources/EDU/SRC1/SecComponents/#2.#1/datas.tex} 
 \begin{toolsboxin}[sidebyside,righthand width=.7\textwidth]{#1}
-\includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/SecComponents/#2.#1/icon.png} \\
+\includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/SRC1/SecComponents/#2.#1/icon.png} \\
 \tcblower
-\input{../Latex/Sources/EDU/SecComponents/#2.#1/description.tex}
+\input{../Latex/Sources/EDU/SRC1/SecComponents/#2.#1/description.tex}
 \end{toolsboxin}
 \noindent \small {\faCogs~Classe : \uppercase{\textbf{#2}}, Site de référence : \textbf{\ulink{\toolurl}{#1}}}
 \newline
@@ -240,7 +269,7 @@ title=#2,#1}
 %											\uexpand
 %---------------------------------------------------
 \newcommand {\uexpand}[1]{
-\mode<all>\input{../Latex/Sources/EDU/Chapters/#1}
+\mode<all>\input{../Latex/Sources/EDU/SRC1/Chapters/#1}
 }
 
 

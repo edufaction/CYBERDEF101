@@ -14,7 +14,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 
-
+\usepackage{environ}
+\newwrite\audioexport
 
 
 \usepackage{titletoc} % Required for manipulating the table of contents
@@ -51,6 +52,8 @@
 
 \begin{document}
 
+\immediate\openout\audioexport=\jobname.txt
+%edx.command.tex AudioNote export
 
 \addtocontents{toc}{\protect\hypertarget{toc}{}}
 
@@ -121,5 +124,6 @@
 \Ucontribute % Contribution TEXT
 %-------------------------------------------------
 
+\immediate\closeout\audioexport%
 
 \end{document}

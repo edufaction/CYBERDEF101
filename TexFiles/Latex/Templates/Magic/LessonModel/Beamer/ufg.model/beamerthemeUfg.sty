@@ -7,6 +7,7 @@
 \usepackage{colortbl}
 \usepackage{adjustbox}
 
+
 \mode<presentation>
 \usefonttheme[onlymath]{serif}
 
@@ -39,7 +40,6 @@
 }
 
 
-
 \newcommand{\setDefaultConfig}{
     \color{DarkGray} %Primary 
     \setbeamercolor{bgcolor}{fg=PrimaryColor}
@@ -66,6 +66,7 @@
     \color{white}
     \setbeamercolor{normal}{fg=white}
     \setbeamercolor{frametitle}{fg=uMainColor}
+    \setbeamercolor{background canvas}{bg=black}
     \setbeamercolor{structure}{fg=white}
     \setbeamercolor{normal text}{fg=white,bg=white}
     \setbeamercolor{section number projected}{bg=white,fg=white}
@@ -79,8 +80,9 @@
     \setbeamertemplate{frametitle}{ \vbox{}\hskip -0.5ex \vskip -3ex   \strut\insertframetitle\strut }
 }
     
-
 \setDefaultConfig
+
+
 
 
 %----------------------------------------Formatting beamer elements
@@ -150,6 +152,9 @@
 \setbeamersize{text margin left=0.05\textwidth}
 \setbeamersize{text margin right=0.15\textwidth}
 \setbeamercolor{bgcolor}{bg=PrimaryColor}
+
+
+%\setbeamercolor{background canvas}{bg=black}
 
 
 % ----------------------------------Define layouts backgrounds

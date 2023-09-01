@@ -1,0 +1,74 @@
+\documentclass{book}
+
+\usepackage[frenchb]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{verbatim}
+\usepackage{tabularx,colortbl,xcolor}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% Interface pour le package verbatim %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+\newwrite{\output@stream@corrige}
+\newcommand{\OuvrirFlux}[1]{% ouvre le flux de fichier
+  \immediate\openout\output@stream@corrige #1}
+\newcommand{\FermerFlux}{% ferme le flux de fichier
+  \immediate\closeout\output@stream@corrige}
+\newcommand{\EcritureFlux}[1]{% écrit un court texte dans le fichier
+  \immediate\write\output@stream@corrige{\unexpanded{#1}}}
+\newcommand{\CommencerExportFlux}{% commence l'écriture prolongée
+   \bgroup\@bsphack
+   \let\do\@makeother\dospecials
+   \catcode`\^^M\active
+   \def\verbatim@processline{%
+     \immediate\write\output@stream@corrige{\the\verbatim@line}}%
+   \verbatim@start}
+\ifdefined\ArreterExportFlux % arrête l'écriture prolongée
+  \newcommand{\ArreterExportFlux}{\@esphack\egroup}
+\else
+  \def\ArreterExportFlux{\@esphack\egroup}
+\fi
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% Définition des environnements %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{corrige}[2][]
+  {\par\vspace*{1em}%
+   \label{corrige-#1-#2}
+   \noindent\begin{tabularx}{\linewidth}{cX|}
+      \cellcolor{gray}\textcolor{white}{\Large#2} &
+      \Large\textcolor{blue}{Correction} \\
+      \cline{2-2}
+   \end{tabularx}\par
+   \vspace*{1em}}
+  {\par\vspace*{2em}}
+
+\newenvironment{correction}
+  {\OuvrirFlux{correction-1-1.tex}%
+   \EcritureFlux{}%
+   \CommencerExportFlux}
+  {\ArreterExportFlux
+   \EcritureFlux{}%
+   \FermerFlux}
+
+\begin{document}
+
+\begin{correction}
+Essai
+\end{correction}
+
+Blabla
+
+\begin{correction}
+Essai 2
+\end{correction}
+
+
+\input{correction-1-1.tex}
+
+Blabla
+
+\end{document}

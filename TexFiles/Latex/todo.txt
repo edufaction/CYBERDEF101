@@ -1,0 +1,14 @@
+%-----------------------------------------------------%
+% Todo file										
+%-----------------------------------------------------%
+
+BOOK
+
+Correction pour new write audio file à ne laisser que dans le model beamer.
+Mettre les commands beamer dans une lib Beamer, et créer un proxybeamer plutôt que de créer des if dans les fichiers de command.
+
+
+% GS pour redimensionnement 
+
+gs -sDEVICE=pdfwrite -sPAPERSIZE=a4 -dFIXEDMEDIA -dPDFFitPage -dCompatibilityLevel=1.4 -o out.pdf CourseNotes-FR-SEC101-00-intro.prz.pdf
+

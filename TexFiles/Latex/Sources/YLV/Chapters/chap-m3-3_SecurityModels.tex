@@ -283,6 +283,7 @@ schéma
 %End FRAME------------------------------
 \subsubsection{VPN SSL}
 : schema, functions 
+\utodo
 
 %Begin FRAME----------------------------
 \mode<presentation>{\texframe
@@ -349,13 +350,23 @@ Les CASB peuvent proposer les fonctionnalités suivantes :
     \item malware detection/prevention.
 \end{itemize}
 
-Les CASB peuvent être intégré comme composants au sein d'architectures de type Secure access service edge (SASE).
+Les CASB peuvent être intégrés comme composants au sein d'architectures de type Secure access service edge (SASE).
 
 \subsubsection{Secure access service edge (SASE)}
 %todo compléter SASE
 Les évolutions des méthodes de travail avec l'explosion de l'utilisation du télétravail, des accès professionnels via les terminaux mobiles et l'utilisation de plus en plus fréquente du edge computing (https://www.redhat.com/fr/topics/edge-computing/what-is-edge-computing) nécessite une évolution des architectures de sécurité afin de faire face à de nouvelles menaces liées à ces changements.
 
 Les architectures de type Secure access service edge (SASE) assurent des fonctionnalités réseau et sécurité, dans un environnement \g{Cloud Natif} incluant les technologies/services, dits \g{Cloud Based} suivants :
+
+%Begin FRAME----------------------------
+\mode<all>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Secure access service edge (SASE)} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+  \mode<presentation>{fonctionnalités réseau et sécurité, dans un environnement Cloud Natif incluant les technologies/services Cloud Based suivants :}
 \begin{itemize}
     \item SD-WAN (Software Defined WAN);
     \item SWG (Proxy sortant sécurisé);
@@ -363,6 +374,9 @@ Les architectures de type Secure access service edge (SASE) assurent des fonctio
     \item NGFW (firewalls de nouvelle génération);
     \item zero trust network access (ZTNA).
 \end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
 
 %Begin FRAME----------------------------
 \mode<presentation>{\texframe
@@ -391,25 +405,6 @@ Les architectures de type Secure access service edge (SASE) assurent des fonctio
     \item But : protéger et surveiller les applications dans le CLOUD
     \item Fonctionnalités : Authenfication, chiffrement, DLP, mapping des identifiants, etc.
     \item Schéma ?
-\end{itemize}
-%end slide- - - - - - - - - - - - - - - - - - - 
-}}
-%End FRAME------------------------------
-%Begin FRAME----------------------------
-\mode<presentation>{\texframe
-% contenu affiché sur Article et Beamer
-%- - - - - - - - - - - - - - - - - - - - - - - - 
-{Secure access service edge (SASE)} % titre de la diapo
-{} % sous titre de la diapo
-{
-%begin slide- - - - - - - - - - - - - - - - - 
-   fonctionnalités réseau et sécurité, dans un environnement Cloud Natif incluant les technologies/services Cloud Based suivants :
-\begin{itemize}
-    \item SD-WAN (Software Defined WAN);
-    \item SWG (Proxy sortant sécurisé);
-    \item CASB;
-    \item NGFW (firewalls de nouvelle génération);
-    \item zero trust network access (ZTNA).
 \end{itemize}
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}

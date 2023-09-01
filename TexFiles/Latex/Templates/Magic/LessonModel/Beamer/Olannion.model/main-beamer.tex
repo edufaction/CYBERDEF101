@@ -1,0 +1,196 @@
+\documentclass[ignorenonframetext,9pt,allowframebreaks,aspectratio=169]{beamer}
+
+
+\usepackage{metalogo}
+
+%% must be loaded BEFORE the theme
+% \usepackage[style=authoryear,backend=biber
+%  ,url=false
+%  ]{biblatex}
+
+ \input{\utemplatepath/commons.inc/CommonsPictures/\utemplatetheme.theme/colors.inc} % set uMainColor
+
+\input{\utemplatepath/commons.inc/edx.packages.tex}
+\input{\utemplatepath/commons.inc/edx.command.tex}
+
+%-------------------------------------------------------
+\usepackage{\utemplatepath/LessonModel/Beamer/\ubeamermodel.model/beamerthemeLannion}
+%-------------------------------------------------------
+
+%%\usetheme[
+%font=Arial,
+%font={Liberation Sans}% choose any font
+%monofont={Liberation Mono}
+%serif% or take standard serif font
+%nologo% do not show Orange logo
+%noinno, % do not use Orange Innovation header
+%,noheadline
+%]%
+%{Lannion}
+%{CambridgeUS}
+
+\usepackage{environ}
+\newwrite\audioexport
+
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{csquotes}
+%\usepackage[french]{babel}
+%\usepackage{lmodern}
+%\usepackage{multicol}
+
+
+
+
+
+% \ifdefined\noteslide
+% \setbeamertemplate{note page}{\pagecolor{red!5}\insertnote}
+% \usepackage{pgfpages}
+% \setbeameroption{show notes on second screen}
+% \fi
+
+% % a charger après hyperref, pour avoir les guillemets sous beamer
+% \usepackage{ae}
+% \usepackage{aecompl}
+
+% %\renewcommand{\familydefault}{pag}
+
+% %-------------------------------------------------------
+% % Optional: a subtitle to be displayed on the title slide
+
+\title{\utitle}
+\subtitle{\ushorttitle}
+
+% %-------------------------------------------------------
+% % The author(s) of the presentation:
+% %  - again first a short version to be displayed at the bottom;
+% %  - next the full list of authors, which may include contact information;
+
+ %\author[\uauthorwriter]{ \LARGE{\uauthor} \\ \medskip {\small \url{\umaila} \and \url{\umailb}\\ {\small \url{\usitea}}}}
+ \author{\uauthor}
+% %-------------------------------------------------------
+% % The institute:
+% %  - to start the name of the university as displayed on the top of each slide
+% %    this can be adjusted such that you can also create a Dutch version
+% %  - next the institute information as displayed on the title slide
+
+ \institute[\uinstituteshort]{{\uinstitute \\ \uchaire}}
+
+ \institute{\uinstituteshort}
+
+% %-------------------------------------------------------
+% % Add a date and possibly the name of the event to the slides
+% %  - again first a short version to be shown at the bottom of each slide
+% %  - second the full date and event name for the title slide
+% \date[\uversion]{\tiny{Publication \INFODistrib ~du \\ \DTMnow}}
+
+
+
+% shows not yet uncovered text light grey
+% \setbeamercovered{transparent}
+
+\usepackage{fontspec}
+
+% needed to includei mage on title page
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+
+%\subtitle{Presentations for Orange Innovation — V \lannionthemeversion}
+
+
+
+%\newcommand{\bi}{\begin{itemize}}
+%\newcommand{\ei}{\end{itemize}}
+
+
+\begin{document}
+  %-------------------------------------------------------
+  % AudioNote Open File
+  %-------------------------------------------------------
+\mode<all>{\immediate\openout\audioexport=\jobname.txt}
+
+ %\setbeamertemplate{footline}{} % pour supprimer le footer sur la page de titre
+ %\setbeamertemplate{headline}{} % pour supprimer le header sur la page de titre
+ %\setbeamertemplate{sidebar}{} % pour supprimer le sidebar sur la page de titre
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+
+  %-------------------------------------------------------
+  % Begin with Abstract Slide
+  %-------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Abstract}
+	\begin{techworkin} [righthand width=.6\textwidth]{\faCogs~\small {Hashtags} : \ukeywords}\large\uabstract
+	\end{techworkin}
+	\end{frame}
+
+
+%-------------------------------------------------------
+%  BEAMER MAIN TEX configured with ubody 
+%-------------------------------------------------------
+
+\mode<all>{\intercalaire{Let's go}{\utitle}}
+
+
+
+\begin{frame}
+  \frametitle{Sommaire}
+  \begin{multicols}{2}
+  %\tableofcontents[hideallsubsections]
+  \tableofcontents
+  %\tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide,subsubsectionstyle=show/show/shaded/shaded]
+  \end{multicols}
+  \end{frame}
+
+\mode<all>{\ubody}
+
+%-------------------------------------------------------
+%  End with Questions ?
+%-------------------------------------------------------
+\mode<all>{\merci{Des questions !}{Eric Dupuis}{eric.dupuis@orange.com}}
+
+%-------------------------------------------------------
+% Contributions
+%-------------------------------------------------------
+\begin{frame}
+  \frametitle{Contributions}
+  \begin{columns}
+  \begin{column}{0.1\textwidth}
+      \begin{figure}
+             \centering
+             \includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/SRC1/Contribs/contribute/ContribPictures/github.pdf}
+              \includegraphics[width=0.9\textwidth]{../Latex/Sources/EDU/SRC1/Contribs/contribute/ContribPictures/overleaf.png}
+   \end{figure}
+  \end{column}
+  \begin{column}{0.8\textwidth}
+             \input{../Latex/Sources/EDU/SRC1/Contribs/contribute/contrib-gen.tex}
+  \end{column}
+  \end{columns}
+  \end{frame}
+  
+  %-------------------------------------------------------
+  % Link to download file and copyright
+  %-------------------------------------------------------
+  \begin{frame}
+  \frametitle{Mises à jour régulières}
+  \framesubtitle{Eduf@ction~\umaila}
+  %\INFOGitHub
+  {\begin{center} 
+  \setstretch{2}
+  {Vérifiez la disponibilité d'une version plus récente de} \\
+  {\ulink{\GITfilename}{\textbf{\udocname.pdf }sur GITHUB CYBERDEF} }   \\ 
+  {{\huge\ccbyncndeu}}  \\  
+  {\the\year~eduf@ction - Publication en Creative Common BY-NC-ND }    \\  % Copyright notice
+  {\safeqrcode[padding]{\GITfilename}}  
+  \end{center} }
+  \end{frame}
+
+  %-------------------------------------------------------
+  % AudioNote Close File
+  %-------------------------------------------------------
+\mode<all>{\immediate\closeout\audioexport}
+
+\end{document}

@@ -1,0 +1,76 @@
+% Copyright 2004 by Madhusudan Singh <madhusudan.singh@gmail.com>
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+% based on beamercolorthemebeaver.sty, modified by Johannes Heinecke
+
+%\ProvidesPackageRCS $Header: beamercolorthemejohannes.sty,v d02a7cf4d8ae 2010/06/17 09:11:41 rivanvx $
+
+
+
+\mode<presentation>
+
+\definecolor{darkred}{rgb}{0.8,0,0}
+
+\setbeamercolor{section in toc}{fg=black,bg=white}
+\setbeamercolor{alerted text}{fg=darkred!80!gray}
+\setbeamercolor*{palette primary}{fg=darkred!60!black,bg=gray!30!white}
+\setbeamercolor*{palette secondary}{fg=darkred!70!black,bg=gray!15!white}
+\setbeamercolor*{palette tertiary}{bg=darkred!80!black,fg=gray!10!white}
+\setbeamercolor*{palette quaternary}{fg=darkred,bg=gray!15!white}
+
+\setbeamercolor*{sidebar}{fg=darkred,bg=gray!15!white}
+
+\setbeamercolor*{palette sidebar primary}{fg=darkred!10!black}
+\setbeamercolor*{palette sidebar secondary}{fg=black!80!white}
+\setbeamercolor*{palette sidebar tertiary}{fg=darkred!50!black}
+\setbeamercolor*{palette sidebar quaternary}{fg=gray!10!white}
+%\setbeamercolor*{palette sidebar quaternary}{fg=darkred}
+
+%\setbeamercolor*{titlelike}{parent=palette primary}
+\setbeamercolor{titlelike}{parent=palette primary,fg=darkred}
+
+\setbeamercolor{titlelike}{fg=darkred,bg=white}
+\setbeamercolor{institute}{fg=darkred,bg=white}
+
+
+\setbeamercolor{frametitle}{bg=gray!10!white}
+\setbeamercolor{frametitle right}{bg=gray!40!white}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+\setbeamercolor{block title}{fg=darkred,bg=gray!19!white}% Couleur des blocks normaux
+\setbeamercolor{block body}{bg=gray!10!white}
+
+\setbeamercolor{item}{fg=darkred!70!black,bg=white}
+\setbeamercolor{subitem}{fg=black,bg=white}
+
+
+%\setbeamercolor{section in head/foot}{parent=palette tertiary}
+%\setbeamercolor{section in sidebar}{parent=palette sidebar secondary}
+%\setbeamercolor{section in sidebar shaded}{use=section in sidebar,fg=section in sidebar.fg!40!bg}
+
+%\setbeamercolor{title in head/foot}{parent=palette quaternary}
+%\setbeamercolor{title in sidebar}{parent=palette sidebar quaternary}
+\setbeamercolor{title in sidebar}{parent=palette sidebar tertiary}
+
+%\setbeamercolor{author in sidebar}{use=palette sidebar tertiary,fg=palette sidebar tertiary.fg}
+\setbeamercolor{author in sidebar}{fg=darkred!20!black}
+
+
+%\setbeamercolor{author in head/foot}{parent=palette primary}
+\setbeamercolor{author in head/foot}{parent=palette secondary}
+
+%\setbeamercolor{date in sidebar}{use=palette sidebar tertiary,fg=palette sidebar tertiary.fg}
+\setbeamercolor{date in sidebar}{fg=darkred!20!black}
+
+\hypersetup{colorlinks,linkcolor=,urlcolor=darkred!60!black}
+
+\mode
+<all>

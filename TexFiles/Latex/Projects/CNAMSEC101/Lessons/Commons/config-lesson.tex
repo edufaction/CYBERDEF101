@@ -1,0 +1,42 @@
+%-------------------------------------------------------------
+%               FR CYBERDEF SECOPS COURSE
+%                          CONFIG NOTES File
+%          SET BEAMER or Article/book Mode
+%                    PRZMODE OR DOCMODE
+%                             2020 eduf@ction
+%-------------------------------------------------------------
+
+% insert InterTitlle for each file compose main "Notes"
+%\newcommand{\INTERTITLE}{OK}
+
+ %------------------------------------------
+ % Use global project CYBERDEF 
+ %            Configuration file
+ %------------------------------------------
+\input{../Latex/Projects/CNAMSEC101/config.tex}
+ %------------------------------------------
+ 
+\renewcommand{\uMinilogo}{\includegraphics[width=0.04\paperwidth]{\utemplatepath/commons.inc/CommonsPictures/\utemplatetheme.theme/shield-20.pdf}}
+ 
+\newcommand {\Ucontribute}
+{
+%\input{../Latex/Sources/EDU/SRC1/Contribs/contribute/contrib-gen.tex}
+%\input{../Latex/Sources/EDU/SRC1/Contribs/contribute/contribs.tex}
+} 
+
+%------------------------------------------
+ %     BEAMER OU ARTICLE MODEL
+ %------------------------------------------
+  
+\ifdefined\PRZMODE 
+	\providecommand{\umainload}{\input{\utemplatepath/LessonModel/Beamer/\ubeamermodel.model/main-beamer.tex}}
+\else
+
+\ifdefined\EDTMODE 
+	\providecommand{\umainload}{\input{\utemplatepath/LessonModel/Article/edt-article.tex}}
+	\else
+	\providecommand{\umainload}{\input{\utemplatepath/LessonModel/Article/main-article.tex}}
+	\fi
+\fi
+
+

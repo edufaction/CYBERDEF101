@@ -1,0 +1,411 @@
+\section{Modèles de sécurité et technologies de sécurité protectrices}
+\subsection{Château fort (Firewall, Proxy, anti DDoS), cloisonnement, accès admin dédié}
+\subsubsection{Château fort}
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
+{Château fort} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+  
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+%Begin PICFRAME------------------------
+\mode<all>{\picframe
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{../Latex/Sources/YLV/Pictures/chateaufort}% PDF image sans extension
+{Château fort} % texte sous l'image en article
+{0.7} % echelle
+{LabelImage} % label de référence
+}
+%End PICFRAME--------------------------
+•	En s’appuyant sur un schéma global, notion de DMZ externe, DMZ interne, illustration des flux entrant et sortant, positionnement de composants clés : proxy, serveurs, middleware, sondes, etc.
+•	Cloisonnement
+•	Accès admin – réseau dédié
+•	Accès partenaires (VPN), flux vers Cloud, etc.
+\subsubsection{pare-feu}
+Définition (source ANSSI) :
+Un pare-feu (firewall), est un outil permettant de protéger un ordinateur connecté à un réseau ou à l’internet. Il protège d’attaques externes (filtrage entrant) et souvent de connexions illégitimes à destination de l’extérieur (filtrage sortant) initialisées par des programmes ou des personnes.
+
+Le pare-feu apporte la notion de filtrage dans la sécurité des réseaux et est une pierre angulaire de l'architecture de la sécurité de l'entreprise.
+Il assure le cloisonnement et la segmentation entre les sous-réseaux (Local Area Network ou LAN).
+L'ensemble des flux, autorisés ou non, entre ces sous-réseaux et autres réseaux externes (INTERNET, VPN partenaires, etc.) sont inscrits dans la politique de sécurité du pare-feu.
+Celle-ci se représente par une matrice des flux contenant l'ensemble des informations telles que:
+\begin{itemize}
+    \item le nom de la règle;
+    \item le ou les IP source(s);
+    \item le ou les IP destination(s);
+    \item le protocole concerné (HTTP, FTP, SMTP, etc.);
+    \item l'option éventuelle (NAT, authentification, application d'une politique de sécurité supplémentaire, etc. ; cela dépend de la version du pare-feu utilisé);
+    \item l'action : accept, drop, reject, etc.
+    \item l'option de journalisation sélectionnée.
+    \item etc.
+\end{itemize}
+
+Historique : 
+\begin{itemize}
+    \item stateless
+    \item statefull
+    \item Next generation
+\end{itemize}
+
+stateless (ACL CISCO), puis statefull, puis next Gen (jusqu’à la couche applicative)
+Stateless : exemple d’une ACL CISCO, associée à du NAT, i.e. définition du NAT avec le besoin (visibilité extérieure, gestion des adresses IP, pénurie, etc.) \& le comment (Schéma)
+Statefull UDP/TCP mainly
+Next Gen (L7, déchiffrement, proxy, voire IDP, DLP, etc.)
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
+{Firewall} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item stateless (Access Control List : ACL)
+    \item statefull
+    \item Next generation
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+\subsubsection{Proxy et Reverse Proxy}
+Schéma Proxy (firewall applicatif), lié à de l’authentification, antivirus, URL Filtering
+Les équipements de type Proxy permettent de sécuriser l'accès aux applicatifs.
+Ils sont en général utilisés pour accéder à Internet depuis le réseau de l'entreprise et donc applique un filtrage en sortie.
+Creuser on veut forcer l'accès -- fonction de sécu
+L'autorisation des flux devra être aussi implémentée sur le pare-feu.
+Voir ci-dessous en exemple un extrait simplifiée d'une matrice de flux implémentée sur un pare feu:
+
+\begin{center}
+\begin{tabular}{||c c c c||} 
+ \hline
+ Source & Destination & Protocoles & Décision \\ [0.5ex] 
+ \hline\hline
+ LAN bureautique & Adresse IP du proxy sur le réseau local & HTTP, HTTPs & ACCEPT \\ 
+ \hline
+ Proxy & ANY & HTTP, HTTPs & ACCEPT \\
+ \hline
+ ANY & ANY & ANY & DENY \\
+ \hline
+\end{tabular}
+\end{center}
+
+A) règle accès au proxy
+Source : LAN bureautique
+Destination : Adresse IP du proxy sur le réseau local
+Protocoles : HTTP, HTTPs
+Décision : ACCEPT
+
+b) règle de sortie du proxy
+Source : Proxy
+Destination : ANY
+Protocoles : HTTP, HTTPs
+Décision : ACCEPT
+
+Seul le proxy sera donc autorisé à se connecter aux serveurs distants.
+Plusieurs briques de sécurité peuvent être ajoutées sur le proxy, comme l'authentification des utilisateurs (jusqu'à la gestion via un annuaire), le filtrage des URL demandées ou encore des protections contre les fuites de données (Data Leak Protection : DLP).
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
+{Proxy} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+%Insérer schéma
+Schéma Proxy
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+Le Reverse Proxy aura lui le rôle de protéger les serveurs des accès utilisateurs, externes ou internes.
+Il peut assurer une \textbf{rupture protocolaire} et donc agir en tant que mandataire auprès du serveur.
+Plus précisément, la connexion TCP/HTTP par exemple entre le client A et le serveur Web \textbf{www.monexemple.com} peut s'effectuer de la manière suivante : 
+\begin{enumerate}
+    \item le client effectue une requête DNS sur www.monexemple.com et le serveur DNS lui indique l'IP associée, cette IP est portée par le Reverse Proxy;
+    \item le client initie une connexion TCP/HTTP vers le Reverse Proxy;
+    \item le Reverse Proxy effectue éventuellement les contrôles configurés et ensuite initie à son tour une connexion TCP/HTTP vers le serveur.
+\end{enumerate}
+Le Reverse Proxy est un équipement ou bien une fonction portée par un service qui permet donc d'interagir avec la connexion et assurer par exemple :
+\begin{itemize}
+    \item de la répartition de charges (load balancing);
+    \item de la réécriture d'URL;
+    \item des fonctions de sécurité et donc assurer un rôle de pare feu applicatif/Web (Web Application Firewall : WAF).
+\end{itemize}
+Schéma ReverseProxy
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
+{Reverse Proxy} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+%Insérer schéma
+Schéma Reverse Proxy
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+\subsection{Sondes de détection (IDS/IDP)}
+
+Les sondes de détection d'intrusion sont utilisées pour surveiller et analyser le trafic réseau afin de détecter des actes malveillants tels que des tentatives d'exploitation de vulnérabilités qui peuvent entraîner l'ex-filtration de données confidentielles par exemple. 
+
+Plusieurs types de sondes peuvent être utilisées:
+\begin{itemize}
+\item Réseaux:
+\begin{itemize}
+\item NIDS Network Intrusion Detection System (NIDS)
+\item Network Intrusion Prevention System (NIPS)
+\end{itemize}
+\item Sur les équipements:
+\begin{itemize}
+\item Host Intrusion Detection System (HIDS)
+\item Host Intrusion Prevention System (HIPS)
+\end{itemize}
+\end{itemize}
+Exemple de schéma d'infrastructure avec positionnement des sondes :
+
+%Begin PICFRAME------------------------
+\mode<all>{\picframe
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{../Latex/Sources/YLV/Pictures/ids}% PDF image sans extension
+{IDS/IDP} % texte sous l'image en article
+{0.7} % echelle
+{LabelImage} % label de référence
+}
+%End PICFRAME--------------------------
+
+Il existe plusieurs méthodes de détection telles que :
+\item celle basée sur les signatures qui compare avec sa base de signatures les événements observés pour identifier des incidents potentiels;
+\item celle basée sur les anomalies qui compare les définitions d'une activité considérée comme normale avec les événements observés afin d'identifier les écarts significatifs;
+\item l'analyse dynamique qui compare les profils prédéterminés des protocoles, avec les événements observés, afin d'identifier les écarts.
+L'ensemble des résultats des sondes sont consignés dans des journaux et peuvent utilisés dans les détections d'incidents de sécurité.
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
+{sondes de détection (IDS/IDP)} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+%Insérer schéma
+Schéma sondes de détection (IDS/IDP)
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+\subsection{IAM , ZeroTrust, Bastion, VPN SSL, NAC}
+\subsubsection{IAM}
+Déf IAM, process ET procédures
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Gestion des identités : IAM} % titre de la diapo
+{Identity Access Management} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item Définition
+    \begin{itemize}
+        \item IAM (identity and access management)
+        \item IAG (identity access governance)
+        \item DAG (data access governance)
+        \item PAM (privileged access management)
+    \end{itemize}
+    \item Process
+    Gestion des identités - cycle de vie
+    \item Procédures
+    Contrôle des habilitations
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+\subsubsection{Zerotrust}
+%https://www.ssi.gouv.fr/agence/publication/le-modele-zero-trust/
+Les modèles actuels de sécurité périmétrique atteignent leurs limites face à l'augmentation du télétravail, de l'utilisation des infrastructures Cloud et l'utilisation de terminaux mobiles pour se connecter au SI d'entreprise.
+Le principe du ZeroTrust est de ne plus faire uniquement confiance aux contrôles et filtrage des équipements classiques tels que les parefeux et proxies et d'ajouter un système de contrôle d'accès dynamique aux ressources supplémentaire.
+
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Zerotrust} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item Limites du modèle de sécurité périmétrique : télétravail, Cloud, BYOD 
+    \item --> réduction du contrôle VS augmentation de la menace
+    \item Le modèle impose : 
+        \begin{itemize}
+            \item une réduction de la confiance implicite aux utilisateurs 
+            \item ajout de contrôles et de politique d'accès aux ressources
+        \end{itemize}
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+
+\subsubsection{Bastion}
+\begin{savequote}[45mm]
+Les actions d’administration imposent entre autres des exigences de traçabilité et de confidentialité. 
+La figure ci-dessous présente la mise en œuvre de rebonds dans une zone d’administration permettant d’appliquer un certain nombre de traitements tels le filtrage des connexions, l’authentification des administrateurs sur un portail frontal, un contrôle d’accès ou encore la journalisation des actions effectuées et des commandes exécutées par les administrateurs...
+...le bastion constitue une ressource d’administration critique dans la mesure où il concentre potentiellement à un instant des secrets d’authentification des comptes d’administration ou des journaux liés aux actions d’administration. Il ne doit donc pas être exposé sur un SI de faible niveau de confiance, un SI bureautique par exemple.
+\qauthor{ANSSI, RECOMMANDATIONS RELATIVES À L'ADMINISTRATION SÉCURISÉE DES SYSTÈMES D'INFORMATION v3-0}
+\end{savequote}
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Bastion} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+schéma
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+\subsubsection{VPN SSL}
+: schema, functions 
+\utodo
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{VPN SSL} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+schéma
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+\subsubsection{Network Access Control : NAC CHAPITRE 5 plutot ?}
+: schema, fonctions, 802.1X 
+
+
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{NAC} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item inspecte et assure que les équipements connectés ont une configuration et un état conforme avec la politique de sécurité
+    \item Le NAC peut vérifier qu'il y a un antivirus, un pare feu local
+    Schéma ?
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+\subsection{Cloud}
+
+\subsubsection{MultiCloud - Cloud Hybride}
+
+Un des enjeux majeur pour les entreprises est la résilience de leurs services. Un grand distributeur et marchand en ligne ne peut pas se permettre d'être à l'arrêt complet lors de périodes fastes comme les fêtes de fin d'année. Il est arrivé que certains soient bloqués car ils avaient migrés l'entièreté de leurs applications dans un Cloud publique qui malheureusement fut inaccessible pendant plusieurs heures. Le résultat commercial fut catastrophique pour le marchand (et leur fournisseur Cloud aussi). 
+La disponibilité est aussi de la sécurité et se doit être d'assurée en évitant de \g{tous ses oeufs dans le même panier}.
+\paragraph{MultiCloud}
+En ce qui concerne l'hébergement dans le CLOUD, les entreprises prennent donc le choix du Multi-Cloud, i.e. de dupliquer leurs architectures sur des clouds providers (CSP) différents. Ce choix peut apporter son lot de complexité et des couts associés non négligeables car il sera nécessaire d'adapter les déploiements/configurations par rapport aux spécifications du CSP utilisé.
+\paragraph{Cloud Hybride}
+Le MultiCloud ayant ses avantages mais aussi ses inconvénients, beaucoup d'entreprises décident de déployer leurs infrastructures dans un Cloud Publique et dans un cloud privé. En effet, ils configurent le déploiement sur le cloud publique comme le \g{maitre ou master} et puis la partie sur l'infrastructure privée, dit \g{on premise} comme l' \g{esclave ou slave}.
+
+%https://www.gartner.com/en/information-technology/glossary/secure-access-service-edge-sase
+%https://www.gartner.com/en/information-technology/glossary/cloud-access-security-brokers-casbs
+
+\subsubsection{Cloud Access Security Broker - CASB}
+Le Cloud computing a apporté un lot d'évolution technologique qui nous force à repenser les stratégies de sécurité nécessaires pour protéger et surveiller les applications et les données hébergées dans le Cloud.
+Les solutions de Cloud Access Security Broker agissent comme un pont entre les services et infrastructures \g{on premises} et les différents Cloud services utilisés par l'entreprise.
+Les CASB peuvent proposer les fonctionnalités suivantes : 
+\begin{itemize}
+    \item authentication
+    \item single sign-on, 
+   \item  authorization, 
+   \item  credential mapping, 
+    \item device profiling, 
+    \item encryption, 
+    \item tokenization, 
+   \item  logging, 
+    \item alerting, 
+    \item malware detection/prevention.
+\end{itemize}
+
+Les CASB peuvent être intégrés comme composants au sein d'architectures de type Secure access service edge (SASE).
+
+\subsubsection{Secure access service edge (SASE)}
+%todo compléter SASE
+Les évolutions des méthodes de travail avec l'explosion de l'utilisation du télétravail, des accès professionnels via les terminaux mobiles et l'utilisation de plus en plus fréquente du edge computing (https://www.redhat.com/fr/topics/edge-computing/what-is-edge-computing) nécessite une évolution des architectures de sécurité afin de faire face à de nouvelles menaces liées à ces changements.
+
+Les architectures de type Secure access service edge (SASE) assurent des fonctionnalités réseau et sécurité, dans un environnement \g{Cloud Natif} incluant les technologies/services, dits \g{Cloud Based} suivants :
+
+%Begin FRAME----------------------------
+\mode<all>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Secure access service edge (SASE)} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+  \mode<presentation>{fonctionnalités réseau et sécurité, dans un environnement Cloud Natif incluant les technologies/services Cloud Based suivants :}
+\begin{itemize}
+    \item SD-WAN (Software Defined WAN);
+    \item SWG (Proxy sortant sécurisé);
+    \item CASB;
+    \item NGFW (firewalls de nouvelle génération);
+    \item zero trust network access (ZTNA).
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Cloud} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item MultiCloud : double déploiement sur des CSP
+    \item CloudHybride : Master sur Cloud Publique et Slave sur Cloud Privé
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Cloud Access Security Broker - CASB} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item But : protéger et surveiller les applications dans le CLOUD
+    \item Fonctionnalités : Authenfication, chiffrement, DLP, mapping des identifiants, etc.
+    \item Schéma ?
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------

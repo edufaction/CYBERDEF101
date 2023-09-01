@@ -1,0 +1,327 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+% Modification for Orange Labs: Johannes Heinecke
+% Version 1.4 % better support for bibliography styles (alphabetic, numeric, authoryear)
+% Version 1.5 % added more examples for Orange charted colours (and corrected some rgb values)
+% Version 1.6 % put author before institute on title page
+% Version 1.7 % adding divider slide
+% Version 1.8 % option to force headline at top in 16:9 mode
+% Version 1.9 % option t"boldfont" to specify a different font for bold, changes in title layout
+% Version 1.10 % option for new Orange Innovation title page
+% Version 1.11 % adding new look-and-feel to thankyou page
+% Version 1.12 % changed \merci command: \merci{thank you}{mail}{bottomline}, added subtitle to new titlepage
+
+\def\lannionthemeversion{1.12}
+\def\lannionthemedate{08/12/2021}
+\typeout{Beamer theme `Lannion' version \lannionthemeversion,  as of \lannionthemedate}
+
+\usepackage{ifthen}
+
+\mode<presentation>
+
+\def\localmodel{\utemplatepath/LessonModel/Beamer/\ubeamermodel.model}
+
+% pass option 'serif' or 'font' to font theme
+\DeclareOptionBeamer{serif}
+{\PassOptionsToPackage{serif=#1}{\localmodel/beamerfontthemejohannes}}
+
+
+
+
+\DeclareOptionBeamer{font}
+{\PassOptionsToPackage{font={#1}}{\localmodel/beamerfontthemejohannes}}
+
+\DeclareOptionBeamer{boldfont}
+{\PassOptionsToPackage{boldfont={#1}}{\localmodel/beamerfontthemejohannes}}
+
+\DeclareOptionBeamer{scale}
+{\PassOptionsToPackage{scale={#1}}{\localmodel/beamerfontthemejohannes}}
+
+\DeclareOptionBeamer{monofont}
+{\PassOptionsToPackage{monofont={#1}}{\localmodel/beamerfontthemejohannes}}
+
+\newif\ifLOGO\LOGOtrue
+\DeclareOptionBeamer{nologo}
+{\PassOptionsToPackage{nologo=#1}{\localmodel/beamerinnerthemeorange}\LOGOfalse}
+
+\DeclareOptionBeamer{noinno}
+{\PassOptionsToPackage{noinno=#1}{\localmodel/beamerinnerthemeorange}}
+
+
+% change in biblatex' bibenvironment needed with 'alphabetic' style
+\def\mybibstyle{}
+% needed for the ifx macro comparison
+\def\alphabetictoken{alphabetic}
+\def\numerictoken{numeric}
+\DeclareOptionBeamer{bibstyle}{
+   \def\mybibstyle{#1}
+}
+
+
+% show/hide navigation bar (top or left, if 16:9 aspectratio)
+\newif\ifHEADLINE\HEADLINEtrue
+\DeclareOptionBeamer{noheadline}{\HEADLINEfalse}
+
+% force navigation bar on top in 16:9 mode
+\newif\ifFORCTETOPHEADLINE\FORCTETOPHEADLINEfalse
+\DeclareOptionBeamer{forcetopheadline}{\FORCTETOPHEADLINEtrue}
+
+\ProcessOptionsBeamer
+
+% use font theme
+%\usefonttheme{johannes}
+\usepackage{\localmodel/beamerfontthemejohannes}
+
+
+
+\ifHEADLINE
+% headlines (standard outer theme)
+ \ifthenelse{\lengthtest{\beamer@paperwidth=16cm}}
+            {
+              % in 16:9 format, we put head and footlines to the right if not forced to top
+	      \ifFORCTETOPHEADLINE
+	              \useoutertheme[subsection=false]{miniframes}
+	              %\useoutertheme{footline}
+                \usepackage{\localmodel/beamerouterthemefootline}
+	      \else
+	              %\useoutertheme[hideothersubsections=true,height=0pt,width=3em,right]{sideline}
+                \usepackage[hideothersubsections=true,height=0pt,width=3em,right]{\localmodel/beamerouterthemesideline}
+	      \fi
+            }
+            {
+	      % in 4:3 format, we have a headline and a footline
+              \useoutertheme[subsection=false]{miniframes}
+              \usepackage{\localmodel/beamerouterthemefootline}
+            } % does not show subsections
+
+\fi
+
+%\useinnertheme{orange}  % Look and feel Orange
+\usepackage{\localmodel/beamerinnerthemeorange}
+
+\useinnertheme{rectangles} % Adds rectangles in TOC
+
+\ifLOGO
+ %\usecolortheme{orange}  % coleurs orange
+ \usepackage{\localmodel/beamercolorthemeorange}
+\else
+ %\usecolortheme{johannes}  % rougeatre
+ \usepackage{\localmodel/beamercolorthemejohannes}
+\fi
+
+%\usecolortheme{orchid} % couleurs bleues
+%\usecolortheme{crane} % coleurs jaunes
+
+
+
+%\usecolortheme{fly}
+%\usecolortheme{crane}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+
+\urlstyle{same}
+
+
+
+
+\ifcsname defbibenvironment\endcsname  % check whether \defbibenvironment exists
+
+  \ifx\alphabetictoken\mybibstyle  %% for biblatex option: bibstyle=alphabetic
+    % redefining the biblatex printbibliography command, in order to have an indenting with
+    % goes with this theme
+    \defbibenvironment{bibliography}
+    {\list
+       {\printtext[labelalphawidth]{%
+          \printfield{prefixnumber}%
+          \printfield{labelalpha}%
+          \printfield{extraalpha}}
+       }
+       {\setlength{\labelwidth}{.8\labelalphawidth}%\labelnumberwidth}% Width of label
+        \setlength{\leftmargin}{\labelwidth}%
+        \setlength{\labelsep}{0\biblabelsep}%
+        \addtolength{\leftmargin}{0\labelsep}% % indent of bib-list
+        \setlength{\itemindent}{0\labelwidth}% % (negative) indent of first line
+        \setlength{\itemsep}{\bibitemsep}%
+        \setlength{\parsep}{\bibparsep}}%
+        \renewcommand*{\makelabel}[1]{\hss##1}
+       }
+    {\endlist}
+    {\item}
+
+    % use shorthand of bibitem
+    \defbeamertemplate*{bibliography item}{triangletext}
+    {\footnotesize\raise.9pt\hbox{\donotcoloroutermaths \insertbiblabel}}
+
+  \else\ifx\numerictoken\mybibstyle %% for biblatex option: bibstyle=numeric
+    \defbibenvironment{bibliography}
+    {\list
+       {\printtext[labelnumberwidth]{%
+          \printfield{prefixnumber}%
+          \printfield{labelnumber}}}
+       {\setlength{\labelwidth}{\labelnumberwidth}%
+        \setlength{\leftmargin}{\labelwidth}%
+        \setlength{\labelsep}{.5\biblabelsep}%
+        \addtolength{\leftmargin}{\labelsep}%
+        \setlength{\itemsep}{\bibitemsep}%
+        \setlength{\parsep}{\bibparsep}}%
+        \renewcommand*{\makelabel}[1]{\hss##1}}
+    {\endlist}
+    {\item}
+
+    \defbeamertemplate*{bibliography item}{triangletext}
+    {\footnotesize\raise.9pt\hbox{\donotcoloroutermaths \insertbiblabel}}
+  \else
+    % redefining the bibenvironment for authoryear style
+    \defbibenvironment{bibliography}
+    {\list
+      {\printtext[labelnumberwidth]{%
+        \printfield{labelprefix}%
+        \printfield{labelnumber}}
+      }
+      {\setlength{\labelwidth}{1em}%\labelnumberwidth}% Width of label
+       \setlength{\leftmargin}{\labelwidth}%
+       \setlength{\labelsep}{0\biblabelsep}%
+       \addtolength{\leftmargin}{1em}%\labelsep}% % indent of bib-list    
+       \setlength{\itemindent}{-1em}%\labelwidth}% % (negative) indent of first line
+       \setlength{\itemsep}{\bibitemsep}%
+       \setlength{\parsep}{\bibparsep}}%
+       \renewcommand*{\makelabel}[1]{\hss##1}
+      }
+    {\endlist}
+    {\item}
+    % and kill the abominable icon
+    %\setbeamertemplate{bibliography item}{}
+    \setbeamertemplate{bibliography item}[triangle]{}
+  \fi % else
+  \fi
+\fi % check whether \defbibenvironment exists
+
+%\newcommand\beamer@putleft[2]{%
+%  \hbox to 0pt{\hss\vtop{%
+%      \normalsize%
+%      \@tempdima=.25\paperwidth%
+%      \advance\@tempdima by-3ex%
+%      \hsize=\@tempdima%
+%      \leftskip=0pt plus 1fill%
+%      \rightskip=0pt\relax%
+%      \leavevmode#1}\kern#2}%
+%}
+%\newenvironment{beamer@putright}{\vtop\bgroup\leavevmode}{\egroup}
+
+% adds a thankyou slide with a mail address and an http line
+\def\merci#1#2#3{
+%\iforangeinno
+\begin{frame}[plain]
+\begin{tikzpicture}[scale=1]%remember picture, %overlay,
+
+  \draw [draw=charteOrange, line width=1mm] ($(current page.north west)+(5mm, -3mm)$)
+  -- ($(current page.north west)+(5mm, -87mm)$);
+
+  \node[anchor=north west,inner sep=1.5mm,
+        align=left,
+        fill=white, draw=white] at ($(current page.north west)+(3mm,-7mm)$) {
+        \color{charteOrange}\usebeamerfont{newsubtitle}Orange\\
+        \color{black}\usebeamerfont{newsubtitle}CyberSchool
+  };
+
+
+ \node[anchor=north west,inner sep=0mm,
+        align=left,
+        fill=white] at ($(current page.north west)+(15mm,-30mm)$) {
+        \begin{minipage}{1.3\textwidth}
+        \flushleft
+        {\usebeamercolor[fg]{newsubtitle}\usebeamerfont{newtitle}#1}
+        \end{minipage}
+ };
+
+ \node[anchor=north west, inner sep=0mm,
+        fill=white] at ($(current page.north west)+(15mm,-70mm)$)   {
+        \begin{minipage}{.8\textwidth}
+        \flushleft
+        { \usebeamercolor[fg]{newsubtitle}\usebeamerfont{newauthor}#2 }
+
+        \end{minipage}
+ };
+
+ \node[anchor=north west, inner sep=0mm,
+        fill=white] at ($(current page.north west)+(15mm,-80mm)$)   {
+        \begin{minipage}{.8\textwidth}
+        \flushleft  { \usebeamerfont{newurl}#3}
+        \end{minipage}
+ };
+
+ \node[anchor=south east,inner sep=0mm,
+        fill=white] at ($(current page.north west)+(153mm,-85mm)$)   {  \includegraphics[width=10mm]{\localmodel/Orange_logo.pdf} };
+
+\end{tikzpicture}
+
+\end{frame}
+}
+
+% \else
+
+% \begin{frame}{}
+%    ~
+%   \vskip10ex
+
+%   \textcolor{craneorange}{\fontsize{30}{32}\selectfont #1}
+
+
+%   \vskip8ex
+%   %\large
+%   #2
+
+%   \vskip30mm
+
+%   {\scriptsize \url{#3}}
+
+%   \end{frame}
+% \fi
+% }
+
+% adds a divider slide
+\def\intercalaire#1#2{
+  \begin{frame}{~}
+    \textcolor{craneorange}{\fontsize{30}{32}\bf #1}
+
+    \vskip 5mm
+    {\fontsize{20}{26}\selectfont #2}
+
+    
+    \vfill 
+  \end{frame}
+}
+% adds a divider slide with image
+\def\intercalaireIMG#1#2#3{
+  \begin{frame}{~}
+    \textcolor{craneorange}{\fontsize{30}{32}\bf #1}
+
+    \vskip 5mm
+    {\fontsize{20}{26}\selectfont #2}
+
+    #3
+    
+    \vfill 
+  \end{frame}
+}
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{}
+\begin{multicols}{2}
+\Large{\tableofcontents[currentsection, hideothersubsections]}
+\end{multicols}
+\end{frame}
+}
+
+\mode
+<all>

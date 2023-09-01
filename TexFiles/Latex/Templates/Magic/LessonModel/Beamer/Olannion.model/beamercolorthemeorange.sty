@@ -1,0 +1,158 @@
+% Johannes Heinecke
+
+
+\mode<presentation>
+
+
+%\setbeamercolor*{sidebar}{parent=block title}
+%\setbeamercolor{local structure}{parent=sidebar}
+%\setbeamercolor{section in toc}{parent=sidebar}
+
+%\setbeamercolor{button}{use=structure,bg=structure.fg!50!bg,fg=white}
+%
+%\setbeamercolor*{title}{parent=structure}
+%
+%\setbeamercolor{block title alerted}{use=sidebar,fg=sidebar.fg!25!red}
+%\setbeamercolor{block title example}{use=sidebar,fg=sidebar.fg!50!green}
+%
+%\setbeamersize{text margin left=1.5ex}
+%\setbeamersize{text margin right=1.5ex}
+%\setbeamersize{sidebar width left=.0\paperwidth}
+%\setlength\leftmargini{0pt}
+%\setlength\leftmarginii{1.5ex}
+%\setlength\leftmarginiii{1.5ex}
+
+
+
+%% beamercolorthemeft.sty
+%\definecolor{craneorange}{RGB}{255,60,0}
+\definecolor{craneorange}{RGB}{255,121,0}
+\definecolor{craneblue}{RGB}{33,33,51}
+\definecolor{cranegray}{RGB}{61,61,61}
+
+\definecolor{yellow}{RGB}{255,255,0}
+
+\setbeamercolor{structure}{fg=cranegray}
+
+% pris de http://intranet.com.intraorange/fr/Pages/mes-essentiels-pour-le-quotidien.aspx
+% "modèle commenté" http://intranet.com.intraorange/Documents/ppt/OFR_Best_Practice.pptx
+\definecolor{charteOrange}{RGB}{255,121,0}
+\definecolor{charteYellow}{RGB}{255,220,0}
+\definecolor{charteViolet}{RGB}{145,100,205}
+\definecolor{chartePink}{RGB}{255,180,230}
+\definecolor{charteGreen}{RGB}{80,190,135}
+\definecolor{charteBlue}{RGB}{75,180,230}
+\definecolor{charteGray}{RGB}{143,143,143}
+
+% couleurs claires (uniquement à utiliser si la couleur de base correspondante est présente)
+\definecolor{charteOrangeBright}{RGB}{255,236,204}
+\definecolor{charteYellowBright}{RGB}{255,246,182}
+\definecolor{charteVioletBright}{RGB}{217,194,240}
+\definecolor{chartePinkBright}{RGB}{255,232,247}
+\definecolor{charteGreenBright}{RGB}{184,235,214}
+\definecolor{charteBlueBright}{RGB}{181,232,247}
+\definecolor{charteGrayBright}{RGB}{214,214,214}
+
+% couleur foncées
+\definecolor{charteYellowDark}{RGB}{255,180,0}
+\definecolor{charteVioletDark}{RGB}{73,33,145}
+\definecolor{chartePinkDark}{RGB}{255,138,212}
+\definecolor{charteGreenDark}{RGB}{10,110,49}
+\definecolor{charteBlueDark}{RGB}{8,94,189}
+\definecolor{charteGrayDark}{RGB}{89,89,89}
+
+
+% background colours
+\setbeamercolor{charteOrangeBG}{fg=black,bg=charteOrange}
+\setbeamercolor{charteYellowBG}{fg=black,bg=charteYellow}
+\setbeamercolor{charteVioletBG}{fg=black,bg=charteViolet}
+\setbeamercolor{chartePinkBG}{fg=black,bg=chartePink}
+\setbeamercolor{charteGreenBG}{fg=black,bg=charteGreen}
+\setbeamercolor{charteBlueBG}{fg=black,bg=charteBlue}
+\setbeamercolor{charteGrayBG}{fg=black,bg=charteGray}
+
+\setbeamercolor{charteYellowBrightBG}{fg=black,bg=charteYellowBright}
+\setbeamercolor{charteVioletBrightBG}{fg=black,bg=charteVioletBright}
+\setbeamercolor{chartePinkBrightBG}{fg=black,bg=chartePinkBright}
+\setbeamercolor{charteGreenBrightBG}{fg=black,bg=charteGreenBright}
+\setbeamercolor{charteBlueBrightBG}{fg=black,bg=charteBlueBright}
+\setbeamercolor{charteGrayBrightBG}{fg=black,bg=charteGrayBright}
+
+\setbeamercolor{charteYellowDarkBG}{fg=black,bg=charteYellowDark}
+\setbeamercolor{charteVioletDarkBG}{fg=white,bg=charteVioletDark}
+\setbeamercolor{chartePinkDarkBG}{fg=black,bg=chartePinkDark}
+\setbeamercolor{charteGreenDarkBG}{fg=white,bg=charteGreenDark}
+\setbeamercolor{charteBlueDarkBG}{fg=white,bg=charteBlueDark}
+\setbeamercolor{charteGrayDarkBG}{fg=white,bg=charteGrayDark}
+
+
+
+
+
+\setbeamercolor{palette primary}{fg=cranegray,bg=white}
+\setbeamercolor{palette secondary}{fg=craneorange,bg=white}
+\setbeamercolor{palette tertiary}{fg=cranegray,bg=craneorange!90}
+\setbeamercolor{palette quaternary}{fg=cranegray,bg=craneorange}
+
+
+% color of headlines if
+
+%\setbeamercolor{section in head/foot}{bg=craneorange!25}
+\setbeamercolor{section in head/foot}{bg=white}
+%\setbeamercolor{subsection in head/foot}{bg=craneorange!5}
+
+
+%\setbeamercolor*{author in head/foot}{parent=palette tertiary}
+\setbeamercolor{author in head/foot}{fg=black!80,bg=white}
+\setbeamercolor{title in head/foot}{fg=black!90,bg=white}
+\setbeamercolor{date in head/foot}{fg=black!80,bg=white}
+
+\setbeamercolor{titlelike}{fg=charteOrange,bg=white}
+\setbeamercolor{institute}{fg=charteOrange,bg=white}
+
+% Xcolor:  40% blue and 60% yellow: blue!50!yellow
+%  
+
+\setbeamercolor{block title}{fg=black,bg=craneorange!80!white}% Couleur des blocks normaux
+%\setbeamercolor{block title}{palette secondary}
+\setbeamercolor{block title alerted}{use=alerted text,fg=cranegray,bg=alerted text.fg!75!bg}
+\setbeamercolor{block title example}{use=example text,fg=cranegray,bg=example text.fg!75!bg}
+
+%\setbeamercolor{block title example}{fg=black,bg=red!20!purple!50!white}% Couleur des blocks Exemples
+%\setbeamercolor{block title}{fg=black,bg=orange!50!white}% Couleur des blocks normaux
+%\setbeamercolor{block title alerted}{fg=black,bg=red!70!white}% Couleur des blocks Alerte
+
+
+%% block body prend 25% de la couleur pour les titre
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!25!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!25!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!25!bg}
+
+\setbeamercolor{sidebar}{bg=white}
+  
+\setbeamercolor{palette sidebar primary}{fg=cranegray}
+\setbeamercolor{palette sidebar secondary}{fg=cranegray!75}
+\setbeamercolor{palette sidebar tertiary}{fg=cranegray!75}
+\setbeamercolor{palette sidebar quaternary}{fg=cranegray}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+\setbeamercolor{item}{fg=craneorange,bg=white}
+\setbeamercolor{subitem}{fg=black,bg=white}
+
+
+\setbeamercolor{button}{bg=craneorange!60}
+
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=charteGrayDark} 
+\setbeamercolor{bibliography entry location}{fg=charteGray} 
+%\setbeamercolor{bibliography entry note}{fg=black}  
+
+
+%\hypersetup{colorlinks,linkcolor=,urlcolor=craneorange!60!black}
+\hypersetup{colorlinks,linkcolor=,urlcolor=charteOrange}
+
+
+\setbeamercolor{alerted text}{fg=charteOrange}
+

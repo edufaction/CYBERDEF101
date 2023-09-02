@@ -94,7 +94,7 @@ Elles ont envahi à grande vitesse toutes les technologies numériques. \g{Signe
 \subsubsection{Concepts}
 Derrière ces arguments qui pourraient, au premier abord, paraître convaincants, il convient rapidement d'opposer une petite analyse terminologique et conceptuelle.
 
-\paragraph{Algorithmes}\newline
+\paragraph{Algorithmes}
 Le nombre d'algorithmes mathématiques (fonctions mathématiques) en cryptographie est presque aussi grand que le nombre de mathématiciens qui travaillent dans le domaine. Il faut y ajouter le nombre d'implémentations informatiques de chaque algorithme, sans compter les différents langages utilisés pour la même implémentation.
 Quelques grandes révolutions ont eu lieu depuis le chiffre de César, mécanisme de chiffrement par décalage \g{alphabétique} utilisé dans notre enfance, et celui de la machine allemande Enigma de la dernière guerre, avec des mécanismes de substitution dits polyalphabétiques. Ces évolutions et révolutions ont lieu chaque fois que ces fameux cryptanalystes trouvent ou entrevoient une solution pour casser ce chiffre... Une longue tradition dans cette course entre la cuirasse et le canon.
 
@@ -107,7 +107,7 @@ Une des grandes difficultés dans ces algorithmes est la combinatoire pour parta
 Le chiffrement asymétrique résout ce problème de la combinatoire, mais reste bien plus lent. Rendu célèbre par Alice et Bob, deux personnages illustrant les cours de cryptologie asymétrique, ce mécanisme utilise une paire de clés liées dites asymétriques : une clé publique et une clé privée. La clé publique est rendue publique et distribuée librement. La clé privée n'est jamais distribuée et doit être gardée secrète. Pour cette une paire de clés, les données chiffrées à l'aide de la clé publique ne peuvent être déchiffrées qu'avec la clé privée correspondante (donc si vous avez la clef publique de votre correspondant, vous pouvez chiffrer une information pour lui). Inversement, les données chiffrées à l'aide de la clé privée ne peuvent être déchiffrées qu'avec la clé publique correspondante. Cette caractéristique est utilisée pour mettre en œuvre la signature numérique.
 
 
-\upicture{../Latex/Sources/EDU/Pictures/img-crypto1}{Exemple d'une encapsulation asymétrique pour un chiffrement de fichier}{0.6}{lblcrypto1}
+\upicture{../Latex/Sources/EDU/SRC1/Pictures/img-crypto1}{Exemple d'une encapsulation asymétrique pour un chiffrement de fichier}{0.6}{lblcrypto1}
 
 \paragraph{Fonction de hachage}
 
@@ -153,7 +153,7 @@ En France, le terme de moyen (9) cryptologique est défini par loi sur la confia
  \item pour les métiers de l'entreprise comme les achats ou l'archivage probant, les enjeux d'authenticité, d'imputabilité et d'intégrité ainsi que la signature électronique nécessitent des travaux transverses à l'entreprise souvent coûteux.
 \end{itemize}
 
-\upicture{../Latex/Sources/EDU/Pictures/img-crypto2}{ Les briques à vérifier dans la chaine de confiance}{0.6}{lblcrypto2}
+\upicture{../Latex/Sources/EDU/SRC1/Pictures/img-crypto2}{ Les briques à vérifier dans la chaine de confiance}{0.6}{lblcrypto2}
 
 Il est à noter, le point particulier du recouvrement des données chiffrées et du séquestre des clefs. Indispensable pour les malchanceux qui perdent leur clef privée ou par nécessité (départ de l'entreprise, réquisition sur des données...), la confiance dans celui qui possède cette capacité de recouvrement est un enjeu fondamental.
 Acquérir et déployer un système cryptographique dans l'entreprise doit se baser sur un minimum de confiance dans

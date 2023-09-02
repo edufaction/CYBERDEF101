@@ -130,11 +130,11 @@ Schéma Proxy
 Le Reverse Proxy aura lui le rôle de protéger les serveurs des accès utilisateurs, externes ou internes.
 Il peut assurer une \textbf{rupture protocolaire} et donc agir en tant que mandataire auprès du serveur.
 Plus précisément, la connexion TCP/HTTP par exemple entre le client A et le serveur Web \textbf{www.monexemple.com} peut s'effectuer de la manière suivante : 
-\begin{enumerate}
+\begin{itemize}
     \item le client effectue une requête DNS sur www.monexemple.com et le serveur DNS lui indique l'IP associée, cette IP est portée par le Reverse Proxy;
     \item le client initie une connexion TCP/HTTP vers le Reverse Proxy;
     \item le Reverse Proxy effectue éventuellement les contrôles configurés et ensuite initie à son tour une connexion TCP/HTTP vers le serveur.
-\end{enumerate}
+\end{itemize}
 Le Reverse Proxy est un équipement ou bien une fonction portée par un service qui permet donc d'interagir avec la connexion et assurer par exemple :
 \begin{itemize}
     \item de la répartition de charges (load balancing);
@@ -185,12 +185,13 @@ Exemple de schéma d'infrastructure avec positionnement des sondes :
 {LabelImage} % label de référence
 }
 %End PICFRAME--------------------------
-
 Il existe plusieurs méthodes de détection telles que :
+\begin{itemize}
 \item celle basée sur les signatures qui compare avec sa base de signatures les événements observés pour identifier des incidents potentiels;
 \item celle basée sur les anomalies qui compare les définitions d'une activité considérée comme normale avec les événements observés afin d'identifier les écarts significatifs;
 \item l'analyse dynamique qui compare les profils prédéterminés des protocoles, avec les événements observés, afin d'identifier les écarts.
-L'ensemble des résultats des sondes sont consignés dans des journaux et peuvent utilisés dans les détections d'incidents de sécurité.
+L'ensemble des résultats des sondes sont consignés dans des journaux et peuvent utilisés dans les détections d'incidents de sécurité. 
+\end{itemize}
 
 %Begin FRAME----------------------------
 \mode<presentation>{\texframe
@@ -265,7 +266,7 @@ Le principe du ZeroTrust est de ne plus faire uniquement confiance aux contrôle
 \subsubsection{Bastion}
 
 \mode<presentation>{\begin{frame}
-	\lquote[\tiny RECOMMANDATIONS RELATIVES À L'ADMINISTRATION SÉCURISÉE DES SYSTÈMES D'INFORMATION v3-0]{\textbf{ANSSI}}{\small Les actions d’administration imposent entre autres des exigences de traçabilité et de confidentialité. La figure ci-dessous présente la mise en œuvre de rebonds dans une zone d’administration permettant d’appliquer un certain nombre de traitements tels le filtrage des connexions, l’authentification des administrateurs sur un portail frontal, un contrôle d’accès ou encore la journalisation des actions effectuées et des commandes exécutées par les administrateurs. le bastion constitue une ressource d’administration critique dans la mesure où il concentre potentiellement à un instant des secrets d’authentification des comptes d’administration ou des journaux liés aux actions d’administration. Il ne doit donc pas être exposé sur un SI de faible niveau de confiance, un SI bureautique par exemple.}
+	\lquote[\tiny RECOMMANDATIONS RELATIVES À L'ADMINISTRATION SÉCURISÉE DES SYSTÈMES D'INFORMATION v3-0]{\textbf{ANSSI} (Agence Nationale Sécurité des Systèmes d'Information)}{\small Les actions d’administration imposent entre autres des exigences de traçabilité et de confidentialité. La figure ci-dessous présente la mise en œuvre de rebonds dans une zone d’administration permettant d’appliquer un certain nombre de traitements tels le filtrage des connexions, l’authentification des administrateurs sur un portail frontal, un contrôle d’accès ou encore la journalisation des actions effectuées et des commandes exécutées par les administrateurs. le bastion constitue une ressource d’administration critique dans la mesure où il concentre potentiellement à un instant des secrets d’authentification des comptes d’administration ou des journaux liés aux actions d’administration. Il ne doit donc pas être exposé sur un SI de faible niveau de confiance, un SI bureautique par exemple.}
 \end{frame}
 }
 

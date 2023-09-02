@@ -1,0 +1,111 @@
+\documentclass[a4paper,10pt,twocolumn]{article}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+	
+	
+\usepackage{listings}      
+
+\lstset{literate=%
+{é}{{\'e}}{1}%
+{è}{{\`e}}{1}%
+{à}{{\`a}}{1}%
+{ç}{{\c{c}}}{1}%
+{œ}{{\oe}}{1}%
+{ù}{{\`u}}{1}%
+{É}{{\'E}}{1}%
+{È}{{\`E}}{1}%
+{À}{{\`A}}{1}%
+{Ç}{{\c{C}}}{1}%
+{Œ}{{\OE}}{1}%
+{Ê}{{\^E}}{1}%
+{ê}{{\^e}}{1}%
+{î}{{\^i}}{1}%
+{ô}{{\^o}}{1}%
+{û}{{\^u}}{1}%
+{ë}{{\¨{e}}}1
+{û}{{\^{u}}}1
+{â}{{\^{a}}}1
+{Â}{{\^{A}}}1
+{Î}{{\^{I}}}1
+} 
+
+\lstdefinestyle{LATEX}
+{
+  language=[LaTeX]{TeX},
+  texcsstyle=*\color{red},
+  basicstyle=\ttfamily,
+  moretexcs={lquote,rquote,xtodo,xreview}, % user command highlight
+  frame=single,
+}
+
+\lstset{breaklines=true}
+
+\def\EDX{\textit{\textbf{EDX}}}
+\def\lib{librairie }
+
+\input{edxlibs/edxlib-placeholder.tex}
+\input{edxlibs/edxlib-epigraphe.tex}
+
+\title{Magic Documentation}
+\author{Eric Dupuis}
+
+\begin{document}
+\maketitle
+
+\section{Avant propos}
+
+Ce document définit les différentes macros, du template EDX MAGIC utilisé pour le cours CYBERDEF101.
+
+\section{Librairies EDX}
+
+\subsection{Librairies des macros de mise en forme}
+
+\subsubsection{Epigraphe (edxlib-epigraphe)}
+
+Utilisation :
+\begin{lstlisting}[style=LATEX]
+% inclusion de librairies EDX
+\input{$libpath/edxlib-epigraphe.tex}
+
+\end{lstlisting}	
+
+Où \$libpath est le chemin des libs \EDX. Cette \lib utilisant le package \textbf{xcolor} avec des options, elle doit être chargé avant d'autres packages utilisant \textbf{xcolor}.
+
+il y deux commandes :
+
+\textbf{\textbackslash rquote} pour un alignement à droite (right)
+
+\begin{lstlisting}[style=LATEX]
+\rquote{Napoleon}{Quand on veut on peut, quand on peut on doit.}
+\end{lstlisting}	
+% Left aligned epigraph
+\rquote{Napoleon}{Quand on veut on peut, quand on peut on doit.}
+
+% Right aligned epigraph with a listed occupation
+
+\textbf{\textbackslash rquote} pour un alignement à gauche (left) avec l'option d'ajout soit du titre de l'auteur, soit de la source de la citation.
+
+\begin{lstlisting}[style=LATEX]
+\lquote[Le calendrier de Pudd'nhead Wilson]{Mark Twain}{Quand vous êtes en colère, comptez jusqu'à quatre. Quand vous êtes très en colère, jurez!}
+\end{lstlisting}
+
+\lquote[Le calendrier de Pudd'nhead Wilson]{Mark Twain}{Quand vous êtes en colère, comptez jusqu'à quatre. Quand vous êtes très en colère, jurez!}
+
+\subsubsection{Placeholder (edxlib-placeholder)}	
+Cette librairie inclue des marques pour les TODO ou les reviews
+
+\textbf{\textbackslash xtodo} pour ajouter une marque de TODO.
+
+\xtodo{ne pas oublier d'ajouter des compléments}
+
+\textbf{\textbackslash xtodo} pour ajouter une marque de REVIEW.
+\xreview{ne pas oublier de modifier ce texte}
+\begin{lstlisting}[style=LATEX]
+\xtodo{ne pas oublier d'ajouter des compléments}
+\xreview{ne pas oublier de modifier ce texte}
+\end{lstlisting}
+	
+\end{document}

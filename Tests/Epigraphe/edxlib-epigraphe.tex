@@ -1,0 +1,34 @@
+%---------------------------------------------------------------
+% Epigraphe Module - eduf@ction - 2023
+%---------------------------------------------------------------
+
+
+\usepackage{times}
+\usepackage{xcolor}
+\usepackage{epigraph}
+\usepackage{tabto}
+\usepackage{ifthen}
+\setlength{\epigraphwidth}{0.75\linewidth}
+\setlength{\afterepigraphskip}{\baselineskip}
+\setlength{\beforeepigraphskip}{0.4\baselineskip}
+
+\definecolor{epigraphecolor}{RGB}{230,230,230}
+
+\makeatletter
+\newenvironment{@leftepigraph}{
+   \setlength\topsep{0pt}
+   \setlength\parskip{0pt}
+   \renewcommand{\epigraphflush}{flushleft}
+}{}
+\newenvironment{@rightepigraph}{
+   \setlength\topsep{0pt}
+   \setlength\parskip{0pt}
+   \renewcommand{\epigraphflush}{flushright}
+   \renewcommand{\sourceflush}{flushright}
+   \renewcommand{\textflush}{flushright}
+}{}
+\newcommand{\@bgquote}[2]{\tabto*{#1}{\fontsize{100pt}{0pt}\selectfont{}\color{epigraphecolor!50}\smash{\raisebox{-60pt}{#2}}}\tabto*{0pt}}
+\newcommand{\@generalquote}[6]{\begin{#6}\epigraph{\@bgquote{#5}{#4}#3}{\textsc{#2}\ifthenelse{\equal{#1}{}}{}{\\\textit{#1}}}\end{#6}}
+\newcommand{\lquote}[3][]{\@generalquote{#1}{#2}{#3}{''}{\dimexpr(\epigraphwidth-50pt)}{@leftepigraph}}
+\newcommand{\rquote}[3][]{\@generalquote{#1}{#2}{#3}{``}{0pt}{@rightepigraph}}
+\makeatother

@@ -1,0 +1,20 @@
+%---------------------------------------------------------------
+% Placeholder Module - eduf@ction - 2023
+%---------------------------------------------------------------
+
+\usepackage[usenames,svgnames,table]{xcolor}
+
+\newcommand{\placeholder}[1]{\noindent%
+   \fcolorbox{LightBlue}{LightCyan}{%
+      \begin{minipage}{0.9\columnwidth}%
+         \color{DodgerBlue}\textbf{\tiny{TODO~~}}%
+         \color{MidnightBlue}#1%
+      \end{minipage}%
+   }%
+   \par%
+}
+\newcommand{\placeholderinl}[1]{\noindent%
+   \fcolorbox{LightBlue}{LightCyan}{\color{DodgerBlue}!}%
+   ~{\color{MidnightBlue}#1}~%
+   \fcolorbox{LightBlue}{LightCyan}{\color{DodgerBlue}<}%
+}

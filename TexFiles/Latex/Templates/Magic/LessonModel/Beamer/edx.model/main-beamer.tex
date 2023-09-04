@@ -35,6 +35,12 @@
 \usepackage{ae}
 \usepackage{aecompl}
 
+
+\usepackage{environ}
+\newwrite\audioexport
+
+
+
 \renewcommand{\familydefault}{pag}
 
 %-------------------------------------------------------
@@ -84,6 +90,11 @@
 \begin{document}
 
 
+
+  %-------------------------------------------------------
+  % AudioNote Open File
+  %-------------------------------------------------------
+\mode<all>{\immediate\openout\audioexport=\jobname.txt}
 
 %================================
 \begin{frame}[plain]
@@ -187,6 +198,13 @@
 {\safeqrcode[padding]{\GITfilename}}  
 \end{center} }
 \end{frame}
+
+
+  %-------------------------------------------------------
+  % AudioNote Open File
+  %-------------------------------------------------------
+  \mode<all>{\immediate\closeout\audioexport}
+
 
 \end{document}
 

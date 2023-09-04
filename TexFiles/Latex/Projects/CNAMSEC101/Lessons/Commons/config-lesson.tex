@@ -2,7 +2,7 @@
 %               FR CYBERDEF SECOPS COURSE
 %                          CONFIG NOTES File
 %          SET BEAMER or Article/book Mode
-%                    PRZMODE OR DOCMODE
+%                    PRZMODE OR DOCMODE or QUIZZMODE
 %                             2020 eduf@ction
 %-------------------------------------------------------------
 
@@ -37,6 +37,10 @@
 	\else
 	\providecommand{\umainload}{\input{\utemplatepath/LessonModel/Article/main-article.tex}}
 	\fi
+\fi
+
+\ifdefined\QUIZZMODE 
+\providecommand{\umainload}{\input{\utemplatepath/LessonModel/Quizz/main-quizz.tex}}
 \fi
 
 

@@ -11,9 +11,11 @@
 
 \newcommand{\udocname}{\jobname}
 
-\IfSubStr*{\currfilebase}{.prz}{\newcommand{\PRZMODE}{YES}}{\newcommand{\DOCMODE}{YES}}
-   
-\IfSubStr*{\currfilebase}{.edt}{\newcommand{\EDTMODE}{YES}}{\newcommand{\NOMODE}{YES}}
+\IfSubStr*{\currfilebase}{.prz}{\newcommand{\PRZMODE}{YES}}{}
+\IfSubStr*{\currfilebase}{.qzz}{\newcommand{\QUIZZMODE}{YES}}{}   
+\IfSubStr*{\currfilebase}{.edt}{\newcommand{\EDTMODE}{YES}}{}
+
+
 
 \input{../Latex/Templates/Magic/commons.inc/edx.library.tex}
 

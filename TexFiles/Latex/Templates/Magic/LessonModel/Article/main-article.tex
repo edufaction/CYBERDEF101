@@ -49,7 +49,22 @@
 
 \setlist [itemize,1]{label=\color{uMainColor}\faCaretRight }
 
+
+\usepackage{environ}
+\newwrite\audioexport
+
+
+
 \begin{document}
+
+
+
+
+
+  %-------------------------------------------------------
+  % AudioNote Open File
+  %-------------------------------------------------------
+\mode<all>{\immediate\openout\audioexport=\jobname.txt}
 
 
 \addtocontents{toc}{\protect\hypertarget{toc}{}}
@@ -121,5 +136,9 @@
 \Ucontribute % Contribution TEXT
 %-------------------------------------------------
 
+  %-------------------------------------------------------
+  % AudioNote Open File
+  %-------------------------------------------------------
+  \mode<all>{\immediate\closeout\audioexport}
 
 \end{document}

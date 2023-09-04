@@ -1,0 +1,55 @@
+%-----------------------------------------------------%
+% Quizz Module 1										
+%-----------------------------------------------------%
+% Attention il n'y que les questions par l'environnement
+% Quizz
+
+\documentclass[12pt, LuaLaTeX]{article}
+\usepackage{moodle}
+\usepackage{ae}
+\usepackage{graphicx}
+
+\usepackage{fontspec}
+\setmainfont{Arial}
+
+\input{../Latex/Templates/Magic/edxlibs/edxlib-quizzmoodle.tex}
+
+%\usepackage[french]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{lmodern}
+
+
+\def\QuizzName{Module1}
+\def\QuizzIDprefix{Q-\QuizzName}
+
+\title{Auto-Quizz Magic}
+\author{\QuizzName}
+
+\begin{document}
+
+\maketitle
+
+\begin{quiz}{\QuizzName}
+ 	
+\begin{multi}[multiple=true]{\QuizzID}
+	Entourer les attaques généralement de type  ciblée :\\
+	\includegraphics[scale=0.5]{pictures/image.png}
+	
+\item 	Phishing ou hameçonnage
+\item 	Ransomware ou rançongiciel
+\item* 	Social engineering ou ingénierie sociale
+\item* 	Spear phishing ou l'arnaque au président
+\end{multi}
+
+\begin{multi}[multiple=true]{\QuizzID}
+	Entourer les attaques généralement de type  ciblée :
+\item 	Phishing ou hameçonnage
+\item 	Ransomware ou rançongiciel
+\item* 	Social engineering ou ingénierie sociale
+\item* 	Spear phishing ou l'arnaque au président
+\end{multi}
+   	
+ \end{quiz}
+
+\end{document}

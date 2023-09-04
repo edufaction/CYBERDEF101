@@ -107,5 +107,13 @@ Cette librairie inclue des marques pour les TODO ou les reviews
 \xtodo{ne pas oublier d'ajouter des compléments}
 \xreview{ne pas oublier de modifier ce texte}
 \end{lstlisting}
+
+\section{Davinci Resolve - Video}
+\subsection{Redim PDF for Beamer}
+Les PDF beamer font 16,7 cm sur 9 cm
+
+\begin{verbatim}	
+gs -sDEVICE=pdfwrite -sPAPERSIZE=a4 -dFIXEDMEDIA -dPDFFitPage -dCompatibilityLevel=1.4 -o out.pdf CourseNotes-FR-SEC101-00-intro.prz.pdf
+\end{verbatim}
 	
 \end{document}

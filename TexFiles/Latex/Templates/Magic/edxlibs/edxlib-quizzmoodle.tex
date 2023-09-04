@@ -1,0 +1,19 @@
+%-----------------------------------------
+% Module QuizzMoodle in MAGIC path
+%-----------------------------------------
+% Need : \edxlibspath defined
+
+
+%-----------------------------------------
+% Define counter for question
+
+\newcounter{uQuizznum}
+\renewcommand\theuQuizznum{\arabic{uQuizznum}}
+\newcommand{\uQuizznum}{\stepcounter{uQuizznum}ID\theuQuizznum}
+\setcounter{uQuizznum}{0}
+
+\def\QuizzIDprefix{no-prefix}
+
+\def\QuizzName{no-name}
+
+\newcommand{\QuizzID}{\QuizzIDprefix-\uQuizznum}

@@ -12,6 +12,13 @@
 \usepackage{lmodern}
 \usepackage{multicol}
 
+
+\usepackage{environ}
+\newwrite\audioexport
+
+
+
+
 \input{\utemplatepath/commons.inc/CommonsPictures/\utemplatetheme.theme/colors.inc} % set uMainColor
 
 \input{\utemplatepath/commons.inc/edx.packages.tex}
@@ -91,6 +98,11 @@
 % }
 
 \begin{document}
+
+  %-------------------------------------------------------
+  % AudioNote Open File
+  %-------------------------------------------------------
+\mode<all>{\immediate\openout\audioexport=\jobname.txt}
 
 \mode<all>{\setLayout{titlepage}}
 %================================
@@ -176,6 +188,13 @@
 {\safeqrcode[padding]{\GITfilename}}  
 \end{center} }
 \end{frame}
+
+  %-------------------------------------------------------
+  % AudioNote Open File
+  %-------------------------------------------------------
+  \mode<all>{\immediate\closeout\audioexport}
+
+
 
 \end{document}
 

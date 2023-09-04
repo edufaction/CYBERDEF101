@@ -1,0 +1,58 @@
+%-----------------------------------------------------%
+% MAGIC TEMPLATE QUIZZ MOODLE									
+%-----------------------------------------------------%
+
+\documentclass[12pt, LuaLaTeX]{article}
+
+
+
+\usepackage{moodle}
+\usepackage{ae}
+\usepackage{graphicx}
+
+%-----------------------------------------------------%
+% Load QuizzMoodle edxlib for Counters, ...
+%-----------------------------------------------------%
+
+\input{../Latex/Templates/Magic/edxlibs/load.tex}
+
+\input{\utemplatepath/commons.inc/edx.packages.tex}
+\input{\utemplatepath/commons.inc/edx.command.tex}
+
+
+
+%-----------------------------------------------------%
+% Lua Fonts
+%-----------------------------------------------------%
+\usepackage{fontspec}
+\setmainfont{Arial}
+%-----------------------------------------------------%
+% Load QuizzMoodle edxlib for Counters, ...
+%-----------------------------------------------------%
+
+
+
+
+%**************************************%
+% Template
+%**************************************%
+\def\QuizzName{Module\lessonID}
+\def\QuizzIDprefix{Q-\QuizzName}
+
+\title{Auto-Quizz Magic\\\QuizzName}
+\author{\uauthor}
+
+\begin{document}
+
+\maketitle
+
+\begin{quiz}{\QuizzName}
+
+ %-----------------------------------------------------%
+ % Defined before via input files
+\ubodyquizz
+%-----------------------------------------------------%
+
+\end{quiz}
+
+\end{document}

@@ -1,12 +1,17 @@
 \documentclass[ignorenonframetext,allowframebreaks,aspectratio=169,t,9pt, xcolor=table,c]{beamer}
-\usepackage[utf8]{inputenc}
+%\usepackage[utf8]{inputenc}
+
+\input{\utemplatepath/commons.inc/edx.packages.tex}
+\input{\utemplatepath/commons.inc/edx.command.tex}
 
 \input{\edxlibspath/load.tex}
+
+\usepackage{ae}
 
 \usepackage{booktabs} 
 \usepackage{subcaption}
 
-\usepackage[T1]{fontenc}
+%\usepackage[T1]{fontenc}
 \usepackage{csquotes}
 \usepackage[french]{babel}
 \usepackage{lmodern}
@@ -21,8 +26,7 @@
 
 \input{\utemplatepath/commons.inc/CommonsPictures/\utemplatetheme.theme/colors.inc} % set uMainColor
 
-\input{\utemplatepath/commons.inc/edx.packages.tex}
-\input{\utemplatepath/commons.inc/edx.command.tex}
+
 
 %-------------------------------------------------------
 \usepackage{\utemplatepath/LessonModel/Beamer/\ubeamermodel.model/beamerthemeUfg}
@@ -32,7 +36,7 @@
 \usepackage{ae}
 \usepackage{aecompl}
 
-\renewcommand{\familydefault}{pag}
+%\renewcommand{\familydefault}{pag}
 
 \usetheme{Ufg}
 

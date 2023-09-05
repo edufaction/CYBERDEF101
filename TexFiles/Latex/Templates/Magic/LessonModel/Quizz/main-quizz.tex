@@ -2,7 +2,7 @@
 % MAGIC TEMPLATE QUIZZ MOODLE									
 %-----------------------------------------------------%
 
-\documentclass[12pt, LuaLaTeX]{article}
+\documentclass[12pt, fleqn,twoside,LuaLaTeX]{\utemplatepath/LessonModel/Article/edxstyle}
 
 
 
@@ -10,44 +10,75 @@
 \usepackage{ae}
 \usepackage{graphicx}
 
-%-----------------------------------------------------%
-% Load QuizzMoodle edxlib for Counters, ...
-%-----------------------------------------------------%
+%\moodleregisternewcommands
 
-\input{../Latex/Templates/Magic/edxlibs/load.tex}
+%\htmlregister
+
+%\usepackage{url}
+
+%\htmlregister{\url}
+%\usepackage{hyperref}
+
+\input{\utemplatepath/commons.inc/CommonsPictures/\utemplatetheme.theme/colors.inc}
 
 \input{\utemplatepath/commons.inc/edx.packages.tex}
 \input{\utemplatepath/commons.inc/edx.command.tex}
+\input{\utemplatepath/commons.inc/edx.styles.tex}
 
-
+%-----------------------------------------------------%
+% Load QuizzMoodle edxlib for Counters, ...
+%-----------------------------------------------------%
+\input{../Latex/Templates/Magic/edxlibs/load.tex}
 
 %-----------------------------------------------------%
 % Lua Fonts
 %-----------------------------------------------------%
 \usepackage{fontspec}
 \setmainfont{Arial}
-%-----------------------------------------------------%
-% Load QuizzMoodle edxlib for Counters, ...
-%-----------------------------------------------------%
+
+%-------------------------------------------------
+%	COLORS & BORDERS
+%-------------------------------------------------
+\setlength{\fboxrule}{0.75pt} % Width of the border around the abstract
+%\definecolor{uMainColor}{RGB}{255,128,0} % Color of the article title and section
+\definecolor{color2}{RGB}{220,220,220} % Color of the boxes behind the abstract and headings
+
+%-------------------------------------------------
+% ITEMS DEFINITION
+%-------------------------------------------------
+\setlist [itemize,1]{label=\color{uMainColor}\faCaretRight }
 
 
+\usepackage{eso-pic}
+\usepackage{tikz}
 
 
 %**************************************%
 % Template
 %**************************************%
-\def\QuizzName{Module\lessonID}
-\def\QuizzIDprefix{Q-\QuizzName}
+\renewcommand\QuizzName{Module\lessonID}
+\renewcommand\QuizzIDprefix{Q-\QuizzName}
 
-\title{Auto-Quizz Magic\\\QuizzName}
-\author{\uauthor}
 
 \begin{document}
+
+\def\QuizzTitle{QUIZZ MOODLE \QuizzName}
+
+\Abstract{\textbf{Liste des questions QUIZZ de la leçon, pour édition et vérifications.}\\\uabstract\input{../Latex/Projects/\uproject/Lessons/Commons/abstract-gen-lesson.tex} }
+\JournalInfo{\uJournalInfo} % Journal information
+\Archive{\QuizzTitle~éditées le  \DTMnow} % Additional notes (e.g. copyright, DOI, review/research article)
+
+\PaperTitle{\QuizzTitle\\\utitle} % Article title
+\Authors{\uauthor\textsuperscript{1,}\textsuperscript{2}*} % Authors
+\affiliation{\textsuperscript{1}\textit{\uproa}} % Author affiliation
+\affiliation{\textsuperscript{2}\textit{\uprob}} % Author affiliation
+\affiliation{*\textbf{email}: \umaila\ -- \umailb} % Corresponding author
+\Keywords{\ukeywords} % Keywords 
+\newcommand{\keywordname}{Mots clefs} % Defines the keywords heading name
 
 \maketitle
 
 \begin{quiz}{\QuizzName}
-
  %-----------------------------------------------------%
  % Defined before via input files
 \ubodyquizz

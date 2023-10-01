@@ -52,7 +52,7 @@
 };
 
 %%%%%%%%%%%%%%%%%%%% Year %%%%%%%%%%%%%%%%%%%% 
-\node[rounded corners,fill=covercolor!80,text =covercolor!5,regular polygon,regular polygon sides=6, minimum size=2.5 cm,inner sep=0,ultra thick] at ($(current page.west)+(2.5,-5)$) {\LARGE \bfseries 2023};
+\node[rounded corners,fill=covercolor!80,text =covercolor!5,regular polygon,regular polygon sides=6, minimum size=2.5 cm,inner sep=0,ultra thick] at ($(current page.west)+(2.5,-5)$) {\LARGE \bfseries 2024};
 
 \node at ($(current page.north east)+(0,-13)$)[xshift=-4cm, yshift=-11cm]  { \includegraphics[width=0.2\paperwidth]{\utemplatepath/BookModel/BookPictures/\utemplatetheme.theme/shield-20-white.pdf}} ;
 
@@ -61,7 +61,9 @@
 
 %\node at (current page.center)  [xshift=-7cm, yshift=9cm, text opacity=1]  {{\color{white}\centering\fontsize{150}{30}\selectfont \bfseries\sffamily\coursenumber} };
 
-\node at (current page.center)[xshift=-6cm, yshift=9cm,circle,draw=white,text=white,fill=covercolor!70] {\fontsize{150}{30}\selectfont \bfseries\sffamily\coursenumber};
+%\node at (current page.center)[xshift=-6cm, yshift=9cm,circle,draw=white,text=white,fill=covercolor!70] {\fontsize{150}{30}\selectfont \bfseries\sffamily\coursenumber};
+
+\node at (current page.center)[xshift=-6cm, yshift=9cm,circle,draw=white,text=white,fill=\coursecolor] {\fontsize{150}{30}\selectfont \bfseries\sffamily\coursenumber};
 
 \end{tikzpicture}
 

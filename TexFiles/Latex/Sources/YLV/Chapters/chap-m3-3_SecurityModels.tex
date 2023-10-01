@@ -1,4 +1,11 @@
 \section{Modèles de sécurité et technologies de sécurité protectrices}
+
+Les architectures et composants de sécurité périmétrique ont beaucoup évolué depuis le modèle du château-fort à la fin du 20ème siècle jusqu'à de nos jour les architectures Cloud \& multi-cloud sécurisées.
+
+Ce chapitre présente cette évolution et les différents composants centraux et clés de ces architectures comme les pare-feux, les Proxy, les sondes de détection ainsi que les nouveaux modèles dits de zerotrust ou basés sur des bastions de sécurité.
+
+Nous aborderons dans la dernière partie de ce chapitre les solutions de type VPN et les solutions de sécurisation des architectures et solutions de type cloud.
+
 \subsection{Château fort (Firewall, Proxy, anti DDoS), cloisonnement, accès admin dédié}
 \subsubsection{Château fort}
 
@@ -7,10 +14,12 @@
 % contenu affiché sur Article et Beamer
 %- - - - - - - - - - - - - - - - - - - - - - - - 
 {Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
-{Château fort} % sous titre de la diapo
+{Intro} % sous titre de la diapo
 {
 %begin slide- - - - - - - - - - - - - - - - - 
-  
+Depuis le modèle du château fort jusqu'aux solutions de sécurité utilisées dans les déploiements CLOUD
+
+\textbf{\#Firewall} \textbf{\#Proxy} \textbf{\#ReverseProxy} \textbf{\#IDS/IDP} \textbf{\#Zerotrust} \textbf{\#Bastion} \textbf{\#VPN} \textbf{\#CASB} \textbf{\#SASE}
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}
 %End FRAME------------------------------
@@ -21,13 +30,13 @@
 {../Latex/Sources/YLV/Pictures/chateaufort}% PDF image sans extension
 {Château fort} % texte sous l'image en article
 {0.7} % echelle
-{LabelImage} % label de référence
+{Château fort} % label de référence
 }
 %End PICFRAME--------------------------
-•	En s’appuyant sur un schéma global, notion de DMZ externe, DMZ interne, illustration des flux entrant et sortant, positionnement de composants clés : proxy, serveurs, middleware, sondes, etc.
-•	Cloisonnement
-•	Accès admin – réseau dédié
-•	Accès partenaires (VPN), flux vers Cloud, etc.
+
+Le modèle du château-fort est un modèle de sécurité périmétrique qui existe depuis plusieurs années mais il demeure toujours incontournable au niveau de la conception des architectures sécurisées. Il propose une méthode de protection des réseaux et des accès aux réseaux de l'entreprise à l'aide d'un composant central: le pare-feu. Celui-ci va assurer les principales fonctions de sécurité et protéger donc la seule entrée possible telle que la mission historique du château fort au moyen-âge qui protégeait l'ensemble des populations et ressources au sein de sa structure. En effet, la sécurité était assurée en contrôlant scrupuleusement les entrées et sorties via la porte principale et en empêchant toute intrusion à l'aide de ses défenses (fortifications, douves, machicoulis, etc.)
+Parce qu'il n'y a une seule entrée possible c'est lui qui la protège donc comme le pont-levis au niveau de du château fort moyenâgeux et il va contrôler qu'on peut y accéder et uniquement ceux qui ont le droit d'y accéder pourront ******** dans les réseaux et atteindre les différentes parties protégées par ce chaton il peut y avoir plusieurs parties en effet c'est une des fonctions de du château fort et de de cloisonner entre ses différentes zones en fonction des besoins en fonction de ce que l'on veut protéger en fonction de ce que l'on veut aussi laisser accéder le pare-feu et le modèle inclus à une division donc en plusieurs zones 10DZ zone d démilitarisée pour protéger l'ensemble des serveur composant qui sont déployés dans ces différentes zones on va retrouver donc des serveurs qui potentiellement pourraient être en DMZ ce qu'on dit externe ce qu'on entend par là ce sont des serveurs qui éventuellement seront amenés à promouvoir à diffuser à héberger un service internet par exemple donc votre site marchand va être hébergé à ce niveau-là et sera accédé par vos clients vos utilisateurs depuis un peu partout dans le monde Et ceci pour seulement certains protocoles certains utilisateurs éventuellement donc ceci sera défini par le pare-feu mais encore une fois mais on y reviendrons dans le chapitre suivant zone qui va forcément être différente et ne pas avoir les mêmes règles de sécurité que la zone où vous allez avoir vos serveurs dits plutôt internes serveurs qui vont gérer des bases de données de vos utilisateurs gérer les bases de données des applications avoir des hommes encore plus sécurisés avec des serveurs qui là vont héberger des données encore plus confidentielles on peut parler de Daniel on peut parler de éventuellement aussi de système de paix système de gestion des ressources humaines et cetera et cetera donc le modèle de château fort proposer une architecture afin de cloisonner les systèmes entre eux les zones entre elles assurer l'accès qui doivent être publiques et ce qui doit rester interne reste interne et ce qui doit rester confidentiel doit rester confidentiel 
+
 \subsubsection{pare-feu}
 Définition (source ANSSI) :
 Un pare-feu (firewall), est un outil permettant de protéger un ordinateur connecté à un réseau ou à l’internet. Il protège d’attaques externes (filtrage entrant) et souvent de connexions illégitimes à destination de l’extérieur (filtrage sortant) initialisées par des programmes ou des personnes.
@@ -63,14 +72,14 @@ Next Gen (L7, déchiffrement, proxy, voire IDP, DLP, etc.)
 \mode<presentation>{\texframe
 % contenu affiché sur Article et Beamer
 %- - - - - - - - - - - - - - - - - - - - - - - - 
-{Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
-{Firewall} % sous titre de la diapo
+{Firewall} % titre de la diapo
+{} % sous titre de la diapo
 {
 %begin slide- - - - - - - - - - - - - - - - - 
 \begin{itemize}
-    \item stateless (Access Control List : ACL)
-    \item statefull
-    \item Next generation
+    \item Fonctions sécurité : filtrage et cloisonnement
+    \item Le pare feu empêche et jette les flux illégitimes
+    \item Seuls ceux autorisés sont routés vers les destinations
 \end{itemize}
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}
@@ -79,8 +88,10 @@ Next Gen (L7, déchiffrement, proxy, voire IDP, DLP, etc.)
 \subsubsection{Proxy et Reverse Proxy}
 Schéma Proxy (firewall applicatif), lié à de l’authentification, antivirus, URL Filtering
 Les équipements de type Proxy permettent de sécuriser l'accès aux applicatifs.
-Ils sont en général utilisés pour accéder à Internet depuis le réseau de l'entreprise et donc applique un filtrage en sortie.
-Creuser on veut forcer l'accès -- fonction de sécu
+Ils sont utilisés pour assurer un filtrage des accès Internet depuis le réseau de l'entreprise.
+C'est une des fonctions primordiales de la sécurité du système d'information.
+En effet, il est indispensable de maîtriser les flux de sortie et d'assurer la sécurité des utilisateurs sur Internet en imposant le filtrage via des équipements réseaux de type Proxy. Ce filtrage pourra assurer des fonctions anti-malware, antivirus mais aussi sur le type de site consulté par exemple.
+
 L'autorisation des flux devra être aussi implémentée sur le pare-feu.
 Voir ci-dessous en exemple un extrait simplifiée d'une matrice de flux implémentée sur un pare feu:
 
@@ -113,20 +124,15 @@ Décision : ACCEPT
 Seul le proxy sera donc autorisé à se connecter aux serveurs distants.
 Plusieurs briques de sécurité peuvent être ajoutées sur le proxy, comme l'authentification des utilisateurs (jusqu'à la gestion via un annuaire), le filtrage des URL demandées ou encore des protections contre les fuites de données (Data Leak Protection : DLP).
 
-%Begin FRAME----------------------------
-\mode<presentation>{\texframe
-% contenu affiché sur Article et Beamer
+%Begin PICFRAME------------------------
+\mode<all>{\picframe
 %- - - - - - - - - - - - - - - - - - - - - - - - 
-{Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
-{Proxy} % sous titre de la diapo
-{
-%begin slide- - - - - - - - - - - - - - - - - 
-%Insérer schéma
-Schéma Proxy
-%end slide- - - - - - - - - - - - - - - - - - - 
-}}
-%End FRAME------------------------------
-
+{../Latex/Sources/YLV/Pictures/Proxy}% PDF image sans extension
+{Proxy} % texte sous l'image en article
+{0.7} % echelle
+{LabelImage} % label de référence
+}
+%End PICFRAME--------------------------
 Le Reverse Proxy aura lui le rôle de protéger les serveurs des accès utilisateurs, externes ou internes.
 Il peut assurer une \textbf{rupture protocolaire} et donc agir en tant que mandataire auprès du serveur.
 Plus précisément, la connexion TCP/HTTP par exemple entre le client A et le serveur Web \textbf{www.monexemple.com} peut s'effectuer de la manière suivante : 
@@ -143,20 +149,15 @@ Le Reverse Proxy est un équipement ou bien une fonction portée par un service 
 \end{itemize}
 Schéma ReverseProxy
 
-%Begin FRAME----------------------------
-\mode<presentation>{\texframe
-% contenu affiché sur Article et Beamer
+%Begin PICFRAME------------------------
+\mode<all>{\picframe
 %- - - - - - - - - - - - - - - - - - - - - - - - 
-{Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
-{Reverse Proxy} % sous titre de la diapo
-{
-%begin slide- - - - - - - - - - - - - - - - - 
-%Insérer schéma
-Schéma Reverse Proxy
-%end slide- - - - - - - - - - - - - - - - - - - 
-}}
-%End FRAME------------------------------
-
+{../Latex/Sources/YLV/Pictures/ReverseProxy}% PDF image sans extension
+{ReverseProxy} % texte sous l'image en article
+{0.7} % echelle
+{LabelImage} % label de référence
+}
+%End PICFRAME--------------------------
 \subsection{Sondes de détection (IDS/IDP)}
 
 Les sondes de détection d'intrusion sont utilisées pour surveiller et analyser le trafic réseau afin de détecter des actes malveillants tels que des tentatives d'exploitation de vulnérabilités qui peuvent entraîner l'ex-filtration de données confidentielles par exemple. 
@@ -193,48 +194,8 @@ Il existe plusieurs méthodes de détection telles que :
 L'ensemble des résultats des sondes sont consignés dans des journaux et peuvent utilisés dans les détections d'incidents de sécurité. 
 \end{itemize}
 
-%Begin FRAME----------------------------
-\mode<presentation>{\texframe
-% contenu affiché sur Article et Beamer
-%- - - - - - - - - - - - - - - - - - - - - - - - 
-{Modèles de sécurité et technologies de sécurité protectrices} % titre de la diapo
-{sondes de détection (IDS/IDP)} % sous titre de la diapo
-{
-%begin slide- - - - - - - - - - - - - - - - - 
-%Insérer schéma
-Schéma sondes de détection (IDS/IDP)
-%end slide- - - - - - - - - - - - - - - - - - - 
-}}
-%End FRAME------------------------------
+\subsection{ZeroTrust, Bastion, VPN}
 
-\subsection{IAM , ZeroTrust, Bastion, VPN SSL, NAC}
-\subsubsection{IAM}
-Déf IAM, process ET procédures
-
-%Begin FRAME----------------------------
-\mode<presentation>{\texframe
-% contenu affiché sur Article et Beamer
-%- - - - - - - - - - - - - - - - - - - - - - - - 
-{Gestion des identités : IAM} % titre de la diapo
-{Identity Access Management} % sous titre de la diapo
-{
-%begin slide- - - - - - - - - - - - - - - - - 
-\begin{itemize}
-    \item Définition
-    \begin{itemize}
-        \item IAM (identity and access management)
-        \item IAG (identity access governance)
-        \item DAG (data access governance)
-        \item PAM (privileged access management)
-    \end{itemize}
-    \item Process
-    Gestion des identités - cycle de vie
-    \item Procédures
-    Contrôle des habilitations
-\end{itemize}
-%end slide- - - - - - - - - - - - - - - - - - - 
-}}
-%End FRAME------------------------------
 \subsubsection{Zerotrust}
 %https://www.ssi.gouv.fr/agence/publication/le-modele-zero-trust/
 Les modèles actuels de sécurité périmétrique atteignent leurs limites face à l'augmentation du télétravail, de l'utilisation des infrastructures Cloud et l'utilisation de terminaux mobiles pour se connecter au SI d'entreprise.
@@ -251,7 +212,7 @@ Le principe du ZeroTrust est de ne plus faire uniquement confiance aux contrôle
 %begin slide- - - - - - - - - - - - - - - - - 
 \begin{itemize}
     \item Limites du modèle de sécurité périmétrique : télétravail, Cloud, BYOD 
-    \item --> réduction du contrôle VS augmentation de la menace
+    --> réduction du contrôle VS augmentation de la menace
     \item Le modèle impose : 
         \begin{itemize}
             \item une réduction de la confiance implicite aux utilisateurs 
@@ -269,70 +230,101 @@ Le principe du ZeroTrust est de ne plus faire uniquement confiance aux contrôle
 	\rquote[\tiny RECOMMANDATIONS RELATIVES À L'ADMINISTRATION SÉCURISÉE DES SYSTÈMES D'INFORMATION v3-0]{\textbf{ANSSI} (Agence Nationale Sécurité des Systèmes d'Information)}{\small Les actions d’administration imposent entre autres des exigences de traçabilité et de confidentialité. La figure ci-dessous présente la mise en œuvre de rebonds dans une zone d’administration permettant d’appliquer un certain nombre de traitements tels le filtrage des connexions, l’authentification des administrateurs sur un portail frontal, un contrôle d’accès ou encore la journalisation des actions effectuées et des commandes exécutées par les administrateurs. le bastion constitue une ressource d’administration critique dans la mesure où il concentre potentiellement à un instant des secrets d’authentification des comptes d’administration ou des journaux liés aux actions d’administration. Il ne doit donc pas être exposé sur un SI de faible niveau de confiance, un SI bureautique par exemple.}
 \end{frame}
 }
+%Le Bastion permet aux équipes d’administration des systèmes d’information de protéger leurs actifs sensibles, notamment quand ceux-ci sont accédé à distance. A cet effet, le Bastion permet d’administrer les comptes à privilèges et de contrôler et de surveiller les accès à distance.
+Le  Bastion  permet  également  de  tracer  les  sessions  administrateurs  en  offrant  la possibilité de les visionner à posteriori dans le cadre d’audits, comme pour identifier des anomalies ou des actes malveillants. Le Bastion propose également des alertes en temps réels  pour  signaler  les  utilisateurs  ne  respectant  pas  les  politiques  de  sécurité  de  la société.
 
-%Begin FRAME----------------------------
-\mode<presentation>{\texframe
-% contenu affiché sur Article et Beamer
+
+%Begin PICFRAME------------------------
+\mode<all>{\picframe
 %- - - - - - - - - - - - - - - - - - - - - - - - 
-{Bastion} % titre de la diapo
-{} % sous titre de la diapo
-{
-%begin slide- - - - - - - - - - - - - - - - - 
-schéma
-%end slide- - - - - - - - - - - - - - - - - - - 
-}}
-%End FRAME------------------------------
-\subsubsection{VPN SSL}
-: schema, functions 
-\utodo
+{../Latex/Sources/YLV/Pictures/Bastion}% PDF image sans extension
+{Bastion} % texte sous l'image en article
+{0.7} % echelle
+{LabelImage} % label de référence
+}
+%End PICFRAME--------------------------
 
-%Begin FRAME----------------------------
-\mode<presentation>{\texframe
-% contenu affiché sur Article et Beamer
-%- - - - - - - - - - - - - - - - - - - - - - - - 
-{VPN SSL} % titre de la diapo
-{} % sous titre de la diapo
-{
-%begin slide- - - - - - - - - - - - - - - - - 
-schéma
-%end slide- - - - - - - - - - - - - - - - - - - 
-}}
-%End FRAME------------------------------
-\subsubsection{Network Access Control : NAC CHAPITRE 5 plutot ?}
-: schema, fonctions, 802.1X 
+\subsubsection{VPN}
+%VPN IPSec vs SSL
 
-
-
-%Begin FRAME----------------------------
-\mode<presentation>{\texframe
-% contenu affiché sur Article et Beamer
-%- - - - - - - - - - - - - - - - - - - - - - - - 
-{NAC} % titre de la diapo
-{} % sous titre de la diapo
-{
-%begin slide- - - - - - - - - - - - - - - - - 
+L'utilisation d'un Virtual Private Network répond aux besoins :
 \begin{itemize}
-    \item inspecte et assure que les équipements connectés ont une configuration et un état conforme avec la politique de sécurité
-    \item Le NAC peut vérifier qu'il y a un antivirus, un pare feu local
-    Schéma ?
+    \item de connecter des utilisateurs nomades au système d'information de l'entreprise avec une technologie fiable et sécurisée;
+    \item d'inter-connecter des partenaires au SI de l'entreprise en maîtrisant les flux autorisés;
+    \item de sécuriser les données en transit au travers d'un réseau en les chiffrant afin de se protéger des attaques de type 'Man in the middle'\footnote{définition ANSSI de l'homme-au-milieu : https://www.ssi.gouv.fr/entreprise/glossaire/h/}
 \end{itemize}
-%end slide- - - - - - - - - - - - - - - - - - - 
-}}
-%End FRAME------------------------------
+
+Il existe différents types de tunnels VPN. Nous allons étudier deux des plus utilisés, les tunnels L2TP/IPSec et TLS/SSL.
+
+L'utilisation de tunnels L2TP/IPSec (Layer Two Tunneling Protocol\footnote{rfc2661: https://datatracker.ietf.org/doc/html/rfc2661}/Internet Protocol Security\footnote{rfc6071: https://datatracker.ietf.org/doc/html/rfc6071)} permet de raccorder des équipements réseaux (routeurs ou firewalls) point à point, et ainsi étendre les systèmes d'information à d'autres sites géographiques internes, externes ou partenaires.
+
+La technologie TLS/SSL (Transport Layer Security/Secure Socket Layer) est utilisée généralement avec un navigateur WEB et le protocole HTTPS. Elle ne nécessite donc pas de client dédié mais il en existe pour faciliter l'accès à certaines applications par exemple.
+
+Voir ci-dessous un schéma (\ref{VPNIPSECvsSSL}) représentant les deux technologies.
+Dans le cas du tunnel L2TP/IPSec, le point de terminaison peut être un pare feu sur lequel sera implémenté les règles permettant (ou non) l'accès depuis le poste externe aux différents réseaux privés de l'entreprise. La négociation des protocoles utilisés pour l'authentification et le chiffrement s'effectue entre les deux points de terminaison.
+
+Le deuxième cas représente l'utilisation d'un tunnel TLS/SSL entre un client avec un navigateur Internet et une passerelle VPN SSL dédiée. 
+
+La passerelle est positionnée en DMZ et ainsi protégée par un parefeu.
+
+Les règles, routage et paramétrage des autorisations s'effectuent sur la passerelle qui peut supporter par exemple de l'authentification (LDAP, Radius, SAML ou autres).
+
+%Begin PICFRAME------------------------
+\mode<all>{\picframe
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{../Latex/Sources/YLV/Pictures/VPN}% PDF image sans extension
+{VPN IPSec vs VPN SSL} % texte sous l'image en article
+{0.7} % echelle
+{VPNIPSECvsSSL} % label de référence
+}
+%End PICFRAME--------------------------
+
 
 \subsection{Cloud}
 
 \subsubsection{MultiCloud - Cloud Hybride}
 
 Un des enjeux majeur pour les entreprises est la résilience de leurs services. Un grand distributeur et marchand en ligne ne peut pas se permettre d'être à l'arrêt complet lors de périodes fastes comme les fêtes de fin d'année. Il est arrivé que certains soient bloqués car ils avaient migrés l'entièreté de leurs applications dans un Cloud publique qui malheureusement fut inaccessible pendant plusieurs heures. Le résultat commercial fut catastrophique pour le marchand (et leur fournisseur Cloud aussi). 
-La disponibilité est aussi de la sécurité et se doit être d'assurée en évitant de \g{tous ses oeufs dans le même panier}.
+La disponibilité est aussi de la sécurité et doit être d'assurée en évitant de mettre \g{tous ses oeufs dans le même panier}.
 \paragraph{MultiCloud}
-En ce qui concerne l'hébergement dans le CLOUD, les entreprises prennent donc le choix du Multi-Cloud, i.e. de dupliquer leurs architectures sur des clouds providers (CSP) différents. Ce choix peut apporter son lot de complexité et des couts associés non négligeables car il sera nécessaire d'adapter les déploiements/configurations par rapport aux spécifications du CSP utilisé.
+En ce qui concerne l'hébergement dans le CLOUD, les entreprises prennent donc le choix du Multi-Cloud, i.e. de dupliquer leurs architectures sur des clouds providers (CSP) différents. Ce choix peut apporter son lot de complexité et des coûts associés non négligeables car il sera nécessaire d'adapter les déploiements/configurations par rapport aux spécifications du CSP utilisé.
 \paragraph{Cloud Hybride}
 Le MultiCloud ayant ses avantages mais aussi ses inconvénients, beaucoup d'entreprises décident de déployer leurs infrastructures dans un Cloud Publique et dans un cloud privé. En effet, ils configurent le déploiement sur le cloud publique comme le \g{maitre ou master} et puis la partie sur l'infrastructure privée, dit \g{on premise} comme l' \g{esclave ou slave}.
 
 %https://www.gartner.com/en/information-technology/glossary/secure-access-service-edge-sase
 %https://www.gartner.com/en/information-technology/glossary/cloud-access-security-brokers-casbs
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Cloud} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item MultiCloud : double déploiement sur des CSP
+    \item CloudHybride : Master sur Cloud Publique et Slave sur Cloud Privé
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Cloud Access Security Broker - CASB} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item But : protéger et surveiller les applications dans le CLOUD
+    \item Fonctionnalités : Authentification, chiffrement, DLP, mapping des identifiants, etc.
+    \item Schéma ?
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
 
 \subsubsection{Cloud Access Security Broker - CASB}
 Le Cloud computing a apporté un lot d'évolution technologique qui nous force à repenser les stratégies de sécurité nécessaires pour protéger et surveiller les applications et les données hébergées dans le Cloud.
@@ -369,43 +361,35 @@ Les architectures de type Secure access service edge (SASE) assurent des fonctio
 %begin slide- - - - - - - - - - - - - - - - - 
   \mode<presentation>{fonctionnalités réseau et sécurité, dans un environnement Cloud Natif incluant les technologies/services Cloud Based suivants :}
 \begin{itemize}
-    \item SD-WAN (Software Defined WAN);
-    \item SWG (Proxy sortant sécurisé);
-    \item CASB;
-    \item NGFW (firewalls de nouvelle génération);
-    \item zero trust network access (ZTNA).
+    \item SD-WAN (Software Defined WAN)
+    \item SWG (Proxy sortant sécurisé)
+    \item CASB (Cloud Access Security Broker)
+    \item NGFW (firewalls de nouvelle génération)
+    \item zero trust network access (ZTNA)
 \end{itemize}
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}
 %End FRAME------------------------------
 
 %Begin FRAME----------------------------
-\mode<presentation>{\texframe
+\mode<all>{\texframe
 % contenu affiché sur Article et Beamer
 %- - - - - - - - - - - - - - - - - - - - - - - - 
-{Cloud} % titre de la diapo
+{Points à retenir} % titre de la diapo
 {} % sous titre de la diapo
 {
 %begin slide- - - - - - - - - - - - - - - - - 
 \begin{itemize}
-    \item MultiCloud : double déploiement sur des CSP
-    \item CloudHybride : Master sur Cloud Publique et Slave sur Cloud Privé
-\end{itemize}
-%end slide- - - - - - - - - - - - - - - - - - - 
-}}
-%End FRAME------------------------------
-%Begin FRAME----------------------------
-\mode<presentation>{\texframe
-% contenu affiché sur Article et Beamer
-%- - - - - - - - - - - - - - - - - - - - - - - - 
-{Cloud Access Security Broker - CASB} % titre de la diapo
-{} % sous titre de la diapo
-{
-%begin slide- - - - - - - - - - - - - - - - - 
-\begin{itemize}
-    \item But : protéger et surveiller les applications dans le CLOUD
-    \item Fonctionnalités : Authenfication, chiffrement, DLP, mapping des identifiants, etc.
-    \item Schéma ?
+    \item Le modèle du château fort demeure mais évolue
+    \item les technologies de protection et filtrage évoluent et restent indispensables à la SSI
+    
+    --> \#FirewallNextGeneration \#ProxydansleCloud
+    \item les contrôles d'accès administrateurs et utilisateurs sont de plus en plus fins et imposent une rigueur d'implémentation et de gestion dans le temps
+    
+     --> \#Bastion \#ZeroTrust
+    \item La sécurité périmétrique s'étend jusqu'au Cloud
+    
+     --> \#CASB \#SASE
 \end{itemize}
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}

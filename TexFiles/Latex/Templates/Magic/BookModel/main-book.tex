@@ -62,6 +62,9 @@
 
 \usepackage{xstring}
 
+\usepackage{environ}
+\newwrite\audioexport
+
 
 %\usepackage{cleveref}
 
@@ -74,6 +77,8 @@
 
 %-------------------------------------------------------
 \begin{document}
+
+\mode<all>{\immediate\openout\audioexport=\jobname.txt}
 
 \AddToShipoutPicture{%
 \AtPageCenter{%
@@ -189,6 +194,11 @@
 
 
 \input{\utemplatepath/BookModel/coverback-book.tex}  
+
+  %-------------------------------------------------------
+  % AudioNote Close File
+  %-------------------------------------------------------
+  \mode<all>{\immediate\closeout\audioexport}
 
 \end{document}
 

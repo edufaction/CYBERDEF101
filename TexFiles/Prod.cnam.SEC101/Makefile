@@ -18,10 +18,14 @@ SUFFIXES:=
 %.acr:
 %.eps:
 
+# ======================================
+PROJECTNAME := SEC101
+# ======================================
+
 IMG_DIRS := ./Tex/Pictures
 TEX_DIRS := .
 COMPILE_DIR := ./out
-INSTALL_DIR := ../../Release/SEC101
+INSTALL_DIR := ../../Release/$(PROJECTNAME)
 SUBDIR_TEACHER := Teacher/Lessons
 SUBDIR_STUDENT := Student/Lessons
 MD_DIRS := ./Markdown
@@ -33,7 +37,7 @@ OPT_PngPdf:= YES
 Src_BookFile := $(shell find $(TEX_DIRS) -name '*.book.tex') # (VAR) Book MainPDF
 Src_WebFile := $(shell find $(TEX_DIRS) -name '*.web.tex') # (VAR) WEB PDF & HTML
 Src_PrzFiles := $(shell find $(TEX_DIRS) -name '*.prz.tex') # Tex Beamer Files 
-Src_QuizzFiles := $(shell find $(TEX_DIRS) -name '*.qzz.tex') # TexQuizz Files 
+Src_QzzFiles := $(shell find $(TEX_DIRS) -name '*.qzz.tex') # TexQuizz Files 
 Src_DocFiles := $(shell find $(TEX_DIRS) -name '*.doc.tex') # Tex Article Files
 Src_CoursesFiles :=$(shell find $(TEX_DIRS) -name '*.course.tex') # Book PDF
 Src_Lessons :=$(shell find $(TEX_DIRS) -name '*.course.tex') # Book PDF
@@ -41,12 +45,18 @@ Src_Lessons :=$(shell find $(TEX_DIRS) -name '*.course.tex') # Book PDF
 # PDF Target  ======================================
 PDF_PrzFiles :=$(subst $(TEX_DIRS)/,$(TEX_DIRS)/out/,$(subst .prz.tex,.prz.pdf,$(Src_PrzFiles)))
 PDF_DocFiles :=$(subst $(TEX_DIRS)/,$(TEX_DIRS)/out/,$(subst .doc.tex,.doc.pdf,$(Src_DocFiles)))
+PDF_QzzFiles :=$(subst $(TEX_DIRS)/,$(TEX_DIRS)/out/,$(subst .qzz.tex,.qzz.pdf,$(Src_QzzFiles)))
+XML_QzzFiles :=$(subst $(TEX_DIRS)/,$(TEX_DIRS)/out/,$(subst .qzz.tex,.qzz-moodle.xml,$(Src_QzzFiles)))
 
 TeacherPDF_PrzFiles:=$(subst $(TEX_DIRS)/out/,$(INSTALL_DIR)/$(SUBDIR_TEACHER)/Slides/,$(PDF_PrzFiles))
+TeacherPDF_QzzFiles:=$(subst $(TEX_DIRS)/out/,$(INSTALL_DIR)/$(SUBDIR_TEACHER)/Quizz/,$(PDF_QzzFiles))
+TeacherXML_QzzFiles:=$(subst $(TEX_DIRS)/out/,$(INSTALL_DIR)/$(SUBDIR_TEACHER)/Quizz/,$(XML_QzzFiles))
+
 StudentPDF_PrzFiles :=$(subst $(TEX_DIRS)/out/,$(INSTALL_DIR)/$(SUBDIR_STUDENT)/,$(PDF_PrzFiles))
 StudentPDF_DocFiles :=$(subst $(TEX_DIRS)/out/,$(INSTALL_DIR)/$(SUBDIR_STUDENT)/,$(PDF_DocFiles))
 
 DIR_Lessons :=$(subst $(TEX_DIRS)/,$(TEX_DIRS)/out/,$(subst .prz.tex,.dir,$(Src_PrzFiles)))
+
 # ===============================================
 # RULES 
 # ===============================================
@@ -69,8 +79,6 @@ $(info PDF Doc Release ="$(StudentPDF_DocFiles)") # PDF with new dimension 1600 
 help: # Aide sur les commands disponibles
 	@grep -E '^[a-zA-Z0-9 -]+:.*#'  Makefile | sort | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
 
-
-
 # **********************************************************
 # PREPARE DIR
 # **********************************************************
@@ -85,14 +93,16 @@ release:
 	mkdir -p  $(INSTALL_DIR)/Teacher/Lessons/Audionotes
 	mkdir -p  $(INSTALL_DIR)/Teacher/Lessons/Slides
 
+#https://docs.google.com/viewer?url=https://raw.githubusercontent.com/edufaction/CYBERDEF101/master/Doc/OCyberSchool-CYBERDEF101-Flyer.pdf
+#https://edufaction.github.io/CYBERDEF101/Doc/OCyberSchool-CYBERDEF101-Flyer.pdf
 
 # **********************************************************
 # COMPILATION LESSONS
 # **********************************************************
 # ----------------------------------------------------------
-#  PRZ rules
+#  P R Z rules
 # ----------------------------------------------------------
-all: release mkprz mkdoc
+all: release mkprz mkdoc mkqzz 
 
 mkprz: $(TeacherPDF_PrzFiles) $(StudentPDF_PrzFiles)
 
@@ -113,7 +123,7 @@ $(StudentPDF_PrzFiles):	$(PDF_PrzFiles)
 	cp -rf "./$<" "$@"	
 
 # ----------------------------------------------------------
-#  DOC rules
+#  D O C rules
 # ----------------------------------------------------------
 
 mkdoc: $(StudentPDF_DocFiles) 
@@ -125,8 +135,19 @@ $(COMPILE_DIR)/%.doc.pdf: $(TEX_DIRS)/%.doc.tex
 	latexmk -output-directory=$(COMPILE_DIR) $<
 
 # ----------------------------------------------------------
-#  PRZ rules
+#  Q U I Z rules
 # ----------------------------------------------------------
+
+mkqzz: $(TeacherPDF_QzzFiles) $(TeacherXML_QzzFiles)
+
+$(TeacherPDF_QzzFiles): $(PDF_QzzFiles) # copy if compiled
+	cp -rf "./$<" "$@"
+
+$(TeacherXML_QzzFiles): $(XML_QzzFiles)
+	cp -rf "./$<" "$@"
+
+$(COMPILE_DIR)/%.qzz.pdf: $(TEX_DIRS)/%.qzz.tex	
+	latexmk -output-directory=$(COMPILE_DIR) -shell-escape $<
 
 #mkprz: $(Src_PrzFiles)
 
@@ -137,6 +158,8 @@ $(COMPILE_DIR)/%.doc.pdf: $(TEX_DIRS)/%.doc.tex
 # mkqzz:
 # 	latexmk -output-directory=$(COMPILE_DIR) $(Src_qzzFiles).tex 
 
+cleanproject:
+    #rm -f $(INSTALL_DIR)/*.*
 
 cleanout: # Purge de tous les fichiers OUT
 	rm -f $(COMPILE_DIR)/*.*

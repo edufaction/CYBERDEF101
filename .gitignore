@@ -1,5 +1,5 @@
 ## EDU
-Release/*
+Release/*/Teacher/*
 TexFiles/Work*/*.pdf
 TexFiles/Prod.*/*.pdf
 .vscode

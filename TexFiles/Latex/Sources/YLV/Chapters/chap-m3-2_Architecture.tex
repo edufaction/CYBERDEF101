@@ -1,16 +1,30 @@
-
-
 \section{Architecture et composants de système d’information}
-Via exemples de traitement des risques 
+Nous allons dans ce chapitre présenter les composants des architectures logicielles, postes de travail et réseaux. 
 
-\subsection{Middle}
-BDD, fonctions today dispatch ( ! Sécurité) versus centralisé historiquement ; archi serveurs messagerie historique VS cloud today
-\subsection{Front}
-fait tout mais attention, bcp de choses faites coté client now ( !sécu)
-WEB, applis mobiles
-\subsection{Endpoints} 
+\subsection{Architecture logicielles}
+Les architectures logicielles ont fortement évolué ces dernières années et le classique architecture "trois tiers" se décompose de plusieurs types de solutions basées sur les dernières technologies d'intégration et de déploiement.
+Les modèles dits \g{monolithes} existent toujours et restent utilisé dans beaucoup de cas d'applicatifs qui ont des besoins élevés en capacité de traitement ou de bande passante.
+L'apparition et l'utilisation des micro-services a apporté des solutions en scalabilité et résilience. 
+Cependant, ce type d'architecture apporte aussi son lot de complexité dans le cadre de montée en version versus la solution monolithe où une seule mise à jour serait nécessaire. L'exemple de vulnérabilités impactant un fort ensemble de composants comme log4shell \footnote{https://www.ssi.gouv.fr/publication/lanssi-alerte-sur-la-faille-de-securite-log4shell/} est illustratif de difficultés à patcher les applications vulnérables (plusieurs applications possibles, avec patch ou non disponible qui impose une montée en version préalable et donc ajoute des difficultées à la remédiation).
+
+Les architectures logicielles sont généralement composées des composants suivants :
+\begin{itemize}
+    \item Front ou FrontEnd qui sont les composants directement consultés par le client de l'applicatif. Ils peuvent être de type applications mobiles, pages web par exemple;
+    \item Backend ou moteur/serveur applicatif qui vont assurer la partie métier;
+    \item Bases de données qui assurent le rôle de stockage des données applicatives.
+\end{itemize}
+
+\subsection{Middleware}
+Les composants dits middleware sont de type : 
+\begin{itemize}
+    \item Bases de données;
+    \item ERP;
+    \item Annuaires 
+\end{itemize}
+
+\subsection{Endpoints}
 (PC, mobile, IoT)
-\subsection{Réseau} 
+\subsection{Réseau}
 accès et traçabilité de tt accès, transactions et anomalies (bugs, erreurs, détection)
 
 %Begin FRAME----------------------------
@@ -23,8 +37,13 @@ accès et traçabilité de tt accès, transactions et anomalies (bugs, erreurs, 
 %begin slide- - - - - - - - - - - - - - - - - 
 	
  \begin{enumerate}
-     \item Front : Web, applications mobiles, clientless
-     \item Middle : BDD, Messagerie, ERP
+     \item Architectures logicielles - Monolithe vs microservices
+     \begin{itemize}
+         \item FrontEnd : Web, applications mobiles, clientless
+         \item Backend
+         \item Bases de données
+     \end{itemize}
+     \item Middleware : Messagerie, ERP
      \item Endpoints : PC, mobile, IoT
      \item Réseau : traçabilité de tt accès, transactions et anomalies (bugs, erreurs, détection)
  \end{enumerate}

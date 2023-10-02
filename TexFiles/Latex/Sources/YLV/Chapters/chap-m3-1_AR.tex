@@ -1,6 +1,3 @@
-
-
-
 \section{De l’analyse de risques aux fonctions de sécurité}
 Via exemples de traitement des risques 
 %Begin FRAME----------------------------
@@ -24,16 +21,40 @@ Via exemples de traitement des risques
 %End FRAME------------------------------
 \subsection{Filtrage}
 
-besoin de cloisonner entre client, 
-
-multitenant; besoin de séparer prod \& pré-prod ; 
+besoin de cloisonner entre clients (notion de multitenant), au sein du SI, entre différentes sections besoin de séparer production \& pré-production ; 
 
 besoin de séparer les services
 
 
 \subsection{Accès}
 gérer les populations, les droits (RBAC, droit d’en connaître)
+\subsubsection{IAM}
+Déf IAM, process ET procédures
 
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Gestion des identités : IAM} % titre de la diapo
+{Identity Access Management} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item Définition
+    \begin{itemize}
+        \item IAM (identity and access management)
+        \item IAG (identity access governance)
+        \item DAG (data access governance)
+        \item PAM (privileged access management)
+    \end{itemize}
+    \item Process
+    Gestion des identités - cycle de vie
+    \item Procédures
+    Contrôle des habilitations
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
 % Crypto
 
 % gestion intégrité des données, protection des flux (IPSec, VPN SSL)

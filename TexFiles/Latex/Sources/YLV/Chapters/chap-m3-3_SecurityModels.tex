@@ -2,7 +2,7 @@
 
 Les architectures et composants de sécurité périmétrique ont beaucoup évolué depuis le modèle du château-fort à la fin du 20ème siècle jusqu'à de nos jour les architectures Cloud \& multi-cloud sécurisées.
 
-Ce chapitre présente cette évolution et les différents composants centraux et clés de ces architectures comme les pare-feux, les Proxy, les sondes de détection ainsi que les nouveaux modèles dits de zerotrust ou basés sur des bastions de sécurité.
+Ce chapitre présente cette évolution et les différents composants centraux et clés de ces architectures comme les pare-feux, les Proxy, les sondes de détection ainsi que les nouveaux modèles dits de Zerotrust ou basés sur des bastions de sécurité.
 
 Nous aborderons dans la dernière partie de ce chapitre les solutions de type VPN et les solutions de sécurisation des architectures et solutions de type cloud.
 
@@ -34,8 +34,23 @@ Depuis le modèle du château fort jusqu'aux solutions de sécurité utilisées 
 }
 %End PICFRAME--------------------------
 
-Le modèle du château-fort est un modèle de sécurité périmétrique qui existe depuis plusieurs années mais il demeure toujours incontournable au niveau de la conception des architectures sécurisées. Il propose une méthode de protection des réseaux et des accès aux réseaux de l'entreprise à l'aide d'un composant central: le pare-feu. Celui-ci va assurer les principales fonctions de sécurité et protéger donc la seule entrée possible telle que la mission historique du château fort au moyen-âge qui protégeait l'ensemble des populations et ressources au sein de sa structure. En effet, la sécurité était assurée en contrôlant scrupuleusement les entrées et sorties via la porte principale et en empêchant toute intrusion à l'aide de ses défenses (fortifications, douves, machicoulis, etc.)
-Parce qu'il n'y a une seule entrée possible c'est lui qui la protège donc comme le pont-levis au niveau de du château fort moyenâgeux et il va contrôler qu'on peut y accéder et uniquement ceux qui ont le droit d'y accéder pourront ******** dans les réseaux et atteindre les différentes parties protégées par ce chaton il peut y avoir plusieurs parties en effet c'est une des fonctions de du château fort et de de cloisonner entre ses différentes zones en fonction des besoins en fonction de ce que l'on veut protéger en fonction de ce que l'on veut aussi laisser accéder le pare-feu et le modèle inclus à une division donc en plusieurs zones 10DZ zone d démilitarisée pour protéger l'ensemble des serveur composant qui sont déployés dans ces différentes zones on va retrouver donc des serveurs qui potentiellement pourraient être en DMZ ce qu'on dit externe ce qu'on entend par là ce sont des serveurs qui éventuellement seront amenés à promouvoir à diffuser à héberger un service internet par exemple donc votre site marchand va être hébergé à ce niveau-là et sera accédé par vos clients vos utilisateurs depuis un peu partout dans le monde Et ceci pour seulement certains protocoles certains utilisateurs éventuellement donc ceci sera défini par le pare-feu mais encore une fois mais on y reviendrons dans le chapitre suivant zone qui va forcément être différente et ne pas avoir les mêmes règles de sécurité que la zone où vous allez avoir vos serveurs dits plutôt internes serveurs qui vont gérer des bases de données de vos utilisateurs gérer les bases de données des applications avoir des hommes encore plus sécurisés avec des serveurs qui là vont héberger des données encore plus confidentielles on peut parler de Daniel on peut parler de éventuellement aussi de système de paix système de gestion des ressources humaines et cetera et cetera donc le modèle de château fort proposer une architecture afin de cloisonner les systèmes entre eux les zones entre elles assurer l'accès qui doivent être publiques et ce qui doit rester interne reste interne et ce qui doit rester confidentiel doit rester confidentiel 
+Le modèle du château-fort est un modèle de sécurité périmétrique qui existe depuis plusieurs années et demeure incontournable au niveau de la conception des architectures sécurisées. 
+
+Il propose une méthode de protection des réseaux et des accès aux différents réseaux de l'entreprise à l'aide d'un composant central: le pare-feu. Celui-ci va assurer les principales fonctions de sécurité et donc protéger \textbf{la seule entrée} possible telle que la mission historique du château fort au moyen-âge qui protégeait l'ensemble des populations et ressources au sein de sa structure. En effet, la sécurité était assurée en contrôlant scrupuleusement les entrées et sorties via la porte principale et en empêchant toute intrusion à l'aide de ses différentes défenses (fortifications, douves, mâchicoulis, etc.).
+
+Voir ci-dessous un schéma (\ref{Château fort}) représentant une architecture de type château fort.
+
+Ce modêle de conception d'architecture va permettre de contrôler les accès aux réseaux de l'entreprise et de cloisonner entre différentes zones, ou DMZ () qui auront des fonctions de sécurité distinctes:
+\begin{itemize}
+    \item DMZ Publique ou Externe;
+    \item DMZ Intranet;
+    \item LAN bureautiques;
+    \item Autres : zone d'échanges, DMZ métiers spécifiques, etc.
+\end{itemize}
+
+La \textbf{DMZ publique} pourra héberger des serveurs et des services à vocation à être accessible depuis Internet. Par exemple, le site publique de l'entreprise ou tout service dit publié sur Internet. Seuls certains protocoles, voire utilisateurs seront autorisés à y accéder. Nous y reviendrons dans le prochain chapitre sur le pare feu.
+
+Les différentes \textbf{DMZ Intranet} sont utilisées pour regrouper les serveurs dont les services ne sont accessibles qu'en interne. Par exemple, les services de messagerie ou les bases de données. Il est indispensable de protéger l'accès à ces zones qui peuvent stocker des données confidentielles. Le pare feu se chargera d'interdire l'accès depuis Internet à ces zones et seuls certains flux, depuis les LANs internes par exemple, devront être autorisés afin de garantir le niveau de sécurité nécessaire.
 
 \subsubsection{pare-feu}
 Définition (source ANSSI) :
@@ -56,17 +71,27 @@ Celle-ci se représente par une matrice des flux contenant l'ensemble des inform
     \item etc.
 \end{itemize}
 
-Historique : 
-\begin{itemize}
-    \item stateless
-    \item statefull
-    \item Next generation
-\end{itemize}
+Voir ci-dessous un exemple de matrice de flux : 
+\begin{enumerate}
+    \item autorisant les postes internes à consulter le site Wiki;
+    \item autorisant les flux depuis Internet vers le serveur SMTP (transfert de mails) de l'entreprise avec une translation d'adresse sélectionnée;
+    \item bloquant tout autre type de flux.
+\end{enumerate}
 
-stateless (ACL CISCO), puis statefull, puis next Gen (jusqu’à la couche applicative)
-Stateless : exemple d’une ACL CISCO, associée à du NAT, i.e. définition du NAT avec le besoin (visibilité extérieure, gestion des adresses IP, pénurie, etc.) \& le comment (Schéma)
-Statefull UDP/TCP mainly
-Next Gen (L7, déchiffrement, proxy, voire IDP, DLP, etc.)
+\begin{center}
+\begin{tabular}{||c c c c c c c ||} 
+ \hline
+ ID & Source & Destination & Protocoles & Option & Décision & Log \\ [0.5ex] 
+ \hline\hline
+ 1 & LAN bureautique & @IP_Wiki_Interne & HTTPs & No_NAT & ACCEPT & Yes \\ 
+ \hline
+ 2 & ANY & @IP_Publique_SMTP & SMTP & NAT & ACCEPT & Yes \\
+ \hline
+ 3 & ANY & ANY & ANY & No_NAT & DENY & No \\
+ \hline
+\end{tabular}
+\captionof{table}{Exemple de Matrice de flux}
+\end{center}
 
 %Begin FRAME----------------------------
 \mode<presentation>{\texframe
@@ -107,6 +132,7 @@ Voir ci-dessous en exemple un extrait simplifiée d'une matrice de flux impléme
  ANY & ANY & ANY & DENY \\
  \hline
 \end{tabular}
+\captionof{table}{Matrice de flux : règles Proxy}
 \end{center}
 
 A) règle accès au proxy

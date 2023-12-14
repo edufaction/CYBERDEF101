@@ -67,8 +67,9 @@
 % Add a date and possibly the name of the event to the slides
 %  - again first a short version to be shown at the bottom of each slide
 %  - second the full date and event name for the title slide
-\date[\uversion]{\tiny{Publication \INFODistrib ~du \\ \DTMnow}}
 
+%\date[\uversion]{\tiny{Publication \INFODistrib ~du \\ \DTMnow}}
+\date[\uversion]{\tiny{Publication \INFODistrib~CYBERSKILLS4ALL}}
 
 %-------------------------------------theorems--------------
 \newtheorem{conj}{Conjetura}
@@ -117,7 +118,7 @@
 
 \mode<all>{\setLayout{vertical}}
 %================================
-\begin{frame}
+\begin{frame}[plain]
 	\frametitle{Abstract}
 	\begin{techworkin} [righthand width=.6\textwidth]{\faCogs~\small {Hashtags} : \ukeywords}\uabstract
 	\end{techworkin}
@@ -127,7 +128,7 @@
 
 \mode<all>{\setLayout{horizontal}}
 %================================
-\begin{frame}
+\begin{frame}[plain]
 \frametitle{Sommaire}
 \begin{multicols}{2}
 \tableofcontents[hideallsubsections]
@@ -140,6 +141,8 @@
 %-------------------------------------------------------
 \mode<all>{\setLayout{vertical}}
 
+\showsidebar
+
 \mode<all>{\ubody}
 
 
@@ -147,17 +150,17 @@
 %-------------------------------------------------------
 % Last Frame
 %-------------------------------------------------------
-\begin{frame}
+\begin{frame}[plain]
 \frametitle{des questions ?}
 \framesubtitle{contacter \umaila}
 
 \end{frame}
 
-\mode<all>{\setLayout{vertical}}
+\mode<all>{\setLayout{horizontal}}
 %-------------------------------------------------------
 % Contributions
 %-------------------------------------------------------
-\begin{frame}
+\begin{frame}[plain]
 \frametitle{Contributions}
 \begin{columns}
 \begin{column}{0.1\textwidth}
@@ -179,7 +182,7 @@
 %-------------------------------------------------------
 % Link to download file and copyright
 %-------------------------------------------------------
-\begin{frame}
+\begin{frame}[plain]
 \frametitle{Mises à jour régulières}
 \framesubtitle{Eduf@ction~\umaila}
 %\INFOGitHub

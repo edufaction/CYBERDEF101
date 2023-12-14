@@ -12,5 +12,11 @@
 % Orange : {255,121,0}
 % Cnam : {160,0,0} 
 
-\definecolor{uMainColor}{RGB}{255,121,0}
-\definecolor{uCoverColor}{RGB}{255,121,0}
+\definecolor{BaseColor}{RGB}{255,121,0}
+
+\colorlet{uMainColor}{BaseColor}
+
+
+\definecolor{CoverColor}{RGB}{255,121,0}
+
+\colorlet{uCoverColor}{CoverColor}

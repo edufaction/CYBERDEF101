@@ -104,14 +104,15 @@ release:
 # ----------------------------------------------------------
 all: release mkprz mkdoc mkqzz 
 
-mkprz: $(TeacherPDF_PrzFiles) $(StudentPDF_PrzFiles)
+mkprz: $(TeacherPDF_PrzFiles) $(StudentPDF_PrzFiles) $(PDF_PrzFiles)
 
-$(TeacherPDF_PrzFiles): $(PDF_PrzFiles)
+# for TeacherPDF_PrzFiles
+$(INSTALL_DIR)/Teacher/Lessons/Slides/%.prz.pdf: $(COMPILE_DIR)/%.prz.pdf
 ifeq ($(OPT_PngPdf),YES)
 	$(info PNG Dir create ="$@.images")
 	mkdir -p  $@.images
-	$(info "Expand PDF to 1600x000 px" of $<")
-	gs -sDEVICE=pdfwrite -dDEVICEWIDTHPOINTS=1600 -dDEVICEHEIGHTPOINTS=900 -dFIXEDMEDIA -dPDFFitPage -dCompatibilityLevel=1.4 -o $@ $<
+	$(info "Expand PDF to 1600x900 px" of $<")
+	gs -sDEVICE=pdfwrite -dDEVICEWIDTHPOINTS=2560 -dDEVICEHEIGHTPOINTS=1920 -dFIXEDMEDIA -dPDFFitPage -dCompatibilityLevel=1.4 -o $@ $<
 	$(info "Export PDF to PNG for video of $@")
 	gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -sOutputFile=$@.images/Pic-%d.png $<
 endif
@@ -119,16 +120,20 @@ endif
 $(COMPILE_DIR)/%.prz.pdf: $(TEX_DIRS)/%.prz.tex	
 	latexmk -output-directory=$(COMPILE_DIR) $<
 
-$(StudentPDF_PrzFiles):	$(PDF_PrzFiles)	
-	cp -rf "./$<" "$@"	
+# for StudentPDF_PrzFiles
+$(INSTALL_DIR)/Student/Lessons/%.prz.pdf: $(COMPILE_DIR)/%.prz.pdf
+	cp -rf "./$<" "$@"
 
 # ----------------------------------------------------------
 #  D O C rules
 # ----------------------------------------------------------
 
-mkdoc: $(StudentPDF_DocFiles) 
+mkdoc: $(StudentPDF_DocFiles) $(PDF_DocFiles)
 
-$(StudentPDF_DocFiles): $(PDF_DocFiles) # copy if compiled
+#$(StudentPDF_DocFiles): $(PDF_DocFiles) # copy if compiled
+#	cp -rf "./$<" "$@"
+
+$(INSTALL_DIR)/Student/Lessons/%.doc.pdf: $(COMPILE_DIR)/%.doc.pdf
 	cp -rf "./$<" "$@"
 
 $(COMPILE_DIR)/%.doc.pdf: $(TEX_DIRS)/%.doc.tex	

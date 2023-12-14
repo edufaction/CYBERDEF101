@@ -35,8 +35,35 @@
     \pgfdeclareimage[width=13mm]{logo2_medium}{#2}
     
     % set UFG logo
-    \pgfdeclareimage[height=15mm]{logo3} {\utemplatepath/LessonModel/Beamer/BeamerPictures/\utemplatetheme.theme/ufg/logos/ufg_black.pdf}
+    \pgfdeclareimage[height=15mm]{logo3} {\utemplatepath/LessonModel/Beamer/BeamerPictures/\utemplatetheme.theme/ufg/logos/ufg_black.png}
 }
+
+\useoutertheme[left,height=0pt,width=0.10\paperwidth,hideothersubsections]{sidebar}
+%\setbeamertemplate{sidebar canvas left}[vertical] 
+
+\newlength{\uleftsidebar}
+\newlength{\utextwidth}
+\newlength{\uhoffset}
+\setlength{\uleftsidebar}{\beamer@leftsidebar}
+\setlength{\uhoffset}{\hoffset}
+
+
+\makeatletter
+\newcommand{\showsidebar}{%
+	\setbeamertemplate{sidebar canvas left}[vertical]
+	}
+\makeatother
+
+
+
+\makeatletter
+\setbeamertemplate{subsubsection in sidebar}
+  {\vspace*{-\baselineskip}}
+\setbeamertemplate{subsubsection in sidebar shaded}
+  {\vspace*{-\baselineskip}}
+  \setbeamertemplate{subsection in sidebar shaded}
+  {\vspace*{-\baselineskip}}
+\makeatother
 
 
 
@@ -163,7 +190,6 @@
 \newcommand{\titleLayout}{
 
     \usebackgroundtemplate{
-   
         \begin{picture}(100,256)(0,0)
 
              \put(0,0){
@@ -195,10 +221,11 @@
         \end{picture}
     }
     \setDefaultConfig
+
 }
 
-\newcommand{\vertical}{
-    \usebackgroundtemplate{
+\newcommand{\vertical}{ 
+   \usebackgroundtemplate{
         \begin{picture}(100,256)(0,0)
             \put(0,0){
                 \begin{beamercolorbox}[wd=1.1\paperwidth,ht=\paperheight]{bgcolor}\end{beamercolorbox}
@@ -209,20 +236,21 @@
     }
 
    \setDefaultConfig
+
 }
 \newcommand{\blank}{
+
   \usebackgroundtemplate{
     \begin{picture}(100,256)(0,0)
         \begin{beamercolorbox}[wd=1.1\paperwidth,ht=\paperheight]{bgcolor}
         \end{beamercolorbox}
     \end{picture}
   }
-    \setWhiteConfig
-    
-    
+    \setWhiteConfig  
 }
 
 \newcommand{\mainpoint}{
+
   \usebackgroundtemplate{
     \begin{picture}(100,256)(0,0)
         \put(0,0){
@@ -246,10 +274,9 @@
     \end{picture}
   
   }
- 
   \setWhiteConfig
   \setbeamertemplate{frametitle}{  }
-  
+
 }
 
 \titleLayout

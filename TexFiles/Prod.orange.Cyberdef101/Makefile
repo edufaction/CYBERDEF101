@@ -104,14 +104,17 @@ release:
 # ----------------------------------------------------------
 all: release mkprz mkdoc mkqzz 
 
-mkprz: $(TeacherPDF_PrzFiles) $(StudentPDF_PrzFiles)
+mkprz:  $(PDF_PrzFiles) $(TeacherPDF_PrzFiles) 
 
-$(TeacherPDF_PrzFiles): $(PDF_PrzFiles)
+mkprzstudent: $(StudentPDF_PrzFiles)
+
+$(INSTALL_DIR)/Teacher/Lessons/Slides/%.prz.pdf: $(COMPILE_DIR)/%.prz.pdf
+#cp -rf "$<" "$@"	
 ifeq ($(OPT_PngPdf),YES)
 	$(info PNG Dir create ="$@.images")
 	mkdir -p  $@.images
-	$(info "Expand PDF to 1600x000 px" of $<")
-	gs -sDEVICE=pdfwrite -dDEVICEWIDTHPOINTS=1600 -dDEVICEHEIGHTPOINTS=900 -dFIXEDMEDIA -dPDFFitPage -dCompatibilityLevel=1.4 -o $@ $<
+	$(info "Expand PDF to 3200x1600 px" of $<")
+	gs -sDEVICE=pdfwrite -dDEVICEWIDTHPOINTS=3200 -dDEVICEHEIGHTPOINTS=1800 -dFIXEDMEDIA -dPDFFitPage -dCompatibilityLevel=1.4 -o $@ $<
 	$(info "Export PDF to PNG for video of $@")
 	gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -sOutputFile=$@.images/Pic-%d.png $<
 endif
@@ -119,7 +122,7 @@ endif
 $(COMPILE_DIR)/%.prz.pdf: $(TEX_DIRS)/%.prz.tex	
 	latexmk -output-directory=$(COMPILE_DIR) $<
 
-$(StudentPDF_PrzFiles):	$(PDF_PrzFiles)	
+$(INSTALL_DIR)/Student/Lessons/%.prz.pdf: $(COMPILE_DIR)/%.prz.pdf
 	cp -rf "./$<" "$@"	
 
 # ----------------------------------------------------------
@@ -163,6 +166,7 @@ cleanproject:
 
 cleanout: # Purge de tous les fichiers OUT
 	rm -f $(COMPILE_DIR)/*.*
+	rm -f $(INSTALL_DIR)/Teacher/Lessons/Slides/*.*
 
 clean: # Purge de tous les fichiers auxilaires Racine
 	latexmk -c

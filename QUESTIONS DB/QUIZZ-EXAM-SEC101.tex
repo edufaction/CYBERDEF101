@@ -1,0 +1,2000 @@
+\documentclass[12pt]{article}
+
+% \usepackage[draft]{moodle}
+ \usepackage{moodle}
+\usepackage{ae}
+%\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+
+% REMPLACE ITEM 
+%   \end{enumerate} > \end{multi}^p^p\begin{multi}[points=1]{$domaine$}
+% ^p\item  > NULL
+%   \begin{enumerate}^p > NULL
+   
+   
+%13 ? la couche 3 réseau fait du réseau, pas sur sur de la réponse pour le coup, quid d’IPSEC ?
+%15 : chiffrent!
+%21 : IAM
+%25 : HIPAA que US non?
+%31 : bonne réponse la a! pas la d
+%41 : décommissionnement ?
+%67 : mandataire
+%70 : ça se discute ? divulgation == intégrité
+%74 : DoS et DDoS non?
+%84 : oeil
+%101 et 106 et 111 et 116 et 121 : attention question en a)
+%111 : titre de la question?
+%112 et 134 : cryptage!!!!
+%114 : déjà posée non?
+%124==130==146==166
+%139 : ajouter corrélation, la collecte peut être fait par d'autres dispositifs
+%145 : redondant?
+%149==159 : une donnée observable?
+%151==156 : redondant
+%169 : redondant
+%180 : euh ? les autres propositions sont farfelues
+
+
+ \begin{document}
+
+E. Dupuis - SEC101 - Quiz generated \LaTeX's \textsf{moodle} (\moodleversion, \moodledate). Import the derived file \texttt{\jobname-moodle.xml} on Moodle.
+  
+\begin{quiz}{SEC101 PACK 2024 Questions}
+
+  \begin{multi}[points=1, tags={M1Sec101, Risques}]{Sécurité des Systèmes d'Information}
+    Quelle est la première étape du processus de gestion des risques en sécurité de l'information ?
+    \item Analyse des menaces
+    \item Identification des actifs
+    \item Évaluation des vulnérabilités
+    \item* Identification des risques
+  \end{multi}
+
+  \begin{multi}[points=1,tags={M2Sec101, PSSI}]{Politiques de Sécurité}
+    Quelle politique de sécurité définit les règles de base pour l'utilisation des ressources informatiques d'une organisation ?
+    \item* Politique d'utilisation acceptable
+    \item Politique de cryptographie
+    \item Politique de pare-feu
+    \item Politique de sauvegarde
+  \end{multi}
+
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle est la principale menace à la sécurité liée à l'ingénierie sociale ?
+    \item Malware
+    \item* Manipulation psychologique
+    \item Attaque par déni de service (DDoS)
+    \item Vol de données
+  \end{multi}
+
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel composant d'un pare-feu est responsable de la vérification des paquets de données entrants et sortants ?
+    \item* Filtre de paquets
+    \item Processeur principal
+    \item Antivirus intégré
+    \item Répartiteur de charge
+  \end{multi}
+
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle norme de sécurité définit les exigences pour la gestion des informations sensibles par les organisations ?
+    \item ISO 9001
+    \item ISO 14001
+    \item* ISO 27001
+    \item ISO 22000
+  \end{multi}
+
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle est la principale fonction d'une politique de pare-feu ?
+    \item Gérer les identités des utilisateurs
+    \item Gérer les mises à jour logicielles
+    \item* Contrôler le trafic réseau
+    \item Gérer les politiques de sauvegarde
+  \end{multi}
+
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle méthode de cryptographie utilise une clé publique et une clé privée pour chiffrer et déchiffrer les données ?
+    \item* Cryptographie asymétrique
+    \item Cryptographie symétrique
+    \item Cryptographie par transposition
+    \item Cryptographie quantique
+  \end{multi}
+
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quelle technologie est utilisée pour authentifier un utilisateur en utilisant des empreintes digitales, des iris ou des caractéristiques biométriques similaires ?
+    \item* Biométrie
+    \item Token d'authentification
+    \item Mot de passe
+    \item Carte à puce
+  \end{multi}
+
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle est la meilleure pratique pour se prémunir contre les attaques par phishing ?
+    \item Utiliser un pare-feu
+    \item* Sensibiliser les employés à la sécurité
+    \item Activer la détection d'intrusion
+    \item Mettre en place un VPN
+  \end{multi}
+
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité définit les règles de stockage, de gestion et de protection des mots de passe ?
+    \item* Politique de gestion des mots de passe
+    \item Politique de pare-feu
+    \item Politique de cryptographie
+    \item Politique d'utilisation acceptable
+  \end{multi}
+  
+  % Question 11
+  \begin{multi}[points=1]{Cybersécurité}
+    Quel type d'attaque vise à saturer un réseau ou un service en submergeant de trafic malveillant ?
+    \item Attaque de phishing
+    \item Attaque par injection SQL
+    \item Attaque par déni de service distribué (DDoS)
+    \item* Attaque par déni de service (DoS)
+  \end{multi}
+
+  % Question 12
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel dispositif de sécurité est conçu pour empêcher les intrusions non autorisées en surveillant le trafic réseau et en bloquant les menaces potentielles ?
+    \item* IDS (Système de Détection d'Intrusion)
+    \item Antivirus
+    \item Firewall
+    \item VPN
+  \end{multi}
+
+  % Question 13
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle couche du modèle OSI est principalement responsable de la sécurité des données en transit ?
+    \item* Couche application
+    \item Couche transport
+    \item Couche liaison de données
+    \item* Couche réseau
+  \end{multi}
+
+  % Question 14
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité permet de spécifier les niveaux d'accès aux ressources informatiques en fonction des rôles des utilisateurs ?
+    \item Politique de sauvegarde
+    \item* Politique de contrôle d'accès
+    \item Politique de cryptographie
+    \item Politique d'utilisation acceptable
+  \end{multi}
+
+  % Question 15
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle est la principale menace associée aux logiciels malveillants qui chiffrent les fichiers d'un utilisateur et demandent une rançon pour les déverrouiller ?
+    \item* Ransomware
+    \item Spyware
+    \item Adware
+    \item Worm
+  \end{multi}
+
+  % Question 16
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel composant réseau est utilisé pour segmenter un réseau en zones isolées afin de limiter la propagation des menaces ?
+    \item Routeur
+    \item Commutateur
+    \item* Pare-feu de zone
+    \item Répéteur
+  \end{multi}
+
+  % Question 17
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle méthode de chiffrement convertit chaque caractère individuellement dans un message en un caractère chiffré ?
+    \item Chiffrement de flux
+    \item* Chiffrement par substitution
+    \item Chiffrement de bloc
+    \item Chiffrement asymétrique
+  \end{multi}
+
+  % Question 18
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle action est recommandée pour une politique de sécurité en cas de perte ou de vol d'un dispositif mobile contenant des données sensibles ?
+    \item Ignorer la situation
+    \item Révoquer les privilèges d'accès aux utilisateurs
+    \item* Signaler immédiatement la perte ou le vol
+    \item Effectuer une sauvegarde des données
+  \end{multi}
+
+  % Question 19
+  \begin{multi}[points=1]{Cybersécurité}
+    Quel type d'attaque tente d'exploiter les faiblesses connues dans les logiciels ou les systèmes pour prendre le contrôle de ces derniers ?
+    \item Attaque de phishing
+    \item Attaque par déni de service (DDoS)
+    \item Attaque par ingénierie sociale
+    \item* Exploitation de vulnérabilités
+  \end{multi}
+
+  % Question 20
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quelle technologie est utilisée pour surveiller en temps réel le trafic réseau à la recherche de comportements suspects ou malveillants ?
+    \item* SIEM (Security Information and Event Management)
+    \item Antivirus
+    \item Pare-feu
+    \item VPN
+  \end{multi}
+
+% Question 21
+\begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+  Quel est l'objectif principal d'un système de gestion des identités (IdM) ?
+  \item* Gérer les autorisations et l'authentification des utilisateurs
+  \item Gérer les mises à jour logicielles
+  \item Surveiller le trafic réseau
+  \item Effectuer des analyses de vulnérabilité
+\end{multi}
+
+% Question 22
+\begin{multi}[points=1]{Politiques de Sécurité}
+  Quel type de politique de sécurité spécifie les règles concernant le stockage, l'accès et la distribution des informations classifiées ?
+  \item Politique de contrôle d'accès
+  \item Politique de pare-feu
+  \item* Politique de classification de l'information
+  \item Politique de chiffrement
+\end{multi}
+
+% Question 23
+\begin{multi}[points=1]{Cybersécurité}
+  Quelle est la meilleure pratique pour se protéger contre les attaques par force brute visant les mots de passe ?
+  \item Utiliser un pare-feu robuste
+  \item Ne pas utiliser de mots de passe
+  \item* Utiliser des mots de passe forts et un mécanisme de verrouillage après plusieurs tentatives infructueuses
+  \item Activer la détection d'intrusion
+\end{multi}
+
+% Question 24
+\begin{multi}[points=1]{Architectures de Sécurité Informatique}
+  Quelle technologie permet de masquer l'adresse IP réelle d'un dispositif en la remplaçant par une adresse IP publique ?
+  \item VPN
+  \item IDS
+  \item* NAT (Network Address Translation)
+  \item Pare-feu
+\end{multi}
+
+% Question 25
+\begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+  Quelle norme de sécurité est spécifiquement conçue pour protéger les informations de santé des patients dans le secteur de la santé ?
+  \item ISO 9001
+  \item* HIPAA (USA)(Health Insurance Portability and Accountability Act) ou ISO 27799(Europe)
+  \item ISO 27001
+  \item GDPR (General Data Protection Regulation)
+\end{multi}
+
+% Question 26
+\begin{multi}[points=1]{Politiques de Sécurité}
+  Quelle est la première étape dans la gestion d'une violation de données ?
+  \item Notifier les autorités gouvernementales
+  \item* Identifier la source de la violation et la contenir
+  \item Communiquer immédiatement à tous les employés
+  \item Engager une équipe de sécurité externe
+\end{multi}
+
+% Question 27
+\begin{multi}[points=1]{Cybersécurité}
+  Quelle est la principale menace pour la sécurité des objets connectés (IoT) ?
+  \item Attaques par déni de service (DDoS)
+  \item* Manque de mise à jour des logiciels et des micrologiciels
+  \item Phishing ciblé
+  \item Utilisation de mots de passe forts
+\end{multi}
+
+% Question 28
+\begin{multi}[points=1]{Architectures de Sécurité Informatique}
+  Quelle méthode de chiffrement utilise une seule clé pour chiffrer et déchiffrer les données ?
+  \item* Cryptographie symétrique
+  \item Cryptographie asymétrique
+  \item Cryptographie par substitution
+  \item Cryptographie par transposition
+\end{multi}
+
+% Question 29
+\begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+  Quel type d'attaque vise à tromper les utilisateurs en leur faisant croire qu'ils interagissent avec un site web légitime alors qu'il s'agit d'une fausse copie ?
+  \item Attaque de force brute
+  \item Attaque par déni de service (DDoS)
+  \item* Attaque de phishing
+  \item Attaque par injection SQL
+\end{multi}
+
+% Question 30
+\begin{multi}[points=1]{Politiques de Sécurité}
+  Quelle politique de sécurité spécifie les règles pour la gestion des certificats numériques utilisés dans les communications sécurisées ?
+  \item* Politique de gestion des certificats
+  \item Politique de contrôle d'accès
+  \item Politique de chiffrement
+  \item Politique de classification de l'information
+\end{multi}
+
+
+% Question 31
+\begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quel terme désigne une technique visant à vérifier l'authenticité d'un utilisateur en demandant quelque chose qu'il sait (comme un mot de passe) et quelque chose qu'il possède (comme un smartphone) ?
+    \item* Authentification à deux facteurs
+    \item Authentification biométrique
+    \item Authentification unique (SSO)
+  \end{multi}
+
+  % Question 32
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité concerne la surveillance et la gestion des journaux d'activité pour détecter les incidents de sécurité ?
+    \item* Politique de gestion des journaux (log)
+    \item Politique de cryptographie
+    \item Politique de contrôle d'accès
+    \item Politique de pare-feu
+  \end{multi}
+
+  % Question 33
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle technique de sécurité permet de cacher les données sensibles dans un fichier ou un message sans altérer son apparence externe ?
+    \item Chiffrement asymétrique
+    \item Cryptographie par substitution
+    \item* Stéganographie
+    \item Vigenère cipher
+  \end{multi}
+
+  % Question 34
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel mécanisme de sécurité permet de garantir que les données n'ont pas été modifiées en transit entre l'expéditeur et le destinataire ?
+    \item* Intégrité des données
+    \item Confidentialité des données
+    \item Disponibilité des données
+    \item Authentification des données
+  \end{multi}
+
+  % Question 35
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quel protocole de sécurité réseau est couramment utilisé pour établir des connexions VPN sécurisées ?
+    \item* IPsec
+    \item SSH
+    \item HTTP
+    \item RDP
+  \end{multi}
+
+  % Question 36
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle est la principale raison de l'application de mises à jour de sécurité régulières sur un système ?
+    \item Améliorer les performances
+    \item Ajouter de nouvelles fonctionnalités
+    \item Réduire les coûts d'exploitation
+    \item* Corriger les vulnérabilités connues
+  \end{multi}
+
+  % Question 37
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle est la méthode la plus courante pour protéger un réseau sans fil (Wi-Fi) contre les accès non autorisés ?
+    \item Chiffrement par substitution
+    \item Pare-feu de zone
+    \item* Chiffrement WPA/WPA2
+    \item Biométrie
+  \end{multi}
+
+  % Question 38
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel type de pare-feu permet de surveiller le trafic entrant et sortant en analysant son contenu pour détecter les menaces ?
+    \item Pare-feu de zone
+    \item Pare-feu d'application
+    \item* Pare-feu de nouvelle génération (NGFW)
+    \item Pare-feu d'état
+  \end{multi}
+
+  % Question 39
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle méthode de sécurité consiste à rendre illisible une information en la transformant en un format inintelligible, réversible uniquement avec une clé de déchiffrement ?
+    \item Stéganographie
+    \item* Chiffrement
+    \item Biométrie
+    \item Token d'authentification
+  \end{multi}
+
+  % Question 40
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité se concentre sur la définition des procédures et des responsabilités en cas d'incident de sécurité majeur ?
+    \item Politique de contrôle d'accès
+    \item Politique de sauvegarde
+    \item* Politique de gestion des incidents de sécurité
+    \item Politique de pare-feu
+  \end{multi}
+
+
+  % Question 41
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle mesure de sécurité consiste à supprimer complètement l'accès aux ressources d'un utilisateur lorsqu'il quitte une organisation ou un projet ?
+    \item* Décommissionnement du compte
+    \item Réinitialisation du mot de passe
+    \item Changement du nom d'utilisateur
+    \item Mise en quarantaine du compte
+  \end{multi}
+
+  % Question 42
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel type de pare-feu examine le trafic réseau à la recherche de comportements anormaux et peut prendre des mesures en temps réel pour bloquer les menaces ?
+    \item Pare-feu d'état
+    \item Pare-feu de zone
+    \item Pare-feu d'application
+    \item* Pare-feu comportemental (BFW)
+  \end{multi}
+
+  % Question 43
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle mesure de sécurité consiste à conserver une copie identique des données à un instant donné pour une éventuelle restauration en cas de perte de données ?
+    \item* Sauvegarde
+    \item Cryptographie
+    \item Archivage
+    \item Désactivation du compte
+  \end{multi}
+
+  % Question 44
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quel concept de sécurité informatique vise à minimiser les risques en distribuant les ressources et les données sur plusieurs serveurs ou emplacements géographiques ?
+    \item* Redondance
+    \item Pare-feu
+    \item Authentification unique (SSO)
+    \item Chiffrement
+  \end{multi}
+
+  % Question 45
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle technique de protection de réseau identifie et isole automatiquement les appareils non conformes ou malveillants ?
+    \item Cryptographie quantique
+    \item* Network Access Control (NAC)
+    \item SIEM (Security Information and Event Management)
+    \item Pare-feu d'application
+  \end{multi}
+
+  % Question 46
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel type d'attaque consiste à intercepter et à détourner les communications entre deux parties pour les espionner ?
+    \item Attaque par déni de service (DoS)
+    \item* Attaque de l'homme du milieu (Man-in-the-Middle)
+    \item Attaque par injection SQL
+    \item Attaque par force brute
+  \end{multi}
+
+  % Question 47
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle est la principale raison de la mise en œuvre de la gestion des identités et des accès (IAM) ?
+    \item Améliorer les performances du réseau
+    \item Réduire les coûts d'exploitation
+    \item* Gérer les droits d'accès des utilisateurs
+    \item Protéger les données sensibles
+  \end{multi}
+
+  % Question 48
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle est la principale raison de l'application de la politique de chiffrement des données ?
+    \item Contrôler l'accès aux ressources informatiques
+    \item Surveiller les journaux d'activité
+    \item* Protéger la confidentialité des données
+    \item Appliquer des mises à jour de sécurité
+  \end{multi}
+
+  % Question 49
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle technologie de sécurité vise à identifier les modèles de comportement suspects ou malveillants dans le trafic réseau ?
+    \item Antivirus
+    \item* Analyse comportementale
+    \item Pare-feu de nouvelle génération (NGFW)
+    \item Chiffrement WPA/WPA2
+  \end{multi}
+
+  % Question 50
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quelle est la principale fonction d'un proxy en matière de sécurité informatique ?
+    \item* Filtrer et contrôler le trafic réseau
+    \item Établir des connexions VPN
+    \item Analyser les journaux d'activité
+    \item Surveiller les vulnérabilités du système
+  \end{multi}
+  
+
+% Question 51
+\begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle mesure de sécurité permet de s'assurer qu'un utilisateur a l'autorisation d'accéder à une ressource spécifique ?
+    \item Contrôle d'intégrité
+    \item* Contrôle d'accès
+    \item Contrôle de flux
+    \item Contrôle de routage
+  \end{multi}
+
+  % Question 52
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité définit les règles et procédures pour la protection des informations sensibles lors de leur transmission par voie électronique ?
+    \item Politique de cryptographie
+    \item Politique de sauvegarde
+    \item* Politique de sécurité des communications
+    \item Politique d'utilisation acceptable
+  \end{multi}
+
+  % Question 53
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle est la principale mesure de sécurité pour empêcher l'accès non autorisé à un réseau sans fil (Wi-Fi) ?
+    \item VPN (Virtual Private Network)
+    \item Pare-feu de nouvelle génération (NGFW)
+    \item* Chiffrement WPA3
+    \item Filtrage MAC
+  \end{multi}
+
+  % Question 54
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel est l'objectif principal de la sécurité périmétrique d'un réseau ?
+    \item Protéger les données en transit
+    \item Contrôler l'accès aux données
+    \item Assurer la redondance des serveurs
+    \item* Empêcher les menaces d'atteindre le réseau interne
+  \end{multi}
+
+  % Question 55
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle technologie de sécurité permet de suivre les activités des utilisateurs et des systèmes afin de détecter les comportements anormaux ?
+    \item Pare-feu d'application
+    \item Chiffrement par substitution
+    \item* SIEM (Security Information and Event Management)
+    \item VPN (Virtual Private Network)
+  \end{multi}
+
+  % Question 56
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité traite des procédures à suivre pour déclasser, détruire ou archiver des informations sensibles en fin de vie ?
+    \item Politique de gestion des mots de passe
+    \item Politique de sauvegarde
+    \item* Politique de gestion de la fin de vie des données
+    \item Politique de cryptographie
+  \end{multi}
+
+  % Question 57
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle est la principale menace liée aux attaques de type "zero-day" ?
+    \item* L'absence de correctif de sécurité disponible
+    \item L'absence de surveillance de sécurité
+    \item La lenteur des réponses aux incidents
+    \item L'absence de pare-feu
+  \end{multi}
+
+  % Question 58
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel mécanisme de sécurité permet de confirmer l'identité d'un utilisateur avant de lui accorder l'accès à un système ou à des données ?
+    \item Chiffrement des données
+    \item* Authentification
+    \item Contrôle d'intégrité
+    \item Chiffrement par substitution
+  \end{multi}
+
+  % Question 59
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle est la première étape du processus de gestion des incidents de sécurité ?
+    \item* Détection de l'incident
+    \item Analyse des causes profondes
+    \item Réponse immédiate à l'incident
+    \item Rapport de l'incident
+  \end{multi}
+
+  % Question 60
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité concerne l'utilisation des clés de chiffrement, leur stockage et leur gestion ?
+    \item Politique de gestion des mots de passe
+    \item Politique de sauvegarde
+    \item Politique de gestion de la fin de vie des données
+    \item* Politique de gestion des clés de chiffrement
+  \end{multi}
+
+
+  % Question 61
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quel terme désigne le processus de vérification de l'identité d'un utilisateur, généralement à l'aide d'un nom d'utilisateur et d'un mot de passe ?
+    \item* Authentification
+    \item Autorisation
+    \item Audit
+    \item Attribution
+  \end{multi}
+
+  % Question 62
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quelle technologie permet de créer un réseau privé virtuel (VPN) en utilisant une connexion sécurisée sur un réseau public, comme Internet ?
+    \item Commutateur Ethernet
+    \item Pare-feu de zone
+    \item* Tunnel VPN (Virtual Private Network)
+    \item Routeur sans fil
+  \end{multi}
+
+  % Question 63
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle est la principale menace associée à l'ingénierie inversée dans le domaine de la sécurité informatique ?
+    \item Divulgation de données
+    \item Perte de disponibilité
+    \item* Perte de la confidentialité
+    \item Perte d'intégrité
+  \end{multi}
+
+  % Question 64
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité traite de la façon dont les données sensibles doivent être stockées, protégées et détruites à la fin de leur durée de vie utile ?
+    \item Politique de gestion des incidents de sécurité
+    \item Politique de contrôle d'accès
+    \item* Politique de gestion de la confidentialité des données
+    \item Politique de sauvegarde
+  \end{multi}
+
+  % Question 65
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quel est l'objectif principal d'un pare-feu d'application Web (WAF) ?
+    \item Bloquer les attaques de phishing
+    \item Contrôler l'accès aux données
+    \item* Protéger les applications Web contre les vulnérabilités et les attaques
+    \item Filtrer le trafic réseau
+  \end{multi}
+
+  % Question 66
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle est la principale mesure de sécurité pour protéger les systèmes contre les virus informatiques et les logiciels malveillants ?
+    \item Authentification à deux facteurs
+    \item Chiffrement des données
+    \item* Logiciels antivirus
+    \item Firewall d'application
+  \end{multi}
+
+  % Question 67
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel est le rôle principal d'un proxy dans une architecture réseau sécurisée ?
+    \item Chiffrement des données
+    \item* Faire office de mandataire (Intermédiaire) entre les utilisateurs et les ressources sur Internet
+    \item Authentification des utilisateurs
+    \item Détection d'intrusion
+  \end{multi}
+
+  % Question 68
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité concerne la classification et l'étiquetage des informations en fonction de leur sensibilité ?
+    \item Politique de gestion des incidents de sécurité
+    \item* Politique de classification des données
+    \item Politique de pare-feu
+    \item Politique de contrôle d'accès
+  \end{multi}
+
+  % Question 69
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle technologie de sécurité est conçue pour protéger un réseau local (LAN) contre les accès non autorisés de l'extérieur ?
+    \item VPN (Virtual Private Network)
+    \item IDS (Système de Détection d'Intrusion)
+    \item* Pare-feu
+    \item SIEM (Security Information and Event Management)
+  \end{multi}
+
+  % Question 70
+    %70 : ça se discute ? divulgation == intégrité
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle est la principale menace associée à une attaque de type "man-in-the-middle" ?
+    \item Perte de disponibilité
+    \item Perte de la confidentialité
+    \item* Altération des données en transit
+  \end{multi}
+
+
+% Question 71
+\begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle est la principale menace pour la sécurité des informations stockées sur des supports physiques tels que des disques durs ou des clés USB perdus ou volés ?
+    \item Attaque de phishing
+    \item Attaque par déni de service (DDoS)
+    \item Attaque par ingénierie sociale
+    \item* Perte ou vol de données
+  \end{multi}
+  
+
+
+  % Question 72
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel type de dispositif de sécurité inspecte le trafic réseau à la recherche de signatures de logiciels malveillants connus ?
+    \item* IDS (Système de Détection d'Intrusion)
+    \item Pare-feu d'application
+    \item VPN (Virtual Private Network)
+    \item Pare-feu de zone
+  \end{multi}
+
+  % Question 73
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité définit les règles pour garantir la disponibilité et l'accès continu aux données en cas de catastrophe ?
+    \item Politique de contrôle d'accès
+    \item Politique de sauvegarde
+    \item* Politique de continuité des activités (PCA)
+    \item Politique de cryptographie
+  \end{multi}
+
+  % Question 74
+  \begin{multi}[points=1]{Cybersécurité}
+    Quel type d'attaque informatique vise à perturber ou à détruire délibérément des systèmes informatiques ou des réseaux ?
+    \item Attaque par injection SQL
+    \item Attaque de phishing
+    \item* Attaque par déni de service distribué (DDoS)
+  \end{multi}
+
+  % Question 75
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quel processus permet de rendre les données lisibles uniquement pour des utilisateurs autorisés, tout en empêchant les utilisateurs non autorisés d'y accéder ?
+    \item Authentification
+    \item Chiffrement
+    \item Biométrie
+    \item* Contrôle d'accès
+  \end{multi}
+
+  % Question 76
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quelle technologie permet de créer un réseau privé virtuel sécurisé en utilisant une connexion Internet publique ?
+    \item SIEM (Security Information and Event Management)
+    \item IDS (Système de Détection d'Intrusion)
+    \item* VPN (Virtual Private Network)
+    \item Pare-feu de nouvelle génération (NGFW)
+  \end{multi}
+
+  % Question 77
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité définit les règles pour l'utilisation des médias sociaux au sein de l'entreprise ?
+    \item Politique de contrôle d'accès
+    \item Politique de gestion de la fin de vie des données
+    \item* Politique des médias sociaux
+    \item Politique de cryptographie
+  \end{multi}
+
+  % Question 78
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle mesure de sécurité consiste à diviser un réseau en segments logiques pour réduire la surface d'attaque ?
+    \item Chiffrement WPA/WPA2
+    \item Chiffrement par substitution
+    \item* Segmentation réseau
+    \item Authentification à deux facteurs
+  \end{multi}
+
+  % Question 79
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quel est le principal objectif de la sauvegarde régulière des données ?
+    \item Empêcher les attaques par injection SQL
+    \item Réduire la latence du réseau
+    \item* Assurer la récupération des données en cas de perte ou de panne
+    \item Renforcer le pare-feu
+  \end{multi}
+
+  % Question 80
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel protocole réseau est couramment utilisé pour sécuriser les communications entre un client et un serveur web ?
+    \item SSH (Secure Shell)
+    \item* HTTPS (Hypertext Transfer Protocol Secure)
+    \item FTP (File Transfer Protocol)
+    \item SMTP (Simple Mail Transfer Protocol)
+  \end{multi}
+
+  % Question 81
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle technologie permet de surveiller et de filtrer le trafic réseau pour détecter et bloquer les menaces en temps réel ?
+    \item* IDS/IPS (Système de Détection et de Prévention des Intrusions)
+    \item Pare-feu d'application
+    \item VPN (Virtual Private Network)
+    \item SIEM (Security Information and Event Management)
+  \end{multi}
+
+  % Question 82
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité définit les règles concernant l'utilisation des ressources informatiques pendant les heures de travail ?
+    \item Politique de cryptographie
+    \item Politique de sauvegarde
+    \item Politique de gestion de la fin de vie des données
+    \item* Politique de gestion du temps de travail sur les ordinateurs
+  \end{multi}
+
+  % Question 83
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle est la principale menace associée aux attaques par hameçonnage (phishing) ?
+    \item* Vol d'informations sensibles
+    \item Corruption des fichiers système
+    \item Perte de connectivité réseau
+    \item Attaque par déni de service (DDoS)
+  \end{multi}
+
+  % Question 84
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quelle technologie est utilisée pour identifier les utilisateurs en se basant sur des caractéristiques physiques uniques, comme l'empreinte digitale ou l'iris  ?
+    \item Authentification à deux facteurs
+    \item Token d'authentification
+    \item* Biométrie
+    \item Chiffrement asymétrique
+  \end{multi}
+
+  % Question 85
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle mesure de sécurité garantit que les données sont accessibles uniquement par des personnes autorisées et que leur contenu n'est pas modifié en transit ?
+    \item Chiffrement par substitution
+    \item Pare-feu de zone
+    \item* Intégrité des données
+    \item Authentification à deux éléments
+  \end{multi}
+
+  % Question 86
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité définit les règles pour l'utilisation appropriée des équipements informatiques appartenant à l'entreprise ?
+    \item Politique de gestion des clés de chiffrement
+    \item Politique de cryptographie
+    \item* Politique d'utilisation acceptable des équipements
+    \item Politique de gestion de la fin de vie des données
+  \end{multi}
+
+  % Question 87
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle technique de sécurité consiste à tromper un attaquant en lui fournissant de fausses informations pour le détourner de la véritable cible ?
+    \item* Leurre (Honeypot)
+    \item Filtrage MAC
+    \item VPN (Virtual Private Network)
+    \item Chiffrement WPA3
+  \end{multi}
+
+  % Question 88
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel mécanisme de sécurité permet de garantir que l'expéditeur d'un message électronique est bien la personne qu'il prétend être ?
+    \item Chiffrement des données
+    \item Authentification à deux facteurs
+    \item Contrôle d'accès
+    \item* Signature électronique
+  \end{multi}
+
+  % Question 89
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle technologie permet de stocker les mots de passe de manière sécurisée en les transformant en une séquence aléatoire de caractères ?
+    \item Biométrie
+    \item Authentification à deux éléments
+    \item* Hachage de mots de passe
+    \item Chiffrement de fichiers
+  \end{multi}
+
+  % Question 90
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité définit les procédures à suivre en cas de violation de la sécurité des données personnelles des clients ?
+    \item Politique de gestion des incidents de sécurité
+    \item Politique de cryptographie
+    \item* Politique de notification de violation de données
+    \item Politique de contrôle d'accès
+  \end{multi}
+
+
+   % Question 91
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quel type d'attaque consiste à intercepter et à enregistrer le trafic réseau afin d'espionner les communications ?
+    \item Attaque de phishing
+    \item Attaque par déni de service (DDoS)
+    \item* Attaque d'interception (sniffing)
+    \item Attaque de ransomware
+  \end{multi}
+
+  % Question 92
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel composant réseau est conçu pour bloquer le trafic réseau non autorisé en fonction de règles prédéfinies ?
+    \item SIEM (Security Information and Event Management)
+    \item IDS (Système de Détection d'Intrusion)
+    \item* Pare-feu
+    \item VPN (Virtual Private Network)
+  \end{multi}
+
+  % Question 93
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité définit les règles pour l'accès physique aux locaux informatiques, aux serveurs et aux équipements ?
+    \item Politique de gestion des mots de passe
+    \item Politique des médias sociaux
+    \item* Politique de sécurité physique
+    \item Politique de cryptographie
+  \end{multi}
+
+  % Question 94
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle est la principale caractéristique d'une attaque de type "phishing" ?
+    \item Elle vise à saturer un réseau de trafic malveillant
+    \item Elle consiste à détruire physiquement les systèmes informatiques
+    \item* Elle cherche à tromper les victimes en se faisant passer pour une source de confiance
+    \item Elle exploite des vulnérabilités logicielles connues
+  \end{multi}
+
+  % Question 95
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quel mécanisme de sécurité permet de garantir l'intégrité des données en vérifiant si elles ont été altérées pendant le transport ?
+    \item Chiffrement asymétrique
+    \item Authentification à deux facteurs
+    \item* Fonction de hachage (hash)
+    \item Authentification biométrique
+  \end{multi}
+
+  % Question 96
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quelle technologie de sécurité est utilisée pour empêcher les programmes malveillants d'accéder à certaines ressources du système ?
+    \item IDS (Système de Détection d'Intrusion)
+    \item SIEM (Security Information and Event Management)
+    \item VPN (Virtual Private Network)
+    \item* Contrôle d'accès aux applications
+  \end{multi}
+
+  % Question 97
+  \begin{multi}[points=1]{Politiques de Sécurité}
+    Quelle politique de sécurité traite des procédures pour la gestion des certificats numériques ?
+    \item Politique de sauvegarde
+    \item Politique de gestion de la fin de vie des données
+    \item* Politique de gestion des certificats
+    \item Politique de cryptographie
+  \end{multi}
+
+  % Question 98
+  \begin{multi}[points=1]{Cybersécurité}
+    Quelle mesure de sécurité implique la création de copies de données et leur stockage hors site pour la récupération en cas de sinistre ?
+    \item Authentification forte
+    \item* Sauvegarde et récupération des données
+    \item Chiffrement de bout en bout
+    \item Contrôle d'accès
+  \end{multi}
+
+  % Question 99
+  \begin{multi}[points=1]{Sécurité des Systèmes d'Information}
+    Quelle est la principale menace associée à l'utilisation de mots de passe faibles ou faciles à deviner ?
+    \item Attaque de phishing
+    \item Attaque par injection SQL
+    \item Attaque par déni de service (DDoS)
+    \item* Attaque par force brute
+  \end{multi}
+
+  % Question 100
+  \begin{multi}[points=1]{Architectures de Sécurité Informatique}
+    Quel type de pare-feu permet de prendre des décisions basées sur l'état actuel des connexions réseau, plutôt que sur des règles statiques ?
+    \item Pare-feu d'application
+    \item Pare-feu de zone
+    \item VPN (Virtual Private Network)
+    \item* Pare-feu d'état
+  \end{multi}
+
+
+  % Bloc SEC101 - SECOPS
+
+  \begin{multi}[points=1]{Vulnérabilités informatiques}
+     Qu'est-ce qu'une vulnérabilité informatique  ?
+        \item Une attaque contre les données
+        \item Un logiciel antivirus
+        \item *Une faiblesse dans un système qui peut être exploitée
+        \item Une méthode de chiffrement
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Vulnérabilités informatiques}
+     Quel type de vulnérabilité est généralement corrigé par un correctif de sécurité  ?
+        \item Vulnérabilité physique
+        \item Vulnérabilité humaine
+        \item *Vulnérabilité logicielle
+        \item Vulnérabilité matérielle
+      \end{multi} 
+    
+    \begin{multi}[points=1]{Vulnérabilités informatiques}
+     Qu'est-ce qu'une analyse de vulnérabilité  ?
+        \item Une attaque ciblée
+        \item *L'évaluation des faiblesses potentielles dans un système
+        \item Le chiffrement des données sensibles
+        \item La gestion des incidents de sécurité
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Vulnérabilités informatiques}
+     Quel est le rôle d'un scanner de vulnérabilités ?
+        \item *Identifier et rapporter les vulnérabilités dans un système
+        \item Défendre contre les attaques DDoS
+        \item Chiffrer les communications réseau
+        \item Gérer les identités utilisateur
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Vulnérabilités informatiques}
+     Quelle est la principale raison de la présence de vulnérabilités dans les systèmes informatiques ?
+        \item Manque de pare-feu
+        \item *Complexité des logiciels et des systèmes
+        \item Faible utilisation de l'authentification à deux facteurs
+        \item Trop de correctifs de sécurité
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Vulnérabilités informatiques}
+    % Menaces informatiques
+     Qu'est-ce qu'une menace informatique ?
+        \item *Un événement ou une situation potentiellement nuisible pour les systèmes informatiques
+        \item Une mise à jour logicielle
+        \item Un certificat SSL
+        \item Un programme antivirus
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Vulnérabilités informatiques}
+     Quel est le principal objectif d'une menace informatique de type "ransomware" ?
+        \item *Chiffrer les données de la victime et demander une rançon
+        \item Dérober des informations confidentielles
+        \item Détecter les vulnérabilités dans un système
+        \item Corrompre les fichiers système
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Vulnérabilités informatiques}
+     Quelle est la caractéristique commune des attaques de type "phishing" ?
+        \item *L'utilisation de l'ingénierie sociale pour tromper les utilisateurs
+        \item L'exploitation de failles logicielles
+        \item La diffusion de logiciels malveillants par courriel
+        \item L'effacement de données sensibles
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Vulnérabilités informatiques}
+     Qu'est-ce qu'un attaquant "hacker" ?
+        \item Un employé de sécurité informatique
+        \item *Une personne qui exploite des failles de sécurité pour accéder illégalement à un système
+        \item Un utilisateur légitime du réseau
+        \item Un concepteur de logiciels
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Vulnérabilités informatiques}
+     Quelle est la principale motivation derrière les attaques informatiques ?
+        \item Curiosité
+        \item *Génération de profit financier
+        \item Amélioration des compétences techniques
+        \item Amélioration de la réputation en ligne
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Computer Emergency Response Team}
+    % Codes malveillants
+    Qu'est-ce qu'un logiciel malveillant (malware) ?
+        \item *Un programme informatique conçu pour causer des dommages ou compromettre la sécurité
+        \item Un programme antivirus
+        \item Un outil de sauvegarde
+        \item Un dispositif de chiffrement
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Codes malveillants}
+     Quelle est la principale caractéristique d'un virus informatique ?
+        \item *Capacité de se reproduire en infectant d'autres fichiers
+        \item Chiffrer des données sensibles
+        \item Exploitation de failles de sécurité
+        \item Détection des vulnérabilités réseau
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Codes malveillants}
+     Qu'est-ce qu'un cheval de Troie (trojan) dans le contexte des codes malveillants ?
+        \item *Un programme apparemment légitime qui contient un logiciel malveillant
+        \item Un virus informatique
+        \item Un dispositif de chiffrement
+        \item Une attaque par déni de service (DDoS)
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Codes malveillants}
+     Quel est l'objectif d'un ransomware ?
+        \item Collecter des informations de navigation
+        \item *Chiffrer les fichiers de la victime et demander une rançon
+        \item Détruire physiquement le matériel informatique
+        \item Infecter les utilisateurs avec des publicités indésirables
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Codes malveillants}
+     Quelle est la principale méthode de propagation d'un ver informatique ?
+        \item *Exploitation des vulnérabilités réseau
+        \item Ingénierie sociale
+        \item Chiffrement des fichiers système
+        \item Utilisation de courriels frauduleux
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Incidents informatiques}
+    % Incidents informatiques
+     Qu'est-ce qu'un incident informatique ?
+        \item Une mise à jour logicielle
+        \item Un certificat SSL
+        \item *Un événement qui compromet la sécurité des systèmes informatiques
+        \item Une attaque DDoS
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Incidents informatiques}
+     Quelle est la première étape dans la gestion d'un incident informatique ?
+        \item *Détection et identification de l'incident
+        \item Isolation du système affecté
+        \item Notification des autorités
+        \item Analyse post-incident
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Incidents informatiques}
+     Quelle est la principale responsabilité d'une équipe de réponse aux incidents (IRT) ?
+       
+     \item *Investigation et gestion des incidents de sécurité
+        \item Mise en œuvre des politiques de sécurité
+        \item Maintenance des serveurs
+        \item Développement de logiciels sécurisés
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Incidents informatiques}
+     Qu'est-ce qu'une analyse post-incident ?
+        \item *Examen et évaluation des événements survenus après un incident de sécurité
+        \item Prévention des incidents futurs
+        \item Détection des vulnérabilités
+        \item Réponse immédiate à un incident
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Incidents informatiques}
+     Quel est l'objectif d'une politique de gestion des incidents ?
+        \item Chiffrer les données sensibles
+        \item *Fournir des directives pour répondre efficacement aux incidents de sécurité
+        \item Gérer les vulnérabilités du réseau
+        \item Analyser les journaux d'activité
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Security Operation Center}
+    % Security Operation Center (SOC)
+     Qu'est-ce qu'un Security Operation Center (SOC) ?
+        \item Un logiciel antivirus
+        \item *Un centre qui surveille et répond aux incidents de sécurité
+        \item Un dispositif de chiffrement
+        \item Un pare-feu
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Security Operation Center}
+     Quel est le rôle principal d'un SOC dans une organisation ?
+        \item Mise en œuvre des politiques de sécurité
+        \item Gestion des identités utilisateurs
+        \item *Surveillance continue de la sécurité et réponse aux incidents
+        \item Maintenance des serveurs
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Security Operation Center}
+     Qu'est-ce qu'une alerte de sécurité dans le contexte d'un SOC ?
+        \item *Une notification signalant une activité suspecte ou un incident de sécurité
+        \item Un test de pénétration automatisé
+        \item Un rapport sur les performances du réseau
+        \item Une mise à jour logicielle
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Security Operation Center}
+     Quelle est la principale différence entre un SOC et un CERT ?
+        \item *Un SOC se concentre sur la surveillance et la réponse aux incidents, tandis qu'un CERT se concentre sur la coordination des réponses aux incidents au niveau national ou sectoriel
+        \item Un SOC est uniquement responsable de la gestion des vulnérabilités
+        \item Un CERT est une extension d'un SOC
+        \item Un SOC et un CERT sont des termes interchangeables
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Security Operation Center}
+     Quel est l'avantage d'utiliser des outils d'automatisation dans un SOC ?
+        \item *Réduction du temps de réponse aux incidents
+        \item Augmentation de la complexité des opérations
+        \item Diminution de la surveillance
+        \item Amélioration de la gestion des identités utilisateurs
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Computer Emergency Response Team}
+    % Computer Emergency Response Team (CERT)
+    Qu'est-ce qu'un Computer Emergency Response Team (CERT) ?
+        \item *Une équipe spécialisée dans la gestion des incidents de sécurité au niveau national ou sectoriel
+        \item Un groupe de pirates informatiques
+        \item Un logiciel antivirus
+        \item Un centre de formation en cybersécurité
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Computer Emergency Response Team}
+     Quel est le rôle principal d'un CERT ?
+        \item Maintenance des serveurs
+        \item Gestion des identités utilisateurs
+        \item *Coordination des réponses aux incidents au niveau national ou sectoriel
+        \item Mise en œuvre des politiques de sécurité
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Computer Emergency Response Team}
+     Quelle est la principale responsabilité d'un CERT pendant une cyberattaque majeure ?
+        \item Maintenance des serveurs
+        \item *Coordination des efforts de réponse et d'information
+        \item Développement de logiciels sécurisés
+        \item Mise en œuvre des politiques de sécurité
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Computer Emergency Response Team}
+     Qu'est-ce qu'une déclaration d'incidents électroniques ?
+        \item *Une communication formelle informant le CERT d'un incident de sécurité
+        \item Un rapport sur les performances du réseau
+        \item Un test de pénétration automatisé
+        \item Un certificat SSL
+      \end{multi} 
+    
+     \begin{multi}[points=1]{Computer Emergency Response Team}
+     Quelle est la principale différence entre un SOC et un CERT ?
+        \item *Un SOC se concentre sur la surveillance et la réponse aux incidents, tandis qu'un CERT se concentre sur la coordination des réponses aux incidents au niveau national ou sectoriel
+        \item Un SOC est uniquement responsable de la gestion des vulnérabilités
+        \item Un CERT est une extension d'un SOC
+        \item Un SOC et un CERT sont des termes interchangeables
+      \end{multi} 
+    
+
+%BLOC SEC101 - 2024
+
+\begin{multi}[points=1]{Vulnérabilités informatiques}
+% Vulnérabilités informatiques
+Qu'est-ce qu'un test d'intrusion ?
+    \item Un logiciel antivirus
+    \item Une analyse post-incident
+    \item *Une simulation d'attaque pour identifier les vulnérabilités
+    \item Un programme de gestion des incidents
+\end{multi}
+
+\begin{multi}[points=1]{Vulnérabilités informatiques}
+Quel est le principal facteur contribuant aux vulnérabilités logicielles ?
+    \item *Complexité du code
+    \item Mises à jour fréquentes
+    \item Utilisation d'authentification forte
+    \item Isolation des systèmes
+\end{multi}
+
+\begin{multi}[points=1]{Menaces informatiques}
+% Menaces informatiques
+Qu'est-ce qu'un logiciel espion (spyware) ?
+    \item *Un programme conçu pour collecter des informations sans le consentement de l'utilisateur
+    \item Un dispositif de chiffrement
+    \item Un outil de gestion des identités
+    \item Une mise à jour logicielle
+\end{multi}
+
+\begin{multi}[points=1]{Menaces informatiques}
+Quelle est la principale caractéristique d'une attaque par déni de service distribué (DDoS) ?
+    \item *Inondation d'un service en ligne par un trafic excessif
+    \item Chiffrer des fichiers système
+    \item Utilisation de l'ingénierie sociale
+    \item Exploitation de vulnérabilités réseau
+\end{multi}
+
+\begin{multi}[points=1]{Codes malveillants}
+% Codes malveillants
+Qu'est-ce qu'un virus polymorphique ?
+    \item *Un virus capable de changer son apparence pour éviter la détection
+    \item Un cheval de Troie
+    \item Une alerte de sécurité
+    \item Un programme antivirus
+\end{multi}
+
+\begin{multi}[points=1]{Codes malveillants}
+Quel est l'objectif principal d'un ver informatique ?
+    \item *Se propager rapidement à travers les réseaux
+    \item Chiffrer les fichiers de la victime
+    \item Collecter des informations sans autorisation
+    \item Corrompre les fichiers système
+\end{multi}
+
+\begin{multi}[points=1]{Incidents informatiques}
+% Incidents informatiques
+Qu'est-ce qu'une analyse forensique ?
+    \item *L'analyse des preuves numériques après un incident pour en déterminer la cause
+    \item Un test d'intrusion
+    \item La gestion des identités utilisateurs
+    \item La coordination des réponses aux incidents
+\end{multi}
+
+\begin{multi}[points=1]{Incidents informatiques}
+Quel est le rôle d'un responsable de la réponse aux incidents ?
+     \item *Coordination des efforts pour résoudre les incidents de sécurité
+    \item Développement de politiques de sécurité
+    \item Maintenance des serveurs
+    \item Analyse post-incident
+\end{multi}
+
+\begin{multi}[points=1]{Security Operation Center}
+% Security Operation Center (SOC)
+Qu'est-ce qu'un SIEM (Security Information and Event Management) ?
+    \item Un programme antivirus
+    \item Un dispositif de chiffrement
+    \item *Un système qui analyse et corrèle les données liées à la sécurité
+    \item Une équipe de réponse aux incidents
+\end{multi}
+
+\begin{multi}[points=1]{Security Operation Center}
+Quel est l'objectif principal de la surveillance continue dans un SOC ?
+    \item *Identifier et répondre rapidement aux incidents de sécurité
+    \item Gérer les politiques de sauvegarde
+    \item Développer des logiciels sécurisés
+    \item Fournir une formation en cybersécurité
+\end{multi}
+
+\begin{multi}[points=1]{Vulnérabilités informatiques}
+% Vulnérabilités informatiques
+Qu'est-ce qu'un test de sécurité "black-box" ?
+    \item *Une évaluation externe sans connaissance préalable du système
+    \item Une analyse post-incident
+    \item Une simulation d'attaque interne
+    \item Un test de pénétration automatisé
+\end{multi}
+
+\begin{multi}[points=1]{Vulnérabilités informatiques}
+Quel est le principal objectif d'une évaluation de la sécurité physique ?
+    \item La détection d'attaques DDoS
+    \item La collecte d'informations sensibles
+    \item *L'identification des vulnérabilités physiques d'un site
+    \item Le suivi des journaux d'activité réseau
+\end{multi}
+
+\begin{multi}[points=1]{Menaces informatiques}
+% Menaces informatiques
+Qu'est-ce qu'un attaquant "script kiddie" ?
+    \item *Une personne qui utilise des outils préexistants sans comprendre leur fonctionnement
+    \item Un professionnel de la cybersécurité
+    \item Un pirate informatique expérimenté
+    \item Un membre d'une équipe de réponse aux incidents
+\end{multi}
+
+\begin{multi}[points=1]{Menaces informatiques}
+Quelle est la principale caractéristique d'une attaque par "zero-day" ?
+    \item *Exploitation d'une vulnérabilité non corrigée
+    \item Utilisation d'attaques sophistiquées
+    \item Attaque pendant une journée spécifique
+    \item Détection préalable par les systèmes de sécurité
+\end{multi}
+
+\begin{multi}[points=1]{Codes malveillants}
+% Codes malveillants
+Qu'est-ce qu'un cheval de Troie (trojan) dans le contexte des codes malveillants ?
+    \item *Un programme apparemment légitime qui contient un logiciel malveillant
+    \item Un virus polymorphique
+    \item Une alerte de sécurité
+    \item Un certificat SSL
+\end{multi}
+
+\begin{multi}[points=1]{Codes malveillants}
+Quelle est la principale caractéristique d'un ransomware ?
+    \item *Chiffrer les fichiers de la victime et demander une rançon
+    \item Collecter des informations sans autorisation
+    \item Se propager rapidement à travers les réseaux
+    \item Corrompre les fichiers système
+\end{multi}
+
+\begin{multi}[points=1]{Incidents informatiques}
+% Incidents informatiques
+Quelle est la principale responsabilité d'une équipe d'analystes forensiques ?
+    \item *Collecter et analyser des preuves numériques après un incident
+    \item Coordination des réponses aux incidents
+    \item Mise en œuvre des politiques de sécurité
+    \item Maintenance des serveurs
+\end{multi}
+
+\begin{multi}[points=1]{Incidents informatiques}
+Qu'est-ce qu'une déclaration d'incidents électroniques ?
+    \item Un test d'intrusion automatisé
+    \item *Une communication formelle informant d'un incident de sécurité
+    \item Un programme antivirus
+    \item Un rapport sur les performances du réseau
+\end{multi}
+
+\begin{multi}[points=1]{Security Operation Center}
+% Security Operation Center (SOC)
+Qu'est-ce qu'un indicateur de compromission (IoC) dans le contexte d'un SOC ?
+    \item Un outil de chiffrement
+    \item *Une donnée observable qui indique une activité suspecte ou malveillante
+    \item Une équipe de réponse aux incidents
+    \item Un certificat SSL
+\end{multi}
+
+\begin{multi}[points=1]{Security Operation Center}
+Quelle est la principale fonction d'un tableau de bord de sécurité (Security Dashboard) dans un SOC ?
+    \item *Afficher en temps réel les indicateurs de sécurité et les alertes
+    \item Gérer les vulnérabilités du réseau
+    \item Coordonner les réponses aux incidents
+    \item Chiffrer les données sensibles
+\end{multi}
+
+\begin{multi}[points=1]{Vulnérabilités informatiques}
+% Vulnérabilités informatiques
+Qu'est-ce qu'une vulnérabilité "day-zero" ?
+    \item *Une vulnérabilité qui est exploitée avant qu'un correctif ne soit disponible
+    \item Une vulnérabilité identifiée zéro jour après son apparition
+    \item Une vulnérabilité qui affecte seulement les systèmes de production
+    \item Une vulnérabilité découvert zéro jours après sa correction
+\end{multi}
+
+\begin{multi}[points=1]{Vulnérabilités informatiques}
+Quel est le rôle principal d'un scanner de vulnérabilités dans le contexte de la sécurité informatique ?
+    \item Une protection contre les attaques DDoS
+    \item *Identifier et signaler les vulnérabilités dans un système
+    \item Un dispositif de chiffrement des données
+    \item Un outil de détection de malware
+\end{multi}
+
+\begin{multi}[points=1]{Menaces informatiques}
+% Menaces informatiques
+Qu'est-ce qu'une attaque de type "man-in-the-middle" ?
+    \item Une attaque par force brute
+    \item *Une attaque où un attaquant intercepte et altère la communication entre deux parties
+    \item Une attaque de déni de service distribué (DDoS)
+    \item Une attaque par script kiddie
+\end{multi}
+
+\begin{multi}[points=1]{Menaces informatiques}
+Quel est l'objectif principal d'une attaque de type "phishing" ?
+    \item Corrompre les fichiers système
+    \item *Utiliser des techniques d'ingénierie sociale pour tromper les utilisateurs et obtenir des informations sensibles
+    \item Collecter des informations de navigation
+    \item Lancer des attaques DDoS
+\end{multi}
+
+\begin{multi}[points=1]{Codes malveillants}
+% Codes malveillants
+Qu'est-ce qu'un ver informatique ?
+    \item *Un programme autonome capable de se propager à travers les réseaux
+    \item Un virus polymorphique
+    \item Une équipe de réponse aux incidents
+    \item Un outil de chiffrement
+\end{multi}
+
+\begin{multi}[points=1]{Codes malveillants}
+Quelle est la principale caractéristique d'un cheval de Troie (trojan) ?
+    \item *Un programme apparemment légitime qui cache un logiciel malveillant
+    \item Une alerte de sécurité
+    \item Un outil de détection de malware
+    \item Un virus capable de se reproduire en infectant d'autres fichiers
+\end{multi}
+
+\begin{multi}[points=1]{Incidents informatiques}
+% Incidents informatiques
+Qu'est-ce qu'une analyse post-incident ?
+    \item *L'examen et l'évaluation des événements survenus après un incident de sécurité
+    \item Une simulation d'attaque pour identifier les vulnérabilités
+    \item Un test de pénétration automatisé
+    \item La collecte des preuves numériques pendant un incident
+\end{multi}
+
+\begin{multi}[points=1]{Incidents informatiques}
+Quelle est la principale responsabilité d'une équipe de réponse aux incidents (IRT) ?
+    \item La gestion des identités utilisateurs
+    \item *Investigation et gestion des incidents de sécurité
+    \item Maintenance des serveurs
+    \item Mise en œuvre des politiques de sécurité
+\end{multi}
+
+\begin{multi}[points=1]{Security Operation Center}
+% Security Operation Center (SOC)
+Qu'est-ce qu'un indicateur de compromission (IoC) fournit par un CERT ?
+    \item Une donnée de vulnérabilité
+    \item *Une donnée observable qui indique une activité suspecte ou malveillante
+    \item Un outil de chiffrement
+    \item* Une signature de programme malveillant
+\end{multi}
+
+\begin{multi}[points=1]{Security Operation Center}
+Quel est le rôle principal d'un analyste de sécurité dans un SOC ?
+    \item *Surveiller et analyser les activités de sécurité, détecter les incidents et fournir une réponse initiale
+    \item Développer des politiques de sécurité
+    \item Gérer les vulnérabilités du réseau
+    \item Coordonner les efforts de réponse aux incidents
+\end{multi}
+
+\begin{multi}[points=1]{Vulnérabilités informatiques}
+% Vulnérabilités informatiques
+Qu'est-ce qu'une vulnérabilité "zero-day" ?
+    \item Une vulnérabilité qui n'a jamais été exploitée
+    \item Une vulnérabilité qui ne nécessite aucune correction
+    \item *Une vulnérabilité qui est exploitée avant qu'un correctif ne soit disponible
+    \item Une vulnérabilité qui n'affecte que les anciennes versions de logiciels
+\end{multi}
+
+\begin{multi}[points=1]{Vulnérabilités informatiques}
+Quel est le rôle d'un test d'intrusion "gray-box" ?
+    \item Une évaluation externe sans connaissance préalable du système
+    \item *Une évaluation avec une connaissance partielle du système
+    \item Une simulation d'attaque interne
+    \item Un test de pénétration automatisé
+\end{multi}
+
+\begin{multi}[points=1]{Menaces informatiques}
+% Menaces informatiques
+Qu'est-ce qu'une attaque par force brute ?
+    \item Une attaque utilisant des tactiques furtives
+    \item *Une attaque essayant toutes les combinaisons possibles de mots de passe
+    \item Une attaque exploitant les failles matérielles
+    \item Une attaque par déni de service distribué (DDoS)
+\end{multi}
+
+\begin{multi}[points=1]{Menaces informatiques}
+Quelle est la principale caractéristique d'une menace persistante avancée (APT) ?
+    \item Une menace de courte durée
+    \item *Une menace discrète et soutenue visant à accéder à un système de manière non détectée
+    \item Une menace uniquement basée sur l'ingénierie sociale
+    \item Une menace affectant uniquement les utilisateurs inexpérimentés
+\end{multi}
+
+\begin{multi}[points=1]{Codes malveillants}
+% Codes malveillants
+Qu'est-ce qu'un logiciel espion (spyware) ?
+    \item *Un programme conçu pour collecter des informations sans le consentement de l'utilisateur
+    \item Un virus capable de se reproduire en infectant d'autres fichiers
+    \item Un cheval de Troie
+    \item Un outil de détection de malware
+\end{multi}
+
+\begin{multi}[points=1]{Codes malveillants}
+Quelle est la principale caractéristique d'un ransomware ?
+    \item *Chiffrer les fichiers de la victime et demander une rançon
+    \item Collecter des informations sans autorisation
+    \item Se propager rapidement à travers les réseaux
+    \item Corrompre les fichiers système
+\end{multi}
+
+\begin{multi}[points=1]{Incidents informatique}
+% Incidents informatiques
+Qu'est-ce qu'une déclaration d'incidents électroniques ?
+    \item Un test d'intrusion automatisé
+    \item *Une communication formelle informant d'un incident de sécurité
+    \item Un programme antivirus
+    \item Un rapport sur les performances du réseau
+\end{multi}
+
+\begin{multi}[points=1]{Incidents informatique}
+Quelle est la première étape dans la gestion d'un incident informatique ?
+    \item L'analyse post-incident
+    \item *La détection et l'identification de l'incident
+    \item La coordination des réponses aux incidents
+    \item L'analyse forensique
+\end{multi}
+
+\begin{multi}[points=1]{Security Operation Center}
+% Security Operation Center (SOC)
+Qu'est-ce qu'un tableau de bord de sécurité (Security Dashboard) dans un SOC ?
+    \item Un outil de chiffrement
+    \item *Un outil visuel affichant en temps réel les indicateurs de sécurité et les alertes
+    \item Une équipe de réponse aux incidents
+    \item Un certificat SSL
+\end{multi}
+
+\begin{multi}[points=1]{Security Operation Center}
+Quel est l'objectif principal de la surveillance continue dans un SOC ?
+    \item Gérer les vulnérabilités du réseau
+    \item *Identifier et répondre rapidement aux incidents de sécurité
+    \item Fournir une formation en cybersécurité
+    \item Coordonner les réponses aux incidents
+\end{multi}
+
+\begin{multi}[points=1]{Gestion de crise cyber}
+% Gestion de crise cyber
+
+Quelle est la principale responsabilité d'une équipe de gestion de crise cyber pendant un incident majeur ?
+    \item Maintenance des serveurs
+    \item *Coordination des actions pour minimiser les impacts et restaurer les opérations normales
+    \item Surveillance des journaux d'activité réseau
+    \item Gestion des vulnérabilités du réseau
+\end{multi}
+
+\begin{multi}[points=1]{Gestion de crise cyber}
+% Gestion de crise cyber
+Qu'est-ce qu'un plan de gestion de crise cyber ?
+    \item Un programme antivirus
+    \item Une équipe de réponse aux incidents
+    \item *Un ensemble de procédures définissant les actions à prendre pendant une cybercrise
+    \item Un logiciel de détection de malware
+\end{multi}
+
+\begin{multi}[points=1]{Gestion de crise cyber}
+Quel est le rôle principal d'un coordinateur de crise cyber ?
+    \item La maintenance des serveurs
+    \item *Coordonner les actions et les communications pendant une crise
+    \item La gestion des vulnérabilités du réseau
+    \item Analyser les journaux d'activité réseau
+\end{multi}
+
+\begin{multi}[points=1]{Gestion de crise cyber}
+Quelle est la première étape d'une gestion efficace de crise cyber ?
+    \item La coordination des réponses aux incidents
+    \item *La détection et la compréhension de la cyberattaque
+    \item La maintenance des serveurs
+    \item Le déploiement d'un logiciel antivirus
+\end{multi}
+
+\begin{multi}[points=1]{Gestion de crise cyber}
+Qu'est-ce qu'une communication proactive pendant une crise cyber ?
+    \item *Fournir des mises à jour régulières aux parties prenantes
+    \item Une analyse post-incident
+    \item La gestion des identités utilisateurs
+    \item La collecte des preuves numériques pendant un incident
+\end{multi}
+
+\begin{multi}[points=1]{Gestion de crise cyber}
+Quel est le rôle d'une équipe de communication de crise cyber ?
+    \item La maintenance des serveurs
+    \item *Gérer la communication interne et externe pendant une crise
+    \item La coordination des réponses aux incidents
+    \item L'analyse forensique
+\end{multi}
+
+\begin{multi}[points=1]{Gestion de crise cyber}
+Qu'est-ce qu'un exercice de simulation de crise cyber ?
+    \item *Une simulation d'une situation de crise pour tester la préparation de l'équipe
+    \item Un test d'intrusion automatisé
+    \item La gestion des vulnérabilités du réseau
+    \item Une alerte de sécurité
+\end{multi}
+
+\begin{multi}[points=1, tags={M3Sec101, Secops}]{Gestion de crise cyber}
+Quelle est la principale responsabilité d'une équipe de résilience cyber ?
+    \item La coordination des réponses aux incidents
+    \item *Assurer la continuité des opérations et la reprise après une cyberattaque
+    \item La maintenance des serveurs
+    \item La gestion des identités utilisateurs
+\end{multi}
+
+\begin{multi}[points=1]{Gestion de crise cyber}
+Quel est l'objectif principal d'une communication externe pendant une crise cyber ?
+    \item *Maintenir la confiance du public et des partenaires
+    \item La collecte des preuves numériques pendant un incident
+    \item La gestion des vulnérabilités du réseau
+    \item Une analyse post-incident
+\end{multi}
+
+\begin{multi}[points=1]{Gestion de crise cyber}
+Quelle est la différence entre une gestion de crise cyber et une réponse aux incidents ?
+    \item* La gestion de crise est l'étape suivante d'une réponse à incident qui dépasse les capacités de décisions et de remédiation de la direction
+    \item Il n'y a pas de différence
+    \item* Une réponse à incident englobe toutes les actions dont la gestion de crise
+    \item La gestion de crise cyber est réservée aux équipes techniques
+\end{multi}
+
+\begin{multi}[points=1]{Gestion de crise cyber}
+Qu'est-ce qu'une évaluation post-crise cyber ?
+    \item *L'évaluation des actions prises et des leçons apprises après la gestion d'une crise cyber
+    \item La coordination des réponses aux incidents
+    \item La maintenance des serveurs
+    \item Une simulation d'attaque pour identifier les vulnérabilités
+\end{multi}
+
+
+
+
+% GENERATION POLITIQUE DE SECURITE
+
+
+% Question 1
+\begin{multi}[points=1]{ISO27001}
+Quelle est la principale caractéristique de la norme ISO 27001?
+\item* Elle fournit un cadre pour établir, mettre en œuvre, maintenir et améliorer un système de management de la sécurité de l'information.
+\item Elle spécifie des exigences précises pour la conception d'un pare-feu.
+\item Elle définit les protocoles de cryptage pour les réseaux sans fil.
+\item Elle établit les exigences pour les logiciels antivirus.
+\end{multi}
+
+% Question 2
+\begin{multi}[points=1]{Système de management de la sécurité}
+Quel est le principal objectif d'un SMSI (Système de Management de la Sécurité de l'Information)?
+\item* Assurer la confidentialité, l'intégrité et la disponibilité de l'information.
+\item Gérer les ressources humaines de l'entreprise.
+\item Optimiser les processus de marketing.
+\item Accroître les bénéfices financiers de l'entreprise.
+\end{multi}
+
+% Question 3
+\begin{multi}[points=1]{Politique de sécurité}
+Quel est l'élément essentiel d'une politique de sécurité?
+\item* La définition des règles et des responsabilités en matière de sécurité.
+\item L'installation de logiciels antivirus sur tous les ordinateurs.
+\item L'utilisation de mots de passe simples pour faciliter l'accès.
+\item La réduction des coûts liés à la sécurité informatique.
+\end{multi}
+
+% Question 4
+\begin{multi}[points=1]{Architectures fonctionnelles de sécurité}
+Quel est le principal avantage d'une architecture de sécurité en couches?
+\item* Elle permet une défense en profondeur contre les menaces.
+\item Elle réduit le nombre de dispositifs de sécurité nécessaires.
+\item Elle rend la maintenance du réseau plus complexe.
+\item Elle simplifie la configuration des pare-feux.
+\end{multi}
+
+% Question 5
+\begin{multi}[points=1]{ISO27001}
+Qu'est-ce que la certification ISO 27001 garantit?
+\item* La conformité aux normes internationales en matière de sécurité de l'information.
+\item La protection absolue contre toutes les menaces informatiques.
+\item La réduction des coûts de maintenance des serveurs.
+\item La compatibilité avec tous les systèmes d'exploitation.
+\end{multi}
+
+% Question 6
+\begin{multi}[points=1]{Système de management de la sécurité}
+Quelle est la première étape dans la mise en œuvre d'un SMSI?
+\item* L'engagement de la direction.
+\item L'achat de matériel de sécurité de haute technologie.
+\item La formation du personnel informatique.
+\item La rédaction de politiques de sécurité détaillées.
+\end{multi}
+
+% Question 7
+\begin{multi}[points=1]{Politique de sécurité}
+Quelle est l'une des principales raisons pour lesquelles les politiques de sécurité échouent souvent?
+\item* Le manque de sensibilisation et de formation du personnel.
+\item L'existence de politiques trop strictes.
+\item L'absence de surveillance des activités en ligne.
+\item La dépendance excessive aux logiciels de sécurité.
+\end{multi}
+
+% Question 8
+\begin{multi}[points=1]{Architectures fonctionnelles de sécurité}
+Quel composant d'une architecture de sécurité est responsable de la limitation du trafic réseau entrant et sortant?
+\item* Le pare-feu.
+\item Le commutateur réseau.
+\item Le serveur DNS.
+\item Le routeur.
+\end{multi}
+
+% Question 9
+\begin{multi}[points=1]{ISO27001}
+Qu'est-ce que l'évaluation des risques dans le cadre de la norme ISO 27001?
+\item* L'identification des menaces potentielles et de leurs impacts sur l'organisation.
+\item La mise en place de pare-feux sur tous les points d'accès au réseau.
+\item La vérification de la conformité des politiques de sécurité.
+\item La classification des employés en fonction de leur niveau d'accès à l'information.
+\end{multi}
+
+% Question 10
+\begin{multi}[points=1]{Système de management de la sécurité}
+Qu'est-ce qu'un processus clé dans un SMSI?
+\item* L'amélioration continue.
+\item La désactivation des mises à jour automatiques.
+\item La réduction des effectifs informatiques.
+\item La suppression périodique des journaux d'activité.
+\end{multi}
+
+
+% Question 11
+\begin{multi}[points=1]{ISO27001}
+Quel est l'objectif principal de l'ISO 27001?
+\item* Établir, mettre en œuvre, maintenir et améliorer un système de management de la sécurité de l'information.
+\item Définir les normes pour la gestion des ressources humaines.
+\item Élaborer des politiques de sécurité spécifiques pour les entreprises.
+\item Créer des pare-feux personnalisés pour chaque organisation.
+\end{multi}
+
+% Question 12
+\begin{multi}[points=1]{Système de management de la sécurité}
+Qu'est-ce qu'un audit de sécurité?
+\item* Une évaluation systématique de la sécurité d'un système ou d'une organisation.
+\item Une mise à jour régulière des logiciels de sécurité.
+\item Un processus pour réduire les coûts de sécurité.
+\item Une analyse des tendances de sécurité sur les réseaux sociaux.
+\end{multi}
+
+% Question 13
+\begin{multi}[points=1]{Politique de sécurité}
+Qu'est-ce qu'une politique de classification de l'information?
+\item* Une directive indiquant comment l'information doit être étiquetée et gérée en fonction de sa sensibilité.
+\item Une liste de logiciels approuvés pour une utilisation sur le réseau de l'entreprise.
+\item Une procédure pour l'installation de mises à jour logicielles.
+\item Une politique interdisant l'utilisation de médias sociaux sur le lieu de travail.
+\end{multi}
+
+% Question 14
+\begin{multi}[points=1]{Architectures fonctionnelles de sécurité}
+Quel est l'avantage d'une architecture de sécurité en périphérie?
+\item* Elle permet de protéger le réseau interne en contrôlant le trafic entrant et sortant.
+\item Elle réduit la nécessité d'avoir des politiques de sécurité claires.
+\item Elle rend la configuration des pare-feux plus complexe.
+\item Elle augmente le risque de compromission des données sensibles.
+\end{multi}
+
+% Question 15
+\begin{multi}[points=1]{ISO27001}
+Quel est le rôle d'un responsable de la sécurité de l'information selon l'ISO 27001?
+\item* Superviser la mise en œuvre et le maintien du SMSI (Système de Management de la Sécurité de l'Information).
+\item Gérer les ressources financières de l'entreprise.
+\item Assurer la sécurité physique des locaux de l'entreprise.
+\item Développer des logiciels de sécurité personnalisés.
+\end{multi}
+
+% Question 16
+\begin{multi}[points=1]{Système de management de la sécurité}
+Qu'est-ce que la roue de Deming dans le contexte de la sécurité de l'information?
+\item* Un cycle d'amélioration continue composé des étapes Plan-Do-Check-Act.
+\item Un modèle de menace largement utilisé dans l'industrie de la cybersécurité.
+\item Un algorithme de cryptage asymétrique.
+\item Un protocole pour la détection des intrusions.
+\end{multi}
+
+% Question 17
+\begin{multi}[points=1]{Politique de sécurité}
+Pourquoi est-il important de sensibiliser régulièrement les employés à la sécurité de l'information?
+\item* Pour réduire les risques d'attaques basées sur l'ingénierie sociale.
+\item Pour éviter les pannes matérielles.
+\item Pour augmenter la vitesse de connexion Internet.
+\item Pour permettre l'accès à des sites Web non sécurisés.
+\end{multi}
+
+% Question 18
+\begin{multi}[points=1]{Architectures fonctionnelles de sécurité}
+Qu'est-ce qu'un proxy dans une architecture de sécurité?
+\item* Un serveur intermédiaire qui agit comme un intermédiaire entre les utilisateurs et Internet.
+\item Un type de pare-feu spécialement conçu pour les réseaux sans fil.
+\item Un protocole de sécurité utilisé pour crypter les communications.
+\item Un dispositif qui contrôle l'accès physique aux locaux de l'entreprise.
+\end{multi}
+
+% Question 19
+\begin{multi}[points=1]{ISO27001}
+Qu'est-ce qu'une analyse des risques selon l'ISO 27001?
+\item* Une évaluation des menaces potentielles et de leurs impacts sur l'organisation.
+\item Un test de pénétration des systèmes informatiques.
+\item Un examen de la conformité des politiques de sécurité.
+\item Une vérification de la disponibilité des mises à jour logicielles.
+\end{multi}
+
+% Question 20
+\begin{multi}[points=1]{Système de management de la sécurité}
+Qu'est-ce qu'une revue de direction dans le contexte de la sécurité de l'information?
+\item* Une évaluation régulière de la performance du SMSI par la direction de l'entreprise.
+\item Un processus pour réviser les politiques de sécurité chaque année.
+\item Un audit externe mené par des experts en sécurité.
+\item Un examen des journaux d'activité informatique.
+\end{multi}
+
+% Question 21
+\begin{multi}[points=1]{Politique de sécurité}
+Quelle est la principale raison pour laquelle les politiques de sécurité doivent être adaptées à chaque organisation?
+\item* Chaque organisation a des besoins, des risques et des environnements informatiques uniques.
+\item Les politiques de sécurité standard sont suffisantes pour toutes les entreprises.
+\item Il est moins coûteux de copier les politiques d'autres entreprises.
+\item Les politiques de sécurité ne sont pas importantes pour la plupart des organisations.
+\end{multi}
+
+% Question 22
+\begin{multi}[points=1]{Architectures fonctionnelles de sécurité}
+Quel est l'objectif principal d'un pare-feu dans une architecture réseau?
+\item* Contrôler le trafic entrant et sortant pour protéger le réseau contre les menaces.
+\item Réduire la vitesse de connexion Internet.
+\item Surveiller les activités des utilisateurs en ligne.
+\item Fournir un stockage sécurisé des données sensibles.
+\end{multi}
+
+% Question 23
+\begin{multi}[points=1]{ISO27001}
+Quelle est la différence entre une politique de sécurité et une procédure de sécurité?
+\item* Une politique de sécurité énonce les règles générales, tandis qu'une procédure de sécurité décrit les étapes spécifiques à suivre.
+\item Une politique de sécurité est utilisée pour contrôler l'accès au réseau, tandis qu'une procédure de sécurité gère les mises à jour logicielles.
+\item Une politique de sécurité est mise en œuvre par les utilisateurs finaux, tandis qu'une procédure de sécurité est gérée par le département informatique.
+\item Une politique de sécurité concerne uniquement la sécurité physique, tandis qu'une procédure de sécurité concerne la sécurité informatique.
+\end{multi}
+
+% Question 24
+\begin{multi}[points=1]{Système de management de la sécurité}
+Quel est l'objectif principal d'une évaluation des risques dans le cadre d'un SMSI?
+\item* Identifier les menaces potentielles et évaluer leur impact sur l'organisation.
+\item Établir des politiques de sécurité strictes.
+\item Optimiser les processus de marketing.
+\item Améliorer l'efficacité des communications internes.
+\end{multi}
+
+% Question 25
+\begin{multi}[points=1]{Politique de sécurité}
+Quelle est l'une des principales raisons pour lesquelles les politiques de sécurité sont souvent contournées par les employés?
+\item* Les politiques de sécurité peuvent être perçues comme étant trop contraignantes ou inefficaces.
+\item Les employés sont généralement bien formés sur les politiques de sécurité.
+\item Les politiques de sécurité sont souvent trop laxistes.
+\item Les employés ne sont pas conscients des politiques de sécurité de leur entreprise.
+\end{multi}
+
+% Question 26
+\begin{multi}[points=1]{Architectures fonctionnelles de sécurité}
+Qu'est-ce qu'un DMZ (zone démilitarisée) dans une architecture réseau?
+\item* Un sous-réseau situé entre le réseau interne et Internet, utilisé pour héberger des services accessibles au public.
+\item Une zone réservée aux employés de l'entreprise pour leurs activités de loisirs en ligne.
+\item Un espace de stockage sécurisé pour les données sensibles.
+\item Un dispositif qui bloque les attaques provenant de l'extérieur du réseau.
+\end{multi}
+
+% Question 27
+\begin{multi}[points=1]{ISO27001}
+Qu'est-ce qu'un actif de l'information selon l'ISO 27001?
+\item* Tout élément qui a de la valeur pour une organisation et qui nécessite une protection appropriée.
+\item Un logiciel antivirus installé sur les ordinateurs.
+\item Un dispositif de sécurité physique comme une serrure de porte.
+\item Un fichier de sauvegarde stocké sur un disque dur externe.
+\end{multi}
+
+% Question 28
+\begin{multi}[points=1]{Système de management de la sécurité}
+Quel est le rôle d'un responsable de la sécurité de l'information dans un SMSI?
+\item* Planifier, mettre en œuvre et maintenir le système de management de la sécurité de l'information.
+\item Gérer les opérations quotidiennes du service informatique.
+\item Rédiger des rapports financiers pour la direction de l'entreprise.
+\item Développer des applications logicielles personnalisées pour l'entreprise.
+\end{multi}
+
+% Question 29
+\begin{multi}[points=1]{Politique de sécurité}
+Qu'est-ce qu'une attaque par hameçonnage (phishing)?
+\item* Une tentative d'obtenir des informations sensibles en se faisant passer pour une entité de confiance.
+\item Une technique pour intercepter les communications sans fil.
+\item Un type d'attaque qui vise à submerger un système de requêtes malveillantes.
+\item Un processus pour créer des sauvegardes de données régulières.
+\end{multi}
+
+% Question 30
+\begin{multi}[points=1]{Architectures fonctionnelles de sécurité}
+Quel est l'objectif principal d'un IPS (Système de Prévention des Intrusions)?
+\item* Détecter et empêcher les intrusions non autorisées sur le réseau.
+\item Contrôler l'accès physique aux locaux de l'entreprise.
+\item Crypter les communications sur le réseau.
+\item Surveiller l'activité des utilisateurs sur les ordinateurs de l'entreprise.
+\end{multi}
+
+% Question 31
+\begin{multi}[points=1]{ISO27001}
+Quelle est la principale différence entre la certification ISO 27001 et la conformité à la norme?
+\item* La certification est délivrée par un organisme de certification tiers, tandis que la conformité est auto-déclarée.
+\item La conformité est obligatoire, tandis que la certification est facultative.
+\item La certification est moins contraignante que la conformité.
+\item La certification est valable pour une année, tandis que la conformité est permanente.
+\end{multi}
+
+% Question 32
+\begin{multi}[points=1]{Système de management de la sécurité}
+Quelle est la première étape dans le processus de gestion des incidents de sécurité?
+\item* Identifier et classer l'incident.
+\item Isoler le système affecté du réseau.
+\item Notifier les autorités locales.
+\item Réparer les dommages causés par l'incident.
+\end{multi}
+
+% Question 33
+\begin{multi}[points=1]{Politique de sécurité}
+Qu'est-ce qu'une politique de gestion des mots de passe?
+\item* Une directive qui établit des règles pour la création et l'utilisation de mots de passe sécurisés.
+\item Un document qui répertorie tous les mots de passe utilisés dans l'entreprise.
+\item Un processus pour réinitialiser les mots de passe oubliés.
+\item Une politique qui interdit l'utilisation de mots de passe pour accéder au système.
+\end{multi}
+
+% Question 34
+\begin{multi}[points=1]{Architectures fonctionnelles de sécurité}
+Qu'est-ce qu'un VPN (réseau privé virtuel)?
+\item* Un réseau sécurisé qui permet aux utilisateurs d'accéder à des ressources informatiques à distance.
+\item Un logiciel antivirus pour les ordinateurs personnels.
+\item Un dispositif de surveillance de l'activité Internet des employés.
+\item Un protocole de cryptage pour les réseaux sans fil.
+\end{multi}
+
+% Question 35
+\begin{multi}[points=1]{ISO27001}
+Qu'est-ce qu'une analyse d'impact sur la sécurité?
+\item* Une évaluation des consé
+
+quences potentielles des menaces sur les actifs de l'information.
+\item Un test de vulnérabilité des systèmes informatiques.
+\item Un processus pour vérifier la conformité aux politiques de sécurité.
+\item Une enquête sur les incidents de sécurité passés.
+\end{multi}
+
+% Question 36
+\begin{multi}[points=1]{Système de management de la sécurité}
+Qu'est-ce qu'un tableau de bord de sécurité?
+\item* Un outil pour surveiller et mesurer les performances du SMSI.
+\item Un dispositif de sécurité physique installé dans les locaux de l'entreprise.
+\item Un document décrivant les procédures de réponse aux incidents de sécurité.
+\item Un logiciel de gestion des mots de passe.
+\end{multi}
+
+% Question 37
+\begin{multi}[points=1]{Politique de sécurité}
+Quelle est l'une des meilleures pratiques pour assurer la sécurité des courriels?
+\item* Utiliser le chiffrement pour protéger les données sensibles.
+\item Ouvrir tous les courriels sans les examiner.
+\item Partager les mots de passe par courriel.
+\item Cliquer sur tous les liens dans les courriels, même s'ils semblent suspects.
+\end{multi}
+
+% Question 38
+\begin{multi}[points=1]{Architectures fonctionnelles de sécurité}
+Qu'est-ce qu'un NIDS (Système de Détection d'Intrusion sur Réseau)?
+\item* Un système conçu pour détecter les activités suspectes sur un réseau.
+\item Un dispositif de sécurité physique installé sur les ordinateurs.
+\item Un logiciel antivirus pour les serveurs de messagerie.
+\item Un protocole de cryptage pour les communications en ligne.
+\end{multi}
+
+% Question 39
+\begin{multi}[points=1]{ISO27001}
+Qu'est-ce qu'une politique de sauvegarde des données?
+\item* Une directive qui établit des règles pour la sauvegarde régulière et sécurisée des données.
+\item Un processus pour supprimer définitivement les données obsolètes.
+\item Un protocole pour crypter les données lors de leur transmission.
+\item Un dispositif de stockage sécurisé des données sensibles.
+\end{multi}
+
+% Question 40
+\begin{multi}[points=1]{Système de management de la sécurité}
+Qu'est-ce que la sensibilisation à la sécurité?
+\item* L'éducation des employés sur les pratiques sécuritaires et les risques potentiels.
+\item L'installation de logiciels de sécurité sur tous les ordinateurs.
+\item La surveillance constante des activités en ligne des employés.
+\item La restriction de l'accès à Internet sur le lieu de travail.
+\end{multi}
+
+
+
+
+\end{quiz}
+
+ \end{document}

@@ -92,12 +92,18 @@
 % \makeatother
 
 
+\usepackage{environ}
+\newwrite\audioexport
+
 %%\definecolor{uMainColor}{RGB}{255,121,0} pour Orange
 %%\definecolor{uMainColor}{RGB}{0,0,0}
 %\definecolor{uMainColor}{RGB}{160,0,0}  
 
+\addbibresource{../Latex/Sources/commons/bibliography.bib} % BibTeX bibliography file
+\defbibheading{bibempty}{}
+\makeatletter
 
-\hypersetup{colorlinks,linkcolor={grey},citecolor={uMainColor},urlcolor={uMainColor},anchorcolor ={uMainColor}} 
+%\hypersetup{colorlinks,linkcolor={grey},citecolor={uMainColor},urlcolor={uMainColor},anchorcolor ={uMainColor}} 
 
 %\renewcommand{\uDraftNotice}{Orange Students}
 
@@ -106,6 +112,7 @@
 
 %-------------------------------------------------------
 \begin{document}
+\mode<all>{\immediate\openout\audioexport=\jobname.txt}
 
 \AddToShipoutPicture{%
 \AtPageCenter{%
@@ -203,6 +210,7 @@
 
 \input{\utemplatepath/CourseModel/coverback-course.tex} 
 
+\mode<all>{\immediate\closeout\audioexport}
 \end{document}
 
 

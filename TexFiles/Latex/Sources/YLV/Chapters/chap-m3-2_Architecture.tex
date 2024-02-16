@@ -3,9 +3,10 @@ Nous allons dans ce chapitre présenter les composants des architectures logicie
 
 \subsection{Architecture logicielles}
 Les architectures logicielles ont fortement évolué ces dernières années et le classique architecture "trois tiers" se décompose de plusieurs types de solutions basées sur les dernières technologies d'intégration et de déploiement.
-Les modèles dits \g{monolithes} existent toujours et restent utilisé dans beaucoup de cas d'applicatifs qui ont des besoins élevés en capacité de traitement ou de bande passante.
-L'apparition et l'utilisation des micro-services a apporté des solutions en scalabilité et résilience. 
-Cependant, ce type d'architecture apporte aussi son lot de complexité dans le cadre de montée en version versus la solution monolithe où une seule mise à jour serait nécessaire. L'exemple de vulnérabilités impactant un fort ensemble de composants comme log4shell \footnote{https://www.ssi.gouv.fr/publication/lanssi-alerte-sur-la-faille-de-securite-log4shell/} est illustratif de difficultés à patcher les applications vulnérables (plusieurs applications possibles, avec patch ou non disponible qui impose une montée en version préalable et donc ajoute des difficultées à la remédiation).
+
+Les modèles dits \g{monolithes} (tous les composants partagent les mêmes ressources et le même espace mémoire) existent toujours et restent utilisés dans beaucoup de cas d'applicatifs qui ont des besoins élevés en capacité de traitement ou de bande passante.
+
+L'apparition et l'utilisation des micro-services a apporté des solutions en scalabilité et résilience. Cependant, ce type d'architecture apporte aussi son lot de complexité dans le cadre de montée en version versus la solution monolithe où une seule mise à jour serait nécessaire. L'exemple de vulnérabilités impactant un fort ensemble de composants comme log4shell \footnote{https://www.ssi.gouv.fr/publication/lanssi-alerte-sur-la-faille-de-securite-log4shell/} est illustratif des difficultés à corriger (patcher) les applications vulnérables (plusieurs applications possibles, avec correctif/patch ou non disponible qui impose une montée en version préalable et donc ajoute des difficultés à la remédiation).
 
 Les architectures logicielles sont généralement composées des composants suivants :
 \begin{itemize}

@@ -1,0 +1,124 @@
+\section{Règles techniques de sécurisation / durcissement}
+
+Les actions de durcissement, en anglais hardening, consistent à améliorer le niveau de sécurité des systèmes via des actions de configuration, choix techniques et process.
+
+Le durcissement s'inscrit naturellement dans le process de conception securisée par défaut, security by design en anglais. Il est tout aussi important que le maintien en condition opérationnelle et sécurisé et peut réduire significativement les risques cyber.
+
+\subsection{IAM} 
+(PKI, MFA, journalisation, contrôles), ?
+\subsection{Systèmes d'exploitation}
+Hardening UNIX/WINDOWS kesako?
+ACL, admin dédié, supervision et administration via réseau chiffré, tout doit être loggé ! Exclusion services inutiles
+80 443 principe qui se décline sur toutes les applis
+\subsection{Hardware (HSM), DC}
+Chiffrement, zone hardware dédiée (mémoire, voire carte dédiée), 
+DC : salles, controles d’accès, caméras, vigiles, etc.
+\subsection{Réseaux}
+VPN, chiffrement
+
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Règles techniques de sécurisation} % titre de la diapo
+{Hardening} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+ \begin{enumerate}
+ 
+     \item IAM
+     \item Systèmes d'exploitation
+     \item Matériel et Locaux (Data Center)
+     \item Réseaux : VPN, chiffrement
+ \end{enumerate}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Règles techniques de sécurisation} % titre de la diapo
+{IAM} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+ \begin{itemize}
+     \item Public Key Infrastructure (PKI) : pourquoi déployer une infrastructure de gestion de clés?
+     \item MFA : Multiple Factor Access
+     \item journalisation
+     \item contrôles
+ \end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Règles techniques de sécurisation} % titre de la diapo
+{Systèmes d'exploitation et applications} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+ \begin{itemize}
+    \item Hardening OS
+    \begin{itemize}
+        \item UNIX/LINUX : SeLinux
+        \item WINDOWS
+    \end{itemize}
+    \item Applications : 
+        \begin{itemize}
+            \item ne pas afficher en accès publique la version utilisée
+            \item règles de design pour protéger les données confidentielles
+        \end{itemize}
+    \item Administration
+        \begin{itemize}
+            \item Access Control List (ACL) : limiter les accès aux réseaux/utilisateurs dédiés
+            \item réseau admin dédié : séparer les réseaux administration des autres réseaux de l'entreprise
+            \item supervision et administration via réseau chiffré : utilisation de protocoles sécurisés tels que : SNMPv3, SSH
+            \item remplacement des mots de passe par défaut par des mots de passe forts
+            \item stockage des mots de passe dans une base de donneé sécurisée (coffre fort)
+        \end{itemize}
+    \item Exclusion services inutiles : attention aux serveurs web lancés par défaut, etc.
+    \item Journaux d'événements : garder toutes les traces nécessaires à l'investigation en cas de problème
+    \item 80 --> 443 : en règle général, préférer les protocoles sécurisés tels que HTTPs, SMTPs, IMAPs, etc.
+    \item Utilisation de certificats valides
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Règles techniques de sécurisation} % titre de la diapo
+{Matériel et Locaux (Data Center)} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+ \begin{itemize}
+    \item Chiffrement, zone hardware dédiée (mémoire, voire carte dédiée), 
+    \item DC : salles, contrôles d’accès, caméras, vigiles, etc.
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+
+%Begin FRAME----------------------------
+\mode<all>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Points à retenir} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item 
+    \item \#hardening, \#HSM, 
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------

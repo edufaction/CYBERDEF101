@@ -1,37 +1,54 @@
-
-
 \section{Sécurité Endpoints}
-\subsection{composants Endpoints}
-Schéma composants ENDPOINTS + éléments de supervision (réseau, logs)
-\subsection{FW local}
-- fonctions
-\subsection{Antivirus}
-- fonctions
-\subsection{EDS/EDR}
-– fonctions
-\subsection{Exemple}
-Exemple d’incident de sécu corrélé d’événement sur un endpoint ?
 
-\subsection{Network Access Control : NAC}
-: schema, fonctions, 802.1X 
+La sécurité des endpoints est l'ensemble des solutions et techniques qui visent à protéger les équipements de type ordinateurs de bureau, ordinateurs portables, terminaux mobiles, etc. contre les cyberattaques.
 
+Selon Gartner\footnote{https://www.gartner.com/reviews/market/endpoint-protection-platforms}, une plateforme de protection des endpoints (EPP) "permet de déployer des agents ou des capteurs pour sécuriser Endpoints gérés, notamment les ordinateurs de bureau, les ordinateurs portables, les serveurs et les appareils mobiles. Les EPP sont conçus pour empêcher une série d’attaques malveillantes connues et inconnues. De plus, ils offrent la possibilité d'enquêter et de remédier à tout incident qui échappe aux contrôles de protection."
+
+Les solutions de protection analysent les fichiers, les processus et l’activité système pour y débusquer des indicateurs d’actes suspects ou malveillants. Elles intègrent les fonctionnalités comme l'antivirus classique ou de nouvelle génération qui se charge de la partie détection. Les solutions historiques utilisent des bases de données de signatures et sont donc de moins en moins efficace contre les menaces fileless par exemple. La nouvelle génération (NGAV) s'appuie sur l'intelligence artificielle et le machine learning pour gagner en efficacité.
+
+En complément, les solutions de type Endpoint Detection and Response (EDR), d'après Gartner\footnote{https://www.gartner.com/reviews/market/endpoint-detection-and-response-solutions}, "enregistrent et stockent les comportements au niveau du système des points finaux, utilisent diverses techniques d'analyse de données pour détecter les comportements suspects du système, fournissent des informations contextuelles, bloquent les activités malveillantes et fournissent des suggestions de mesures correctives pour restaurer. systèmes concernés. Les solutions EDR doivent fournir les quatre fonctionnalités principales suivantes : 
+\begin{itemize}
+    \item Détecter les incidents de sécurité
+    \item Contenir l'incident au point final
+    \item Enquêter sur les incidents de sécurité
+    \item Fournir des conseils de remédiation"
+\end{itemize}
 
 %Begin FRAME----------------------------
 \mode<presentation>{\texframe
 % contenu affiché sur Article et Beamer
 %- - - - - - - - - - - - - - - - - - - - - - - - 
-{NAC} % titre de la diapo
+{Sécurité Endpoints} % titre de la diapo
 {} % sous titre de la diapo
 {
 %begin slide- - - - - - - - - - - - - - - - - 
 \begin{itemize}
-    \item inspecte et assure que les équipements connectés ont une configuration et un état conforme avec la politique de sécurité
-    \item Le NAC peut vérifier qu'il y a un antivirus, un pare feu local
-    Schéma ?
+    \item Antivirus classique et NGAV (Next Gen Antivirus)
+    \item Endpoint Detection and Response : EDR
+        \begin{itemize}
+        \item Détecter les incidents de sécurité
+        \item Contenir l'incident au point final
+        \item Enquêter sur les incidents de sécurité
+        \item Fournir des conseils de remédiation
+        \end{itemize}
+    \item eXtended Detection and Response : XDR 
+    corrélation et analyse des données des endpoints, des éléments déployés dans le cloud, des réseaux et de la messagerie
 \end{itemize}
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}
 %End FRAME------------------------------
+%old version
+%\subsection{composants Endpoints}
+%Schéma composants ENDPOINTS + éléments de supervision (réseau, logs)
+%\subsection{FW local}
+%- fonctions
+%\subsection{Antivirus}
+%- fonctions
+%\subsection{EDS/EDR}
+%– fonctions
+%\subsection{Exemple}
+%Exemple d’incident de sécu corrélé d’événement sur un endpoint ?
+%fin oldversion
 
 
 

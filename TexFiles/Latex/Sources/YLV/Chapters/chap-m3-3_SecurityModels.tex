@@ -1,13 +1,13 @@
-\section{Modèles de sécurité et technologies de sécurité protectrices}
-
-Les architectures et composants de sécurité périmétrique ont beaucoup évolué depuis le modèle du château-fort à la fin du 20ème siècle jusqu'à de nos jour les architectures Cloud \& multi-cloud sécurisées.
+%\section{Modèles de sécurité et technologies de sécurité protectrices}
+\section{Introduction}
+Les architectures et composants de sécurité périmétrique ont beaucoup évolué depuis le modèle du château-fort à la fin du 20ème siècle jusqu'à de nos jours les architectures Cloud \& Multi-Cloud sécurisées.
 
 Ce chapitre présente cette évolution et les différents composants centraux et clés de ces architectures comme les pare-feux, les Proxy, les sondes de détection ainsi que les nouveaux modèles dits de Zerotrust ou basés sur des bastions de sécurité.
 
-Nous aborderons dans la dernière partie de ce chapitre les solutions de type VPN et les solutions de sécurisation des architectures et solutions de type cloud.
+Nous aborderons dans la dernière partie de ce chapitre les solutions de type VPN et les solutions de sécurisation des architectures et solutions de type Cloud.
 
-\subsection{Château fort (Firewall, Proxy, anti DDoS), cloisonnement, accès admin dédié}
-\subsubsection{Château fort}
+%\subsection{Château fort (Firewall, Proxy, anti DDoS), cloisonnement, accès admin dédié}
+\section{Château fort}
 
 %Begin FRAME----------------------------
 \mode<presentation>{\texframe
@@ -40,23 +40,36 @@ Il propose une méthode de protection des réseaux et des accès aux différents
 
 Voir ci-dessous un schéma (\ref{Château fort}) représentant une architecture de type château fort.
 
-Ce modêle de conception d'architecture va permettre de contrôler les accès aux réseaux de l'entreprise et de cloisonner entre différentes zones, ou DMZ () qui auront des fonctions de sécurité distinctes:
+Ce modêle de conception d'architecture va permettre de contrôler les accès aux réseaux de l'entreprise et de cloisonner entre différentes zones, ou DMZ \footnote{définition et précisions de l'ANSSI : https://www.ssi.gouv.fr/uploads/2012/01/anssi-guide-passerelle_internet_securisee-v2.pdf} qui auront des fonctions de sécurité distinctes:
 \begin{itemize}
     \item DMZ Publique ou Externe;
-    \item DMZ Intranet;
+    \item Zone serveurs Intranet;
     \item LAN bureautiques;
-    \item Autres : zone d'échanges, DMZ métiers spécifiques, etc.
+    \item Autres: zone d'échanges, DMZ métiers spécifiques, etc.
 \end{itemize}
 
-La \textbf{DMZ publique} pourra héberger des serveurs et des services à vocation à être accessible depuis Internet. Par exemple, le site publique de l'entreprise ou tout service dit publié sur Internet. Seuls certains protocoles, voire utilisateurs seront autorisés à y accéder. Nous y reviendrons dans le prochain chapitre sur le pare feu.
+La \textbf{DMZ publique} pourra héberger des serveurs et des services à vocation d'être accessible depuis Internet. Par exemple, le site publique de l'entreprise ou tout service dit publié sur Internet. Seuls certains protocoles, voire utilisateurs seront autorisés à y accéder. Nous y reviendrons dans le prochain chapitre sur le pare feu.
 
-Les différentes \textbf{DMZ Intranet} sont utilisées pour regrouper les serveurs dont les services ne sont accessibles qu'en interne. Par exemple, les services de messagerie ou les bases de données. Il est indispensable de protéger l'accès à ces zones qui peuvent stocker des données confidentielles. Le pare feu se chargera d'interdire l'accès depuis Internet à ces zones et seuls certains flux, depuis les LANs internes par exemple, devront être autorisés afin de garantir le niveau de sécurité nécessaire.
+Les différentes \textbf{zones ou DMZ Intranet} sont utilisées pour regrouper les serveurs dont les services ne sont et ne doivent être accessibles qu'en interne. Par exemple, les services de messagerie ou les bases de données. Il est indispensable de protéger l'accès à ces zones qui peuvent stocker des données confidentielles. Le pare feu se chargera d'interdire l'accès depuis Internet à ces zones et seuls certains flux, depuis les LANs internes par exemple, devront être autorisés afin de garantir le niveau de sécurité nécessaire.
 
-\subsubsection{pare-feu}
+%TODO parler securite perimetrique, vs sec en profondeur
+
+Le modèle de château fort a dû être revu car il considérait, par définition, que l'interne est de confiance. Or de nos jours, il est inconcevable de ne pas prendre en compte les possibilités de compromissions et attaques provenant de menaces internes telles qu'un acteur malveillant ayant réussi à s'introduire dans le SI par exemple.
+
+De plus, la multitude d'interconnexion avec le SI augmente la surface d'attaque et met à mal le modèle de contrôle en un seul point car les accès aux SI s'effectuent via plusieurs points d'entrée.
+
+C'est pourquoi celui de \textbf{l'aéroport} est apparu avec des contrôles plus simples sur les zones d'échanges et fortement précis et minutieux pour l'accès aux zones sensibles et confidentielles (analogie avec le tarmac, tours de contrôles).
+
+Nous verrons dans la suite de ce chapitre un peu plus en détail l'évolution des architectures et les composants de ces nouveaux modèles.
+
+\section{pare-feu}
 Définition (source ANSSI) :
 Un pare-feu (firewall), est un outil permettant de protéger un ordinateur connecté à un réseau ou à l’internet. Il protège d’attaques externes (filtrage entrant) et souvent de connexions illégitimes à destination de l’extérieur (filtrage sortant) initialisées par des programmes ou des personnes.
 
 Le pare-feu apporte la notion de filtrage dans la sécurité des réseaux et est une pierre angulaire de l'architecture de la sécurité de l'entreprise.
+
+Son rôle est d'inspecter les flux réseaux entrants et sortants.
+
 Il assure le cloisonnement et la segmentation entre les sous-réseaux (Local Area Network ou LAN).
 L'ensemble des flux, autorisés ou non, entre ces sous-réseaux et autres réseaux externes (INTERNET, VPN partenaires, etc.) sont inscrits dans la politique de sécurité du pare-feu.
 Celle-ci se représente par une matrice des flux contenant l'ensemble des informations telles que:
@@ -65,11 +78,13 @@ Celle-ci se représente par une matrice des flux contenant l'ensemble des inform
     \item le ou les IP source(s);
     \item le ou les IP destination(s);
     \item le protocole concerné (HTTP, FTP, SMTP, etc.);
-    \item l'option éventuelle (NAT, authentification, application d'une politique de sécurité supplémentaire, etc. ; cela dépend de la version du pare-feu utilisé);
+    \item l'option éventuelle (Network Adress Translation ou NAT, authentification, application d'une politique de sécurité supplémentaire, etc. ; cela dépend de la version du pare-feu utilisé);
     \item l'action : accept, drop, reject, etc.
     \item l'option de journalisation sélectionnée.
     \item etc.
 \end{itemize}
+
+Le pare feu consulte sa politique de sécurité, i.e. ses règles de filtrage afin de déterminer s'il doit bloquer, ou non, chaque flux qui entre ou qui sort.
 
 Voir ci-dessous un exemple de matrice de flux : 
 \begin{enumerate}
@@ -110,15 +125,36 @@ Voir ci-dessous un exemple de matrice de flux :
 }}
 %End FRAME------------------------------
 
-\subsubsection{Proxy et Reverse Proxy}
-Schéma Proxy (firewall applicatif), lié à de l’authentification, antivirus, URL Filtering
-Les équipements de type Proxy permettent de sécuriser l'accès aux applicatifs.
-Ils sont utilisés pour assurer un filtrage des accès Internet depuis le réseau de l'entreprise.
-C'est une des fonctions primordiales de la sécurité du système d'information.
-En effet, il est indispensable de maîtriser les flux de sortie et d'assurer la sécurité des utilisateurs sur Internet en imposant le filtrage via des équipements réseaux de type Proxy. Ce filtrage pourra assurer des fonctions anti-malware, antivirus mais aussi sur le type de site consulté par exemple.
+\section{Proxy}
+%Schéma Proxy (firewall applicatif), lié à de l’authentification, antivirus, URL Filtering
 
-L'autorisation des flux devra être aussi implémentée sur le pare-feu.
-Voir ci-dessous en exemple un extrait simplifiée d'une matrice de flux implémentée sur un pare feu:
+%Begin PICFRAME------------------------
+\mode<all>{\picframe
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{../Latex/Sources/YLV/Pictures/ProxyV2}% PDF image sans extension
+{Proxy} % texte sous l'image en article
+{0.7} % echelle
+{LabelImage} % label de référence
+}
+%End PICFRAME--------------------------
+
+Les équipements de type Proxy permettent de sécuriser l'accès aux applicatifs et sont utilisés pour assurer un filtrage des accès Internet depuis le réseau de l'entreprise.
+
+C'est une des fonctions primordiales de la sécurité du système d'information.
+En effet, il est indispensable de maîtriser les flux de sortie et d'assurer la sécurité des utilisateurs sur Internet en imposant un filtrage via des équipements réseaux de type Proxy. 
+
+Ainsi, toute requête d'accès à un site Web sera analysée par le proxy et des contrôles de types anti-virus, malware pourront être appliqués et protéger les utilisateurs et le SI en conséquence.
+
+Plusieurs autres briques de sécurité peuvent être ajoutées sur le proxy, comme :
+\begin{itemize}
+    \item l'authentification des utilisateurs (jusqu'à la gestion via un annuaire) permettant d'associer des politiques de sécurité en fonction des utilisateurs;
+    \item le filtrage des URL demandées en interdisant certaines catégories de sites web jugés dangereux et incompatibles avec la politique d'utilisation de l'Internet par l'entreprise;
+    \item des mécanismes de détection de fuites de données (Data Leak Protection : DLP) afin de détecter d'éventuels vols de données personnelles (Numéro de sécurité sociale, numéros de carte bancaires, etc.).
+\end{itemize}
+
+L'autorisation des flux vers et depuis le Proxy devra être aussi implémentée sur le pare-feu.
+
+Voir ci-dessous en exemple un extrait simplifiée d'une matrice de flux, contenant les règles concernants le Proxy, implémentée sur un pare feu:
 
 \begin{center}
 \begin{tabular}{||c c c c||} 
@@ -135,56 +171,62 @@ Voir ci-dessous en exemple un extrait simplifiée d'une matrice de flux impléme
 \captionof{table}{Matrice de flux : règles Proxy}
 \end{center}
 
-A) règle accès au proxy
-Source : LAN bureautique
-Destination : Adresse IP du proxy sur le réseau local
-Protocoles : HTTP, HTTPs
-Décision : ACCEPT
+%A) règle accès au proxy
+%Source : LAN bureautique
+%Destination : Adresse IP du proxy sur le réseau local
+%Protocoles : HTTP, HTTPs
+%Décision : ACCEPT
 
-b) règle de sortie du proxy
-Source : Proxy
-Destination : ANY
-Protocoles : HTTP, HTTPs
-Décision : ACCEPT
+%b) règle de sortie du proxy
+%Source : Proxy
+%Destination : ANY
+%Protocoles : HTTP, HTTPs
+%Décision : ACCEPT
 
-Seul le proxy sera donc autorisé à se connecter aux serveurs distants.
-Plusieurs briques de sécurité peuvent être ajoutées sur le proxy, comme l'authentification des utilisateurs (jusqu'à la gestion via un annuaire), le filtrage des URL demandées ou encore des protections contre les fuites de données (Data Leak Protection : DLP).
+Seul le proxy sera donc autorisé à se connecter aux serveurs distants et effectuer son rôle de mandataire.
 
-%Begin PICFRAME------------------------
-\mode<all>{\picframe
-%- - - - - - - - - - - - - - - - - - - - - - - - 
-{../Latex/Sources/YLV/Pictures/Proxy}% PDF image sans extension
-{Proxy} % texte sous l'image en article
-{0.7} % echelle
-{LabelImage} % label de référence
-}
-%End PICFRAME--------------------------
-Le Reverse Proxy aura lui le rôle de protéger les serveurs des accès utilisateurs, externes ou internes.
-Il peut assurer une \textbf{rupture protocolaire} et donc agir en tant que mandataire auprès du serveur.
-Plus précisément, la connexion TCP/HTTP par exemple entre le client A et le serveur Web \textbf{www.monexemple.com} peut s'effectuer de la manière suivante : 
-\begin{itemize}
-    \item le client effectue une requête DNS sur www.monexemple.com et le serveur DNS lui indique l'IP associée, cette IP est portée par le Reverse Proxy;
-    \item le client initie une connexion TCP/HTTP vers le Reverse Proxy;
-    \item le Reverse Proxy effectue éventuellement les contrôles configurés et ensuite initie à son tour une connexion TCP/HTTP vers le serveur.
-\end{itemize}
-Le Reverse Proxy est un équipement ou bien une fonction portée par un service qui permet donc d'interagir avec la connexion et assurer par exemple :
-\begin{itemize}
-    \item de la répartition de charges (load balancing);
-    \item de la réécriture d'URL;
-    \item des fonctions de sécurité et donc assurer un rôle de pare feu applicatif/Web (Web Application Firewall : WAF).
-\end{itemize}
-Schéma ReverseProxy
+\section{Reverse Proxy}
 
 %Begin PICFRAME------------------------
 \mode<all>{\picframe
 %- - - - - - - - - - - - - - - - - - - - - - - - 
-{../Latex/Sources/YLV/Pictures/ReverseProxy}% PDF image sans extension
+{../Latex/Sources/YLV/Pictures/ReverseProxyV2}% PDF image sans extension
 {ReverseProxy} % texte sous l'image en article
 {0.7} % echelle
 {LabelImage} % label de référence
 }
 %End PICFRAME--------------------------
-\subsection{Sondes de détection (IDS/IDP)}
+
+Le Reverse Proxy a le rôle de protéger les serveurs des accès utilisateurs, externes ou internes.
+Il peut assurer une \textbf{rupture protocolaire} et donc agir en tant que mandataire auprès du serveur.
+Plus précisément, la connexion TCP/HTTP par exemple entre le client A et le serveur Web \textbf{www.monexemple.com} peut s'effectuer de la manière suivante : 
+\begin{itemize}
+    \item le client effectue une requête DNS sur www.entreprise.com et le serveur DNS lui indique l'IP associée, cette IP est portée par le Reverse Proxy;
+    \item le client initie une connexion TCP/HTTP vers le Reverse Proxy : @IPClient --> @IPwww.entreprise.com ;
+    \item le Reverse Proxy effectue éventuellement les contrôles configurés et ensuite initie à son tour une connexion TCP/HTTP vers le serveur : @IPReverseProxy --> 192.168.1.27 (adresse IP réelle du serveur en DMZ publique). 
+\end{itemize}
+Le Reverse Proxy est un équipement ou bien une fonction portée par un service qui permet donc d'interagir avec la connexion et assurer par exemple :
+\begin{itemize}
+    \item de la répartition de charges (load balancing) en utilisant des algorithmes adaptés :
+        \begin{itemize}
+            \item \textbf{Round Robin} : répartition équivalente, utilisé lorsque les serveurs ont les mêmes caractéristiques
+            \item \textbf{Least Connection} : le serveur qui a le moins de connexions actives avec le reverse proxy sera privilégié pour prendre en charge la prochaine requête
+            \item Avec des poids, utilisé en général lorsque les serveurs n'ont pas les mêmes puissances de calculs (CPU, RAM, GPU, etc.)
+            \item Il en existe plein d'autres, en fonction des débits, de la charge, etc.
+        \end{itemize}
+    \item de la réécriture d'URL\footnote{rfc1738: https://datatracker.ietf.org/doc/html/rfc1738} (Uniform Resource Locators) communément appelées \textbf{adresses web} et ajouter des fonctions :
+        \begin{itemize}
+            \item d'amélioration du SEO (Search Engine Optimisation) : Des URL propres et descriptives sont mieux indexées par les moteurs de recherche, ce qui peut améliorer le classement d'un site;
+            \item de facilité d'utilisation : des URL lisibles et mémorisables sont plus faciles à partager et à comprendre pour les utilisateurs;
+            \item de gestion de la structure du site : la réécriture permet de modifier la structure des URL sans changer la structure réelle des fichiers sur le serveur;
+            \item de sécurité : masquer les paramètres de l'URL peut aider à protéger contre certaines vulnérabilités et attaques en dissimulant la structure et la technologie sous-jacente du site;
+            \item de contrôle et flexibilité : permet de rediriger les utilisateurs de manière transparente, par exemple lors de la refonte d'un site, une mise à jour ou de la modification de l'architecture des pages;
+            Par exemple, la réécriture de l'URL webmail.monentreprise.com vers www.entreprise.com/owa facilitera la compréhension des utilisateurs et n'indiquera pas explicitement quel webmail est utilisé.
+        \end{itemize}
+    \item des fonctions de sécurité et donc assurer un rôle de pare feu applicatif/Web (Web Application Firewall : WAF) et protéger les serveurs contre les menaces listées dans le Top 10 de l’OWASP\footnote{top10 OWASP: https://owasp.org/www-project-top-ten/}, comme par exemple les injections SQL.
+\end{itemize}
+
+\section{Sondes de détection (IDS/IDP)}
 
 Les sondes de détection d'intrusion sont utilisées pour surveiller et analyser le trafic réseau afin de détecter des actes malveillants tels que des tentatives d'exploitation de vulnérabilités qui peuvent entraîner l'ex-filtration de données confidentielles par exemple. 
 
@@ -201,15 +243,17 @@ Plusieurs types de sondes peuvent être utilisées:
 \item Host Intrusion Prevention System (HIPS)
 \end{itemize}
 \end{itemize}
-Exemple de schéma d'infrastructure avec positionnement des sondes :
+Voir ci-dessous un exemple de schéma d'infrastructure (\ref{IDS}) avec positionnement des sondes.
+Une sonde IDS peut être positionnée en coupure des flux mais aussi en position \textbf{d'écoute}.
+L'IPS doit être elle en position de coupure afin de bloquer le trafic en cas de détection d'intrusion.
 
 %Begin PICFRAME------------------------
 \mode<all>{\picframe
 %- - - - - - - - - - - - - - - - - - - - - - - - 
-{../Latex/Sources/YLV/Pictures/ids}% PDF image sans extension
+{../Latex/Sources/YLV/Pictures/IDSV2}% PDF image sans extension
 {IDS/IDP} % texte sous l'image en article
 {0.7} % echelle
-{LabelImage} % label de référence
+{IDS} % label de référence
 }
 %End PICFRAME--------------------------
 Il existe plusieurs méthodes de détection telles que :
@@ -217,22 +261,129 @@ Il existe plusieurs méthodes de détection telles que :
 \item celle basée sur les signatures qui compare avec sa base de signatures les événements observés pour identifier des incidents potentiels;
 \item celle basée sur les anomalies qui compare les définitions d'une activité considérée comme normale avec les événements observés afin d'identifier les écarts significatifs;
 \item l'analyse dynamique qui compare les profils prédéterminés des protocoles, avec les événements observés, afin d'identifier les écarts.
-L'ensemble des résultats des sondes sont consignés dans des journaux et peuvent utilisés dans les détections d'incidents de sécurité. 
+L'ensemble des résultats des sondes est consigné dans des journaux et peuvent utilisés dans les détections d'incidents de sécurité. 
 \end{itemize}
 
-\subsection{ZeroTrust, Bastion, VPN}
+%\section{ZeroTrust, Bastion, VPN}
 
-\subsubsection{Zerotrust}
-%https://www.ssi.gouv.fr/agence/publication/le-modele-zero-trust/
-Les modèles actuels de sécurité périmétrique atteignent leurs limites face à l'augmentation du télétravail, de l'utilisation des infrastructures Cloud et l'utilisation de terminaux mobiles pour se connecter au SI d'entreprise.
-Le principe du ZeroTrust est de ne plus faire uniquement confiance aux contrôles et filtrage des équipements classiques tels que les parefeux et proxies et d'ajouter un système de contrôle d'accès dynamique aux ressources supplémentaire.
+\section{Network Access Control : NAC}
+%: schema, fonctions, 802.1X 
+Les solutions de contrôle d'accès au réseau (NAC) permettent d'empêcher les appareils et les utilisateurs non autorisés ou non conformes d'accéder au réseau de l'entreprise. Cela assure que l'ensemble des appareils connectés au réseau de l'entreprise sont conformes aux politiques de sécurité de l'entreprise. Les contrôles peuvent être au niveau des adresses physiques des interfaces réseaux ou si le poste de travail est bien configuré au niveau des paramètres de sécurité.
 
+Le NAC est composé de deux éléments s'appuie sur le protocole 802.1X (Remote Authentication Dial In User Service : RADIUS)\footnote{rfc3580 RADIUS : https://datatracker.ietf.org/doc/rfc3580/}, norme IEEE relative au contrôle d'accès réseau qui définit précisement les contrôles d'authentication pour chaque utilisateur ou équipement;
+
+Le NAC a plusieurs fonctionnalités telles que : 
+\begin{itemize}
+\item le contrôle de l'accès au réseau des appareils personnels ou \textbf{Bring Your Own Device (BYOD)} afin de s'assurer que ces équipements sont conformes aux politiques de sécurité de l'entreprise avant de les autoriser;
+\item la limitation des accès des \textbf{IOT} aux seuls connus et validés car ils sont souvent la cible des acteurs malveillants et leur compromission est fréquente;
+\item la limitation des accès aux invités et sous-traitants aux seuls périmètres et systèmes nécessaires;
+\item la mise en quarantaine des appareils infectés et donc limiter les risques de propagation au sein du réseau de l'entreprise.
+\end{itemize}
+
+La figure (\ref{NAC}) ci-dessous représente un exemple simple d'utilisation d'un NAC au sein d'un réseau sans fil d'une entreprise afin de contrôler les accès des équipements mobiles.
+Les composants clés sont :
+\begin{itemize}
+    \item \textbf{contrôleur NAC} : équipement en charge de l'application des politiques de sécurité d'accès au réseau;
+    \item \textbf{base de données d'authentification} : contient les informations d'identification des utilisateurs et des appareils;
+    \item \textbf{point d'accès sans fil} : permet la connexion des appareils BYOD au réseau WiFi par exemple;
+    \item \textbf{serveur de gestion des politiques} : définit et gère les politiques d'accès pour différents types d'utilisateurs et d'appareils;
+    \item \textbf{employé BYOD} : appareil personnel d'un employé qui doit être authentifié pour accéder au réseau;
+    \item \textbf{visiteur BYOD} : appareil personnel d'un visiteur qui peut se voir accorder un accès limité (par exemple, uniquement à Internet);
+    \item \textbf{équipement BYOD non conforme} : appareil qui n'est pas conforme aux politiques de sécurité et se voit donc refuser l'accès au réseau.
+    \end{itemize}
+%Begin PICFRAME------------------------
+\mode<all>{\picframe
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{../Latex/Sources/YLV/Pictures/NAC}% PDF image sans extension
+{NAC : exemple utilisation contrôle BYOD} % texte sous l'image en article
+{0.7} % echelle
+{NAC} % label de référence
+}
+%End PICFRAME--------------------------
+
+Les opérations effectuées par le contrôle d'accès réseau 802.1X sont les suivantes :
+
+\begin{enumerate}
+    \item \textbf{lancement} : l'authentificateur (par exemple un commutateur réseau) ou le demandeur (l'équipement client) envoie une requête de lancement de session. Un demandeur envoie un message de réponse EAP\footnote{rfc3748 EAP : https://datatracker.ietf.org/doc/html/rfc3748} à l'authentificateur, qui encapsule le message et le transmet au serveur d'authentification. A noter qu'il existe plusieurs méthodes EAP en fonction des besoins : 
+        \begin{itemize}
+            \item avec des certificats ou tunnels TLS : EAP-TLS, EAP-TTLS (Tunneled Transport Layer Security), PEAP (Protected EAP),
+            \item orientés réseaux mobiles : EAP-SIM (Subscriber Identity Module), EAP-AKA (Authentication and Key Agreement),
+            \item propriétaires ou moins utilisés car considérés comme peu sécurisés : EAP-MD5, EAP-FAST (Flexible Authentication via Secure Tunneling, CISCO), EAP (Lightweight EAP, CISCO),
+            \item utilisant des tokens : EAP-GTC (Generic Token Card);
+        \end{itemize}
+    \item \textbf{authentification} : les messages transitent entre le serveur d'authentification et le demandeur via l'authentificateur pour valider plusieurs informations;
+    \item \textbf{autorisation} : si les données d'identification sont valides, le serveur d'authentification informe l'authentificateur d'accorder l'accès au port au demandeur;
+    \item \textbf{comptabilité} : le processus de comptabilité RADIUS enregistre les informations de session, notamment l'utilisateur, l'équipement, le type de session et le service;
+    \item \textbf{clôture} : les sessions sont clôturées en déconnectant le point de terminaison ou en utilisant un logiciel de gestion.
+\end{enumerate}
 
 %Begin FRAME----------------------------
 \mode<presentation>{\texframe
 % contenu affiché sur Article et Beamer
 %- - - - - - - - - - - - - - - - - - - - - - - - 
-{Zerotrust} % titre de la diapo
+{NAC : Network Access Control} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item inspecte et assure que les équipements connectés ont une configuration et un état conforme avec la politique de sécurité
+    \item Le NAC peut vérifier qu'il y a un antivirus, un pare feu local
+    \item contrôle et limite les accès des BYOD, IOT et équipements des sous-traitants
+    \item met en quarantaine les pc infectés
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Opérations NAC 802.1X} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{enumerate}
+    \item \textbf{lancement} : l'authentificateur (par exemple un commutateur réseau) ou le demandeur (l'équipement client) envoie une requête de lancement de session. Un demandeur envoie un message de réponse EAP (TLS, token, etc.) à l'authentificateur, qui encapsule le message et le transmet au serveur d'authentification
+    \item \textbf{authentification} : les messages transitent entre le serveur d'authentification et le demandeur via l'authentificateur pour valider plusieurs informations
+    \item \textbf{autorisation} : si les données d'identification sont valides, le serveur d'authentification informe l'authentificateur d'accorder l'accès au port au demandeur
+    \item \textbf{comptabilité} : le processus de comptabilité RADIUS enregistre les informations de session, notamment l'utilisateur, l'équipement, le type de session et le service
+    \item \textbf{clôture} : les sessions sont clôturées en déconnectant le point de terminaison ou en utilisant un logiciel de gestion
+\end{enumerate}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+\section{Zero Trust}
+%https://www.ssi.gouv.fr/agence/publication/le-modele-zero-trust/
+Les modèles actuels de sécurité périmétrique atteignent leurs limites face à l'augmentation du télétravail, de l'utilisation des infrastructures Cloud et l'utilisation de terminaux mobiles pour se connecter au SI d'entreprise.
+
+Le principe du ZeroTrust est de ne plus faire uniquement confiance aux contrôles et filtrage des équipements classiques tels que les parefeux et proxies et d'ajouter un système de contrôle d'accès supplémentaire et dynamique aux ressources.
+
+Tout accès à un service ou à une application sera contrôlé plus précisément en fonction de l'utilisateur, de son IP et de ses droits d'accès.
+
+L’équipe du National Institute for Standards and Technology (NIST) décrit les principes de la confiance zéro et définit une architecture abstraite à confiance zéro (ZTA) dans son document NIST SP 800-207\footnote{https://csrc.nist.gov/pubs/sp/800/207/final}. Voir ci-dessous un extrait de ce document présentant un schéma des différents composants d'un exemple d'architecture ZTA "idéale" :
+
+%Begin PICFRAME------------------------
+\mode<all>{\picframe
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{../Latex/Sources/YLV/Pictures/ZTA_NIST}% PDF image sans extension
+{ZTA NIST SP800-207} % texte sous l'image en article
+{0.7} % echelle
+{ZTA_NIST} % label de référence
+}
+%End PICFRAME--------------------------
+
+Les composants impliqués sont :
+
+
+Comme l'indique l'ANSSI \footnote{https://www.ssi.gouv.fr/agence/publication/le-modele-zero-trust/}, attention cependant à la mise en oeuvre de ce modèle afin de ne pas ajouter plus de vulnérabilités.
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Zero Trust} % titre de la diapo
 {} % sous titre de la diapo
 {
 %begin slide- - - - - - - - - - - - - - - - - 
@@ -250,30 +401,40 @@ Le principe du ZeroTrust est de ne plus faire uniquement confiance aux contrôle
 %End FRAME------------------------------
 
 
-\subsubsection{Bastion}
+\section{Bastion}
 
 \mode<presentation>{\begin{frame}
 	\rquote[\tiny RECOMMANDATIONS RELATIVES À L'ADMINISTRATION SÉCURISÉE DES SYSTÈMES D'INFORMATION v3-0]{\textbf{ANSSI} (Agence Nationale Sécurité des Systèmes d'Information)}{\small Les actions d’administration imposent entre autres des exigences de traçabilité et de confidentialité. La figure ci-dessous présente la mise en œuvre de rebonds dans une zone d’administration permettant d’appliquer un certain nombre de traitements tels le filtrage des connexions, l’authentification des administrateurs sur un portail frontal, un contrôle d’accès ou encore la journalisation des actions effectuées et des commandes exécutées par les administrateurs. le bastion constitue une ressource d’administration critique dans la mesure où il concentre potentiellement à un instant des secrets d’authentification des comptes d’administration ou des journaux liés aux actions d’administration. Il ne doit donc pas être exposé sur un SI de faible niveau de confiance, un SI bureautique par exemple.}
 \end{frame}
 }
+
+L'administration des différents équipements de sécurité ou serveurs de l'entreprise est une activité essentielle et risquée. En effet, les droits administrateurs permettent d'effectuer des actions de création, modification et suppression qui doivent être contrôlées et tracées.
+
+Un bastion peut être utilisé pour concentrer et contrôler les accès d'administration d'une entreprise. L'accès à ce type d'équipement doit être via un réseau sécurisé et un SI de confiance car il héberge des secrets (comptes, clés) critiques qui doivent donc être protégés. Il est souvent associé à des notions de coffre-fort numérique dans lequel ces informations sont stockées afin d'assurer leur confidentialité et intégrité.
+
+La figure (\ref{Bastion}) ci-dessous représente un bastion et décrit le chemin qu'un administrateur utilise pour se connecter à l'équipement final. Tout d'abord il doit se connecter sur une interface WEB ou directement avec un protocole RDP ou SSH sur le bastion et ensuite en fonction de ses droits d'atteindre l'équipement qu'il doit configurer via un protocole classique.
+
+
+%principe de 0 trust est souvent couplé avec des principes notamment pour l'administration de bastion avec le schéma qu'on a ici on va avoir donc le bastion positionné de l'entreprise qui permet là on est plutôt sur des modèles d'administration de l'équipement donc un peu comme sur le format du 0 trust l'administrateur va se connecter au bastion et en fonction de ses droits d'administration va avoir le droit de rebondir donc d'atteindre l'équipement sur la zone d'administration toujours dans des réseaux sécurisés comme on a pu le voir et donc d'administrer via un protocole sécurisé les serveurs Windows les serveurs Linux de manière sécurisée
+
 %Le Bastion permet aux équipes d’administration des systèmes d’information de protéger leurs actifs sensibles, notamment quand ceux-ci sont accédé à distance. A cet effet, le Bastion permet d’administrer les comptes à privilèges et de contrôler et de surveiller les accès à distance.
-Le  Bastion  permet  également  de  tracer  les  sessions  administrateurs  en  offrant  la possibilité de les visionner à posteriori dans le cadre d’audits, comme pour identifier des anomalies ou des actes malveillants. Le Bastion propose également des alertes en temps réels  pour  signaler  les  utilisateurs  ne  respectant  pas  les  politiques  de  sécurité  de  la société.
+%Le  Bastion  permet  également  de  tracer  les  sessions  administrateurs  en  offrant  la possibilité de les visionner à posteriori dans le cadre d’audits, comme pour identifier des anomalies ou des actes malveillants. Le Bastion propose également des alertes en temps réels  pour  signaler  les  utilisateurs  ne  respectant  pas  les  politiques  de  sécurité  de  la société.
 
 
 %Begin PICFRAME------------------------
 \mode<all>{\picframe
 %- - - - - - - - - - - - - - - - - - - - - - - - 
-{../Latex/Sources/YLV/Pictures/Bastion}% PDF image sans extension
+{../Latex/Sources/YLV/Pictures/Bastion-V2.drawio}% PDF image sans extension
 {Bastion} % texte sous l'image en article
 {0.7} % echelle
-{LabelImage} % label de référence
+{Bastion} % label de référence
 }
 %End PICFRAME--------------------------
 
-\subsubsection{VPN}
+\section{VPN}
 %VPN IPSec vs SSL
 
-L'utilisation d'un Virtual Private Network répond aux besoins :
+L'utilisation d'un Virtual Private Network (VPN) répond aux besoins :
 \begin{itemize}
     \item de connecter des utilisateurs nomades au système d'information de l'entreprise avec une technologie fiable et sécurisée;
     \item d'inter-connecter des partenaires au SI de l'entreprise en maîtrisant les flux autorisés;
@@ -282,12 +443,22 @@ L'utilisation d'un Virtual Private Network répond aux besoins :
 
 Il existe différents types de tunnels VPN. Nous allons étudier deux des plus utilisés, les tunnels L2TP/IPSec et TLS/SSL.
 
-L'utilisation de tunnels L2TP/IPSec (Layer Two Tunneling Protocol\footnote{rfc2661: https://datatracker.ietf.org/doc/html/rfc2661}/Internet Protocol Security\footnote{rfc6071: https://datatracker.ietf.org/doc/html/rfc6071)} permet de raccorder des équipements réseaux (routeurs ou firewalls) point à point, et ainsi étendre les systèmes d'information à d'autres sites géographiques internes, externes ou partenaires.
+L'utilisation de tunnels L2TP/IPSec (Layer Two Tunneling Protocol\footnote{rfc2661: https://datatracker.ietf.org/doc/html/rfc2661}/Internet Protocol Security\footnote{rfc6071: https://datatracker.ietf.org/doc/html/rfc6071}) permet de raccorder des équipements réseaux (routeurs ou firewalls) point à point, et ainsi étendre les systèmes d'information à d'autres sites géographiques internes, externes ou partenaires.
 
 La technologie TLS/SSL (Transport Layer Security/Secure Socket Layer) est utilisée généralement avec un navigateur WEB et le protocole HTTPS. Elle ne nécessite donc pas de client dédié mais il en existe pour faciliter l'accès à certaines applications par exemple.
 
 Voir ci-dessous un schéma (\ref{VPNIPSECvsSSL}) représentant les deux technologies.
 Dans le cas du tunnel L2TP/IPSec, le point de terminaison peut être un pare feu sur lequel sera implémenté les règles permettant (ou non) l'accès depuis le poste externe aux différents réseaux privés de l'entreprise. La négociation des protocoles utilisés pour l'authentification et le chiffrement s'effectue entre les deux points de terminaison.
+
+%Begin PICFRAME------------------------
+\mode<all>{\picframe
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{../Latex/Sources/YLV/Pictures/VPN_V2}% PDF image sans extension
+{VPN IPSec vs VPN SSL} % texte sous l'image en article
+{0.7} % echelle
+{VPNIPSECvsSSL} % label de référence
+}
+%End PICFRAME--------------------------
 
 Le deuxième cas représente l'utilisation d'un tunnel TLS/SSL entre un client avec un navigateur Internet et une passerelle VPN SSL dédiée. 
 
@@ -295,23 +466,15 @@ La passerelle est positionnée en DMZ et ainsi protégée par un parefeu.
 
 Les règles, routage et paramétrage des autorisations s'effectuent sur la passerelle qui peut supporter par exemple de l'authentification (LDAP, Radius, SAML ou autres).
 
-%Begin PICFRAME------------------------
-\mode<all>{\picframe
-%- - - - - - - - - - - - - - - - - - - - - - - - 
-{../Latex/Sources/YLV/Pictures/VPN}% PDF image sans extension
-{VPN IPSec vs VPN SSL} % texte sous l'image en article
-{0.7} % echelle
-{VPNIPSECvsSSL} % label de référence
-}
-%End PICFRAME--------------------------
 
 
-\subsection{Cloud}
 
-\subsubsection{MultiCloud - Cloud Hybride}
+\section{Cloud}
 
-Un des enjeux majeur pour les entreprises est la résilience de leurs services. Un grand distributeur et marchand en ligne ne peut pas se permettre d'être à l'arrêt complet lors de périodes fastes comme les fêtes de fin d'année. Il est arrivé que certains soient bloqués car ils avaient migrés l'entièreté de leurs applications dans un Cloud publique qui malheureusement fut inaccessible pendant plusieurs heures. Le résultat commercial fut catastrophique pour le marchand (et leur fournisseur Cloud aussi). 
-La disponibilité est aussi de la sécurité et doit être d'assurée en évitant de mettre \g{tous ses oeufs dans le même panier}.
+%\subsubsection{MultiCloud - Cloud Hybride}
+
+Un des enjeux majeur pour les entreprises est la résilience de leurs services. Un grand distributeur et marchand en ligne ne peut pas se permettre d'être à l'arrêt complet lors de périodes fastes comme les fêtes de fin d'année. Il est arrivé que certains soient bloqués car ils avaient migré l'entièreté de leurs applications dans un Cloud publique qui malheureusement fut inaccessible pendant plusieurs heures. Le résultat commercial fut catastrophique pour le marchand (et leur fournisseur Cloud aussi). 
+La disponibilité est aussi de la sécurité et doit être assurée en évitant de mettre \g{tous ses oeufs dans le même panier}.
 \paragraph{MultiCloud}
 En ce qui concerne l'hébergement dans le CLOUD, les entreprises prennent donc le choix du Multi-Cloud, i.e. de dupliquer leurs architectures sur des clouds providers (CSP) différents. Ce choix peut apporter son lot de complexité et des coûts associés non négligeables car il sera nécessaire d'adapter les déploiements/configurations par rapport aux spécifications du CSP utilisé.
 \paragraph{Cloud Hybride}
@@ -328,6 +491,10 @@ Le MultiCloud ayant ses avantages mais aussi ses inconvénients, beaucoup d'entr
 {} % sous titre de la diapo
 {
 %begin slide- - - - - - - - - - - - - - - - - 
+
+Le Cloud, la réponse aux enjeux de résilience?
+
+
 \begin{itemize}
     \item MultiCloud : double déploiement sur des CSP
     \item CloudHybride : Master sur Cloud Publique et Slave sur Cloud Privé
@@ -352,12 +519,12 @@ Le MultiCloud ayant ses avantages mais aussi ses inconvénients, beaucoup d'entr
 }}
 %End FRAME------------------------------
 
-\subsubsection{Cloud Access Security Broker - CASB}
+\section{Cloud Access Security Broker - CASB}
 Le Cloud computing a apporté un lot d'évolution technologique qui nous force à repenser les stratégies de sécurité nécessaires pour protéger et surveiller les applications et les données hébergées dans le Cloud.
-Les solutions de Cloud Access Security Broker agissent comme un pont entre les services et infrastructures \g{on premises} et les différents Cloud services utilisés par l'entreprise.
+Les solutions de Cloud Access Security Broker (CASB) agissent comme un pont entre les services et infrastructures \g{on premises} et les différents services Cloud utilisés par l'entreprise.
 Les CASB peuvent proposer les fonctionnalités suivantes : 
 \begin{itemize}
-    \item authentication
+    \item authentication,
     \item single sign-on, 
    \item  authorization, 
    \item  credential mapping, 
@@ -371,9 +538,9 @@ Les CASB peuvent proposer les fonctionnalités suivantes :
 
 Les CASB peuvent être intégrés comme composants au sein d'architectures de type Secure access service edge (SASE).
 
-\subsubsection{Secure access service edge (SASE)}
+\section{Secure access service edge (SASE)}
 %todo compléter SASE
-Les évolutions des méthodes de travail avec l'explosion de l'utilisation du télétravail, des accès professionnels via les terminaux mobiles et l'utilisation de plus en plus fréquente du edge computing (https://www.redhat.com/fr/topics/edge-computing/what-is-edge-computing) nécessite une évolution des architectures de sécurité afin de faire face à de nouvelles menaces liées à ces changements.
+Les évolutions des méthodes de travail avec l'explosion de l'utilisation du télétravail, des accès professionnels via les terminaux mobiles et l'utilisation de plus en plus fréquente du edge computing \footnote{Edge computing : https://www.redhat.com/fr/topics/edge-computing/what-is-edge-computing} nécessitent une évolution des architectures de sécurité afin de faire face à de nouvelles menaces liées à ces changements.
 
 Les architectures de type Secure access service edge (SASE) assurent des fonctionnalités réseau et sécurité, dans un environnement \g{Cloud Natif} incluant les technologies/services, dits \g{Cloud Based} suivants :
 
@@ -407,7 +574,7 @@ Les architectures de type Secure access service edge (SASE) assurent des fonctio
 %begin slide- - - - - - - - - - - - - - - - - 
 \begin{itemize}
     \item Le modèle du château fort demeure mais évolue
-    \item les technologies de protection et filtrage évoluent et restent indispensables à la SSI
+    \item les technologies de protection et de filtrage évoluent et restent indispensables à la SSI
     
     --> \#FirewallNextGeneration \#ProxydansleCloud
     \item les contrôles d'accès administrateurs et utilisateurs sont de plus en plus fins et imposent une rigueur d'implémentation et de gestion dans le temps

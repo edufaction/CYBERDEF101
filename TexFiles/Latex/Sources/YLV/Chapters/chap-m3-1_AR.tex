@@ -21,15 +21,39 @@ Via exemples de traitement des risques
 %End FRAME------------------------------
 \subsection{Filtrage}
 
-besoin de cloisonner entre clients (notion de multitenant), au sein du SI, entre différentes sections besoin de séparer production \& pré-production ; 
+Afin de réduire les risques liés à la perte, l'intégrité ou la disponibilité des données de production, il est conseillé de cloisonner le système d'information et le réseau et donc de séparer les environnements de production, tests, pré-production et développement.
 
-besoin de séparer les services
+La notion de cloisonnement est aussi indispensable dans les cas d'hébergement et fourniture de services auprès de plusieurs clients. En effet, il est primordial d'assurer l'étanchéité et la confidentialité des données de chaque client. Le terme utilisé est celui de Multitenant et peut décrire le cas d'une solution ou application proposée et vendue à plusieurs clients ou entités.
 
+Les services, utilisateurs ou zones d'exploitations spécifiques doivent être isolées entre elles. De plus, tout flux entre les différentes zones d'utilisateurs ou services doivent être contrôlés afin d'éviter les compromissions de données de production par celles de tests par exemple.
+
+Nous verrons dans le chapitre 3.3 les solutions techniques pour assurer ce cloisonnement et ce filtrage.
+
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Cloisonnement} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+--> isoler les zones entre elles en fonction : 
+\begin{itemize}
+    \item des groupes, utilisateurs et clients (Multitenant)
+    %ajouter schéma multitenant (exmple AWS)
+    \item des services et exposition (Internet, Intranet/internes, etc.)
+    \item des zones d'exploitation : production, tests ou entraînements
+\end{itemize}
+! Attention de contrôler les flux entre les zones...
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
 
 \subsection{Accès}
-gérer les populations, les droits (RBAC, droit d’en connaître)
-\subsubsection{IAM}
-Déf IAM, process ET procédures
+gérer les populations, les accès et les droits associés, c'est l'IAM (RBAC, droit d’en connaître)
+
+%Todo Déf IAM, process ET procédures
 
 %Begin FRAME----------------------------
 \mode<presentation>{\texframe
@@ -42,10 +66,8 @@ Déf IAM, process ET procédures
 \begin{itemize}
     \item Définition
     \begin{itemize}
-        \item IAM (identity and access management)
-        \item IAG (identity access governance)
-        \item DAG (data access governance)
-        \item PAM (privileged access management)
+        \item IAM (identity and access management) Gestion des Identités et des Accès
+        \item PAM (privileged access management) Gestion des comptes à privilèges , centralise la gestion des profils d'administrateur et assure que l'accès au moindre privilège est appliqué pour donner aux utilisateurs uniquement l'accès dont ils ont besoin.
     \end{itemize}
     \item Process
     Gestion des identités - cycle de vie
@@ -55,8 +77,43 @@ Déf IAM, process ET procédures
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}
 %End FRAME------------------------------
-% Crypto
 
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Gestion des identités : IAM} % titre de la diapo
+{Identity Access Management} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item Processus de gestion des identifiants, arrivées, départs, demandes d'habilitations, etc.
+    \item Politique de contrôle des accès : certificats, authentification multifacteurs (MFA)
+    \item IAG (identity access governance)
+        automatise la création, la gestion et la certification des comptes d'utilisateurs, des rôles et des droits d'accès pour les utilisateurs
+        provisionnement des utilisateurs, gestion des mots de passe, gestion des politiques, gouvernance des accès et revue des accès
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Gestion des identités : PAM} % titre de la diapo
+{privileged access management} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item PAM (privileged access management) Gestion des comptes à privilèges, centralise la gestion des profils d'administrateur et assure que l'accès au moindre privilège est appliqué pour donner aux utilisateurs uniquement l'accès dont ils ont besoin.
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+% Crypto
 % gestion intégrité des données, protection des flux (IPSec, VPN SSL)
 \mode<all>{\input{../Latex/Sources/YLV/Chapters/chap-m3-1-3-Crypto.tex}}
 

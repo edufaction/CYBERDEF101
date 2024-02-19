@@ -15,3 +15,5 @@
 
 \definecolor{uMainColor}{RGB}{160,0,0}
 \definecolor{uCoverColor}{RGB}{160,0,0}
+
+\definecolor{uTextColor}{RGB}{33,33,33}

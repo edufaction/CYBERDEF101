@@ -14,6 +14,7 @@
 \definecolor{UFGBlue}{RGB}{0, 114, 185}
 \definecolor{PrimaryColor}{RGB}{33, 33, 33}
 
+
 \definecolor{DarkGray}{RGB}{33,33,33}
 \definecolor{LightGray}{RGB}{150,150,150}
 \definecolor{Ocean}{RGB}{129,194,234}
@@ -28,6 +29,7 @@
 \newcommand{\setPrimaryColor}[1]{
     \colorlet{PrimaryColor}{#1}
 }
+
 
 \newcommand{\setLogos}[2]{
     \pgfdeclareimage[height=12mm]{logo1_title}{#1}
@@ -68,21 +70,21 @@
 
 
 \newcommand{\setDefaultConfig}{
-    \color{DarkGray} %Primary 
+    \color{uTextColor} %Primary 
     \setbeamercolor{bgcolor}{fg=PrimaryColor}
-    \setbeamercolor{normal}{fg=DarkGray}
-    \setbeamercolor{title}{fg=DarkGray}
+    \setbeamercolor{normal}{fg=uTextColor}
+    \setbeamercolor{title}{fg=uTextColor}
     \setbeamercolor{frametitle}{fg=uMainColor}
     \setbeamercolor{structure}{fg=PrimaryColor}
-    \setbeamercolor{normal text}{fg=DarkGray,bg=white}
+    \setbeamercolor{normal text}{fg=uTextColor,bg=white}
     \setbeamercolor{section number projected}{bg=PrimaryColor,fg=white}
-    \setbeamercolor{itemize item}{fg=DarkGray}
-    \setbeamercolor{itemize subitem}{fg=DarkGray}
-    \setbeamercolor{itemize subsubitem}{fg=DarkGray}
-    \setbeamercolor{itemize subbody}{fg=DarkGray}
-    \setbeamercolor{itemize/enumerate body}{fg=DarkGray}
-    \setbeamercolor{itemize/enumerate subbody}{fg=DarkGray}
-    \setbeamercolor{itemize/enumerate subsubbody}{fg=DarkGray}
+    \setbeamercolor{itemize item}{fg=uMainColor}
+    \setbeamercolor{itemize subitem}{fg=uTextColor}
+    \setbeamercolor{itemize subsubitem}{fg=uTextColor}
+    \setbeamercolor{itemize subbody}{fg=uTextColor}
+    \setbeamercolor{itemize/enumerate body}{fg=uTextColor}
+    \setbeamercolor{itemize/enumerate subbody}{fg=uTextColor}
+    \setbeamercolor{itemize/enumerate subsubbody}{fg=uTextColor}
     \setbeamercolor{alerted text}{fg=DarkOrange}
     \setbeamercolor{example text}{fg=DarkGreen}
     \setbeamercolor{block title}{fg=PrimaryColor}
@@ -125,7 +127,7 @@
 % }
 
 
-\setbeamertemplate{itemize item}{\scriptsize\raise1.25pt\hbox{\large\donotcoloroutermaths$\bullet$}}
+\setbeamertemplate{itemize item}{\scriptsize\raise1.25pt\hbox{\large\donotcoloroutermaths$\#$}}
 \setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\circ$}}
 \setbeamertemplate{itemize subsubitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacksquare$}}
 

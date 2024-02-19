@@ -20,3 +20,5 @@
 \definecolor{CoverColor}{RGB}{255,121,0}
 
 \colorlet{uCoverColor}{CoverColor}
+
+\definecolor{uTextColor}{RGB}{33,33,33}

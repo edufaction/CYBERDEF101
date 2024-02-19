@@ -14,7 +14,16 @@
  %----------------------------
  % TEMPLATE, THEME, & Beamer Model
 \input{../Latex/Templates/Magic/init.tex}
-\def\utemplatetheme{orange-inverted}
+
+\ifcsname utemplatetheme\endcsname
+  \def\utemplatethemeprepose{YES}
+\else
+  \def\utemplatetheme{orange}
+\fi
+
+%\ifundefined{utemplatetheme}{\def\utemplatetheme{orange}}{NO}
+
+% \def\utemplatetheme{orange-inverted}
 \def\uproject{CYBERDEF101}
 \def\ubeamermodel{ufg}
 

@@ -111,12 +111,13 @@ mkprzstudent: $(StudentPDF_PrzFiles)
 $(INSTALL_DIR)/Teacher/Lessons/Slides/%.prz.pdf: $(COMPILE_DIR)/%.prz.pdf
 #cp -rf "$<" "$@"	
 ifeq ($(OPT_PngPdf),YES)
-	$(info PNG Dir create ="$@.images")
-	mkdir -p  $@.images
+	$(info PNG Dir create ="$@.dir")
+	mkdir -p  $@.dir
+	mkdir -p  $@.dir/PNG
 	$(info "Expand PDF to 3200x1600 px" of $<")
 	gs -sDEVICE=pdfwrite -dDEVICEWIDTHPOINTS=3200 -dDEVICEHEIGHTPOINTS=1800 -dFIXEDMEDIA -dPDFFitPage -dCompatibilityLevel=1.4 -o $@ $<
 	$(info "Export PDF to PNG for video of $@")
-	gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -sOutputFile=$@.images/Pic-%d.png $<
+	gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -sOutputFile=$@.dir/PNG/Pic-%d.png $<
 endif
 
 $(COMPILE_DIR)/%.prz.pdf: $(TEX_DIRS)/%.prz.tex	

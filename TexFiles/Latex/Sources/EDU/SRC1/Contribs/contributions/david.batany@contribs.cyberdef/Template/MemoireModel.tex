@@ -103,7 +103,7 @@
 \begin{frame}
 \frametitle<presentation>{#2}
   \begin{center}
-	 \includegraphics[height=0.95\textheight, width=0.95\textwidth, keepaspectratio ]{#1.pdf}
+	 \includegraphics[height=0.95\textheight, width=0.95\textwidth, keepaspectratio ]{\includepicturesubpath{#1.pdf}}
   \end{center}
 \end{frame}
 
@@ -112,7 +112,7 @@
 \newcommand{\picframe}[4]
 {
 \begin{figure}[!h]
-\centering \includegraphics[width=#3\textwidth]{#1.pdf}
+\centering \includegraphics[width=#3\textwidth]{\includepicturesubpath{#1.pdf}}
 \caption{#2 \label{#4}}
 \end{figure}
 }

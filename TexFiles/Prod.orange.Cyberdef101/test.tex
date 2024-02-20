@@ -1,0 +1,47 @@
+\documentclass[a4paper, 11pt]{book}
+
+\usepackage{graphicx}
+\usepackage[french]{babel}
+\usepackage{stringstrings}
+\title{''Titre du livre''}
+\author{''Nom de l'auteur''}
+\date{''date de fin de rédaction''} 
+
+
+% Définition de la chaîne de caractères
+\def\aline{path/to/your/file.tex}
+
+% Définition de la macro
+\newcommand{\recupererDebut}[1]{%
+    \StrBefore{#1}{\lastslash}[\debut]%
+    \debut
+}
+
+
+\def\mypicturesubpath{Inverse/}
+
+
+\newcommand{\getLastPart}[1]{%
+    \getrevsubstring{#1}{/}%
+}
+
+\newcommand{\getBeginPart}[1]{%
+    \findchars{#1}{/}%
+    \substring{#1}{1}{\theresult}%
+}
+
+\begin{document}
+
+COMPLET : \aline
+
+%FICHIER : \getLastPart{\aline} 
+
+
+DEBUT : --- \recupererDebut{\aline}
+
+
+
+%PATH : \getBeginPart{\aline}
+
+
+\end{document}

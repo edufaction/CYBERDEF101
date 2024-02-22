@@ -21,6 +21,12 @@
   \def\utemplatetheme{orange}
 \fi
 
+\ifcsname upicturethemepath\endcsname
+  \def\upicturethemepathprepose{YES}
+\else
+  \def\upicturethemepath{}
+\fi
+
 %\ifundefined{utemplatetheme}{\def\utemplatetheme{orange}}{NO}
 
 % \def\utemplatetheme{orange-inverted}

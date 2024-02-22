@@ -1,0 +1,66 @@
+\usepackage{luacode}
+
+% Définition des fonctions Lua
+\begin{luacode*}
+    function extract_before_last_slash(input_string)
+        local last_slash_index = 0
+        local before_last_slash = ""
+    
+        -- Recherche du dernier slash
+        for i = 1, #input_string do
+            if string.sub(input_string, i, i) == "/" then
+                last_slash_index = i
+            end
+        end
+    
+        -- Extraction de la sous-chaîne avant le dernier slash
+        if last_slash_index > 0 then
+            before_last_slash = string.sub(input_string, 1, last_slash_index - 1)
+        end
+    
+        tex.print(before_last_slash) -- Affichage de la chaîne dans le document LaTeX
+    end
+    
+function extract_after_last_slash(input_string)
+        local last_slash_index = 0
+        local after_last_slash = ""
+    
+        -- Recherche du dernier slash
+        for i = 1, #input_string do
+            if string.sub(input_string, i, i) == "/" then
+                last_slash_index = i
+            end
+        end
+    
+        -- Extraction de la sous-chaîne après le dernier slash
+        if last_slash_index > 0 then
+            after_last_slash = string.sub(input_string, last_slash_index + 1)
+        end
+    
+        tex.print(after_last_slash) -- Affichage de la chaîne dans le document LaTeX
+    end
+    
+    
+function remove_extension(input_string)
+    local last_dot_index = input_string:find("%.[^%.]*$") -- Recherche du dernier point (pour l'extension)
+    if last_dot_index then
+        tex.print(input_string:sub(1, last_dot_index - 1)) -- Affiche la partie sans l'extension
+    else
+        tex.print(input_string) -- Si pas d'extension trouvée, affiche simplement la chaîne d'entrée
+    end
+end
+    
+    function extract_extension(input_string)
+    local last_dot_index = input_string:find("%.[^%.]*$") -- Recherche du dernier point (pour l'extension)
+    if last_dot_index then
+        tex.print(input_string:sub(last_dot_index + 1):upper()) -- Affiche l'extension en majuscules
+    else
+        tex.print("") -- Si pas d'extension trouvée, affiche une chaîne vide
+    end
+end
+\end{luacode*}
+    
+\newcommand{\ExtractBeforeLastSlash}[1]{\directlua{extract_before_last_slash("#1")}}
+\newcommand{\ExtractAfterLastSlash}[1]{\directlua{extract_after_last_slash("#1")}}
+\newcommand{\RemoveExtension}[1]{\directlua{remove_extension("#1")}}
+\newcommand{\ExtractExtension}[1]{\directlua{extract_extension("#1")}}

@@ -14,14 +14,15 @@
 
 
 
+% \newcommand{\ExtractBeforeLastSlash}[1]{\directlua{extract_before_last_slash("#1")}}
+% \newcommand{\ExtractAfterLastSlash}[1]{\directlua{extract_after_last_slash("#1")}}
+% \newcommand{\RemoveExtension}[1]{\directlua{remove_extension("#1")}}
+% \newcommand{\ExtractExtension}[1]{\directlua{extract_extension("#1")}}
 
-\def\mypicturesubpath{Inverse/}
 
-    \newcommand{\includepicturesubpath}[1]
-    {#1}
+\newcommand{\includepicturesubpath}[1]
+    {\ExtractBeforeLastSlash{#1}/\upicturethemepath\RemoveExtension{\ExtractAfterLastSlash{#1}}.\ExtractExtension{#1}}
     
-
-
 
 %---------------------------------------------------
 %										 	AUDIO NOTE 

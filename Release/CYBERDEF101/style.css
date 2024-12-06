@@ -1,0 +1,100 @@
+/* Style général pour tout le document */
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif; /* Police moderne */
+    line-height: 1.8; /* Espacement entre les lignes */
+    margin: 1.5cm; /* Marges générales */
+    color: #333; /* Couleur principale du texte */
+}
+
+/* Style des titres */
+h1 {
+    color: #1592d5; /* Couleur dominante pour H1 */
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #007ACC; /* Couleur bleue pour H2 */
+    text-align: left;
+    font-size: 1.5em;
+    border-bottom: 2px solid #d61693; /* Ligne orange sous H2 */
+    padding-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #333; /* Couleur neutre pour H3 */
+    font-size: 1.2em;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* Style pour les paragraphes */
+p {
+    font-size: 14px; /* Taille du texte */
+    margin: 10px 0; /* Espacement autour des paragraphes */
+    text-align: justify; /* Justification du texte */
+}
+
+/* Style pour les listes */
+ul {
+    margin: 10px 20px; /* Indentation des listes non ordonnées */
+    list-style-type: square; /* Style des puces */
+}
+
+ol {
+    margin: 10px 20px; /* Indentation des listes ordonnées */
+    list-style-type: decimal; /* Numérotation classique */
+}
+
+/* Style pour les blocs de code */
+pre, code {
+    font-family: "Courier New", monospace; /* Police monospacée pour le code */
+    background-color: #f4f4f4; /* Fond gris clair */
+    border: 1px solid #ddd; /* Bordure légère */
+    padding: 10px; /* Espacement interne */
+    border-radius: 4px; /* Bords arrondis */
+    font-size: 13px; /* Taille du texte du code */
+    overflow-x: auto; /* Ajout d’un défilement horizontal si nécessaire */
+}
+
+/* Style pour les liens */
+a {
+    color: #007ACC; /* Bleu pour les liens */
+    text-decoration: none; /* Supprime le soulignement */
+}
+
+a:hover {
+    text-decoration: underline; /* Ajout de soulignement au survol */
+}
+
+/* Style pour les tableaux */
+table {
+    width: 100%; /* Largeur complète */
+    border-collapse: collapse; /* Fusionne les bordures */
+    margin: 20px 0; /* Espacement autour du tableau */
+    font-size: 14px; /* Taille du texte dans les tableaux */
+}
+
+table th, table td {
+    border: 1px solid #ddd; /* Bordures des cellules */
+    padding: 10px; /* Espacement interne */
+    text-align: left; /* Alignement à gauche */
+}
+
+table th {
+    background-color: #160c60; /* Fond orange pour l’en-tête */
+    color: white; /* Texte blanc dans l’en-tête */
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternance de couleur pour les lignes */
+}
+
+table tr:hover {
+    background-color: #f1f1f1; /* Surlignage au survol */
+}

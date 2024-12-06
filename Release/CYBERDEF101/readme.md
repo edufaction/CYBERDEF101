@@ -1,4 +1,4 @@
-![Presentation](readme.png)
+![Presentation](_/readme.png)
 > Cyberdef101 (c) 2022-2025 - Production Orange Security School
 
 
@@ -8,8 +8,9 @@ Vous trouverez ici le cours CYBERDEF101 conçu pour les acteurs du commerce.
 
 # Conférence introductive - CyberBootStrap
 
-# Module 1 - Contexte et Environnement
+# ![](_/EDU.png) Module 1 - Contexte et Environnement
 >**S'exprimer dans le même langage que les acteurs du domaine.** 
+![](_/EDU.png)
 
 La cybersécurité est devenue un enjeu majeur dans notre monde interconnecté. Ce chapitre vous plongera dans les fondements et l'évolution de cette discipline cruciale, en explorant ses origines, ses défis actuels et son organisation au sein des entreprises.
 Nous commencerons par retracer l'histoire fascinante de la cybersécurité, depuis les premiers travaux en cryptologie jusqu'à l'émergence des réseaux informatiques et l'apparition des premiers virus. Vous découvrirez comment le virus Creeper, apparu en 1971, a marqué le début de l'ère de la cybercriminalité [(Ref 1)](https://www.perplexity.ai/search/peux-tu-me-faire-un-texte-intr-N2yV4VTgScaVay9kj.xufg).
@@ -28,7 +29,7 @@ Ce chapitre vous fournira une base solide pour appréhender les enjeux de la cyb
 >***Compétences acquises***: compréhension de l'écosystème cyber, connaissance des menaces actuelles, familiarisation avec le jargon du domaine
 
 
-# Module 2 - Risques numériques
+# ![](_/EDU.png) Module 2 - Risques numériques
 >**Déterminer les évènements redoutés de l’entreprise**
 
 - Définitions et référentiels de gestion des risques
@@ -38,7 +39,7 @@ Ce chapitre vous fournira une base solide pour appréhender les enjeux de la cyb
 - Des risques aux objectifs de sécurité: risques résiduels, PDCA
 - Veille sécurité: CERT (Vulnérabilités, menaces), DarkWeb, IES, OSINT
 >***Compétences acquises***: capacité à déterminer les événements redoutés, compréhension des méthodologies d'analyse de risques 
-# Module 3 - Architectures et technologies
+# ![](_/YLV.png) Module 3 - Architectures et technologies
 >**Appréhender la réalité technologique de l'environnement cyber d’une entreprise**
 
 
@@ -48,7 +49,7 @@ Ce chapitre vous fournira une base solide pour appréhender les enjeux de la cyb
 
 
 
-# Module 4 - Management de la sécurité
+# ![](_/YLV.png) Module 4 - Management de la sécurité
 >**Appréhender les enjeux de conformité et de pilotage d’une entreprise**
 
 - Contraintes légales: OIV, OSE, RGPD, NIS 2, LPM
@@ -59,7 +60,7 @@ Ce chapitre vous fournira une base solide pour appréhender les enjeux de la cyb
 
 >***Compétences acquises***: compréhension des enjeux de conformité, capacité à définir une politique de sécurité conforme aux normes.
 
-# Module 5 - La sécurité opérationnelle
+# ![](_/EDU.png) Module 5 - La sécurité opérationnelle
 >**S'avoir s'insérer dans l'organisation de la Cyberdéfense de l'entreprise** 
 
 - Vulnerability Management: audit, pentest, CERT
@@ -68,7 +69,7 @@ Ce chapitre vous fournira une base solide pour appréhender les enjeux de la cyb
 - Gestion de crise Cyber
 >***Compétences acquises**: compréhension de la sécurité opérationnelle, connaissance des processus de gestion des vulnérabilités, menaces et incidents.
 
-# Module 6 - La sécurité dans les projets
+# ![](_/YLV.png) Module 6 - La sécurité dans les projets
 >**Différentier la sécurité dans les projets et la sécurité de l'entreprise**
 
 Ce chapitre vous guidera à travers les principes fondamentaux qui permettent de construire et de maintenir des systèmes sécurisés dès leur conception.
@@ -86,7 +87,7 @@ Enfin, nous explorerons les normes et certifications qui attestent de la conform
 - 
 >***Compétences acquises***: différenciation entre sécurité dans les projets et sécurité de l'entreprise, connaissance des règles de sécurisation.
 
-# Module 7 - Le marché de la sécurité
+# ![](_/EDU.png) Module 7 - Le marché de la sécurité
 >**Se positionner dans l’écosystème cyber du marché.**
 Le chapitre "Le marché de la cybersécurité" explore les dynamiques économiques, stratégiques et organisationnelles du marché de la cybersécurité. Dans un contexte où les menaces numériques se multiplient et où la transformation digitale s'accélère, il est essentiel de comprendre les acteurs clés, les tendances du marché, et les événements structurants qui façonnent cet écosystème. Ce chapitre vise à fournir une vision complète des forces en présence, des opportunités, et des défis dans le domaine de la cybersécurité.
 

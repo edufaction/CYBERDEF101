@@ -1,7 +1,10 @@
+![Presentation](readme.png)
 > Cyberdef101 (c) 2022-2025 - Production Orange Security School
 
+
+
 # Eléments de Cybersécurité d'entreprise
-Vous trouverez ici le cours CYBERDEF101 conçu pour les acteurs du commerce 
+Vous trouverez ici le cours CYBERDEF101 conçu pour les acteurs du commerce.
 
 # Conférence introductive - CyberBootStrap
 
@@ -67,6 +70,13 @@ Ce chapitre vous fournira une base solide pour appréhender les enjeux de la cyb
 
 # Module 6 - La sécurité dans les projets
 >**Différentier la sécurité dans les projets et la sécurité de l'entreprise**
+
+Ce chapitre vous guidera à travers les principes fondamentaux qui permettent de construire et de maintenir des systèmes sécurisés dès leur conception.
+Nous commencerons par explorer le concept de "Security By Design", une approche proactive qui intègre la sécurité dès les premières étapes du cycle de développement. Vous découvrirez les méthodologies qui permettent d'anticiper les menaces et de concevoir des systèmes intrinsèquement sécurisés, plutôt que d'ajouter des couches de sécurité a posteriori.
+Ensuite, nous plongerons dans les règles techniques de sécurisation et de durcissement. Ces pratiques essentielles visent à réduire la surface d'attaque des systèmes en éliminant les vulnérabilités connues et en renforçant les configurations par défaut. Vous apprendrez comment appliquer ces principes à différents niveaux : systèmes d'exploitation, applications, réseaux et infrastructures.
+L'organisation de la sécurité dans les projets sera notre prochain sujet. Nous examinerons comment intégrer efficacement les considérations de sécurité tout au long du cycle de vie d'un projet, de la phase de conception à la maintenance, en passant par le développement et le déploiement.
+La protection des données sensibles, un enjeu crucial à l'ère du Big Data et du RGPD, fera l'objet d'une attention particulière. Nous aborderons les techniques de chiffrement, de gestion des accès et de classification des données pour garantir leur confidentialité, leur intégrité et leur disponibilité.
+Enfin, nous explorerons les normes et certifications qui attestent de la conformité des produits en matière de sécurité. Vous vous familiariserez avec la Certification de Sécurité de Premier Niveau (CSPN) et les Critères Communs, des standards reconnus qui permettent d'évaluer et de valider le niveau de sécurité des produits informatiques.
 
 - Security By Design: concepts et méthodologies
 - Règles techniques de sécurisation et durcissement

@@ -1,12 +1,71 @@
 \section{Sécurité Endpoints}
 
+%todo : https://www.paloaltonetworks.com/cyberpedia/what-is-endpoint-protection
+
 La sécurité des endpoints est l'ensemble des solutions et techniques qui visent à protéger les équipements de type ordinateurs de bureau, ordinateurs portables, terminaux mobiles, etc. contre les cyberattaques.
 
-Selon Gartner\footnote{https://www.gartner.com/reviews/market/endpoint-protection-platforms}, une plateforme de protection des endpoints (EPP) "permet de déployer des agents ou des capteurs pour sécuriser Endpoints gérés, notamment les ordinateurs de bureau, les ordinateurs portables, les serveurs et les appareils mobiles. Les EPP sont conçus pour empêcher une série d’attaques malveillantes connues et inconnues. De plus, ils offrent la possibilité d'enquêter et de remédier à tout incident qui échappe aux contrôles de protection."
+Selon Gartner\footnote{https://www.gartner.com/reviews/market/endpoint-protection-platforms}, une plateforme de protection des endpoints (EPP) "permet de déployer des agents ou des capteurs pour sécuriser les Endpoints gérés, notamment les ordinateurs de bureau, les ordinateurs portables, les serveurs et les appareils mobiles. Les EPP sont conçus pour empêcher une série d’attaques malveillantes connues et inconnues. De plus, ils offrent la possibilité d'enquêter et de remédier à tout incident qui échappe aux contrôles de protection."
 
-Les solutions de protection analysent les fichiers, les processus et l’activité système pour y débusquer des indicateurs d’actes suspects ou malveillants. Elles intègrent les fonctionnalités comme l'antivirus classique ou de nouvelle génération qui se charge de la partie détection. Les solutions historiques utilisent des bases de données de signatures et sont donc de moins en moins efficace contre les menaces fileless par exemple. La nouvelle génération (NGAV) s'appuie sur l'intelligence artificielle et le machine learning pour gagner en efficacité.
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Sécurité Endpoints: Endpoints Protection platforms} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item Gartner definition 
+    
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
 
-En complément, les solutions de type Endpoint Detection and Response (EDR), d'après Gartner\footnote{https://www.gartner.com/reviews/market/endpoint-detection-and-response-solutions}, "enregistrent et stockent les comportements au niveau du système des points finaux, utilisent diverses techniques d'analyse de données pour détecter les comportements suspects du système, fournissent des informations contextuelles, bloquent les activités malveillantes et fournissent des suggestions de mesures correctives pour restaurer. systèmes concernés. Les solutions EDR doivent fournir les quatre fonctionnalités principales suivantes : 
+Les solutions de protection analysent les fichiers, les processus et l’activité système pour y débusquer des indicateurs d’actes suspects ou malveillants. Elles intègrent les fonctionnalités comme l'antivirus classique ou de nouvelle génération qui se charge de la partie détection. 
+
+La détection qui utilise des bases de données de signatures identifie le logiciel malveillant en comparant le code d'un programme au code de types de virus connus qui ont déjà été rencontrés, analysés et enregistrés dans une base de données.
+Voir ci-dessous le schéma du fonctionnement classique d'un antivirus:
+
+%Begin PICFRAME------------------------
+\mode<all>{\picframe
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{../Latex/Sources/YLV/Pictures/Antivirusblack}% PDF image sans extension
+{antivirus} % texte sous l'image en article
+{0.7} % echelle
+{antivirus} % label de référence
+}
+%End PICFRAME--------------------------
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Sécurité Endpoints : Antivirus} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item Antivirus classique : bases de signatures
+
+    \item NGAV (Next Gen Antivirus) : analyses comportementales
+    Quid des fileless malware? Quelles solutions ?
+
+    --> recherche des IoA (Indicators of Attack)
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+Quid des zero days ? Comment les identifier lorsque ces bases de données de signatures ne sont pas à jour?
+Pour répondre à ces enjeux, les antivirus ont évolué et la nouvelle génération (NGAV) s'appuie sur l'intelligence artificielle et le machine learning pour gagner en efficacité. En plus de comparer les signatures, d'autres éléments sont collectés comme les hash des fichiers, des URLs ou IP contactées.
+
+De plus, les solutions historiques basées sur la signature sont de moins en moins efficaces contre les menaces appelées \g{fileless}. Les attaques fileless malware opérent directement dans la mémoire vive du système visé, sans laisser de traces de création de fichier sur le disque dur. Il est alors difficile de les détecter par les analyses heuristiques et comportementales basées sur l'analyse de fichiers.
+
+Comment alors procéder ?
+OrangeCyberDéfense\footnote{https://www.orangecyberdefense.com/fr/insights/blog/quest-ce-quun-fileless-malware} indique dans son article dédié à ce sujet que, je cite, pour détecter un fileless malware, les entreprises peuvent s’appuyer sur la recherche d’indicateurs d’attaque \g{IoA : Indicators of Attack}. En effet, si le fileless malware ne laisse pas de trace sur les disques, les indicateurs d’attaques peuvent donner des signes qu’une cyberattaque est en cours : exécution d’une commande par un utilisateur non habilité, connexion d’un utilitaire système à un serveur ayant une IP malveillante, etc. En analysant et en corrélant ces différents événements (à l'aide d'un SIEM par exemple), les indicateurs d’attaque peuvent aider à bloquer des activités malveillantes, même si celles-ci sont réalisées à partir d’éléments légitimes.
+
+En complément, les solutions de type Endpoint Detection and Response (EDR), d'après Gartner\footnote{https://www.gartner.com/reviews/market/endpoint-detection-and-response-solutions}, "enregistrent et stockent les comportements au niveau du système des points finaux, utilisent diverses techniques d'analyse de données pour détecter les comportements suspects du système, fournissent des informations contextuelles, bloquent les activités malveillantes et fournissent des suggestions de mesures correctives pour restaurer les systèmes concernés. Les solutions EDR doivent fournir les quatre fonctionnalités principales suivantes :
 \begin{itemize}
     \item Détecter les incidents de sécurité
     \item Contenir l'incident au point final
@@ -18,12 +77,11 @@ En complément, les solutions de type Endpoint Detection and Response (EDR), d'a
 \mode<presentation>{\texframe
 % contenu affiché sur Article et Beamer
 %- - - - - - - - - - - - - - - - - - - - - - - - 
-{Sécurité Endpoints} % titre de la diapo
+{Sécurité Endpoints: Detection et réponse?} % titre de la diapo
 {} % sous titre de la diapo
 {
 %begin slide- - - - - - - - - - - - - - - - - 
 \begin{itemize}
-    \item Antivirus classique et NGAV (Next Gen Antivirus)
     \item Endpoint Detection and Response : EDR
         \begin{itemize}
         \item Détecter les incidents de sécurité
@@ -37,6 +95,33 @@ En complément, les solutions de type Endpoint Detection and Response (EDR), d'a
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}
 %End FRAME------------------------------
+
+%Begin FRAME----------------------------
+\mode<all>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Endpoints Security : Points à retenir} % titre de la diapo
+{} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item Les solutions de protection évoluent pour faire face aux nouvelles menaces sur les endpoints
+    
+    --> \#Antivirus \#NGAV \#EPP \#filelessMalware \#IoA
+    
+    \item Associées aux systèmes de protection, les solution de détection permettent d'agir en cas d'attaque
+    
+    --> \#EDR \#XDR
+  
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+
+
+
+
 %old version
 %\subsection{composants Endpoints}
 %Schéma composants ENDPOINTS + éléments de supervision (réseau, logs)

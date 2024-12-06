@@ -7,50 +7,8 @@ Le durcissement s'inscrit naturellement dans le process de conception securisée
 \subsection{IAM} 
 (PKI, MFA, journalisation, contrôles)
 
-Public Key Infrastructure : PKI
-
-+------------------+        +------------------+
-|                  |        |                  |
-|  Autorité de     |        |  Autorité de     |
-|  Certification   |        |  Enregistrement  |
-|  Racine (Root CA)|        |  (RA)            |
-|                  |        |                  |
-+---------^--------+        +---------^--------+
-          |                           |
-          |                           |
-          |                           |
-          |                           |
-+---------+--------+        +---------+--------+
-|                  |        |                  |
-|  Autorité de     |        |  Serveur de      |
-|  Certification   |        |  Révocation de   |
-|  Intermédiaire   |        |  Certificats (CRL|
-|  (Intermediate CA)|       |  ou OCSP)        |
-|                  |        |                  |
-+---------^--------+        +---------^--------+
-          |                           |
-          |                           |
-          |                           |
-          |                           |
-+---------+--------+        +---------+--------+
-|                  |        |                  |
-|  Serveur de      |        |  Utilisateurs et |
-|  Certificats     |        |  Applications    |
-|  (Certificate    | <----> |  (Clients)       |
-|  Server)         |        |                  |
-|                  |        |                  |
-+------------------+        +------------------+
-
-Les composants d'une PKI sont :
-\begin{itemize}
-    \item Autorité de Certification Racine (Root CA) : L'entité de confiance au sommet de la hiérarchie PKI, qui émet des certificats pour les Autorités de Certification Intermédiaires et est responsable de la politique de sécurité globale.
-    \item Autorité de Certification Intermédiaire (Intermediate CA) : Ces CAs agissent sous l'autorité de la Root CA et peuvent émettre des certificats aux utilisateurs finaux ou à d'autres CAs intermédiaires.
-    \item Autorité de Enregistrement (RA) : Facultatif, mais souvent utilisé pour décharger certaines fonctions administratives de la CA, comme la vérification des demandes de certificats et l'identification des utilisateurs.
-    \item Serveur de Certificats (Certificate Server) : Serveur qui héberge la CA (peut être une Root CA ou une Intermediate CA) et gère l'émission, le renouvellement et la révocation des certificats.
-    \item Serveur de Révocation de Certificats (CRL ou OCSP) : Serveur qui gère la liste de révocation des certificats (Certificate Revocation List, CRL) ou le protocole Online Certificate Status Protocol (OCSP), permettant de vérifier en temps réel la validité des certificats.
-    \item Utilisateurs et Applications (Clients) : Les entités finales qui utilisent les certificats pour le chiffrement, le déchiffrement, la signature numérique, l'authentification, etc.
-\end{itemize}
-
+Pourquoi déployer une infrastructure de gestion de clés?
+Voir au chapitre 3 les principes cryptographiques et fonctionnalités des IGC (PKI).
 
 \subsection{Systèmes d'exploitation}
 Hardening UNIX/WINDOWS kesako?

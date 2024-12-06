@@ -141,7 +141,7 @@ Voir ci-dessous un exemple de matrice de flux :
 Les équipements de type Proxy permettent de sécuriser l'accès aux applicatifs et sont utilisés pour assurer un filtrage des accès Internet depuis le réseau de l'entreprise.
 
 C'est une des fonctions primordiales de la sécurité du système d'information.
-En effet, il est indispensable de maîtriser les flux de sortie et d'assurer la sécurité des utilisateurs sur Internet en imposant un filtrage via des équipements réseaux de type Proxy. 
+En effet, il est indispensable de maîtriser les flux de sortie et d'assurer la sécurité des utilisateurs sur Internet en imposant un filtrage via des équipements réseaux de type Proxy.
 
 Ainsi, toute requête d'accès à un site Web sera analysée par le proxy et des contrôles de types anti-virus, malware pourront être appliqués et protéger les utilisateurs et le SI en conséquence.
 
@@ -184,6 +184,9 @@ Voir ci-dessous en exemple un extrait simplifiée d'une matrice de flux, contena
 %Décision : ACCEPT
 
 Seul le proxy sera donc autorisé à se connecter aux serveurs distants et effectuer son rôle de mandataire.
+Ces règles de pare feu correspondent à l'utilisation d'un proxy explicite. Pour ce faire, il est nécessaire de préciser dans la configuration des navigateurs Internet quel Proxy utiliser. 
+
+Il peut être choisi de déployer un Proxy qui agira de manière transparente pour les utilisateurs. Cette méthode simplifie la gestion des configurations des postes utilisateurs et doit être paramétrée dans les équipements réseaux du SI afin d'assurer que tous les flux Internet soient bien routés et traités par le Proxy. 
 
 \section{Reverse Proxy}
 

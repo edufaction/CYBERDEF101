@@ -1,0 +1,12 @@
+
+
+/* Mode sombre */
+body {
+    background-color: #333; /* Couleur de fond sombre */
+    color: #fff; /* Couleur de texte claire */
+}
+
+/* Inversion des couleurs pour les images, les éléments SVG et le texte */
+img, svg, text {
+    filter: invert(100%) hue-rotate(180deg); /* Inverser le noir en blanc et le blanc en noir */
+}

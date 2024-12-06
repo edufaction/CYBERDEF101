@@ -22,3 +22,5 @@
 \colorlet{uCoverColor}{CoverColor}
 
 \definecolor{uTextColor}{RGB}{255,255,255}
+
+\colorlet{uMainColorUrl}{uMainColor}

@@ -1,0 +1,66 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+
+\usepackage[x11names]{xcolor}
+
+\pagecolor{black!93}
+\color{white}
+
+\usepackage[executable=/Library/Frameworks/Python.framework/Versions/3.11/bin/python3]{pyluatex}
+
+\begin{python} 
+from PIL import Image
+
+# Chemin du répertoire où seront sauvegardés les fichiers PNG
+image_file = "pictures/mydiag.white.png"
+image_black = "pictures/mydiag.black.png"
+
+# Load image, save alpha channel
+im = Image.open(image_file).convert('RGBA')
+alpha = im.getchannel('A')
+
+# Make HSV version and split into separate channels
+HSV = im.convert('RGB').convert('HSV')
+H, S, V = HSV.split()
+# Choose our amount of Hue rotation
+RHue = 122
+RSat = 20
+RLight = 0
+newH = H.point(lambda p: (p+RHue) % 255)
+newS = S.point(lambda p: (p+RSat) % 255)
+newV = V.point(lambda p: (p+RLight) % 255)
+
+# Recombine processed H, S and V back into a recombined image
+HSVr = Image.merge('HSV', (newH,newS,newV))
+# Convert recombined HSV back to reconstituted RGB, reinsert saved alpha
+RGBr = HSVr.convert('RGB')
+
+# color
+
+r, g, b = RGBr.split()
+r = r.point(lambda  x: abs(255 - x))
+b = b.point(lambda  x: abs(255 - x))
+g = g.point(lambda  x: abs(255 - x))
+
+RGBr= Image.merge('RGB', (r, g, b))
+
+RGBr.putalpha(alpha)
+RGBr.save(image_black)
+\end{python}
+
+\newcommand{\pp}[2]{\py{varprint('#1', '#2')}}
+
+\def\curr{ceci est un texte}
+
+\begin{document}
+
+\def\thefile{\py{image_black}}
+
+\thefile
+
+\includegraphics[width=10cm]{\thefile}
+
+\includegraphics[width=10cm]{pictures/mydiag.white.png}
+
+\end{document}

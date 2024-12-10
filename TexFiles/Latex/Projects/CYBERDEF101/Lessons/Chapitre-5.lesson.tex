@@ -1,0 +1,64 @@
+%========================================
+%. CONFIGURATION ARTICLE  COURS  SEC 101
+%========================================
+% 				CONTRIBUTIONS
+%========================================
+
+%************************************************************
+% Chargement des variables du modèle
+%************************************************************
+\input{../Latex/Projects/CYBERDEF101/Lessons/Commons/config-lesson.tex} 
+
+% pour ne pas afficher les sujets de travaux de mémoire
+\excludecomment{techworkbox}\let\endtechworkbox\relax
+
+
+%************************************************************
+% Chargement des variables dédiées à l'article
+%************************************************************
+\lessonID{7.1}
+\setauthor{EDU}
+
+%========================================
+\newcommand {\ukeywords}
+%========================================
+{%---------------------------------------------------------------------
+Gestion des Vulnérabilités, des Menaces, des Incidents
+}%
+
+%========================================
+\newcommand {\utitle}
+{%---------------------------------------------------------------------
+Sécurité Opérationnelle (SECOPS)
+}%---------------------------------------------------------------------
+
+%========================================
+\newcommand {\uabstract}
+{%---------------------------------------------------------------------
+C\edoc définit comment s'avoir s'insérer dans l'organisation de la Cyberdefense de l'entreprise afin de comprendre sa sécurité opérationnelle qui est composée des équipes de gestion des vulnérabilités, de la menace, de la supervision et de la réponse à incidents de sécurité
+}
+%---------------------------------------------------------------------
+
+%************************************************************
+%  variable définissant  le corps de l'article
+%************************************************************
+
+%========================================
+\newcommand {\ubody}
+{%---------------------------------------------------------------------
+%$BEGIN_UBODY
+\input{../Latex/Sources/EDU/SRC2/Includes/CDEF-Chapitre5o}
+\input{../Latex/Sources/EDU/SRC2/Includes/CDEF-Chapitre5a}
+\input{../Latex/Sources/EDU/SRC2/Includes/CDEF-Chapitre5b}
+\input{../Latex/Sources/EDU/SRC2/Includes/CDEF-Chapitre5c}
+%$END_UBODY
+}%---------------------------------------------------------------------
+
+%************************************************************
+% Chargement  du MODELE
+%************************************************************
+
+\umainload
+
+
+

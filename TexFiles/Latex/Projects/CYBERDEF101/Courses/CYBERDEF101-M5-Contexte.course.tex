@@ -1,0 +1,29 @@
+%========================================
+%. CONFIGURATION COURSE BOOK   SEC 101
+%========================================
+
+\input{../Latex/Projects/CYBERDEF101/Courses/Commons/config-course.tex}
+
+\renewcommand {\parttitlecourse}{Sécurité Opérationnelle (SECOPS)}
+\renewcommand{\coursenumber}{5}
+\setauthor{EDU}
+
+\def\coursecolor{charteViolet}
+
+\newcommand {\ubody}%
+{%---------------------------------------------------
+%$BEGIN_UBODY
+\part{Introduction}
+	\chapter{SECOPS}
+		\input{../Latex/Sources/EDU/SRC2/Includes/CDEF-Chapitre5o.tex}
+\part{les 3 processus clefs}
+	\chapter{Vulnérabilités}
+		\input{../Latex/Sources/EDU/SRC2/Includes/CDEF-Chapitre5a.tex}
+	\chapter{Menaces (Threats)}
+		\input{../Latex/Sources/EDU/SRC2/Includes/CDEF-Chapitre5b.tex}
+	\chapter{Incidents}
+		\input{../Latex/Sources/EDU/SRC2/Includes/CDEF-Chapitre5c.tex}
+%$END_UBODY
+}%---------------------------------------------------
+
+\umainload

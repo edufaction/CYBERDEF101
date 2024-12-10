@@ -1,5 +1,7 @@
 %\section{Modèles de sécurité et technologies de sécurité protectrices}
+
 \section{Introduction}
+
 Les architectures et composants de sécurité périmétrique ont beaucoup évolué depuis le modèle du château-fort à la fin du 20ème siècle jusqu'à de nos jours les architectures Cloud \& Multi-Cloud sécurisées.
 
 Ce chapitre présente cette évolution et les différents composants centraux et clés de ces architectures comme les pare-feux, les Proxy, les sondes de détection ainsi que les nouveaux modèles dits de Zerotrust ou basés sur des bastions de sécurité.
@@ -24,6 +26,7 @@ Depuis le modèle du château fort jusqu'aux solutions de sécurité utilisées 
 }}
 %End FRAME------------------------------
 
+
 %Begin PICFRAME------------------------
 \mode<all>{\picframe
 %- - - - - - - - - - - - - - - - - - - - - - - - 
@@ -40,7 +43,7 @@ Il propose une méthode de protection des réseaux et des accès aux différents
 
 Voir ci-dessous un schéma (\ref{Château fort}) représentant une architecture de type château fort.
 
-Ce modêle de conception d'architecture va permettre de contrôler les accès aux réseaux de l'entreprise et de cloisonner entre différentes zones, ou DMZ \footnote{définition et précisions de l'ANSSI : https://www.ssi.gouv.fr/uploads/2012/01/anssi-guide-passerelle_internet_securisee-v2.pdf} qui auront des fonctions de sécurité distinctes:
+Ce modèle de conception d'architecture va permettre de contrôler les accès aux réseaux de l'entreprise et de cloisonner entre différentes zones, ou DMZ \footnote{définition et précisions de l'ANSSI : \url{https://www.ssi.gouv.fr/uploads/2012/01/anssi-guide-passerelle_internet_securisee-v2.pdf}}qui auront des fonctions de sécurité distinctes:
 \begin{itemize}
     \item DMZ Publique ou Externe;
     \item Zone serveurs Intranet;
@@ -87,22 +90,22 @@ Celle-ci se représente par une matrice des flux contenant l'ensemble des inform
 Le pare feu consulte sa politique de sécurité, i.e. ses règles de filtrage afin de déterminer s'il doit bloquer, ou non, chaque flux qui entre ou qui sort.
 
 Voir ci-dessous un exemple de matrice de flux : 
-\begin{enumerate}
+\begin{itemize}
     \item autorisant les postes internes à consulter le site Wiki;
     \item autorisant les flux depuis Internet vers le serveur SMTP (transfert de mails) de l'entreprise avec une translation d'adresse sélectionnée;
     \item bloquant tout autre type de flux.
-\end{enumerate}
+\end{itemize}
 
 \begin{center}
 \begin{tabular}{||c c c c c c c ||} 
  \hline
  ID & Source & Destination & Protocoles & Option & Décision & Log \\ [0.5ex] 
  \hline\hline
- 1 & LAN bureautique & @IP_Wiki_Interne & HTTPs & No_NAT & ACCEPT & Yes \\ 
+ 1 & LAN bureautique & IP_Wiki Interne & HTTPs & No NAT & ACCEPT & Yes \\ 
  \hline
- 2 & ANY & @IP_Publique_SMTP & SMTP & NAT & ACCEPT & Yes \\
+ 2 & ANY & IP Publique SMTP & SMTP & NAT & ACCEPT & Yes \\
  \hline
- 3 & ANY & ANY & ANY & No_NAT & DENY & No \\
+ 3 & ANY & ANY & ANY & No NAT & DENY & No \\
  \hline
 \end{tabular}
 \captionof{table}{Exemple de Matrice de flux}

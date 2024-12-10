@@ -1,0 +1,35 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "TexFiles/Latex/Sources/EDU/SRC2/Includes"
+		},
+		{
+			"path": "TexFiles/Latex/Projects/CYBERDEF101/Lessons"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.activeBackground": "#444488",
+			"activityBar.background": "#444488",
+			"activityBar.foreground": "#e7e7e7",
+			"activityBar.inactiveForeground": "#e7e7e799",
+			"activityBarBadge.background": "#b56a6a",
+			"activityBarBadge.foreground": "#15202b",
+			"commandCenter.border": "#e7e7e799",
+			"sash.hoverBorder": "#444488",
+			"statusBar.background": "#333366",
+			"statusBar.foreground": "#e7e7e7",
+			"statusBarItem.hoverBackground": "#444488",
+			"statusBarItem.remoteBackground": "#333366",
+			"statusBarItem.remoteForeground": "#e7e7e7",
+			"titleBar.activeBackground": "#333366",
+			"titleBar.activeForeground": "#e7e7e7",
+			"titleBar.inactiveBackground": "#33336699",
+			"titleBar.inactiveForeground": "#e7e7e799"
+		},
+		"peacock.color": "#333366"
+	}
+}

@@ -170,7 +170,7 @@
 %	LIST CONTROL
 %----------------------------------------------------------------------  
 
-\RequirePackage{enumitem}
+%\RequirePackage{enumitem}
 %\setlist{nolistsep} % Uncomment to remove spacing between items in lists (itemize, itemize)
 
 %-----------------------------------------------

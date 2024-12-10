@@ -1,0 +1,75 @@
+%========================================
+% CONFIGURATION COURS CYBERDEF101
+% Chapitre 2 - Risques Numériques
+%========================================
+% 				CONTRIBUTIONS
+%========================================
+
+%************************************************************
+% Chargement des variables du modèle
+%************************************************************
+
+\input{../Latex/Projects/CYBERDEF101/Lessons/Commons/config-lesson.tex} 
+
+%************************************************************
+% Chargement des variables dédiées à l'article
+%************************************************************
+\lessonID{2}
+\setauthor{EDU}
+
+%========================================
+\newcommand {\ukeywords}
+%========================================
+{%---------------------------------------------------------------------
+Risques Numériques, Scénarios redoutés}%
+
+%========================================
+\newcommand {\utitle}
+{%---------------------------------------------------------------------
+Risques numériques
+}%---------------------------------------------------------------------
+
+%========================================
+\newcommand {\uabstract}
+{%---------------------------------------------------------------------
+C\edoc présente comment déterminer les évènements redoutés du client de la protection à la résilience par la connaissance et la compréhension des différents standards et méthodologies d'analyse de risques qui permettent d'intégrer la gestion des menaces et des risques dans les objectifs de sécurité
+.
+}
+%---------------------------------------------------------------------
+
+
+%************************************************************
+%  variable définissant  le corps de l'article
+%************************************************************
+
+%========================================
+\newcommand {\ubody}
+{%---------------------------------------------------------------------
+%$BEGIN_UBODY
+
+% a) Les risques liés au numérique (IOT, Cloud, IA...)
+\input{../Latex/Sources/EDU/SRC3/Chapters/chap-2a-les_risques.tex}
+% b) Définitions et référentiels de gestion des risques
+% c)Concepts clés: impacts, biens primordiaux, menaces, scénarios
+% d) Cadres normatifs: ISO 27005, EBIOAS, intégration dans le SMSI
+% e) Des risques aux objectifs de sécurité: risques résiduels, PDCA
+% f) Veille sécurité: CERT (Vulnérabilités, menaces), DarkWeb, IES, OSINT
+
+%$END_UBODY
+}%---------------------------------------------------------------------
+
+
+\newcommand {\ubodyquizz}
+{%---------------------------------------------------------------------
+\input{../Latex/Sources/EDU/SRC2/Quizz/quizz-1.tex}
+}%---------------------------------------------------------------------
+
+
+%************************************************************
+% Chargement  du MODELE
+%************************************************************
+
+\umainload
+
+
+

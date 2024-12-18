@@ -1,21 +1,15 @@
 \section{Security By Design}
 
-Le concept de \textbf{Security By Design} s'impose comme une approche fondamentale dans le développement de systèmes et d'applications sécurisés. Ce chapitre se penchera d'abord sur les principes clés de cette "philosophie", qui intègre la sécurité dès les premières étapes de conception, plutôt que de l'ajouter en fin de processus. Nous examinerons les éléments essentiels qui sous-tendent cette démarche proactive, tels que l'évaluation des risques, la minimisation des surfaces d'attaque et l'implémentation de contrôles de sécurité robustes.
+Le concept de \textbf{Security By Design} s'impose comme une approche fondamentale dans le développement de systèmes et d'applications sécurisés. Nous aborderons dans ce chapitre les principes clés de cette "philosophie", qui intègre la sécurité dès les premières étapes de conception, plutôt que de l'ajouter en fin de processus. Nous examinerons les éléments essentiels qui sous-tendent cette démarche proactive, tels que \textbf{l'évaluation des risques}, \textbf{la minimisation des surfaces d'attaque} et l'implémentation de \textbf{contrôles de sécurité robustes}.
 
-Dans un second temps, nous aborderons les méthodes de maintien en condition de sécurité, qui garantissent que les systèmes restent protégés tout au long de leur cycle de vie. Cela inclut des pratiques telles que la surveillance continue, les mises à jour régulières et les tests de sécurité, permettant ainsi d'adapter les mesures de protection face à l'évolution des menaces. 
+Dans un second temps, nous aborderons les méthodes de \textbf{maintien en condition de sécurité (MCS)}, qui garantissent que les systèmes restent protégés tout au long de leur cycle de vie. Cela inclut des pratiques telles que la \textbf{surveillance continue}, \textbf{les mises à jour régulières} et \textbf{les audits de sécurité}, permettant ainsi d'adapter les mesures de protection face à l'évolution des menaces. 
 
 En intégrant ces deux volets, ce chapitre vise à fournir une compréhension complète du Security By Design et de son rôle crucial dans la sécurité des projets.
-
-\begin{itemize}
-    \item ...
-    \item ...
-    \item ...
-\end{itemize}
 
 \subsection{Concepts et principes}
 
 Ce chapitre se penchera d'abord sur les principes clés du security by design. Parmi ceux-ci, l'évaluation des risques joue un rôle central. 
-Cette activité implique d'identifier les vulnérabilités potentielles et d'analyser les impacts possibles sur les systèmes et les données. Une évaluation rigoureuse permet de prioriser les efforts de sécurité en fonction des menaces les plus critiques.
+Cette activité implique d'identifier les vulnérabilités potentielles et d'analyser les impacts possibles sur les systèmes et les données. Une évaluation rigoureuse permet de prioriser les efforts de sécurité en fonction des menaces les plus critiques (cf. chapitre 4.1 pour plus de détails sur les diffréntes méthodes d'analyse de risques).
 
 Ensuite, la minimisation des surfaces d'attaque qui consiste à réduire le nombre de points d'entrée potentiels pour les attaquants, en limitant les fonctionnalités non essentielles et en appliquant le principe du moindre privilège. En restreignant l'accès aux ressources et en désactivant les services inutilisés, les organisations peuvent considérablement diminuer leur exposition aux cyberattaques. Nous reverrons ce sujet dans le chapitre suivant sur le durcissement.
 
@@ -28,15 +22,15 @@ Nous verrons par la suite les méthodes de surveillance continue, d'application 
 
 \subsubsection{Surveillance Continue}
 
-La surveillance continue est une méthode clé pour détecter et répondre rapidement aux incidents de sécurité. Cela implique l'utilisation de systèmes de détection d'intrusion (IDS) et de solutions de gestion des informations et des événements de sécurité (SIEM). Par exemple, une entreprise peut déployer un SIEM pour collecter, analyser et corréler les journaux d'activité de ses serveurs et applications. En surveillant ces données en temps réel, l'organisation peut identifier des comportements anormaux, tels que des tentatives de connexion suspectes ou d'exfiltration de données, et réagir rapidement pour atténuer les risques et dommages.
+La surveillance continue est une méthode et une activité clé pour détecter et répondre rapidement aux incidents de sécurité. Cela implique l'utilisation par exemple de systèmes de détection d'intrusion (IDS) (cf. chapitre 3.3) et de solutions de gestion des informations et de corrélation des événements de sécurité (SIEM). Par exemple, une entreprise peut déployer un SIEM pour collecter, analyser et corréler les journaux d'activité de ses serveurs et applications. En surveillant ces données en temps réel, l'organisation peut identifier des comportements anormaux, tels que des tentatives de connexion suspectes ou d'exfiltration de données, et réagir rapidement pour atténuer les risques et dommages en isolant des serveurs ou en coupant des flux au niveau des pare feux par exemple.
 
 \subsubsection{Mises à Jour Régulières}
 
-Les mises à jour régulières des logiciels et des systèmes sont cruciales pour maintenir la sécurité. Les vulnérabilités découvertes dans les logiciels doivent être corrigées par des mises à jour de sécurité fournies par les éditeurs. Par exemple, un système d'exploitation peut recevoir des correctifs mensuels pour combler des failles de sécurité. Ignorer ces mises à jour expose les systèmes à des attaques exploitant ces vulnérabilités. Ainsi, établir un processus de gestion des correctifs, qui inclut l'évaluation et l'application rapide des mises à jour, est essentiel pour protéger les environnements numériques.
+Les mises à jour régulières des logiciels et des systèmes sont cruciales pour maintenir leur sécurité. Les vulnérabilités découvertes dans les logiciels doivent être corrigées par des mises à jour fournies par les éditeurs. Par exemple, un système d'exploitation peut recevoir des correctifs mensuels pour combler des failles de sécurité. Ignorer ces mises à jour expose les systèmes à des attaques exploitant ces vulnérabilités. Ainsi, établir un processus de gestion des correctifs, qui inclut l'évaluation et l'application rapide et régulière des mises à jour, est essentiel pour protéger les environnements numériques.
 
 \subsubsection{Audits de Sécurité}
 
-Les audits de sécurité, tels que les tests d'intrusion et les évaluations de vulnérabilité, sont également des pratiques importantes pour maintenir la sécurité. Par exemple, une entreprise peut engager des experts en sécurité pour réaliser des tests d'intrusion sur son système d'information. Ces tests simulent des attaques réelles afin d'identifier les failles de sécurité avant qu'elles ne soient exploitées par des attaquants. De plus, des évaluations régulières des vulnérabilités permettent de détecter les points faibles et d'appliquer des mesures correctives.
+Les audits de sécurité, tels que les tests d'intrusion et les évaluations de vulnérabilité, sont également des pratiques importantes pour maintenir la sécurité. Par exemple, une entreprise peut engager des experts en sécurité pour réaliser des tests d'intrusion sur son système d'information. Ces tests simulent des attaques réelles afin d'identifier les failles de sécurité avant qu'elles ne soient exploitées par des attaquants. De plus, des évaluations régulières des vulnérabilités permettent de détecter les points faibles et d'appliquer des mesures correctives. Les rapports de ces tests permettent aux propriétaires et acteurs du système de consolider et maintenir la sécurité de leur produit. Ces tests peuvent être faits au plus tôt dans la phase de conception mais aussi (et surtout!) tout au long de la vie du système.
 
 \subsubsection{Formation et Sensibilisation}
 
@@ -52,9 +46,18 @@ Enfin, la formation et la sensibilisation des employés jouent un rôle crucial 
 %begin slide- - - - - - - - - - - - - - - - - 
 
 \begin{itemize}
-    \item Ingénierie : missions
-    \item Opération : missions
-    \item Pilotage : missions
+    \item Concepts et principes
+        \begin{itemize}
+            \item évaluation des risques
+            \item minimisation des surfaces d'attaque
+            \item contrôles de sécurité
+        \end{itemize}
+    \item MCS (Maintien en Condition de Sécurité)
+        \begin{itemize}
+            \item surveillance continue
+            \item mises à jour 
+            \item audits de sécurité
+        \end{itemize}
 \end{itemize}
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}

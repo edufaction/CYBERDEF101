@@ -1,22 +1,47 @@
 \section{Règles techniques de sécurisation : durcissement}
 
-Les actions de durcissement, en anglais hardening, consistent à améliorer le niveau de sécurité des systèmes via des actions de configuration, choix techniques et process.
+Les actions de durcissement, en anglais \textbf{hardening}, consistent à améliorer le niveau de sécurité des systèmes via des actions de configuration, choix techniques et process.
 
-Le durcissement s'inscrit naturellement dans le process de conception securisée par défaut, security by design en anglais. Il est tout aussi important que le maintien en condition opérationnelle et sécurisé et peut réduire significativement les risques cyber.
+Le durcissement s'inscrit naturellement dans le process de conception securisée par défaut décrit dans le chapitre précédent. Il est tout aussi important que le maintien en condition opérationnelle et sécurisé et peut réduire significativement les risques cyber.
 
 \subsection{IAM} 
 (PKI, MFA, journalisation, contrôles)
 
 Pourquoi déployer une infrastructure de gestion de clés?
+
+La mise en place d'une infrastructure de gestion de clés (PKI) est essentielle pour garantir la sécurité des communications et des transactions numériques. En intégrant des mécanismes tels que l'authentification à facteurs multiples (MFA), les organisations renforcent la protection des accès en exigeant plusieurs preuves d'identité. Cette méthode utilise le principe de coupler un élément que l'on possède (carte ou donc ici une clé PKI par exemple) et que l'on connait (mot de passe, ou réponse à une question).
+
+De plus, la journalisation des activités permet de suivre et d'analyser les accès et les modifications, assurant ainsi un suivi et une traçabilité indispensable en cas d'incident. 
+
+Enfin, l'implémentation de contrôles permet de gérer efficacement les clés cryptographiques, de la création jusqu'à la destruction, réduisant ainsi les risques de compromission et assurant la confidentialité et l'intégrité des données.
+
 Voir au chapitre 3 les principes cryptographiques et fonctionnalités des IGC (PKI).
 
-\subsection{Systèmes d'exploitation}
-Hardening UNIX/WINDOWS kesako?
-ACL, admin dédié, supervision et administration via réseau chiffré, tout doit être loggé ! Exclusion services inutiles
-80 443 principe qui se décline sur toutes les applis
+\subsection{Systèmes d'exploitation et applications}
+% Hardening UNIX/WINDOWS kesako?
+% ACL, admin dédié, supervision et administration via réseau chiffré, tout doit être loggé ! Exclusion services inutiles
+% 80 443 principe qui se décline sur toutes les applis
+
+Les systèmes d'exploitation Windows, Linux et même MacOS sont des cibles privilégiées par les attaquants. Il est donc important qu'ils soient configurés afin d'être le moins possible vulnérable à des attaques. Le Center for Internet Security (CIS) propose des configurations types pour chaque système et il est recommandé de les appliquer. Ces recommandations et configurations sont appelés "durcissement des systèmes d'exploitation" car le but est bien de renforcer la sécurité.
+
+Par exemple, pour les environnements UNIX/Linux, l'activation de SeLinux est recommandée, tandis que pour Windows, l'utilisation de stratégies de groupe (GPO) et d'AppLocker est conseillée. En ce qui concerne les applications, il est important de ne pas afficher publiquement la version utilisée et d'appliquer des règles de conception visant à protéger les données confidentielles.
+
+L'administration des réseaux et des systèmes doit également suivre des pratiques de mises en oeuvre sécurisées, telles que l'utilisation de listes de contrôle d'accès (ACL) afin de limiter les accès aux réseaux et utilisateurs spécifiques. Il est conseillé de séparer le réseau d'administration des autres réseaux de l'entreprise et de réaliser la supervision via un réseau chiffré, en utilisant des protocoles sécurisés comme SNMPv3 et SSH. De plus, il est essentiel de remplacer les mots de passe par défaut par des mots de passe forts et de les stocker dans une base de données sécurisée (coffre fort numérique).
+
+Sur tous les systèmes, OS, application ou même réseaux, il convient d'exclure les services inutiles, en faisant attention aux serveurs web qui peuvent être activés par défaut. La conservation des journaux d'événements est primordiale pour permettre une investigation efficace en cas de problème. Enfin, il est recommandé de privilégier les protocoles sécurisés, tels que HTTPS, SMTPS et IMAPS, et d'utiliser des certificats valides pour garantir la sécurité des communications.
+
+
 \subsection{Hardware (HSM), DC}
-Chiffrement, zone hardware dédiée (mémoire, voire carte dédiée), 
-DC : salles, controles d’accès, caméras, vigiles, etc.
+% Chiffrement, zone hardware dédiée (mémoire, voire carte dédiée), 
+% DC : salles, controles d’accès, caméras, vigiles, etc.
+
+% Le durcissement et la sécurisation du matériel sont des éléments essentiels pour protéger les infrastructures informatiques. L'une des premières mesures à envisager est le chiffrement des données, qui permet de garantir la confidentialité et l'intégrité des informations sensibles, même en cas de compromission physique.
+
+% Il est également recommandé de créer des zones matérielles dédiées, telles que des mémoires sécurisées ou des cartes dédiées, pour stocker des données critiques et des clés de chiffrement. Cela limite l'accès aux informations sensibles et réduit les risques d'exposition.
+
+% Dans les centres de données, la sécurité physique joue un rôle primordial. Il est crucial de mettre en place des salles sécurisées, accompagnées de contrôles d'accès rigoureux pour restreindre l'entrée aux personnes autorisées uniquement. L'utilisation de caméras de surveillance et la présence de vigiles renforcent encore la sécurité, permettant de surveiller en temps réel les activités et de réagir rapidement en cas d'incident. Ces mesures combinées contribuent à créer un environnement sécurisé, essentiel pour la protection des actifs matériels et des données.
+
+
 \subsection{Réseaux}
 VPN, chiffrement
 
@@ -120,7 +145,7 @@ Ref : documents édités par le CIS (Center for Internet Security)
 {
 %begin slide- - - - - - - - - - - - - - - - - 
 \begin{itemize}
-    \item \#CIS, \#ACL
+    \item \#PKI, \#CIS, \#ACL
     \item \#hardening, \#HSM, 
 \end{itemize}
 %end slide- - - - - - - - - - - - - - - - - - - 

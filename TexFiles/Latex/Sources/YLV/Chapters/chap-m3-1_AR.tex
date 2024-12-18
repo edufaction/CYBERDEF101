@@ -1,8 +1,9 @@
 \section{De l’analyse de risques aux fonctions de sécurité}
-Via exemples de traitement des risques 
 
-Nous explorerons dans ce chapitre l'utilisation des plans de traitement des risques comme fondement pour définir et mettre en œuvre des fonctions de sécurité essentielles, telles que le filtrage, le contrôle d'accès basé sur les rôles (RBAC) et la cryptographie. 
-En intégrant une approche systématique de la gestion des risques, les organisations peuvent non seulement identifier et évaluer les menaces potentielles, mais aussi prioriser les mesures de sécurité en fonction de leur impact et de leur probabilité. 
+Nous explorerons dans ce chapitre l'utilisation des plans de traitement des risques comme fondement pour définir et mettre en œuvre des fonctions de sécurité essentielles, telles que le filtrage, le contrôle d'accès basé sur les rôles (RBAC) et la cryptographie.
+
+En intégrant une approche systématique de la gestion des risques, les organisations peuvent non seulement identifier et évaluer les menaces potentielles, mais aussi prioriser les mesures de sécurité en fonction de leur impact et de leur probabilité.
+
 Ainsi, ce chapitre mettra en lumière les synergies entre la gestion des risques et les fonctions de sécurité, offrant un cadre pour une protection robuste et proactive des actifs du système d'information.
 
 %Begin FRAME----------------------------
@@ -24,13 +25,15 @@ Ainsi, ce chapitre mettra en lumière les synergies entre la gestion des risques
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}
 %End FRAME------------------------------
-\subsection{Filtrage}
+\subsection{Filtrage et cloisonnement}
 
 Afin de réduire les risques liés à la perte, l'intégrité ou la disponibilité des données de production, il est conseillé de cloisonner le système d'information et le réseau et donc de séparer les environnements de production, tests, pré-production et développement.
 
 La notion de cloisonnement est aussi indispensable dans les cas d'hébergement et fourniture de services auprès de plusieurs clients. En effet, il est primordial d'assurer l'étanchéité et la confidentialité des données de chaque client. Le terme utilisé est celui de Multitenant et peut décrire le cas d'une solution ou application proposée et vendue à plusieurs clients ou entités.
 
 Les services, utilisateurs ou zones d'exploitations spécifiques doivent être isolées entre elles. De plus, tout flux entre les différentes zones d'utilisateurs ou services doivent être contrôlés afin d'éviter les compromissions de données de production par celles de tests par exemple.
+
+Le filtrage permet de protéger le système contre les menaces en bloquant les accès non autorisés et en prévenant les attaques. Il aide également à contrôler les types de données qui peuvent entrer ou sortir du système, réduisant ainsi le risque de fuites d'informations sensibles. Enfin, les dernières solutions de filtrage permettent de détecter les comportements suspects et les anomalies dans le trafic, facilitant ainsi la détection des incidents de sécurité.
 
 Nous verrons dans le chapitre 3.3 les solutions techniques pour assurer ce cloisonnement et ce filtrage.
 

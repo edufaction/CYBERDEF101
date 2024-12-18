@@ -16,17 +16,51 @@ Les architectures logicielles sont généralement composées des composants suiv
 \end{itemize}
 
 \subsection{Middleware}
-Les composants dits middleware sont de type : 
+
+Les applications appelés Middleware permettent la communication et la gestion des données entre différentes applications ou services au sein d'un système informatique. 
+Un Middleware agit comme une couche de liaison facilitant l'interaction entre les composants logiciels et offre divers services tels que la messagerie, la gestion des transactions, l'authentification, et la gestion des API.
+Les Middleware peuvent être de type différents : 
 \begin{itemize}
-    \item Bases de données;
-    \item ERP;
-    \item Annuaires 
+    \item Bases de données : l'ANSSI définit les bases de données comme des ensembles structurés et organisés de données, généralement stockés et accessibles électroniquement à partir d'un système informatique. Elles permettent de stocker, gérer et récupérer des informations de manière efficace et sécurisée. Les bases de données sont cruciales pour le fonctionnement des systèmes d'information, car elles centralisent les données nécessaires aux applications et aux utilisateurs, tout en assurant leur intégrité, leur disponibilité et leur confidentialité.
+    \item ERP : un ERP (Enterprise Resource Planning) est un logiciel de gestion intégré qui permet de centraliser et de gérer l'ensemble des processus opérationnels d'une entreprise. Il couvre généralement plusieurs fonctions clés telles que la gestion des finances, des ressources humaines, des achats, des ventes, de la production, et de la gestion des stocks. L'objectif principal d'un ERP est d'améliorer l'efficacité et la coordination des différentes activités de l'entreprise en fournissant une vue unifiée et en temps réel des données et des processus.
+    \item Annuaires : Un annuaire d'entreprise est un système centralisé qui stocke et gère les informations sur les utilisateurs, les ressources et les services d'une organisation.
 \end{itemize}
 
 \subsection{Endpoints}
 (PC, mobile, IoT)
+
+Les terminaux ou endpoints sont des dispositifs connectés à un réseau informatique. Cela peut être des ordinateurs, des smartphones, des tablettes, des serveurs, ou tout autre appareil capable de communiquer avec le réseau, IOT par exemple. Les endpoints sont souvent des points d'entrée potentiels pour les cyberattaques, et leur sécurisation est donc cruciale pour protéger les systèmes d'information.
+
 \subsection{Réseau}
 accès et traçabilité de tt accès, transactions et anomalies (bugs, erreurs, détection)
+
+Les équipements réseau constituent l'épine dorsale d'un système d'information et assurent plusieurs fonctions essentielles comme la connectivité, la sécurité, le controle d'accès et la supervision.
+
+La connectivité est assurée principalement par les commutateurs (switches) qui gèrent les connexions locales, et les routeurs qui permettent l'interconnexion entre différents réseaux. Ces équipements garantissent la transmission efficace des données.
+
+La sécurité assurée par les équipements réseau est mise en œuvre via plusieurs dispositifs :
+\begin{itemize}
+    \item les pare-feux filtrent le trafic selon des règles définies (voir chapitreX pour plus de détails);
+    \item les systèmes IPS/IDS détectent et préviennent les intrusions (voir chapitreX pour plus de détails);
+    \item les concentrateurs VPN sécurisent les connexions distantes (voir chapitreX pour plus de détails).
+\end{itemize}
+
+Le contrôle d'accès est géré par :
+\begin{itemize}
+    \item les points d'accès WiFi pour la mobilité;
+    \item les solutions d'authentification (802.1X, portail captif);
+    \item la segmentation en VLAN pour isoler les flux.
+\end{itemize}
+
+La supervision, via la remontée des bugs, erreurs ou anomalies, permet de :
+\begin{itemize}
+    \item surveiller les performances du réseau;
+    \item détecter les anomalies;
+    \item générer des alertes;
+    \item maintenir la disponibilité optimale du SI.
+\end{itemize}
+
+Ces fonctions sont interdépendantes et leur bonne implémentation et support sont cruciales pour un SI performant et sécurisé.
 
 %Begin FRAME----------------------------
 \mode<presentation>{\texframe

@@ -1,12 +1,42 @@
 \section{Organisation de la sécurité dans les projets}
-ingénierie, opération, pilotage
-Schéma relations entre les différentes équipes
+%ingénierie, opération, pilotage
+%Schéma relations entre les différentes équipes
+
+La sécurité dans les projets est un aspect essentiel qui diffère de la sécurité globale de l'entreprise. Alors que la sécurité de l'entreprise se concentre sur la protection des actifs, des données et des infrastructures à un niveau macro, la sécurité dans les projets se concentre sur l'intégration de mesures de sécurité tout au long du cycle de vie d'un projet. Cela nécessite une collaboration étroite entre plusieurs équipes, notamment l'ingénierie, les opérations et le pilotage.
+
+\subsection{Ingénierie}
+L'équipe d'ingénierie est responsable de la conception et du développement des solutions. Elle doit intégrer des pratiques de sécurité dès le début du processus de développement, en effectuant des analyses de risques, en appliquant des normes de codage sécurisé et en réalisant des tests de sécurité.
+
+Les Missions de ces équipes sont :
 \begin{itemize}
-    \item Ingénierie : missions
-    \item Opération : missions
-    \item Pilotage : missions
+    \item \textbf{Analyse des risques} : identifier les vulnérabilités potentielles dès la phase de conception;
+    \item \textbf{Normes de développement sécurisé} : appliquer des pratiques de développement qui minimisent les risques de sécurité;
+    \item \textbf{Tests de sécurité} : effectuer des tests et des revues de code pour détecter et corriger les failles de sécurité;
+    \item \textbf{Documentation} : créer une documentation détaillée des mesures de sécurité intégrées dans le projet.
 \end{itemize}
 
+\subsection{Opération}
+
+L'équipe des opérations gère l'implémentation et le déploiement des solutions. Elle doit s'assurer que les environnements de production sont sécurisés, en appliquant des mises à jour régulières et en surveillant les systèmes pour détecter toute activité suspecte.
+Les Missions de ces équipes sont :
+\begin{itemize}
+    \item \textbf{Gestion des environnements} : Assurer que les environnements de développement, de test et de production sont sécurisés;
+    \item \textbf{Mises à Jour et correctifs} : appliquer régulièrement les mises à jour de sécurité et les correctifs pour corriger les vulnérabilités;
+    \item \textbf{Surveillance} : mettre en place des systèmes de surveillance pour détecter toute activité suspecte ou non autorisée;
+    \item \textbf{Réponse aux incidents} : développer et exécuter des plans de réponse aux incidents pour minimiser l'impact des incidents de sécurité.
+\end{itemize}
+
+\subsection{Pilotage}
+
+L'équipe de pilotage supervise l'ensemble du projet et s'assure que les objectifs de sécurité sont respectés. Elle coordonne les efforts entre les équipes d'ingénierie et d'opérations, en établissant des indicateurs de performance et en réalisant des audits réguliers pour garantir la conformité aux politiques de sécurité.
+
+Les Missions de ces équipes sont :
+\begin{itemize}
+    \item \textbf{Coordination} : faciliter la communication et la collaboration entre les équipes d'ingénierie et des opérations;
+    \item \textbf{Indicateurs de performance} : établir des key performance indicator (KPI) pour mesurer l'efficacité des mesures de sécurité;
+    \item \textbf{Audits} : réaliser des audits réguliers pour garantir la conformité aux politiques de sécurité;
+    \item \textbf{Formation et sensibilisation} : organiser des sessions de formation pour sensibiliser les équipes aux meilleures pratiques en matière de sécurité.
+\end{itemize}
 
 %Begin FRAME----------------------------
 \mode<presentation>{\texframe
@@ -16,11 +46,69 @@ Schéma relations entre les différentes équipes
 {Missions des équipes} % sous titre de la diapo
 {
 %begin slide- - - - - - - - - - - - - - - - - 
+Quelles sont les missions des équipes sécurité ?
+\begin{itemize}
+    \item Ingénierie
+    \item Opération
+    \item Pilotage
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Equipe Ingénierie} % titre de la diapo
+{Missions des équipes ingénierie} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
 
 \begin{itemize}
-    \item Ingénierie : missions
-    \item Opération : missions
-    \item Pilotage : missions
+    \item \textbf{Analyse des risques}
+    \item \textbf{Normes de développement sécurisé}
+    \item \textbf{Tests de sécurité}
+    \item \textbf{Documentation}
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Equipe Opération} % titre de la diapo
+{Missions des équipes opération} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+
+\begin{itemize}
+    \item \textbf{Gestion des environnements}
+    \item \textbf{Mises à jour et correctifs}
+    \item \textbf{Surveillance}
+    \item \textbf{Réponse aux incidents}
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Equipe Pilotage} % titre de la diapo
+{Missions des équipes pilotage} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+
+\begin{itemize}
+    \item \textbf{Coordination}
+    \item \textbf{Indicateurs de performance}
+    \item \textbf{Audits}
+    \item \textbf{Formation et sensibilisation}
 \end{itemize}
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}
@@ -35,8 +123,8 @@ Schéma relations entre les différentes équipes
 {
 %begin slide- - - - - - - - - - - - - - - - - 
 \begin{itemize}
-    \item
-    \item
+    \item \#Ingénierie, \#opération, \#pilotage
+    \item \#OrganisationSécurité
 \end{itemize}
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}

@@ -2,14 +2,18 @@
 
 Les actions de durcissement, en anglais \textbf{hardening}, consistent à améliorer le niveau de sécurité des systèmes via des actions de configuration, choix techniques et process.
 
-Le durcissement s'inscrit naturellement dans le process de conception securisée par défaut décrit dans le chapitre précédent. Il est tout aussi important que le maintien en condition opérationnelle et sécurisé et peut réduire significativement les risques cyber.
+Le durcissement s'inscrit naturellement dans le process de conception securisée par défaut décrit dans le chapitre précédent. Il est tout aussi important que le maintien en condition opérationnelle et sécurisée et peut réduire significativement les risques cyber (ce qui est bien évidemment le but final).
 
-\subsection{IAM} 
-(PKI, MFA, journalisation, contrôles)
+Ce chapitre décrit les différentes techniques de sécurisation appliquées à la gestion des droits et accès, les systèmes d'exploitation et applications, le matériel (batiments équipements) et et enfin les réseaux.
+La liste des exemples présentées n'est pas exhaustives et bien évidemment évolutive en fonction des avancées technologiques et des besoins de sécurisation qui peuvent évoluer dans le temps.
+
+\subsection{Sécurisation des droits et accès} 
+%(PKI, MFA, journalisation, contrôles)
 
 Pourquoi déployer une infrastructure de gestion de clés?
 
-La mise en place d'une infrastructure de gestion de clés (PKI) est essentielle pour garantir la sécurité des communications et des transactions numériques. En intégrant des mécanismes tels que l'authentification à facteurs multiples (MFA), les organisations renforcent la protection des accès en exigeant plusieurs preuves d'identité. Cette méthode utilise le principe de coupler un élément que l'on possède (carte ou donc ici une clé PKI par exemple) et que l'on connait (mot de passe, ou réponse à une question).
+La mise en place d'une infrastructure de gestion de clés (IGC), ou Public Key Infrastructure (PKI) en anglais, est essentielle pour garantir la sécurité des communications et des transactions numériques. En intégrant des mécanismes tels que l'authentification à facteurs multiples (MFA), les organisations renforcent la protection des accès en exigeant plusieurs preuves d'identité. Cette méthode utilise le principe de coupler un élément que l'on possède (carte ou donc ici une clé PKI par exemple) et que l'on connait (mot de passe, ou réponse à une question).
+L'ANSSI définit dans son cyberdico la PKI\footnote{PKI: https://cyber.gouv.fr/le-cyberdico#P} comme un "Ensemble organisé de composantes fournissant des services de gestion des clés cryptographiques et des certificats de clés publiques au profit d’une communauté d’utilisateurs". 
 
 De plus, la journalisation des activités permet de suivre et d'analyser les accès et les modifications, assurant ainsi un suivi et une traçabilité indispensable en cas d'incident. 
 
@@ -31,20 +35,28 @@ L'administration des réseaux et des systèmes doit également suivre des pratiq
 Sur tous les systèmes, OS, application ou même réseaux, il convient d'exclure les services inutiles, en faisant attention aux serveurs web qui peuvent être activés par défaut. La conservation des journaux d'événements est primordiale pour permettre une investigation efficace en cas de problème. Enfin, il est recommandé de privilégier les protocoles sécurisés, tels que HTTPS, SMTPS et IMAPS, et d'utiliser des certificats valides pour garantir la sécurité des communications.
 
 
-\subsection{Hardware (HSM), DC}
+\subsection{Hardware (HSM), Datacenter}
 % Chiffrement, zone hardware dédiée (mémoire, voire carte dédiée), 
 % DC : salles, controles d’accès, caméras, vigiles, etc.
 
-% Le durcissement et la sécurisation du matériel sont des éléments essentiels pour protéger les infrastructures informatiques. L'une des premières mesures à envisager est le chiffrement des données, qui permet de garantir la confidentialité et l'intégrité des informations sensibles, même en cas de compromission physique.
+Le durcissement et la sécurisation du matériel sont des éléments essentiels pour protéger les infrastructures informatiques. L'une des premières mesures à envisager est le chiffrement des données, qui permet de garantir la confidentialité et l'intégrité des informations sensibles, même en cas de compromission physique.
 
-% Il est également recommandé de créer des zones matérielles dédiées, telles que des mémoires sécurisées ou des cartes dédiées, pour stocker des données critiques et des clés de chiffrement. Cela limite l'accès aux informations sensibles et réduit les risques d'exposition.
+Les modules de sécurité matériels (HSM - Hardware Security Module) représentent une solution robuste pour la protection des secrets cryptographiques et des données sensibles. Ces dispositifs physiques, conçus avec des mécanismes anti-effraction, offrent un environnement hautement sécurisé pour le stockage et la gestion des clés cryptographiques, des certificats numériques et autres secrets. Les HSM assurent non seulement la protection physique des données, mais effectuent également les opérations cryptographiques critiques directement dans leur environnement sécurisé, évitant ainsi l'exposition des clés dans la mémoire du système hôte. Ils sont particulièrement utilisés dans les infrastructures à clés publiques (PKI) décrits dans le premier paragraphe de ce chapitre, les systèmes de paiement et les environnements nécessitant une conformité réglementaire stricte. Les HSM intègrent des mécanismes de contrôle d'accès, de journalisation des opérations et de sauvegarde sécurisée, garantissant ainsi l'intégrité et la disponibilité des secrets tout au long de leur cycle de vie.
 
-% Dans les centres de données, la sécurité physique joue un rôle primordial. Il est crucial de mettre en place des salles sécurisées, accompagnées de contrôles d'accès rigoureux pour restreindre l'entrée aux personnes autorisées uniquement. L'utilisation de caméras de surveillance et la présence de vigiles renforcent encore la sécurité, permettant de surveiller en temps réel les activités et de réagir rapidement en cas d'incident. Ces mesures combinées contribuent à créer un environnement sécurisé, essentiel pour la protection des actifs matériels et des données.
+Il est également recommandé de créer des zones matérielles dédiées, telles que des mémoires sécurisées ou des cartes dédiées, pour stocker des données critiques et des clés de chiffrement. Cela limite l'accès aux informations sensibles et réduit les risques d'exposition.
 
+Les centres de données ou Datacenter en anglais, sont des batiments dédiés à l'hébergement de serveurs informatiques. Leur fonction impose naturellement un contrôle d'accès afin de restreindre l'entrée aux personnes autorisées uniquement. Leur sécurisation peut être assurée par l'utilisation de caméras de surveillance et la présence de vigiles qui assureront la surveillance en temps réel des activités afin de réagir rapidement en cas d'incident.
 
-\subsection{Réseaux}
-VPN, chiffrement
+\subsection{Sécurisation des réseaux}
+%VPN, chiffrement
 
+La sécurisation et le durcissement des réseaux informatiques nécessitent une approche multicouche intégrant plusieurs niveaux de protection. Comme décrit dans le 3ème chapitre, la protection périmétrique constitue la première ligne de défense, s'appuyant sur des pare-feu nouvelle génération (NGFW) couplés à des systèmes de détection et de prévention d'intrusion (IDS/IPS).
+
+Les réseaux de transit, particulièrement vulnérables aux attaques, requièrent une attention spécifique avec le déploiement de protocoles de chiffrement robustes comme TLS 1.3 et AES-256 (versions de en 2023-2024, ces protocoles évoluent et leur choix doit être en adéquation du besoin de la version disponible). La segmentation réseau, via l'utilisation de VLAN et de zones DMZ, ainsi que le filtrage du trafic par des listes de contrôle d'accès (ACL), renforcent cette protection.
+
+Pour sécuriser les connexions distantes, les VPN intègrent une authentification forte reposant sur des certificats et l'authentification multifacteur (MFA), des tunnels IPsec ou SSL/TLS (cf. chapitre 3 également), ainsi qu'un chiffrement de bout en bout des communications.
+
+Comme explicité et décrit plus précisement dans le chapitre X, les réseaux doivent être supervisés via un dispositif de monitoring continu assuré par des SIEM et des SOC, permettant la détection des anomalies et incidents.
 
 %Begin FRAME----------------------------
 \mode<presentation>{\texframe
@@ -55,10 +67,10 @@ VPN, chiffrement
 {
 %begin slide- - - - - - - - - - - - - - - - - 
  \begin{enumerate}
-     \item IAM
-     \item Systèmes d'exploitation
-     \item Matériel et Locaux (Data Center)
-     \item Réseaux : VPN, chiffrement
+     \item IAM : PKI, MFA, journalisation, contrôles
+     \item Systèmes d'exploitation et application
+     \item Matériel (HSM) et locaux (Data Center)
+     \item Réseaux : VPN, chiffrement, supervision
  \end{enumerate}
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}
@@ -129,7 +141,8 @@ Ref : documents édités par le CIS (Center for Internet Security)
 %begin slide- - - - - - - - - - - - - - - - - 
  \begin{itemize}
     \item Chiffrement, zone hardware dédiée (mémoire, voire carte dédiée)
-    \item DC : salles, contrôles d’accès, caméras, vigiles
+    \item HSM
+    \item Datacenter : salles, contrôles d’accès, caméras, vigiles
 \end{itemize}
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}
@@ -146,7 +159,7 @@ Ref : documents édités par le CIS (Center for Internet Security)
 %begin slide- - - - - - - - - - - - - - - - - 
 \begin{itemize}
     \item \#PKI, \#CIS, \#ACL
-    \item \#hardening, \#HSM, 
+    \item \#hardening, \#HSM
 \end{itemize}
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}

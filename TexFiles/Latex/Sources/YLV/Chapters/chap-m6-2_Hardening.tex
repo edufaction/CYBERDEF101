@@ -4,7 +4,7 @@ Les actions de durcissement, en anglais \textbf{hardening}, consistent à améli
 
 Le durcissement s'inscrit naturellement dans le process de conception securisée par défaut décrit dans le chapitre précédent. Il est tout aussi important que le maintien en condition opérationnelle et sécurisée et peut réduire significativement les risques cyber (ce qui est bien évidemment le but final).
 
-Ce chapitre décrit les différentes techniques de sécurisation appliquées à la gestion des droits et accès, les systèmes d'exploitation et applications, le matériel (batiments équipements) et et enfin les réseaux.
+Ce chapitre décrit les différentes techniques de sécurisation appliquées à la gestion des droits et accès, les systèmes d'exploitation et applications, le matériel (batiments, équipements) et enfin les réseaux.
 La liste des exemples présentées n'est pas exhaustives et bien évidemment évolutive en fonction des avancées technologiques et des besoins de sécurisation qui peuvent évoluer dans le temps.
 
 \subsection{Sécurisation des droits et accès} 
@@ -13,7 +13,7 @@ La liste des exemples présentées n'est pas exhaustives et bien évidemment év
 Pourquoi déployer une infrastructure de gestion de clés?
 
 La mise en place d'une infrastructure de gestion de clés (IGC), ou Public Key Infrastructure (PKI) en anglais, est essentielle pour garantir la sécurité des communications et des transactions numériques. En intégrant des mécanismes tels que l'authentification à facteurs multiples (MFA), les organisations renforcent la protection des accès en exigeant plusieurs preuves d'identité. Cette méthode utilise le principe de coupler un élément que l'on possède (carte ou donc ici une clé PKI par exemple) et que l'on connait (mot de passe, ou réponse à une question).
-L'ANSSI définit dans son cyberdico la PKI\footnote{PKI: https://cyber.gouv.fr/le-cyberdico#P} comme un "Ensemble organisé de composantes fournissant des services de gestion des clés cryptographiques et des certificats de clés publiques au profit d’une communauté d’utilisateurs". 
+L'ANSSI définit dans son cyberdico la PKI\footnote{PKI: https://cyber.gouv.fr/le-cyberdico\#P} comme un "Ensemble organisé de composantes fournissant des services de gestion des clés cryptographiques et des certificats de clés publiques au profit d’une communauté d’utilisateurs". 
 
 De plus, la journalisation des activités permet de suivre et d'analyser les accès et les modifications, assurant ainsi un suivi et une traçabilité indispensable en cas d'incident. 
 
@@ -28,7 +28,9 @@ Voir au chapitre 3 les principes cryptographiques et fonctionnalités des IGC (P
 
 Les systèmes d'exploitation Windows, Linux et même MacOS sont des cibles privilégiées par les attaquants. Il est donc important qu'ils soient configurés afin d'être le moins possible vulnérable à des attaques. Le Center for Internet Security (CIS) propose des configurations types pour chaque système et il est recommandé de les appliquer. Ces recommandations et configurations sont appelés "durcissement des systèmes d'exploitation" car le but est bien de renforcer la sécurité.
 
-Par exemple, pour les environnements UNIX/Linux, l'activation de SeLinux est recommandée, tandis que pour Windows, l'utilisation de stratégies de groupe (GPO) et d'AppLocker est conseillée. En ce qui concerne les applications, il est important de ne pas afficher publiquement la version utilisée et d'appliquer des règles de conception visant à protéger les données confidentielles.
+Par exemple, pour les environnements UNIX/Linux, l'activation de SeLinux est recommandée, tandis que pour Windows, l'utilisation de stratégies de groupe (GPO) et d'AppLocker est conseillée. 
+
+En ce qui concerne les applications, il est important de ne pas afficher publiquement la version utilisée et d'appliquer des règles de conception visant à protéger les données confidentielles.
 
 L'administration des réseaux et des systèmes doit également suivre des pratiques de mises en oeuvre sécurisées, telles que l'utilisation de listes de contrôle d'accès (ACL) afin de limiter les accès aux réseaux et utilisateurs spécifiques. Il est conseillé de séparer le réseau d'administration des autres réseaux de l'entreprise et de réaliser la supervision via un réseau chiffré, en utilisant des protocoles sécurisés comme SNMPv3 et SSH. De plus, il est essentiel de remplacer les mots de passe par défaut par des mots de passe forts et de les stocker dans une base de données sécurisée (coffre fort numérique).
 

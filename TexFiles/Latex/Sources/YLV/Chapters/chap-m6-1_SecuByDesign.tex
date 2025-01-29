@@ -1,6 +1,6 @@
 \section{Security By Design}
 
-Le concept de \textbf{Security By Design} s'impose comme une approche fondamentale dans le développement de systèmes et d'applications sécurisés. Nous aborderons dans ce chapitre les principes clés de cette "philosophie", qui intègre la sécurité dès les premières étapes de conception, plutôt que de l'ajouter en fin de processus. Nous examinerons les éléments essentiels qui sous-tendent cette démarche proactive, tels que \textbf{l'évaluation des risques}, \textbf{la minimisation des surfaces d'attaque} et l'implémentation de \textbf{contrôles de sécurité robustes}.
+Le concept de \textbf{Security By Design} s'impose comme une approche fondamentale dans le développement de systèmes et d'applications sécurisés. Nous aborderons dans ce chapitre les principes clés de cette "philosophie", qui intègre la sécurité dès les premières étapes de conception, plutôt que de l'ajouter en fin de processus (et donc trop tard!). Nous examinerons les éléments essentiels qui sous-tendent cette démarche proactive, tels que \textbf{l'évaluation des risques}, \textbf{la minimisation des surfaces d'attaque} et l'implémentation de \textbf{contrôles de sécurité robustes}.
 
 Dans un second temps, nous aborderons les méthodes de \textbf{maintien en condition de sécurité (MCS)}, qui garantissent que les systèmes restent protégés tout au long de leur cycle de vie. Cela inclut des pratiques telles que la \textbf{surveillance continue}, \textbf{les mises à jour régulières} et \textbf{les audits de sécurité}, permettant ainsi d'adapter les mesures de protection face à l'évolution des menaces. 
 
@@ -11,7 +11,17 @@ En intégrant ces deux volets, ce chapitre vise à fournir une compréhension co
 Ce chapitre se penchera d'abord sur les principes clés du security by design. Parmi ceux-ci, l'évaluation des risques joue un rôle central. 
 Cette activité implique d'identifier les vulnérabilités potentielles et d'analyser les impacts possibles sur les systèmes et les données. Une évaluation rigoureuse permet de prioriser les efforts de sécurité en fonction des menaces les plus critiques (cf. chapitre 4.1 pour plus de détails sur les différentes méthodes d'analyse de risques).
 
-Ensuite, la minimisation des surfaces d'attaque qui consiste à réduire le nombre de points d'entrée potentiels pour les attaquants, en limitant les fonctionnalités non essentielles et en appliquant le principe du moindre privilège. En restreignant l'accès aux ressources et en désactivant les services inutilisés, les organisations peuvent considérablement diminuer leur exposition aux cyberattaques. Nous reverrons ce sujet dans le chapitre suivant sur le durcissement.
+Ensuite, la minimisation des surfaces d'attaque consiste à réduire le nombre de points d'entrée potentiels pour les attaquants, en limitant les fonctionnalités non essentielles et en appliquant le principe du moindre privilège. En restreignant l'accès aux ressources et en désactivant les services inutilisés, les organisations peuvent considérablement diminuer leur exposition aux cyberattaques. l'exemple ci-dessous représente schématiquement un système ou seul les ports liés au fonctionnement du serveur de base de données sont ouverts. Nous reverrons ce sujet et son application technique dans le chapitre suivant sur le durcissement.
+
+%Begin PICFRAME------------------------
+\mode<all>{\picframe
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{../Latex/Sources/YLV/Pictures/Minimisation}% PDF image sans extension
+{Minimisation : exemple d'un serveur de Base de données} % texte sous l'image en article
+{0.7} % echelle
+{Minimisation} % label de référence
+}
+%End PICFRAME--------------------------
 
 Enfin, l'implémentation de contrôles de sécurité robustes est essentielle pour garantir la protection des systèmes. Cela inclut l'intégration de mécanismes de sécurité tels que l'authentification forte, le chiffrement des données et la surveillance des activités suspectes. Ces contrôles doivent être conçus pour fonctionner de manière cohérente tout au long du cycle de vie du produit, assurant ainsi une défense en profondeur.
 

@@ -12,13 +12,18 @@
 \definecolor{Cyberskills4allCyan}{RGB}{64,144,203}
 \definecolor{Cyberskills4allPink}{RGB}{230,32,116}
 
+\definecolor{MyBlack}{RGB}{100,100,100}
+
 \colorlet{uMainColorUrl}{Cyberskills4allPink}
 
 \colorlet{BaseColor}{Cyberskills4allCyan}
 \colorlet{uMainColor}{BaseColor}
 
 
-\colorlet{CoverColor}{Cyberskills4allBlue}
+%\colorlet{CoverColor}{Cyberskills4allBlue}
+
+\colorlet{CoverColor}{MyBlack}
+
 \colorlet{uCoverColor}{CoverColor}
 
 \definecolor{uTextColor}{RGB}{33,33,33}

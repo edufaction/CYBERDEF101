@@ -32,6 +32,9 @@
 \node[covercolor!85,rounded corners,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.south east)+(-0.2,-0.45)$) {} ;
 }
 
+%%%%%%%%%%%%%%%%%%%% BACKGROUND %%%%%%%%%%%%%%%%%%%% 
+%\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{\utemplatepath/CourseModel/CoursePictures/\utemplatetheme.theme/background.pdf}}; 
+
 
 %%%%%%%%%%%%%%%%%%%% Title of the Report %%%%%%%%%%%%%%%%%%%% 
 \node[left,covercolor!5,minimum width=0.625*\paperwidth,minimum height=3cm, rounded corners] at ($(current page.north east)+(0,-9.5)$)
@@ -64,6 +67,10 @@
 %\node at (current page.center)[xshift=-6cm, yshift=9cm,circle,draw=white,text=white,fill=covercolor!70] {\fontsize{150}{30}\selectfont \bfseries\sffamily\coursenumber};
 
 \node at (current page.center)[xshift=-6cm, yshift=9cm,circle,draw=white,text=white,fill=\coursecolor] {\fontsize{150}{30}\selectfont \bfseries\sffamily\coursenumber};
+
+
+
+
 
 \end{tikzpicture}
 

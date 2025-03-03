@@ -4,7 +4,7 @@ Les actions de durcissement, en anglais \textbf{hardening}, consistent à améli
 
 Le durcissement s'inscrit naturellement dans le process de conception securisée par défaut décrit dans le chapitre précédent. Il est tout aussi important que le maintien en condition opérationnelle et sécurisée et peut réduire significativement les risques cyber (ce qui est bien évidemment le but final).
 
-Ce chapitre décrit les différentes techniques de sécurisation appliquées à la gestion des droits et accès, les systèmes d'exploitation et applications, le matériel (batiments, équipements) et enfin les réseaux.
+Ce chapitre décrit les différentes techniques de sécurisation appliquées à la gestion des droits et accès, les systèmes d'exploitation et applications, le matériel (bâtiments, équipements) et enfin les réseaux.
 La liste des exemples présentées n'est pas exhaustives et bien évidemment évolutive en fonction des avancées technologiques et des besoins de sécurisation qui peuvent évoluer dans le temps.
 
 \subsection{Sécurisation des droits et accès} 
@@ -26,16 +26,54 @@ Voir au chapitre 3 les principes cryptographiques et fonctionnalités des IGC (P
 % ACL, admin dédié, supervision et administration via réseau chiffré, tout doit être loggé ! Exclusion services inutiles
 % 80 443 principe qui se décline sur toutes les applis
 
-Les systèmes d'exploitation Windows, Linux et même MacOS sont des cibles privilégiées par les attaquants. Il est donc important qu'ils soient configurés afin d'être le moins possible vulnérable à des attaques. Le Center for Internet Security (CIS) propose des configurations types pour chaque système et il est recommandé de les appliquer. Ces recommandations et configurations sont appelés "durcissement des systèmes d'exploitation" car le but est bien de renforcer la sécurité.
+Les systèmes d'exploitation Windows, Linux et même MacOS sont des cibles privilégiées par les attaquants. Il est donc important qu'ils soient configurés afin d'être le moins possible vulnérables à des attaques. Le Center for Internet Security (CIS) propose des configurations types pour chaque système et il est recommandé de les appliquer. Ces recommandations et configurations sont appelés "durcissement des systèmes d'exploitation" car le but est bien de renforcer la sécurité.
 
-Par exemple, pour les environnements UNIX/Linux, l'activation de SeLinux est recommandée, tandis que pour Windows, l'utilisation de stratégies de groupe (GPO) et d'AppLocker est conseillée. 
+La liste des paramètres à appliquer peut être très longue et est mis à jour régulièrement pour adapter les configurations en fonction des nouvelles menaces. Cette liste n'est pas très éloignée des bonnes pratiques et le guide d'hygiène informatique\footnote{Guide d'hygiène ANSSI: https://cyber.gouv.fr/publications/guide-dhygiene-informatique} de l'ANSSI donne une base de référence pour configurer les systèmes.
+
+Pour les environnements UNIX/Linux, voir ci-dessous quelques règles à appliquer : 
+\begin{itemize}
+    \item Mises à jour régulière : maintenir le système (noyau et applications!) à jour avec les derniers correctifs de sécurité.
+    \item Désactiver les services inutiles : identifier et désactiver les services et démons non nécessaires pour réduire la surface d'attaque.
+    \item Configurer un pare-feu : utiliser iptables ou netfilter ou autres pour contrôler le trafic réseau entrant et sortant. Ce composant est, comme tous les autres, bien évidemment à configurer minutieusement car mal paramétré il ne sert à rien. Voir le chapitre 3 pour plus d'éléments sur les pare-feux. 
+    \item Utiliser SELinux (Security Enhanced Linux) ou AppArmor : activer et configurer SELinux ou AppArmor pour appliquer des politiques de sécurité strictes.
+    \item Configurer les permissions des fichiers : s'assurer que les fichiers et répertoires sensibles ont des permissions appropriées (ex. : chmod, chown).
+    \item Désactiver l'accès root à distance : interdire la connexion SSH en tant qu'utilisateur root en modifiant /etc/ssh/sshd_config.
+    \item Utiliser des clés SSH : préférer l'authentification par clé SSH plutôt que par mot de passe pour les connexions SSH.
+    \item Installer un logiciel antivirus : utiliser un logiciel antivirus pour détecter et prévenir les malwares.
+    \item Configurer les journaux de sécurité : activer et surveiller les journaux de sécurité pour détecter les activités suspectes.
+    \item Limiter les utilisateurs et groupes : restreindre les privilèges des utilisateurs et groupes, en appliquant le principe du moindre privilège.
+    \item Activer le chiffrement des données : utiliser des systèmes de fichiers chiffrés pour protéger les données sensibles.
+    \item Configurer des sauvegardes régulières : mettre en place un système de sauvegarde pour protéger les données contre la perte ou la corruption.
+\end{itemize}
+
+Zoomons sur SELinux afin de mieux comprendre son mode de fonctionnement. SELinux est un module de sécurité pour le noyau Linux qui fournit un mécanisme de contrôle d'accès basé sur des politiques. Il utilise des étiquettes de sécurité pour déterminer les permissions des processus et des fichiers, renforçant ainsi la sécurité du système en limitant les actions que les utilisateurs et les applications peuvent effectuer.
+
+Prenons un exemple d'un process web (comme Apache ou NGINX) qui essaie d'accéder à un fichier de configuration. SELinux vérifie l'étiquette de sécurité du processus et celle du fichier. Si la politique permet cet accès, il est autorisé ; sinon, l'accès est refusé, protégeant ainsi le système contre les actions non autorisées. Il faudra donc ajuster la politique SELinux si vous souhaitez, et ceci est recommandé, configurer le serveur HTTP Apache pour qu'il écoute sur un port différent et pour qu'il fournisse du contenu dans un répertoire autre que celui par défaut.
+
+Les règles de durcissement des environnements Windows ne sont pas fondamentalement différentes. Certains principes demeurent mais il existe des spécificités liées à l'OS cependant. 
+Voir ci-dessous quelques exemples de règles à appliquer : 
+\begin{itemize}
+    \item Mises à jour régulière : activer Windows Update pour installer automatiquement les mises à jour de sécurité. La notion automatique est évidemment à adapter en fonction du contexte (station de travail ou serveur par exemple) et de la politique de sécurité. L'essentiel est que les mises à jour soient faites régulièrement et le plus tôt possible.
+    \item Désactiver les services inutiles : identifier et désactiver les services non nécessaires via services.msc.
+    \item Configurer un pare-feu : utiliser le pare-feu Windows pour contrôler le trafic réseau entrant et sortant.
+    \item Utiliser des comptes utilisateurs standards : éviter d'utiliser des comptes administratifs pour les tâches quotidiennes.
+    \item Activer l'UAC (Contrôle de compte d'utilisateur) : maintenir l'UAC activé pour limiter les privilèges des applications.
+    \item Configurer les stratégies de mot de passe : appliquer des politiques de mot de passe strictes (longueur, complexité, expiration).
+    \item Désactiver l'accès à distance non nécessaire : désactiver Remote Desktop si ce n'est pas utilisé, ou restreindre l'accès (interdire depuis Internet par exemple).
+    \item Activer BitLocker : utiliser BitLocker pour chiffrer les disques durs et protéger les données.
+    \item Installer un logiciel antivirus : utiliser un logiciel antivirus et maintenir ses définitions à jour.
+    \item Configurer les journaux de sécurité : activer et surveiller les journaux d'événements pour détecter les activités suspectes.
+    \item Désactiver SMBv1 : désactiver le protocole SMBv1 pour réduire les risques de vulnérabilités.
+    \item Limiter les autorisations des applications : utiliser AppLocker ou Windows Defender Application Control pour contrôler les applications autorisées.
+\end{itemize}
 
 En ce qui concerne les applications, il est important de ne pas afficher publiquement la version utilisée et d'appliquer des règles de conception visant à protéger les données confidentielles.
+Pourquoi ? Tout simplement pour ne pas faciliter le travail des acteurs malveillants. Une simple recherche de vulnérabilités sur la version de votre composant exposé sur Internet peut en quelques secondes rendre clé en main un kit d'exploitation de cette vulnérabilité.
+%Exemple Apache à ajouter?
 
-L'administration des réseaux et des systèmes doit également suivre des pratiques de mises en oeuvre sécurisées, telles que l'utilisation de listes de contrôle d'accès (ACL) afin de limiter les accès aux réseaux et utilisateurs spécifiques. Il est conseillé de séparer le réseau d'administration des autres réseaux de l'entreprise et de réaliser la supervision via un réseau chiffré, en utilisant des protocoles sécurisés comme SNMPv3 et SSH. De plus, il est essentiel de remplacer les mots de passe par défaut par des mots de passe forts et de les stocker dans une base de données sécurisée (coffre fort numérique).
+Au même titre que les OS et les applications, l'administration des réseaux et des systèmes doit également suivre des pratiques de mises en oeuvre sécurisées, telles que l'utilisation de listes de contrôle d'accès (ACL) afin de limiter les accès aux réseaux et utilisateurs spécifiques. Il est conseillé de séparer le réseau d'administration des autres réseaux de l'entreprise et de réaliser la supervision via un réseau chiffré, en utilisant des protocoles sécurisés comme SNMPv3 et SSHv2. De plus, il est essentiel de remplacer les mots de passe par défaut par des mots de passe forts et de les stocker dans une base de données sécurisée (coffre fort numérique).
 
-Sur tous les systèmes, OS, application ou même réseaux, il convient d'exclure les services inutiles, en faisant attention aux serveurs web qui peuvent être activés par défaut. La conservation des journaux d'événements est primordiale pour permettre une investigation efficace en cas de problème. Enfin, il est recommandé de privilégier les protocoles sécurisés, tels que HTTPS, SMTPS et IMAPS, et d'utiliser des certificats valides pour garantir la sécurité des communications.
-
+Sur tous les systèmes, OS, application ou même réseaux, comme déjà énoncé, plusieurs règles précédemment citée doivent être utilisées. Il est indispensable d'exclure les services inutiles, en faisant attention aux serveurs web qui peuvent être activés par défaut. La conservation des journaux d'événements est primordiale pour permettre une investigation efficace en cas de problème. Enfin, il est recommandé de privilégier les protocoles sécurisés qui permettent des échanges chiffrés, tels que HTTPS, SMTPS et IMAPS, et d'utiliser des certificats valides pour garantir la sécurité des communications.
 
 \subsection{Hardware (HSM), Datacenter}
 % Chiffrement, zone hardware dédiée (mémoire, voire carte dédiée), 
@@ -105,17 +143,76 @@ Comme explicité et décrit plus précisement dans le chapitre X, les réseaux d
 {
 %begin slide- - - - - - - - - - - - - - - - - 
 Ref : documents édités par le CIS (Center for Internet Security)
+
+Guide d'hygiène informatique de l'ANSSI
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Règles techniques de sécurisation : OS Linux} % titre de la diapo
+{Systèmes d'exploitation et applications} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
 \begin{itemize}
-    \item Hardening OS
-    \begin{itemize}
-        \item UNIX/LINUX : SeLinux
-        \item WINDOWS : GPO, Applocker
-    \end{itemize}
-    \item Applications : 
-        \begin{itemize}
-            \item ne pas afficher en accès publique la version utilisée
-            \item règles de design pour protéger les données confidentielles
-        \end{itemize}
+    \item Mises à jour régulière
+    \item Désactiver les services inutiles
+    \item Configurer un pare-feu
+    \item Utiliser SELinux (Security Enhanced Linux) ou AppArmor
+    \item Configurer les permissions des fichiers
+    \item Désactiver l'accès root à distance
+    \item Utiliser des clés SSH
+    \item Installer un logiciel antivirus
+    \item Configurer les journaux de sécurité
+    \item Limiter les utilisateurs et groupes
+    \item Activer le chiffrement des données
+    \item Configurer des sauvegardes régulières
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Règles techniques de sécurisation : OS Windows} % titre de la diapo
+{Systèmes d'exploitation et applications} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+\begin{itemize}
+    \item Mises à jour régulière
+    \item Désactiver les services inutiles
+    \item Configurer un pare-feu
+    \item Utiliser des comptes utilisateurs standards
+    \item Activer l'UAC
+    \item Configurer les stratégies de mot de passe
+    \item Désactiver l'accès à distance non nécessaire
+    \item Activer BitLocker
+    \item Installer un logiciel antivirus
+    \item Configurer les journaux de sécurité
+    \item Désactiver SMBv1
+    \item Limiter les autorisations des applications
+\end{itemize}
+%end slide- - - - - - - - - - - - - - - - - - - 
+}}
+%End FRAME------------------------------
+
+%Begin FRAME----------------------------
+\mode<presentation>{\texframe
+% contenu affiché sur Article et Beamer
+%- - - - - - - - - - - - - - - - - - - - - - - - 
+{Règles techniques de sécurisation : applications} % titre de la diapo
+{Systèmes d'exploitation et applications} % sous titre de la diapo
+{
+%begin slide- - - - - - - - - - - - - - - - - 
+Valable pour toutes applications sur tous les OS!
+\begin{itemize}
+    \item ne pas afficher en accès publique la version utilisée
+    \item règles de design pour protéger les données confidentielles
 \end{itemize}
 %end slide- - - - - - - - - - - - - - - - - - - 
 }}
@@ -135,7 +232,7 @@ Ref : documents édités par le CIS (Center for Internet Security)
         \begin{itemize}
             \item Access Control List (ACL) : limiter les accès aux réseaux/utilisateurs dédiés
             \item réseau admin dédié : séparer les réseaux administration des autres réseaux de l'entreprise
-            \item supervision et administration via réseau chiffré : utilisation de protocoles sécurisés tels que : SNMPv3, SSH
+            \item supervision et administration via réseau chiffré : utilisation de protocoles sécurisés tels que : SNMPv3, SSHv2
             \item remplacement des mots de passe par défaut par des mots de passe forts
             \item stockage des mots de passe dans une base de données sécurisée (coffre fort)
         \end{itemize}

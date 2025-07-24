@@ -178,16 +178,7 @@
 }
 
 
-\newtcolorbox{techworkbox}[2][]
-{
-sharp corners, 
-  colframe = uMainColor!25,
-  colback  = black!05,
-  coltitle = uMainColor!20!black,
-  fonttitle = \bfseries, 
-  title    =  {\textcolor{uMainColor}{\faFile~\small {Sujet de mémoire SECOPS}}} : #2,
-  #1,
-}
+\newtcolorbox{techworkbox}[2][]{sharp corners,colframe = uMainColor!25,colback  = black!05,coltitle = uMainColor!20!black,fonttitle = \bfseries, title={\textcolor{uMainColor}{\faFile~\small {Sujet de mémoire SECOPS}}} : #2,#1,}
 
 
 \newtcolorbox{notebox2}[2][]

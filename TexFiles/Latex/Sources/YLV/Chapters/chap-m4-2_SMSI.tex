@@ -137,10 +137,7 @@ Le périmètre de certification ISO 27001 est le point de départ de tout projet
 
 La norme ISO/IEC 27002 est un guide de bonnes pratiques et de recommandations pour la gestion de la sécurité de l'information. Elle fournit un ensemble de contrôles de sécurité détaillés que les organisations peuvent mettre en œuvre pour gérer efficacement les risques liés à la sécurité de l'information.
 
-Définition de la norme ISO 27002
-
-
-La norme ISO 27002 offre un catalogue de contrôles de sécurité répartis en plusieurs domaines, tels que la gestion des accès, la sécurité physique, la gestion des incidents, la continuité des activités, etc. Elle sert de référence pour sélectionner, mettre en œuvre et gérer ces contrôles en fonction des risques spécifiques à chaque organisation. Contrairement à la norme ISO 27001, elle ne définit pas d'exigences obligatoires, mais fournit des recommandations pour renforcer la sécurité.
+Cette norme offre un catalogue de contrôles de sécurité répartis en plusieurs domaines, tels que la gestion des accès, la sécurité physique, la gestion des incidents, la continuité des activités, etc. Elle sert de référence pour sélectionner, mettre en œuvre et gérer ces contrôles en fonction des risques spécifiques à chaque organisation. Contrairement à la norme ISO 27001, elle ne définit pas d'exigences obligatoires, mais fournit des recommandations pour renforcer la sécurité.
 
 Quelles différences entre les deux normes ISO 27001 et ISO 27002?
 
@@ -163,20 +160,20 @@ La norme ISO/IEC 27002 propose un ensemble de 114 contrôles de sécurité répa
 Ces contrôles sont regroupés en 14 domaines, tels que :
 
 \begin{enumerate}
-    \item Politique de sécurité de l'information
-\item Organisation de la sécurité de l'information
-\item Sécurité des ressources humaines
-\item Gestion des actifs
-\item Contrôle d’accès
-\item Cryptographie
-\item Sécurité physique et environnementale
-\item Sécurité des opérations
-\item Sécurité des communications
-\item Acquisition, développement et maintenance des systèmes d’information
-\item Relations avec les fournisseurs
-\item Gestion des incidents de sécurité de l'information
-\item Aspects de la sécurité de l'information dans la gestion de la continuité d’activité
-\item Conformité
+   \item Politique de sécurité de l'information
+   \item Organisation de la sécurité de l'information
+   \item Sécurité des ressources humaines
+   \item Gestion des actifs
+   \item Contrôle d’accès
+   \item Cryptographie
+   \item Sécurité physique et environnementale
+   \item Sécurité des opérations
+   \item Sécurité des communications
+   \item Acquisition, développement et maintenance des systèmes d’information
+   \item Relations avec les fournisseurs
+   \item Gestion des incidents de sécurité de l'information
+   \item Aspects de la sécurité de l'information dans la gestion de la continuité d’activité
+   \item Conformité
  \end{enumerate}
 
 Voir ci-dessous quelques exemples concrets de mesures de sécurité:
@@ -184,7 +181,7 @@ Voir ci-dessous quelques exemples concrets de mesures de sécurité:
 Contrôles d’accès
 
 \begin{itemize}
-   \item Mise en place de mots de passe robustes et de politiques de gestion des mots de passe.
+\item Mise en place de mots de passe robustes et de politiques de gestion des mots de passe.
 \item Utilisation de l’authentification à deux facteurs pour accéder aux systèmes sensibles.
 \item Attribution de droits d’accès en fonction du principe du moindre privilège, pour limiter l’accès aux seules informations nécessaires à chaque utilisateur.
  \end{itemize}
@@ -192,37 +189,42 @@ Contrôles d’accès
 Sécurité physique :
 
 \begin{itemize}
-   \item Installation de caméras de surveillance et de systèmes d’alarme dans les data-centers et autres zones sensibles.
+\item Installation de caméras de surveillance et de systèmes d’alarme dans les data-centers et autres zones sensibles.
 \item Contrôle d’accès par badge ou biométrie pour entrer dans les locaux sensibles.
 \item Protection contre les incendies et les inondations dans les centres de données (Datacenters).
- \end{itemize}
+\end{itemize}
 
 Gestion des incidents :
 
 \begin{itemize}
-   \item Mise en place d’un plan de réponse aux incidents pour détecter, analyser et répondre rapidement aux cyberattaques ou  incidents de sécurité.
+\item Mise en place d’un plan de réponse aux incidents pour détecter, analyser et répondre rapidement aux cyberattaques ou  incidents de sécurité.
 \item Formation du personnel à la reconnaissance et à la signalisation des incidents de sécurité.
- \end{itemize}
+\end{itemize}
 
 Sécurité des réseaux :
 
 \begin{itemize}
-   \item Utilisation de pare-feu et de systèmes/sondes de détection/prévention d’intrusions (IDS/IPS).
+\item Utilisation de pare-feu et de systèmes/sondes de détection/prévention d’intrusions (IDS/IPS).
 \item Chiffrement des données transmises via des protocoles sécurisés comme TLS ou IPSEC.
 \item Segmentation des réseaux pour limiter la propagation d’éventuelles attaques.
- \end{itemize}
+\end{itemize}
 
 Sauvegarde et continuité :
-
+\begin{itemize}
 \item Réalisation régulière de sauvegardes des données critiques, stockées hors site ou dans le cloud.
 \item Mise en place de plans de reprise d’activité (PRA) pour assurer la continuité en cas d’incident majeur.
  \end{itemize}
 
 Sensibilisation et formation :
-
+\begin{itemize}
 \item Organisation de sessions de formation pour sensibiliser les employés aux risques liés à la sécurité (phishing, ingénierie sociale, etc.).
 \item Envoi de campagnes de sensibilisation régulières pour maintenir une vigilance constante.
  \end{itemize}
+
+Pour conclure sur ce chapitre, l’implémenteur d’un système de management de la sécurité de l’information suit une démarche structurée pour sélectionner les mesures de la norme ISO 27002 à appliquer. 
+Tout d’abord, il réalise une analyse des risques afin d’identifier les actifs, les menaces et les vulnérabilités, puis d’évaluer leur impact potentiel. Sur la base de cette analyse, il détermine quels risques doivent être traités en priorité. 
+Ensuite, il définit le contexte de l’organisation, ses enjeux et ses objectifs en matière de sécurité, ce qui l’aide à orienter la sélection des contrôles. Il consulte la liste des 114 contrôles de la norme ISO 27002 et choisit ceux qui sont pertinents pour réduire les risques identifiés. La sélection doit respecter le principe du « juste nécessaire », en appliquant uniquement les contrôles qui apportent une réelle valeur ajoutée. Après cela, il priorise ces contrôles en fonction de leur efficacité, de leur coût et de leur complexité, puis élabore un plan de déploiement avec des échéances et des responsabilités. Les mesures choisies sont ensuite mises en œuvre concrètement, accompagnées de procédures et de formations pour garantir leur efficacité. La documentation est mise à jour pour refléter ces mesures. 
+Enfin, un suivi régulier permet d’évaluer leur performance, et si nécessaire, la sélection des mesures est révisée pour s’adapter aux changements dans l’organisation ou dans le contexte des risques.
 
 
 %Begin FRAME----------------------------

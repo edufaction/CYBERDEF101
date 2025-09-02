@@ -1,6 +1,55 @@
+\section {Audit Organisationnel}
+\subsection{Audit de conformité - DASHBOARD niveau de sécurité}
 
-\section{Audit de conformité - DASHBOARD niveau de sécurité}
-\section{Contrôles réguliers des procédures et indicateurs clés}
+%Why we audit ?
+Ici on parle d'audit de conformité, compliancy ou audit organisationnel. On ne parle pas d'audits techniques à la recherche de vulnérabilités d'un produit ou d'un système qui compromettrait la confidentialité, l'intégrité et/ou la disponibilité des données. Le but est de vérifier que l'organisation, les procédures et les actions sont conformes. Cette conformité peut être par à rapport à une norme, ISO27001 par exemple, ou plus simplement à une politique et des objectifs fixés par la direction de l'entreprise.
+
+Comment préparer une certification? Le responsable du projet de certification doit s'assurer que le périmètre qui sera audité soit conforme aux exigences de la norme. Pour ce faire, il doit préparer les documents listés ci-dessous et s'assurer de leur existence et de la qualité de leur contenu.
+Cette liste est non exhaustive :
+\begin{enumerate}
+    \item Déclaration de portée du SMSI. Il est impératif de définir clairement le périmètre du Système de Management de la Sécurité de l'Information (SMSI). En particulier les zones, processus, sites, actifs inclus ou exclus. Par exemple, le périmètre du SMSI de notre entreprise SEC*** couvre le cloud privé hébergé par le centre de données situé à Paris, les serveurs hébergeant les applications métiers, et le personnel de l'équipe informatique à Paris.
+    \item Politique de sécurité de l'information. Comme vu aux paragraphes précédents c'est le document qui formalise l'engagement de l'organisation en matière de sécurité.
+    \item Liste des actifs et leur classification. C'est l'inventaire des actifs informationnels et leur classification. Par exemple, le serveur hébergeant le moteur de transformation des données pour utilisation avec l'IA, classifié confidentiel, et situé au centre de données à Paris.
+    \item Analyse de contexte et parties prenantes. Ce document contient l'identification des enjeux et des exigences des parties prenantes.
+    \item Évaluation des risques et traitement des risques. Quelle méthodologie d’évaluation des risques est utilisée (EBIOS, ISO27005, etc.)? Quels sont les risques identifiés et le plan de traitement associé?
+    \item Objectifs de sécurité et plans d’action. Quels sont les objectifs liés à la sécurité de l'information et quels sont les plans pour atteindre ces objectifs? Par exemple, un des objectifs pourrait être de réduire le nombre d'incidents de sécurité de 20 \% d'ici la fin de l'année. Le plan d’action associé pour y arriver pourrait être de renforcer la sensibilisation du personnel et mettre à jour les procédures de sécurisation des serveurs.
+    \item Procédures opérationnelles. Ces documents formalisent l'ensemble des procédures relatives à la gestion de la sécurité. Elles doivent être connus et contenir des instructions spécifiques pour les processus clés. Par exemple, les procédures de gestion des accès ou encore de destruction des supports en fin de projet.
+    \item Registres de formation, sensibilisation et compétences. Quels sont les modules de formation de sensibilisation utilisés? Il est important aussi de conserver les preuves d'action de formation de sensibilisation du personnel (feuilles d'émargement collectées à la fin des sessions de formation).
+    \item Documents de contrôle et de surveillance : Audits internes, revues de direction, actions correctives. Par exemple, le rapport d’audit interne daté de février 2025 sur l'applicatif IAGen X, la revue de direction du 10 mars 2025, ainsi que les actions correctives mises en œuvre suite à un incident en janvier 2025.
+    \item Contrats et accords avec les tiers : Accords de confidentialité, contrats de sous-traitance. Par exemple le contrat de sous-traitance avec le fournisseur de cloud public, incluant des clauses de sécurité et de confidentialité, signé le 1er janvier 2025.
+\end{enumerate}
+
+L'ensemble de ces documents et des indicateurs collectés sur ces sujets permettent d'alimenter le tableau de bord de la sécurité.
+Le RSSI l'utilisera pour évaluer le niveau de sécurité de l'entreprise en fonction de ses objectifs et contraintes réglementaires.
+
+\subsection{Tableaux de bord de la sécurité}
+
+%L'ensemble des procédures listées au paragraphe précédent doivent être appliquées et mesurées afin de vérifier leur efficacité et contrôler le niveau de sécurité de l'entreprise. Chaque procédure ou processus peuvent avoir des indicateurs de performance associé. Le choix de ces indicateurs est lié au périmètre de certification et du système d'information de l'entreprise.
+
+%Par exemple, le RSSI pourrait choisir de suivre avec attention le pourcentage de vulnérabilités critiques non-corrigées dans les délais définis par la politique de sécurité. Ou encore le nombre d'incidents de sécurité sur un périmètre précis. Ou enfin le pourcentage de personnes qui ont suivi le module de sensibilisation.
+
+Les tableaux de bord de la sécurité jouent un rôle clé dans la gestion du système de management de la sécurité de l'information, en particulier lorsque l'organisation vise à certifier un périmètre selon la norme ISO 27001. En effet, cette norme exige la mise en place de mesures permettant de suivre, d’évaluer et d’améliorer en continu la sécurité du système d’information. Dans ce contexte, le tableau de bord devient un outil central pour démontrer la maîtrise des risques et le respect des exigences de la norme.
+
+Par exemple, la clause 9 de la norme (“Évaluation de la performance”) impose d'analyser les résultats et de mesurer l'efficacité du système de management de la sécurité de l'information. Les tableaux de bord permettent justement d’illustrer ces analyses à travers des indicateurs concrets sur la gestion des vulnérabilités ou des incidents de sécurité par exemple.
+
+Plus précisement, citons quelques indicateurs importants de suivre dans le tableau de bord (liste non-exhaustive) : 
+\begin{itemize}
+    \item nombre d’incidents de sécurité traités;
+    \item taux de non-conformité détectées lors des audits internes et leur évolution dans le temps;
+    \item pourcentage de correctifs de sécurité appliqués dans les délais définis par les politiques internes, en lien avec le contrôle A.12.6.1 (“Gestion des vulnérabilités techniques”);
+    \item nombre de revues d’accès aux comptes sensibles réalisées sur la période, pour démontrer la maîtrise des droits d’accès (contrôle A.9).
+\end{itemize}
+
+Les tableaux de bord constituent également un support précieux lors des audits internes et externes de certification. Ils facilitent la traçabilité des actions, l’analyse des tendances, le suivi des plans d’actions correctifs ainsi que la restitution des preuves exigées par les auditeurs.
+
+Par exemple, en cas de constat d’anomalie, le tableau de bord peut montrer rapidement qu’un incident a été détecté, analysé, traité et clôturé, avec l’ensemble des preuves et des délais associés. Cette capacité de démonstration s’avère essentielle pour justifier la conformité et l’amélioration continue exigées par la norme.
+
+Lorsque l’on élabore un tableau de bord pour un périmètre certifié selon la norme ISO 27001, il est essentiel d’apporter une attention particulière à plusieurs aspects clés. Il convient tout d’abord de s’assurer que les indicateurs suivis concernent exclusivement le périmètre défini dans la déclaration d’applicabilité (SoA). Cela garantit la cohérence entre les informations présentées et les exigences de la norme. Il est important de vérifier que chaque indicateur retenu contribue directement aux objectifs précisés dans la politique de sécurité et dans le plan de gestion des risques du SMSI. Il est recommandé de documenter systématiquement les sources, les méthodes de collecte et la fréquence de mise à jour des données présentées dans le tableau de bord. Ces éléments serviront de preuves lors des audits. Il est nécessaire de conserver un historique des indicateurs, afin de pouvoir démontrer l’amélioration continue du système de management de la sécurité de l’information, telle qu’exigée par l’ISO 27001.
+La gestion de la confidentialité et de l’intégrité des informations affichées doit être irréprochable, i.e. les accès aux tableaux de bord doivent être restreints aux personnes habilitées et les supports sécurisés pour éviter toute fuite ou modification non autorisée.
+Enfin, il est crucial d'adapter les tableaux de bord et les rapports aux besoins des audits internes et externes, afin de faciliter la traçabilité des actions et la démonstration de la conformité lors du processus de certification.
+
+En conclusion, pour un périmètre soumis à la certification ISO 27001, le tableau de bord de la sécurité devient un élément stratégique. Il offre une visibilité en temps réel sur l’état de la sécurité, facilite la démonstration de conformité aux exigences de la norme et soutient l’amélioration continue du système de management. Bien conçu et aligné avec la démarche ISO 27001, il renforce la crédibilité de l’organisation lors des audits et participe activement au maintien de la certification.
+
 
 %Begin FRAME----------------------------
 \mode<presentation>{\texframe

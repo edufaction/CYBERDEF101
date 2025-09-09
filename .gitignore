@@ -1,5 +1,6 @@
 ## EDU
-Release/*/Teacher/*
+Release/CYBERDEF101/Teacher/*
+Release/SEC101/Teacher/*
 TexFiles/Work*/*.pdf
 TexFiles/Prod.*/*.pdf
 .vscode

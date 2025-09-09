@@ -130,7 +130,7 @@ $(INSTALL_DIR)/Student/Lessons/%.prz.pdf: $(COMPILE_DIR)/%.prz.pdf
 
 mkdoc: $(StudentPDF_DocFiles) $(PDF_DocFiles)
 
-#$(StudentPDF_DocFiles): $(PDF_DocFiles) # copy if compiled
+$(StudentPDF_DocFiles): $(PDF_DocFiles) # copy if compiled
 #	cp -rf "./$<" "$@"
 
 $(INSTALL_DIR)/Student/Lessons/%.doc.pdf: $(COMPILE_DIR)/%.doc.pdf
